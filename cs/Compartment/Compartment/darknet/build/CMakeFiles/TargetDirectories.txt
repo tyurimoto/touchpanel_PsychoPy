@@ -1,0 +1,9 @@
+C:/darknet/build/CMakeFiles/dark.dir
+C:/darknet/build/CMakeFiles/uselib.dir
+C:/darknet/build/CMakeFiles/darknet.dir
+C:/darknet/build/CMakeFiles/INSTALL.dir
+C:/darknet/build/CMakeFiles/ALL_BUILD.dir
+C:/darknet/build/CMakeFiles/ZERO_CHECK.dir
+C:/darknet/build/src/csharp/CMakeFiles/YoloCSharpWrapper.dir
+C:/darknet/build/src/csharp/CMakeFiles/INSTALL.dir
+C:/darknet/build/src/csharp/CMakeFiles/ALL_BUILD.dir

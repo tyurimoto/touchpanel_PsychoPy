@@ -1,0 +1,1123 @@
+<!DOCTYPE html><html><head>
+      <title>OperationStateMachine</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\tok\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.22\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E3%83%9E%E3%83%BC%E3%83%A2%E3%82%BB%E3%83%83%E3%83%88%E3%82%B9%E3%83%86%E3%83%BC%E3%83%88%E3%83%9E%E3%82%B7%E3%83%B3">&#x30DE;&#x30FC;&#x30E2;&#x30BB;&#x30C3;&#x30C8;&#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x30DE;&#x30B7;&#x30F3;</h1>
+
+<h2 class="mume-header" id="%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%E5%9B%B3">&#x30AA;&#x30DA;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x72B6;&#x614B;&#x9077;&#x79FB;&#x56F3;</h2>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="3364px" preserveAspectRatio="none" style="width:2301px;height:3364px;" version="1.1" viewBox="0 0 2301 3364" width="2301px" zoomAndPan="magnify"><defs><filter height="300%" id="f14aqd04jxptgk" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[580a1ad2d95e6d15ff46f37056e782cf]
+cluster group.Operation--><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="3302.5" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="2236" x="53.5475" y="49.72"/><rect fill="#FFFFFF" height="3268.8906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="2230" x="56.5475" y="80.3294"/><line style="stroke:#A80036;stroke-width:1.5;" x1="53.5475" x2="2289.5475" y1="77.3294" y2="77.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="1157.5475" y="68.2532">&#x64CD;&#x4F5C;</text><!--MD5=[aa53ebff94c9cdb6e59b6120a1c6cd38]
+cluster state.DeviceStandby--><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="895" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="206" x="2023.5475" y="250.22"/><rect fill="#FFFFFF" height="861.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="200" x="2026.5475" y="280.8294"/><line style="stroke:#A80036;stroke-width:1.5;" x1="2023.5475" x2="2229.5475" y1="277.8294" y2="277.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="2063.5475" y="268.7532">&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x30B9;&#x30BF;&#x30F3;&#x30D0;&#x30A4;</text><!--MD5=[664c1976a7ae355ef75bb7baf034ec3f]
+cluster group.Stop--><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="122" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="193" x="1746.5475" y="806.72"/><rect fill="#FFFFFF" height="88.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="187" x="1749.5475" y="837.3294"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1746.5475" x2="1939.5475" y1="834.3294" y2="834.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="1822.0475" y="825.2532">&#x505C;&#x6B62;&#x7CFB;</text><!--MD5=[dcf10ab1bb091538756fb33c9dd3c034]
+cluster group.EnterCage--><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="1718" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="529" x="1678.5475" y="1242.72"/><rect fill="#FFFFFF" height="1684.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="523" x="1681.5475" y="1273.3294"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1678.5475" x2="2207.5475" y1="1270.3294" y2="1270.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="1929.0475" y="1261.2532">&#x5165;&#x5BA4;</text><!--MD5=[f8ae8096107093121cbf3afa0eefafec]
+cluster group.Trial--><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="2291.5" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="917" x="566.5475" y="738.72"/><rect fill="#FFFFFF" height="2257.8906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="911" x="569.5475" y="769.3294"/><line style="stroke:#A80036;stroke-width:1.5;" x1="566.5475" x2="1483.5475" y1="766.3294" y2="766.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="1011.0475" y="757.2532">&#x8A66;&#x884C;</text><!--MD5=[d0bb81ff295d96d94742d6cbac1381db]
+cluster group.DelayMatch--><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="871" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="300" x="687.5475" y="1556.22"/><rect fill="#FFFFFF" height="837.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="294" x="690.5475" y="1586.8294"/><line style="stroke:#A80036;stroke-width:1.5;" x1="687.5475" x2="987.5475" y1="1583.8294" y2="1583.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="788.5475" y="1574.7532">&#x30C7;&#x30A3;&#x30EC;&#x30A4;&#x30DE;&#x30C3;&#x30C1;</text><!--MD5=[789d1bdd08d417db8b0daac2d08c5092]
+cluster group.CorrectAnswer--><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="513" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="316" x="590.5475" y="2493.22"/><rect fill="#FFFFFF" height="479.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="310" x="593.5475" y="2523.8294"/><line style="stroke:#A80036;stroke-width:1.5;" x1="590.5475" x2="906.5475" y1="2520.8294" y2="2520.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="734.5475" y="2511.7532">&#x6B63;&#x89E3;</text><!--MD5=[a59b3917020953c3fafec77af336aae8]
+cluster group.Interval--><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="394" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="256" x="872.5475" y="782.72"/><rect fill="#FFFFFF" height="360.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="250" x="875.5475" y="813.3294"/><line style="stroke:#A80036;stroke-width:1.5;" x1="872.5475" x2="1128.5475" y1="810.3294" y2="810.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="958.5475" y="801.2532">&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30D0;&#x30EB;</text><!--MD5=[0408e1308b5906ee00c04d4b35ad8d4d]
+cluster group.LeaveCage--><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="804.5" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="449" x="93.5475" y="2515.72"/><rect fill="#FFFFFF" height="770.8906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="443" x="96.5475" y="2546.3294"/><line style="stroke:#A80036;stroke-width:1.5;" x1="93.5475" x2="542.5475" y1="2543.3294" y2="2543.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="304.0475" y="2534.2532">&#x9000;&#x5BA4;</text><path d="M782.0475,113.72 L782.0475,641.9387 L1375.0475,641.9387 L1375.0475,123.72 L1365.0475,113.72 L782.0475,113.72 " fill="#FBFB77" filter="url(#f14aqd04jxptgk)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1365.0475,113.72 L1365.0475,123.72 L1375.0475,123.72 L1365.0475,113.72 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="17" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="72" x="788.0475" y="136.3675">&#x306F;&#x3058;&#x3081;&#x306B;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="208" x="788.0475" y="153.5979">&#x8868;&#x793A;&#x306E;&#x90FD;&#x5408;&#x4E0A;&#x3001;&#x7DCA;&#x6025;&#x7CFB;&#x306E;&#x9077;&#x79FB;&#x306F;&#x7701;&#x7565;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="792.0475" y="169.9495"/><text fill="#000000" font-family="sans-serif" font-size="17" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="342" x="788.0475" y="190.4534">&#x5916;&#x90E8;&#x3067;&#x6642;&#x9593;&#x304A;&#x3088;&#x3073;&#x5FDC;&#x7B54;&#x5236;&#x5FA1;&#x3055;&#x308C;&#x308B;&#x30C7;&#x30D0;&#x30A4;&#x30B9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="429" x="788.0475" y="207.6839">&#x51FA;&#x529B;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x5FDC;&#x7B54;&#x3092;&#x5236;&#x5FA1;&#x3055;&#x308C;&#x308B;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306B;&#x5916;&#x90E8;&#x306B;&#x51E6;&#x7406;&#x3092;&#x59D4;&#x8A17;&#x3059;&#x308B;</text><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="84" x="788.0475" y="224.0354">&#x5BFE;&#x8C61;&#x30C7;&#x30D0;&#x30A4;&#x30B9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="788.0475" y="240.387">- &#x30EC;&#x30D0;&#x30FC;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="34" x="788.0475" y="256.7386">- &#x30C9;&#x30A2;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="60" x="788.0475" y="273.0901">- &#x30D5;&#x30A3;&#x30FC;&#x30C9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="73" x="788.0475" y="289.4417">- &#x5165;&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="792.0475" y="305.7932"/><text fill="#000000" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="788.0475" y="324.221">&#x88DC;&#x8DB3;</text><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="70" x="788.0475" y="341.012">&#x5165;&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="572" x="788.0475" y="357.3636">&#x5728;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;&#x307E;&#x305F;&#x306F;&#x3001;&#x5165;&#x5BA4;&#x3001;&#x9000;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;&#x3092;&#x4F75;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A;&#x5165;&#x9000;&#x5BA4;&#x306E;&#x691C;&#x77E5;&#x3092;&#x884C;&#x3046;&#x6A5F;&#x80FD;&#x3092;&#x6709;&#x3059;&#x308B;&#x3053;&#x3068;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="792.0475" y="373.7151"/><text fill="#000000" font-family="sans-serif" font-size="17" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="360" x="788.0475" y="394.219">&#x5185;&#x90E8;&#x3067;&#x3067;&#x6642;&#x9593;&#x304A;&#x3088;&#x3073;&#x5FDC;&#x7B54;&#x5236;&#x5FA1;&#x3055;&#x308C;&#x308B;&#x30C7;&#x30D0;&#x30A4;&#x30B9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="177" x="788.0475" y="411.4495">- &#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30E9;&#x30F3;&#x30D7;&#x306E;&#x6642;&#x9593;&#x306E;&#x7BA1;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="179" x="788.0475" y="427.8011">- &#x30EC;&#x30D0;&#x30FC;DOWN&#x306E;&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="203" x="788.0475" y="444.1526">- &#x30C8;&#x30EA;&#x30AC;&#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;&#x306E;&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="792.0475" y="460.5042"/><text fill="#000000" font-family="sans-serif" font-size="17" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="162" x="788.0475" y="481.0081">&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x306B;&#x6301;&#x3064;&#x3082;&#x306E;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="177" x="788.0475" y="498.2386">- &#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;&#x30B9;&#x30C6;&#x30FC;&#x30BF;&#x30B9;&#x30E9;&#x30C3;&#x30C1;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="86" x="788.0475" y="514.5901">- &#x8A66;&#x884C;&#x30AB;&#x30A6;&#x30F3;&#x30BF;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="788.0475" y="530.9417">- &#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="792.0475" y="547.2932"/><text fill="#000000" font-family="sans-serif" font-size="17" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="36" x="788.0475" y="567.7971">&#x6A5F;&#x80FD;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="198" x="788.0475" y="585.0276">- &#x30B3;&#x30DE;&#x30F3;&#x30C9;(&#x958B;&#x59CB;&#x3001;&#x4E2D;&#x6B62;&#x3001;&#x7DCA;&#x6025;&#x505C;&#x6B62;)</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="263" x="788.0475" y="601.3792">- &#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x901A;&#x77E5;(&#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x9077;&#x79FB;&#x6642;&#x306B;&#x901A;&#x77E5;)</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="73" x="788.0475" y="617.7307">- &#x30A8;&#x30E9;&#x30FC;&#x901A;&#x77E5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="73" x="788.0475" y="634.0823">- &#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;</text><ellipse cx="736.5475" cy="377.72" fill="#000000" filter="url(#f14aqd04jxptgk)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><g id="group.Operation.state.Init"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="52.7031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="227" x="1500.0475" y="861.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1500.0475" x2="1727.0475" y1="888.8294" y2="888.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="1592.5475" y="880.7532">&#x521D;&#x671F;&#x5316;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="207" x="1505.0475" y="906.2864">exit / &#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x8D77;&#x52D5;&#x76F4;&#x5F8C;&#x306E;&#x8A2D;&#x5B9A;</text></g><g id="state.Init.state.Idle"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="76" x="1783.5475" y="1079.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1783.5475" x2="1859.5475" y1="1106.8294" y2="1106.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="1793.5475" y="1098.7532">&#x30A2;&#x30A4;&#x30C9;&#x30EB;</text></g><g id="state.DeviceStandbyBegin"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="143.2656" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="174" x="2039.5475" y="306.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="2039.5475" x2="2213.5475" y1="333.8294" y2="333.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="154" x="2049.5475" y="325.7532">&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x30B9;&#x30BF;&#x30F3;&#x30D0;&#x30A4;&#x958B;&#x59CB;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="2044.5475" y="351.2864">exit / &#x51E6;&#x7406;</text><ellipse cx="2050.0475" cy="361.5169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="2055.5475" y="366.3802">&#x30EC;&#x30D0;&#x30FC;&#x3092;IN</text><ellipse cx="2050.0475" cy="376.6106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="95" x="2055.5475" y="381.4739">&#x5929;&#x4E95;&#x30E9;&#x30F3;&#x30D7;&#x3092;OFF</text><ellipse cx="2050.0475" cy="391.7044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="120" x="2055.5475" y="396.5677">&#x30BF;&#x30C3;&#x30C1;&#x30D1;&#x30CD;&#x30EB;&#x753B;&#x9762;&#x3092;&#x9ED2;</text><ellipse cx="2050.0475" cy="406.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="119" x="2055.5475" y="411.6614">&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30E9;&#x30F3;&#x30D7;&#x3092;OFF</text><ellipse cx="2050.0475" cy="421.8919" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="133" x="2055.5475" y="426.7552">&#x5165;&#x5BA4;&#x691C;&#x77E5;&#x30D5;&#x30E9;&#x30B0;&#x3092;FALSE</text><ellipse cx="2050.0475" cy="436.9856" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" text-decoration="line-through" textLength="60" x="2055.5475" y="441.8489">&#x7D66;&#x990C;&#x3092;&#x505C;&#x6B62;</text></g><g id="state.DeviceStandbyBegin.state.DeviceStandby2"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="52.7031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="160" x="2050.5475" y="861.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="2050.5475" x2="2210.5475" y1="888.8294" y2="888.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="140" x="2060.5475" y="880.7532">&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x30B9;&#x30BF;&#x30F3;&#x30D0;&#x30A4;&#x4E2D;</text><ellipse cx="2061.0475" cy="901.4231" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="2066.5475" y="906.2864">&#x30C9;&#x30A2;&#x3092;OPEN</text></g><g id="state.DeviceStandby2.state.DeviceStandbyEnd"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="174" x="2039.5475" y="1079.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="2039.5475" x2="2213.5475" y1="1106.8294" y2="1106.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="154" x="2049.5475" y="1098.7532">&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x30B9;&#x30BF;&#x30F3;&#x30D0;&#x30A4;&#x5B8C;&#x4E86;</text></g><g id="state.DeviceStandbyEnd.state.Stop"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="1873.5475" y="862.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1873.5475" x2="1923.5475" y1="890.3294" y2="890.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="1884.5475" y="882.2532">&#x505C;&#x6B62;</text></g><g id="group.Stop.stateEmergencyStop"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="76" x="1762.5475" y="862.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1762.5475" x2="1838.5475" y1="890.3294" y2="890.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="1772.5475" y="882.2532">&#x7DCA;&#x6025;&#x505C;&#x6B62;</text></g><g id="state.Idle.state.PreEnterCageProc"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="90" x="1903.5475" y="1298.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1903.5475" x2="1993.5475" y1="1326.3294" y2="1326.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="1913.5475" y="1318.2532">&#x5165;&#x5BA4;&#x524D;&#x51E6;&#x7406;</text></g><g id="state.PreEnterCageProc.state.WaitingForEnterCage"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="67.7969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="119" x="1872.0475" y="1634.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1872.0475" x2="1991.0475" y1="1662.3294" y2="1662.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="1903.5475" y="1654.2532">&#x5165;&#x5BA4;&#x5F85;&#x3061;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="1877.0475" y="1679.7864">exit / &#x5165;&#x5BA4;&#x691C;&#x77E5;&#x51E6;&#x7406;</text><ellipse cx="1882.5475" cy="1690.0169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="73" x="1888.0475" y="1694.8802">&#x30EC;&#x30D0;&#x30FC;&#x3092;OUT</text></g><g id="state.WaitingForEnterCage.state.WaitingForOutLever"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="173.4531" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="356" x="1741.5475" y="1955.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1741.5475" x2="2097.5475" y1="1982.8294" y2="1982.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="99" x="1870.0475" y="1974.7532">&#x30EC;&#x30D0;&#x30FC;OUT&#x5F85;&#x3061;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="136" x="1746.5475" y="2000.2864">exit / &#x30EC;&#x30D0;&#x30FC;OUT&#x7570;&#x5E38;&#x51E6;&#x7406;</text><ellipse cx="1752.0475" cy="2010.5169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="325" x="1757.5475" y="2015.3802">&#x30EC;&#x30D0;&#x30FC;OUT&#x56DE;&#x5FA9;&#x51E6;&#x7406;&#x306F;&#x30EC;&#x30D0;&#x30FC;&#x306E;&#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x3067;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1749.5475" y="2030.4739"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="136" x="1746.5475" y="2045.5677">exit / &#x30EC;&#x30D0;&#x30FC;OUT&#x6B63;&#x5E38;&#x51E6;&#x7406;</text><ellipse cx="1752.0475" cy="2055.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="1757.5475" y="2060.6614">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x30EA;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1749.5475" y="2075.7552"/><text fill="#000000" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="115" x="1746.5475" y="2090.8489">&#x30EC;&#x30D0;&#x30FC;OUT&#x7570;&#x5E38;&#x8981;&#x56E0;</text><ellipse cx="1752.0475" cy="2101.0794" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="1757.5475" y="2105.9427">&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><ellipse cx="1752.0475" cy="2116.1731" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="84" x="1757.5475" y="2121.0364">&#x30EA;&#x30C8;&#x30E9;&#x30A4;&#x30A2;&#x30A6;&#x30C8;</text></g><g id="state.WaitingForOutLever.state.WaitingForDownLever"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="173.4531" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="169" x="1891.0475" y="2230.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1891.0475" x2="2060.0475" y1="2257.8294" y2="2257.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="113" x="1919.0475" y="2249.7532">&#x30EC;&#x30D0;&#x30FC;DOWN&#x5F85;&#x3061;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="1896.0475" y="2275.2864">do / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x76E3;&#x8996;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1899.0475" y="2290.3802"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="123" x="1896.0475" y="2305.4739">exit / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x51E6;&#x7406;</text><ellipse cx="1901.5475" cy="2315.7044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="132" x="1907.0475" y="2320.5677">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x505C;&#x6B62;</text><ellipse cx="1901.5475" cy="2330.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="1907.0475" y="2335.6614">&#x30EC;&#x30D0;&#x30FC;&#x3092;IN</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1899.0475" y="2350.7552"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="149" x="1896.0475" y="2365.8489">exit / &#x30EC;&#x30D0;&#x30FC;DOWN&#x6B63;&#x5E38;&#x51E6;&#x7406;</text><ellipse cx="1901.5475" cy="2376.0794" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="132" x="1907.0475" y="2380.9427">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x505C;&#x6B62;</text><ellipse cx="1901.5475" cy="2391.1731" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="1907.0475" y="2396.0364">&#x30EC;&#x30D0;&#x30FC;&#x3092;IN</text></g><g id="state.WaitingForDownLever.state.WaitingForInLever"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="128.1719" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="343" x="1848.0475" y="2549.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1848.0475" x2="2191.0475" y1="2576.8294" y2="2576.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="1978.5475" y="2568.7532">&#x30EC;&#x30D0;&#x30FC;IN&#x5F85;&#x3061;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="123" x="1853.0475" y="2594.2864">exit / &#x30EC;&#x30D0;&#x30FC;IN&#x7570;&#x5E38;&#x51E6;&#x7406;</text><ellipse cx="1858.5475" cy="2604.5169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="312" x="1864.0475" y="2609.3802">&#x30EC;&#x30D0;&#x30FC;IN&#x56DE;&#x5FA9;&#x51E6;&#x7406;&#x306F;&#x30EC;&#x30D0;&#x30FC;&#x306E;&#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x3067;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;</text><ellipse cx="1858.5475" cy="2619.6106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="1864.0475" y="2624.4739">&#x30C9;&#x30A2;&#x3092;OPEN</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1856.0475" y="2639.5677"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="123" x="1853.0475" y="2654.6614">exit / &#x30EC;&#x30D0;&#x30FC;IN&#x6B63;&#x5E38;&#x51E6;&#x7406;</text><ellipse cx="1858.5475" cy="2664.8919" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="77" x="1864.0475" y="2669.7552">&#x30C9;&#x30A2;&#x3092;CLOSE</text></g><g id="state.WaitingForInLever.state.WaitingForCloseDoor"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="128.1719" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="360" x="1694.5475" y="2816.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1694.5475" x2="2054.5475" y1="2844.3294" y2="2844.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="103" x="1823.0475" y="2836.2532">&#x30C9;&#x30A2;CLOSE&#x5F85;&#x3061;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="140" x="1699.5475" y="2861.7864">exit / &#x30C9;&#x30A2;CLOSE&#x7570;&#x5E38;&#x51E6;&#x7406;</text><ellipse cx="1705.0475" cy="2872.0169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="329" x="1710.5475" y="2876.8802">&#x30C9;&#x30A2;CLOSE&#x56DE;&#x5FA9;&#x51E6;&#x7406;&#x306F;&#x30EC;&#x30D0;&#x30FC;&#x306E;&#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x3067;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1702.5475" y="2891.9739"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="134" x="1699.5475" y="2907.0677">exit &#x30C9;&#x30A2;CLOSE&#x6B63;&#x5E38;&#x51E6;&#x7406;</text><ellipse cx="1705.0475" cy="2917.2981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="1710.5475" y="2922.1614">&#x3069;&#x3053;&#x3067;&#x3082;&#x30BF;&#x30C3;&#x30C1;&#x3092;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text><ellipse cx="1705.0475" cy="2932.3919" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="1710.5475" y="2937.2552">&#x8A66;&#x884C;&#x56DE;&#x6570;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x3092;&#x30AF;&#x30EA;&#x30A2;</text></g><g id="state.WaitingForCloseDoor.state.PreTouchTrigerScreenProc"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="199" x="1136.0475" y="1282.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1136.0475" x2="1335.0475" y1="1309.8294" y2="1309.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="154" x="1158.5475" y="1301.7532">&#x30C8;&#x30EA;&#x30AC;&#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;&#x524D;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="1141.0475" y="1327.2864">exit / &#x51E6;&#x7406;</text><ellipse cx="1146.5475" cy="1337.5169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="84" x="1152.0475" y="1342.3802">&#x30C8;&#x30EA;&#x30AC;&#x753B;&#x9762;&#x8868;&#x793A;</text><ellipse cx="1146.5475" cy="1352.6106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="1152.0475" y="1357.4739">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x30EA;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text></g><g id="state.PreTouchTrigerScreenProc.state.WaitingForTouchTrigerScreen"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="384.7656" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="463" x="1004.0475" y="1476.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1004.0475" x2="1467.0475" y1="1503.8294" y2="1503.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="140" x="1165.5475" y="1495.7532">&#x30C8;&#x30EA;&#x30AC;&#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;&#x5F85;&#x3061;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="1009.0475" y="1521.2864">do / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x76E3;&#x8996;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1012.0475" y="1536.3802"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="123" x="1009.0475" y="1551.4739">exit / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x51E6;&#x7406;</text><ellipse cx="1014.5475" cy="1561.7044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="95" x="1020.0475" y="1566.5677">&#x5929;&#x4E95;&#x30E9;&#x30F3;&#x30D7;&#x3092;OFF</text><ellipse cx="1014.5475" cy="1576.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="132" x="1020.0475" y="1581.6614">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x505C;&#x6B62;</text><ellipse cx="1014.5475" cy="1591.8919" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="1020.0475" y="1596.7552">&#x3069;&#x3053;&#x3067;&#x3082;&#x30BF;&#x30C3;&#x30C1;&#x3092;&#x30B9;&#x30C8;&#x30C3;&#x30D7;</text><ellipse cx="1014.5475" cy="1606.9856" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="1020.0475" y="1611.8489">&#x30C9;&#x30A2;&#x3092;OPEN</text><ellipse cx="1014.5475" cy="1622.0794" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="1020.0475" y="1626.9427">&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x51FA;&#x529B;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1012.0475" y="1642.0364"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="1009.0475" y="1657.1302">exit / &#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;&#x51E6;&#x7406;(&#x8A13;&#x7DF4;)</text><ellipse cx="1014.5475" cy="1667.3606" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="132" x="1020.0475" y="1672.2239">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x505C;&#x6B62;</text><ellipse cx="1014.5475" cy="1682.4544" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="1020.0475" y="1687.3177">&#x3069;&#x3053;&#x3067;&#x3082;&#x30BF;&#x30C3;&#x30C1;&#x3092;&#x30B9;&#x30C8;&#x30C3;&#x30D7;</text><ellipse cx="1014.5475" cy="1697.5481" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="1020.0475" y="1702.4114">&#x6B63;&#x89E3;&#x56F3;&#x5F62;&#x8868;&#x793A;</text><ellipse cx="1014.5475" cy="1712.6419" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="1020.0475" y="1717.5052">&#x30BF;&#x30C3;&#x30C1;&#x30B3;&#x30EC;&#x30AF;&#x30C8;&#x3092;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1012.0475" y="1732.5989"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="203" x="1009.0475" y="1747.6927">exit / &#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;&#x51E6;&#x7406;(&#x30C7;&#x30A3;&#x30EC;&#x30A4;&#x30DE;&#x30C3;&#x30C1;)</text><ellipse cx="1014.5475" cy="1757.9231" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="1020.0475" y="1762.7864">&#x3069;&#x3053;&#x3067;&#x3082;&#x30BF;&#x30C3;&#x30C1;&#x3092;&#x30B9;&#x30C8;&#x30C3;&#x30D7;</text><ellipse cx="1014.5475" cy="1773.0169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="1020.0475" y="1777.8802">&#x6B63;&#x89E3;&#x56F3;&#x5F62;&#x8868;&#x793A;</text><ellipse cx="1014.5475" cy="1788.1106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="1020.0475" y="1792.9739">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x30EA;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1012.0475" y="1808.0677"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="24" x="1009.0475" y="1823.1614">&#x88DC;&#x8DB3;</text><ellipse cx="1014.5475" cy="1833.3919" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="312" x="1020.0475" y="1838.2552">&#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;&#x306F;&#x30DE;&#x30A6;&#x30B9;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x306E;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x3068;&#x3057;&#x3066;&#x51E6;&#x7406;&#x3055;&#x308C;&#x308B;</text><ellipse cx="1014.5475" cy="1848.4856" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="432" x="1020.0475" y="1853.3489">&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x306F;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x30DE;&#x30A6;&#x30B9;&#x30C0;&#x30A6;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x3057;&#x305F;&#x969B;&#x306B;&#x767A;&#x751F;&#x3059;&#x308B;</text></g><g id="state.WaitingForTouchTrigerScreen.state.DelayMatch2Delay"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="113.0781" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="211" x="1253.0475" y="1985.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1253.0475" x2="1464.0475" y1="2012.8294" y2="2012.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="1302.5475" y="2004.7532">&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x30C7;&#x30A3;&#x30EC;&#x30A4;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="1258.0475" y="2030.2864">do / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x76E3;&#x8996;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1261.0475" y="2045.3802"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="167" x="1258.0475" y="2060.4739">exit / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x51E6;&#x7406;(&#x6B63;&#x5E38;&#x7CFB;)</text><ellipse cx="1263.5475" cy="2070.7044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="1269.0475" y="2075.5677">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x30EA;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text><ellipse cx="1263.5475" cy="2085.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="180" x="1269.0475" y="2090.6614">&#x6307;&#x5B9A;&#x6642;&#x9593;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x30BF;&#x30A4;&#x30E0;&#x30C7;&#x30A3;&#x30EC;&#x30A4;</text></g><g id="state.WaitingForTouchTrigerScreen.state.Training2Delay"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="113.0781" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="211" x="1007.0475" y="1985.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1007.0475" x2="1218.0475" y1="2012.8294" y2="2012.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="1056.5475" y="2004.7532">&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x30C7;&#x30A3;&#x30EC;&#x30A4;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="1012.0475" y="2030.2864">do / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x76E3;&#x8996;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="1015.0475" y="2045.3802"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="167" x="1012.0475" y="2060.4739">exit / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x51E6;&#x7406;(&#x6B63;&#x5E38;&#x7CFB;)</text><ellipse cx="1017.5475" cy="2070.7044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="1023.0475" y="2075.5677">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x30EA;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text><ellipse cx="1017.5475" cy="2085.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="180" x="1023.0475" y="2090.6614">&#x6307;&#x5B9A;&#x6642;&#x9593;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x30BF;&#x30A4;&#x30E0;&#x30C7;&#x30A3;&#x30EC;&#x30A4;</text></g><g id="state.DelayMatch2Delay.state.DelayMatchImage"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="113.0781" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="212" x="731.5475" y="1612.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="731.5475" x2="943.5475" y1="1639.8294" y2="1639.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="192" x="741.5475" y="1631.7532">&#x30C7;&#x30A3;&#x30EC;&#x30A4;&#x30DE;&#x30C3;&#x30C1;(&#x6B63;&#x89E3;&#x56F3;&#x5F62;&#x8868;&#x793A;)</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="736.5475" y="1657.2864">do / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x76E3;&#x8996;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="739.5475" y="1672.3802"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="167" x="736.5475" y="1687.4739">exit / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x51E6;&#x7406;(&#x6B63;&#x5E38;&#x7CFB;)</text><ellipse cx="742.0475" cy="1697.7044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="747.5475" y="1702.5677">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x30EA;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text><ellipse cx="742.0475" cy="1712.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="120" x="747.5475" y="1717.6614">&#x30BF;&#x30C3;&#x30C1;&#x30D1;&#x30CD;&#x30EB;&#x753B;&#x9762;&#x3092;&#x9ED2;</text></g><g id="state.DelayMatchImage.state.DelayMatch2Black"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="128.1719" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="268" x="703.5475" y="1977.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="703.5475" x2="971.5475" y1="2005.3294" y2="2005.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="248" x="713.5475" y="1997.2532">&#x30C7;&#x30A3;&#x30EC;&#x30A4;&#x30DE;&#x30C3;&#x30C1;(&#x30BF;&#x30C3;&#x30C1;&#x30D1;&#x30CD;&#x30EB;&#x753B;&#x9762;&#x3092;&#x9ED2;)</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="708.5475" y="2022.7864">do / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x76E3;&#x8996;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="711.5475" y="2037.8802"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="167" x="708.5475" y="2052.9739">exit / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x51E6;&#x7406;(&#x6B63;&#x5E38;&#x7CFB;)</text><ellipse cx="714.0475" cy="2063.2044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="719.5475" y="2068.0677">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x30EA;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text><ellipse cx="714.0475" cy="2078.2981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="719.5475" y="2083.1614">&#x6B63;&#x89E3;&#x56F3;&#x5F62;&#x30FB;&#x4E0D;&#x6B63;&#x89E3;&#x56F3;&#x5F62;&#x8868;&#x793A;</text><ellipse cx="714.0475" cy="2093.3919" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="719.5475" y="2098.2552">&#x30BF;&#x30C3;&#x30C1;&#x30B3;&#x30EC;&#x30AF;&#x30C8;&#x3092;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text></g><g id="state.Training2Delay.state.Training"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="188.5469" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="175" x="737.0475" y="2222.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="737.0475" x2="912.0475" y1="2249.8294" y2="2249.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="810.5475" y="2241.7532">&#x8A13;&#x7DF4;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="742.0475" y="2267.2864">do / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x76E3;&#x8996;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="745.0475" y="2282.3802"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="123" x="742.0475" y="2297.4739">exit / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x51E6;&#x7406;</text><ellipse cx="747.5475" cy="2307.7044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="753.0475" y="2312.5677">&#x30BF;&#x30C3;&#x30C1;&#x30B3;&#x30EC;&#x30AF;&#x30C8;&#x3092;&#x30B9;&#x30C8;&#x30C3;&#x30D7;</text><ellipse cx="747.5475" cy="2322.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="753.0475" y="2327.6614">&#x30C9;&#x30A2;&#x3092;OPEN</text><ellipse cx="747.5475" cy="2337.8919" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="753.0475" y="2342.7552">&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x51FA;&#x529B;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="745.0475" y="2357.8489"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="135" x="742.0475" y="2372.9427">exit / &#x6B63;&#x89E3;&#x56F3;&#x5F62;&#x30BF;&#x30C3;&#x30C1;&#x51E6;&#x7406;</text><ellipse cx="747.5475" cy="2383.1731" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="132" x="753.0475" y="2388.0364">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x505C;&#x6B62;</text><ellipse cx="747.5475" cy="2398.2669" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="753.0475" y="2403.1302">&#x30BF;&#x30C3;&#x30C1;&#x30B3;&#x30EC;&#x30AF;&#x30C8;&#x3092;&#x30B9;&#x30C8;&#x30C3;&#x30D7;</text></g><g id="state.Training.state.CorrectAnswer"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="128.1719" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="151" x="722.0475" y="2549.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="722.0475" x2="873.0475" y1="2576.8294" y2="2576.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="783.5475" y="2568.7532">&#x6B63;&#x89E3;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="727.0475" y="2594.2864">exit / &#x51E6;&#x7406;</text><ellipse cx="732.5475" cy="2604.5169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="120" x="738.0475" y="2609.3802">&#x30BF;&#x30C3;&#x30C1;&#x30D1;&#x30CD;&#x30EB;&#x753B;&#x9762;&#x3092;&#x9ED2;</text><ellipse cx="732.5475" cy="2619.6106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="95" x="738.0475" y="2624.4739">&#x5929;&#x4E95;&#x30E9;&#x30F3;&#x30D7;&#x3092;OFF</text><ellipse cx="732.5475" cy="2634.7044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="114" x="738.0475" y="2639.5677">&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30E9;&#x30F3;&#x30D7;&#x3092;ON</text><ellipse cx="732.5475" cy="2649.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="738.0475" y="2654.6614">&#x5831;&#x916C;&#x97F3;&#x3092;&#x518D;&#x751F;</text><ellipse cx="732.5475" cy="2664.8919" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="738.0475" y="2669.7552">&#x7D66;&#x990C;&#x3092;&#x5B9F;&#x884C;</text></g><g id="state.CorrectAnswer.state.WaitingForFeedComplete"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="218.7344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="283" x="607.0475" y="2771.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="607.0475" x2="890.0475" y1="2798.8294" y2="2798.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="706.5475" y="2790.7532">&#x7D66;&#x990C;&#x5B8C;&#x4E86;&#x5F85;&#x3061;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="612.0475" y="2816.2864">exit / &#x8A66;&#x884C;&#x5B8C;&#x4E86;&#x51E6;&#x7406;</text><ellipse cx="617.5475" cy="2826.5169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="90" x="623.0475" y="2831.3802">&#x5929;&#x4E95;&#x30E9;&#x30F3;&#x30D7;&#x3092;ON</text><ellipse cx="617.5475" cy="2841.6106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="119" x="623.0475" y="2846.4739">&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30E9;&#x30F3;&#x30D7;&#x3092;OFF</text><ellipse cx="617.5475" cy="2856.7044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="623.0475" y="2861.5677">&#x30C9;&#x30A2;&#x3092;OPEN</text><ellipse cx="617.5475" cy="2871.7981" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="623.0475" y="2876.6614">&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x51FA;&#x529B;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="615.0475" y="2891.7552"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="612.0475" y="2906.8489">exit / &#x8A66;&#x884C;&#x7D99;&#x7D9A;&#x51E6;&#x7406;</text><ellipse cx="617.5475" cy="2917.0794" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="90" x="623.0475" y="2921.9427">&#x5929;&#x4E95;&#x30E9;&#x30F3;&#x30D7;&#x3092;ON</text><ellipse cx="617.5475" cy="2932.1731" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="192" x="623.0475" y="2937.0364">&#x8A66;&#x884C;&#x56DE;&#x6570;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x3092;&#x30A4;&#x30F3;&#x30AF;&#x30EA;&#x30E1;&#x30F3;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="615.0475" y="2952.1302"/><text fill="#000000" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="78" x="612.0475" y="2967.2239">&#x8A66;&#x884C;&#x5B8C;&#x4E86;&#x6761;&#x4EF6;</text><ellipse cx="617.5475" cy="2977.4544" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="252" x="623.0475" y="2982.3177">&#x8A66;&#x884C;&#x56DE;&#x6570;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x304C;&#x8A2D;&#x5B9A;&#x8A66;&#x884C;&#x56DE;&#x6570;&#x3068;&#x306A;&#x3063;&#x305F;&#x3068;&#x304D;</text></g><g id="state.WaitingForFeedComplete.state.InitInterval"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="97.9844" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="199" x="889.0475" y="838.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="889.0475" x2="1088.0475" y1="866.3294" y2="866.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="925.5475" y="858.2532">&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30D0;&#x30EB;&#x521D;&#x671F;&#x5316;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="894.0475" y="883.7864">exit / &#x51E6;&#x7406;</text><ellipse cx="899.5475" cy="894.0169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="905.0475" y="898.8802">&#x3069;&#x3053;&#x3067;&#x3082;&#x30BF;&#x30C3;&#x30C1;&#x3092;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text><ellipse cx="899.5475" cy="909.1106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="120" x="905.0475" y="913.9739">&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30D0;&#x30EB;&#x5024;&#x3092;&#x53D6;&#x5F97;</text><ellipse cx="899.5475" cy="924.2044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="905.0475" y="929.0677">&#x30B9;&#x30C8;&#x30C3;&#x30D7;&#x30A6;&#x30A9;&#x30C3;&#x30C1;&#x3092;&#x30EA;&#x30B9;&#x30BF;&#x30FC;&#x30C8;</text></g><g id="state.InitInterval.state.IntervalProc"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="113.0781" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="223" x="889.0475" y="1047.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="889.0475" x2="1112.0475" y1="1075.3294" y2="1075.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="944.5475" y="1067.2532">&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30D0;&#x30EB;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="894.0475" y="1092.7864">do / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x76E3;&#x8996;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="897.0475" y="1107.8802"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="203" x="894.0475" y="1122.9739">exit / &#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x51E6;&#x7406;(&#x753B;&#x9762;&#x975E;&#x30BF;&#x30C3;&#x30C1;)</text><ellipse cx="899.5475" cy="1133.2044" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="905.0475" y="1138.0677">&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x51FA;&#x529B;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="897.0475" y="1153.1614"/></g><g id="state.WaitingForInLever.state.PreOpenDoorProc"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="222" x="304.5475" y="2571.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="304.5475" x2="526.5475" y1="2599.3294" y2="2599.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="202" x="314.5475" y="2591.2532">&#x30C9;&#x30A2;OPE&#x30C9;&#x30A2;OPEN&#x524D;&#x51E6;&#x7406;N&#x5F85;&#x3061;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="309.5475" y="2616.7864">exit / &#x51E6;&#x7406;</text><ellipse cx="315.0475" cy="2627.0169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="120" x="320.5475" y="2631.8802">&#x30BF;&#x30C3;&#x30C1;&#x30D1;&#x30CD;&#x30EB;&#x753B;&#x9762;&#x3092;&#x9ED2;</text><ellipse cx="315.0475" cy="2642.1106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="320.5475" y="2646.9739">&#x30C9;&#x30A2;&#x3092;OPEN</text></g><g id="state.PreOpenDoorProc.state.WaitingForOpenDoor"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="158.3594" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="353" x="173.0475" y="2801.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="173.0475" x2="526.0475" y1="2829.3294" y2="2829.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="94" x="302.5475" y="2821.2532">&#x30C9;&#x30A2;OPEN&#x5F85;&#x3061;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="181.0475" y="2846.7864"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="133" x="178.0475" y="2861.8802">exit / &#x30C9;&#x30A2;OPEN&#x7570;&#x5E38;&#x51E6;&#x7406;</text><ellipse cx="183.5475" cy="2872.1106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="322" x="189.0475" y="2876.9739">&#x30C9;&#x30A2;OPEN&#x56DE;&#x5FA9;&#x51E6;&#x7406;&#x306F;&#x30EC;&#x30D0;&#x30FC;&#x306E;&#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x3067;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="181.0475" y="2892.0677"/><text fill="#000000" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="110" x="178.0475" y="2907.1614">&#x30C9;&#x30A2;OPEN&#x7570;&#x5E38;&#x8981;&#x56E0;</text><ellipse cx="183.5475" cy="2917.3919" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="189.0475" y="2922.2552">&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><ellipse cx="183.5475" cy="2932.4856" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="84" x="189.0475" y="2937.3489">&#x30EA;&#x30C8;&#x30E9;&#x30A4;&#x30A2;&#x30A6;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="181.0475" y="2952.4427"/></g><g id="state.WaitingForOutLever.state.PreLeaveCageProc"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="126" x="219.5475" y="3110.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="219.5475" x2="345.5475" y1="3137.8294" y2="3137.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="247.5475" y="3129.7532">&#x9000;&#x5BA4;&#x524D;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="224.5475" y="3155.2864">exit / &#x51E6;&#x7406;</text><ellipse cx="230.0475" cy="3165.5169" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="95" x="235.5475" y="3170.3802">&#x5929;&#x4E95;&#x30E9;&#x30F3;&#x30D7;&#x3092;OFF</text><ellipse cx="230.0475" cy="3180.6106" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="235.5475" y="3185.4739">&#x7D42;&#x4E86;&#x97F3;&#x3092;&#x518D;&#x751F;</text></g><g id="state.PreLeaveCageProc.state.WaitingForLeaveCage"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="76" x="347.5475" y="3254.22"/><line style="stroke:#A80036;stroke-width:1.5;" x1="347.5475" x2="423.5475" y1="3281.8294" y2="3281.8294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="357.5475" y="3273.7532">&#x9000;&#x5BA4;&#x5F85;&#x3061;</text></g><g id="state.WaitingForOutLever.state.IlegalExitDetection"><rect fill="#FEFECE" filter="url(#f14aqd04jxptgk)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="146" x="380.5475" y="3126.72"/><line style="stroke:#A80036;stroke-width:1.5;" x1="380.5475" x2="526.5475" y1="3154.3294" y2="3154.3294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="390.5475" y="3146.2532">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;&#x9000;&#x5BA4;&#x691C;&#x77E5;</text></g><!--MD5=[a2a205f7473c08bb62ee43eea67ce12a]
+link group.Operation to GMN371--><path d="M53.2069,355.5179 C53.0918,355.1938 52.9758,354.8666 52.859,354.5363 C52.6253,353.8758 52.3884,353.203 52.1483,352.5182 C51.1878,349.7789 50.1767,346.8473 49.1265,343.7392 C47.026,337.523 44.7688,330.6005 42.4455,323.0972 C33.1522,293.0837 22.8019,253.7762 17.2012,213.2 C6,132.0475 13.7975,45.82 87.0475,18.72 C121.4375,6 712.6575,6 747.0475,18.72 C801.1475,38.73 849.9075,73.45 892.3275,113.63 " fill="none" id="group.Operation-GMN371" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[1d3d6d1934802dd054f998a59b6efc5c]
+link *start*group.Operation to state.Init--><path d="M736.1775,387.92 C734.6675,429.91 730.6175,602.92 764.5475,641.72 C874.1775,767.09 968.2875,685.42 1128.5475,730.72 C1273.1375,771.6 1439.4075,826.92 1534.9075,859.51 " fill="none" id="*start*group.Operation-to-state.Init" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1539.6875,861.14,1532.4625,854.4468,1534.9556,859.5246,1529.8778,862.0178,1539.6875,861.14" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[fd78a23aa8742bd80d75ec5eff787438]
+link state.Init to state.Idle--><path d="M1638.6375,914.59 C1677.9675,955.15 1753.8275,1033.39 1794.3975,1075.22 " fill="none" id="state.Init-to-state.Idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1797.9675,1078.91,1794.5623,1069.6685,1794.4823,1075.3248,1788.826,1075.2448,1797.9675,1078.91" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[de41c8e0456dd6befcca4ccf59138302]
+link state.Idle to state.PreEnterCageProc--><path d="M1835.6275,1129.33 C1859.1775,1169.67 1906.4775,1250.66 1931.7375,1293.93 " fill="none" id="state.Idle-to-state.PreEnterCageProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1934.4075,1298.5,1933.3076,1288.7127,1931.8793,1294.1863,1926.4057,1292.7579,1934.4075,1298.5" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1889.5475" y="1215.2151">&#x958B;&#x59CB;</text><!--MD5=[04fe823373f88b83c0d522967c598df5]
+link state.DeviceStandbyBegin to state.DeviceStandby2--><path d="M2127.1075,449.36 C2127.9875,561.66 2129.6775,776.39 2130.3075,856.01 " fill="none" id="state.DeviceStandbyBegin-to-state.DeviceStandby2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="2130.3475,861.06,2134.296,852.0373,2130.3189,856.0601,2126.2961,852.083,2130.3475,861.06" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[3e8744b72d0ed09dcdfac8cd848cf48d]
+link state.DeviceStandby2 to state.DeviceStandbyEnd--><path d="M2130.0675,914.59 C2129.3175,954.66 2127.8875,1031.5 2127.0975,1073.69 " fill="none" id="state.DeviceStandby2-to-state.DeviceStandbyEnd" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="2126.9975,1078.91,2131.1767,1069.9918,2127.0975,1073.911,2123.1783,1069.8318,2126.9975,1078.91" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="2129.5475" y="989.7151">&#x30EC;&#x30D0;&#x30FC;IN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="2142.0475" y="1006.0667">&#x5B8C;&#x4E86;</text><!--MD5=[6dc8bdef411ae7224ca87d764565ea3d]
+link state.DeviceStandbyEnd to state.Stop--><path d="M2105.6775,1079.21 C2091.0875,1062.25 2071.2975,1038.86 2054.5475,1017.72 C2036.9875,995.57 2037.0875,986.14 2016.5475,966.72 C1989.6675,941.31 1953.5675,918.8 1928.4075,904.57 " fill="none" id="state.DeviceStandbyEnd-to-state.Stop" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1923.8375,902.01,1929.7317,909.9004,1928.1988,904.4552,1933.644,902.9223,1923.8375,902.01" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="63" x="2055.5475" y="989.7151">&#x30C9;&#x30A2;OPEN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="2074.0475" y="1006.0667">&#x5B8C;&#x4E86;</text><!--MD5=[bf1e735514c02c348ab373aa444683b9]
+link state.DeviceStandbyEnd to state.PreEnterCageProc--><path d="M2106.8175,1129.33 C2073.6775,1169.83 2006.9775,1251.32 1971.6775,1294.45 " fill="none" id="state.DeviceStandbyEnd-to-state.PreEnterCageProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1968.3675,1298.5,1977.1553,1294.0532,1971.5275,1294.6251,1970.9555,1288.9973,1968.3675,1298.5" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="63" x="2053.5475" y="1207.2151">&#x30C9;&#x30A2;OPEN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="2072.0475" y="1223.5667">&#x5B8C;&#x4E86;</text><!--MD5=[577a0f4118270dc8a3324915ba187330]
+link state.Stop to state.DeviceStandbyBegin--><path d="M1887.2175,862.51 C1868.6975,818.95 1838.2875,726.79 1883.5475,671.72 C1927.2675,618.52 1983.6075,686.93 2035.5475,641.72 C2089.5175,594.74 2111.4975,514.11 2120.4375,454.48 " fill="none" id="state.Stop-to-state.DeviceStandbyBegin" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="2121.1675,449.5,2115.9248,457.8375,2120.4544,454.4489,2123.843,458.9785,2121.1675,449.5" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1891.0475" y="686.2151">&#x30C7;&#x30D0;&#x30A4;&#x30B9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1884.5475" y="702.5667">&#x30B9;&#x30BF;&#x30F3;&#x30D0;&#x30A4;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1904.0475" y="718.9182">&#x958B;&#x59CB;</text><!--MD5=[f39a44d1a3fe66330b42ba823eb735e6]
+link state.Stop to state.Idle--><path d="M1877.7775,912.78 C1862.3975,931.11 1843.3175,955.1 1838.5475,966.72 C1824.1975,1001.66 1821.0875,1045.52 1820.8075,1073.95 " fill="none" id="state.Stop-to-state.Idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1820.7875,1079.08,1824.8132,1070.0915,1820.8018,1074.08,1816.8132,1070.0686,1820.7875,1079.08" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1846.0475" y="981.2151">&#x30C7;&#x30D0;&#x30A4;&#x30B9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1839.5475" y="997.5667">&#x30B9;&#x30BF;&#x30F3;&#x30D0;&#x30A4;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1859.0475" y="1013.9182">&#x5B8C;&#x4E86;</text><!--MD5=[847872501b0fd906db5b85f25930585b]
+link stateEmergencyStop to state.Idle--><path d="M1800.4375,913.05 C1800.5575,939.04 1801.4675,981.42 1805.5475,1017.72 C1807.6675,1036.62 1811.5775,1057.63 1814.9975,1074.08 " fill="none" id="stateEmergencyStop-to-state.Idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1816.0475,1079.04,1818.1133,1069.4102,1815.0203,1074.1466,1810.2839,1071.0537,1816.0475,1079.04" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6638e6d56309d8d4a9e404f6e52e986a]
+link state.PreEnterCageProc to state.DeviceStandbyBegin--><path d="M1948.4975,1298.43 C1948.3175,1250.48 1947.4675,1140.27 1943.5475,1047.72 C1942.0275,1011.74 1936.0775,1002.31 1941.5475,966.72 C1949.4575,915.2 2052.4675,601.58 2101.2475,454.6 " fill="none" id="state.PreEnterCageProc-to-state.DeviceStandbyBegin" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="2102.9675,449.44,2096.3399,456.7252,2101.3949,454.1863,2103.9339,459.2413,2102.9675,449.44" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1949.0475" y="981.2151">&#x30C7;&#x30D0;&#x30A4;&#x30B9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1942.5475" y="997.5667">&#x30B9;&#x30BF;&#x30F3;&#x30D0;&#x30A4;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1962.0475" y="1013.9182">&#x958B;&#x59CB;</text><!--MD5=[ab21808a65ebed25ce9887383621ca12]
+link state.PreEnterCageProc to state.WaitingForEnterCage--><path d="M1947.3575,1348.84 C1944.4475,1407.47 1936.9975,1557.87 1933.4575,1629.14 " fill="none" id="state.PreEnterCageProc-to-state.WaitingForEnterCage" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1933.1875,1634.55,1937.6194,1625.7547,1933.4301,1629.5559,1929.6288,1625.3665,1933.1875,1634.55" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1952.0475" y="1409.7151">&#x30C7;&#x30D0;&#x30A4;&#x30B9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1945.5475" y="1426.0667">&#x30B9;&#x30BF;&#x30F3;&#x30D0;&#x30A4;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1965.0475" y="1442.4182">&#x5B8C;&#x4E86;</text><!--MD5=[f3395a9b98e2ae01eaf53c481ad6ce99]
+link state.WaitingForEnterCage to state.WaitingForOutLever--><path d="M1930.4775,1702.97 C1928.6875,1758.05 1925.0675,1870.08 1922.4875,1950 " fill="none" id="state.WaitingForEnterCage-to-state.WaitingForOutLever" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1922.3175,1955.22,1926.6235,1946.3623,1922.4888,1950.2229,1918.6282,1946.0882,1922.3175,1955.22" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1924.5475" y="1913.7151">&#x5165;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[0b067c7499fdba7fe12480898d7d76bc]
+link state.WaitingForOutLever to state.IlegalExitDetection--><path d="M1873.1075,2128.5 C1826.9275,2216.25 1756.2675,2357.45 1708.5475,2485.22 C1619.3275,2724.11 1700.7875,2828.61 1555.5475,3038.22 C1552.1075,3043.19 1549.1675,3042.33 1544.5475,3046.22 C1527.9575,3060.19 1529.3575,3071.4 1509.5475,3080.22 C1421.0275,3119.62 761.3875,3141.96 531.9375,3148.6 " fill="none" id="state.WaitingForOutLever-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="526.9375,3148.74,536.0481,3152.4813,531.9355,3148.5972,535.8196,3144.4846,526.9375,3148.74" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1709.5475" y="2610.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1716.0475" y="2627.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[936b2f820292f701fd40fbdd2c3a9128]
+link state.WaitingForOutLever to state.PreLeaveCageProc--><path d="M1797.1575,2128.27 C1767.2775,2154.99 1738.4975,2186.85 1719.5475,2222.22 C1692.5175,2272.7 1724.2375,2437.97 1682.5475,2477.22 C1667.1275,2491.74 1604.6075,2472.66 1587.5475,2485.22 C1488.6375,2558.01 1566.4175,2650.58 1483.5475,2741.22 C1211.0575,3039.25 1040.8475,3026.97 640.5475,3080.22 C517.7975,3096.55 482.3575,3075.31 363.5475,3110.22 C359.2275,3111.49 354.8575,3112.98 350.5075,3114.63 " fill="none" id="state.WaitingForOutLever-to-state.PreLeaveCageProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="345.7975,3116.48,355.6368,3116.914,350.4516,3114.6526,352.713,3109.4674,345.7975,3116.48" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1588.5475" y="2610.7151">&#x30EC;&#x30D0;&#x30FC;OUT</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1608.0475" y="2627.0667">&#x7570;&#x5E38;</text><!--MD5=[a118d0de94124e6f98746ed9c90e1021]
+link state.WaitingForOutLever to state.WaitingForDownLever--><path d="M1937.1175,2128.35 C1943.4175,2159.07 1950.5375,2193.81 1956.9275,2224.96 " fill="none" id="state.WaitingForOutLever-to-state.WaitingForDownLever" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1957.9475,2229.92,1960.0671,2220.3019,1956.9477,2225.021,1952.2286,2221.9016,1957.9475,2229.92" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1949.5475" y="2172.7151">&#x30EC;&#x30D0;&#x30FC;OUT</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1969.0475" y="2189.0667">&#x6B63;&#x5E38;</text><!--MD5=[5ce1282636a7353d2d6576089fc96325]
+link state.WaitingForDownLever to state.IlegalExitDetection--><path d="M1890.9975,2399.73 C1868.5675,2425.29 1846.2575,2454.81 1830.5475,2485.22 C1790.2275,2563.27 1828.9175,2601.99 1783.5475,2677.22 C1751.0275,2731.14 1705.5775,2714.84 1677.5475,2771.22 C1662.2175,2802.06 1678.1275,3056.1 1653.5475,3080.22 C1613.4675,3119.55 792.2775,3142.59 531.9775,3148.92 " fill="none" id="state.WaitingForDownLever-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="526.6775,3149.05,535.7666,3152.8433,531.6762,3148.9357,535.5837,3144.8454,526.6775,3149.05" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1756.5475" y="2721.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1763.0475" y="2738.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[5157cd11b42194edcc178b1ceb4e5841]
+link state.WaitingForDownLever to state.PreLeaveCageProc--><path d="M2060.4475,2398.97 C2094.0675,2427.35 2134.4675,2457.1 2175.5475,2477.22 C2189.0975,2483.86 2199.2175,2473.36 2208.5475,2485.22 C2261.3075,2552.29 2244.2075,2599.69 2208.5475,2677.22 C2199.9875,2695.83 2182.1075,2688.61 2173.5475,2707.22 C2167.2375,2720.95 2169.6975,2726.61 2173.5475,2741.22 C2177.4575,2756.04 2186.6375,2756.4 2190.5475,2771.22 C2220.7975,2885.97 2269.8975,2949.99 2190.5475,3038.22 C2072.4975,3169.49 1971.7375,3069.03 1795.5475,3080.22 C1636.7175,3090.31 518.0475,3072.04 363.5475,3110.22 C359.1775,3111.3 354.7675,3112.65 350.3875,3114.18 " fill="none" id="state.WaitingForDownLever-to-state.PreLeaveCageProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="345.6475,3115.92,355.4757,3116.5579,350.3385,3114.1895,352.7069,3109.0523,345.6475,3115.92" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="80" x="2174.5475" y="2721.7151">&#x30EC;&#x30D0;&#x30FC;DOWN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="2175.5475" y="2738.0667">&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><!--MD5=[32df7721cf23fa9bafc5544d177aca04]
+link state.WaitingForDownLever to state.WaitingForInLever--><path d="M1988.3375,2403.3 C1995.0175,2448.01 2003.0775,2501.99 2009.3375,2543.88 " fill="none" id="state.WaitingForDownLever-to-state.WaitingForInLever" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="2010.0875,2548.92,2012.7095,2539.4266,2009.3465,2543.9752,2004.7979,2540.6122,2010.0875,2548.92" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="80" x="1999.5475" y="2457.7151">&#x30EC;&#x30D0;&#x30FC;DOWN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="2016.0475" y="2474.0667">(&#x6B63;&#x5E38;&#x7CFB;)</text><!--MD5=[2ca3856f93fe094a7f6b1649abd1c125]
+link state.WaitingForInLever to state.IlegalExitDetection--><path d="M2053.8075,2677.37 C2098.0375,2768.48 2159.6075,2936.97 2072.5475,3038.22 C2021.7175,3097.34 848.2175,3138.34 531.6375,3148.35 " fill="none" id="state.WaitingForInLever-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="526.5775,3148.51,535.6987,3152.2253,531.575,3148.3529,535.4474,3144.2293,526.5775,3148.51" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="2116.5475" y="2878.2151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="2123.0475" y="2894.5667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[e0b0454828cda4419832453468711bca]
+link state.WaitingForInLever to state.PreOpenDoorProc--><path d="M1941.8375,2549.05 C1906.9675,2524.17 1863.9475,2498.5 1820.5475,2485.22 C1706.8375,2450.42 1671.9575,2480.55 1553.0475,2479.22 C1339.1675,2476.82 793.6475,2418.13 590.5475,2485.22 C540.7475,2501.67 493.3175,2538.13 460.4275,2567.95 " fill="none" id="state.WaitingForInLever-to-state.PreOpenDoorProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="456.4875,2571.55,465.8281,2568.4269,460.1768,2568.1753,460.4285,2562.524,456.4875,2571.55" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="1501.0475" y="2457.7151">&#x30EC;&#x30D0;&#x30FC;IN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1513.5475" y="2474.0667">&#x7570;&#x5E38;</text><!--MD5=[cc8a1a067589b4f728b53f31751c8fa2]
+link state.WaitingForInLever to state.WaitingForCloseDoor--><path d="M1984.9975,2677.48 C1962.8575,2718.02 1934.1275,2770.62 1911.5275,2812.01 " fill="none" id="state.WaitingForInLever-to-state.WaitingForCloseDoor" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1909.0775,2816.49,1916.8988,2810.5043,1911.4718,2812.1005,1909.8756,2806.6735,1909.0775,2816.49" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="51" x="1968.5475" y="2721.7151">&#x30EC;&#x30D0;&#x30FC;IN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1981.0475" y="2738.0667">&#x6B63;&#x5E38;</text><!--MD5=[56fd258216acc754a3f308cd04832171]
+link state.WaitingForCloseDoor to state.IlegalExitDetection--><path d="M1828.8675,2945.04 C1791.3475,2991.51 1733.7275,3051.36 1667.5475,3080.22 C1563.9475,3125.4 784.1475,3144.33 531.9575,3149.31 " fill="none" id="state.WaitingForCloseDoor-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="526.8275,3149.41,535.9057,3153.2292,531.8265,3149.31,535.7457,3145.2308,526.8275,3149.41" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1721.5475" y="3060.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1728.0475" y="3077.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[2b3c091afebcaef7205d638011298dac]
+link state.WaitingForCloseDoor to state.PreLeaveCageProc--><path d="M1769.5175,2944.8 C1679.7875,2997.36 1556.8675,3065.87 1502.5475,3080.22 C1257.7475,3144.88 609.1875,3048.81 363.5475,3110.22 C359.1775,3111.31 354.7775,3112.67 350.3975,3114.21 " fill="none" id="state.WaitingForCloseDoor-to-state.PreLeaveCageProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="345.6575,3115.96,355.4857,3116.5979,350.3485,3114.2295,352.7169,3109.0923,345.6575,3115.96" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="70" x="1576.5475" y="3060.7151">&#x30C9;&#x30A2;CLOSE</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1598.5475" y="3077.0667">&#x7570;&#x5E38;</text><!--MD5=[fd374802d46919c2aa1d5c16d63b079a]
+link state.WaitingForCloseDoor to state.PreTouchTrigerScreenProc--><path d="M1837.0675,2816.38 C1811.0375,2778.31 1772.7775,2732.48 1726.5475,2707.22 C1641.8875,2660.95 1574.8775,2750 1511.5475,2677.22 C1455.5375,2612.85 1452.8375,2547.15 1511.5475,2485.22 C1523.0275,2473.11 1650.0675,2489.33 1661.5475,2477.22 C1672.5375,2465.63 1625.5075,2208.07 1623.5475,2192.22 C1607.0375,2058.84 1618.2875,2023.5 1594.5475,1891.22 C1560.8375,1703.41 1598.7575,1629.08 1484.5475,1476.22 C1447.9475,1427.23 1390.4075,1390.73 1339.8675,1365.85 " fill="none" id="state.WaitingForCloseDoor-to-state.PreTouchTrigerScreenProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1335.3075,1363.63,1341.6555,1371.1602,1339.805,1365.8145,1345.1507,1363.9641,1335.3075,1363.63" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="70" x="1624.5475" y="2172.7151">&#x30C9;&#x30A2;CLOSE</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="1646.5475" y="2189.0667">&#x6B63;&#x5E38;</text><!--MD5=[2d9988bbeaacfd2b379b0a0a343f9f61]
+link state.PreTouchTrigerScreenProc to state.WaitingForTouchTrigerScreen--><path d="M1235.5475,1365.41 C1235.5475,1392.67 1235.5475,1430.78 1235.5475,1470.78 " fill="none" id="state.PreTouchTrigerScreenProc-to-state.WaitingForTouchTrigerScreen" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1235.5475,1476.18,1239.5475,1467.18,1235.5475,1471.18,1231.5475,1467.18,1235.5475,1476.18" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4b5405112df668f0e6a597587ae321e2]
+link state.WaitingForTouchTrigerScreen to state.PreOpenDoorProc--><path d="M1003.8675,1854.49 C998.4475,1856.88 993.0075,1859.13 987.5475,1861.22 C901.5875,1894.07 644.1475,1831.02 574.5475,1891.22 C371.8375,2066.57 394.1975,2436.49 409.1875,2566.15 " fill="none" id="state.WaitingForTouchTrigerScreen-to-state.PreOpenDoorProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="409.8075,2571.4,412.727,2561.9938,409.2225,2566.4343,404.7819,2562.9298,409.8075,2571.4" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="451.5475" y="2172.7151">&#x8A66;&#x884C;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="425.5475" y="2189.0667">&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><!--MD5=[fd44b379cba447c79f9b6934974178f4]
+link state.WaitingForTouchTrigerScreen to state.Training2Delay--><path d="M1123.8875,1861.32 C1120.3175,1871.26 1117.1575,1881.26 1114.5475,1891.22 C1107.0375,1919.82 1105.8175,1952.57 1106.7775,1980.11 " fill="none" id="state.WaitingForTouchTrigerScreen-to-state.Training2Delay" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1106.9775,1985.19,1110.6146,1976.0373,1106.7777,1980.194,1102.621,1976.3571,1106.9775,1985.19" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1115.5475" y="1905.7151">&#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="34" x="1131.0475" y="1922.0667">(&#x8A13;&#x7DF4;)</text><!--MD5=[5b935fb734e29a980b745920628a951d]
+link state.WaitingForTouchTrigerScreen to state.DelayMatch2Delay--><path d="M1300.6775,1861.45 C1304.0275,1871.51 1307.3375,1881.48 1310.5475,1891.22 C1320.1575,1920.34 1330.5875,1952.74 1339.2675,1979.91 " fill="none" id="state.WaitingForTouchTrigerScreen-to-state.DelayMatch2Delay" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1340.8675,1984.92,1341.9492,1975.1307,1339.3509,1980.1556,1334.3261,1977.5573,1340.8675,1984.92" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1338.5475" y="1905.7151">&#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="99" x="1321.5475" y="1922.0667">(&#x30C7;&#x30A3;&#x30EC;&#x30A4;&#x30DE;&#x30C3;&#x30C1;)</text><!--MD5=[ccc5626815c2983f7f6a49e08dedb041]
+link state.WaitingForTouchTrigerScreen to state.IlegalExitDetection--><path d="M1426.0975,1861.27 C1447.7475,1890.92 1467.1575,1922.59 1481.5475,1955.22 C1570.0475,2155.87 1538.2775,2224.52 1554.5475,2443.22 C1555.6675,2458.29 1564.7775,2466.1 1554.5475,2477.22 C1540.2075,2492.82 1475.6675,2471.48 1459.5475,2485.22 C1363.2075,2567.36 1413.7875,2950.45 1322.5475,3038.22 C1265.9075,3092.7 734.4775,3132.53 531.6775,3145.86 " fill="none" id="state.WaitingForTouchTrigerScreen-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="526.6575,3146.19,535.9011,3149.5895,531.6467,3145.8612,535.375,3141.6068,526.6575,3146.19" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1559.5475" y="2457.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1566.0475" y="2474.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[15639495841f8f244044d3dfd5de0f1e]
+link state.DelayMatch2Delay to state.DelayMatchImage--><path d="M1292.0375,1985.13 C1269.7875,1966.29 1244.9475,1945.01 1222.5475,1925.22 C1205.8075,1910.43 1205.8075,1900.62 1185.5475,1891.22 C1088.8275,1846.36 1036.2975,1920.31 947.5475,1861.22 C901.6675,1830.67 872.6275,1774.04 855.9875,1730.26 " fill="none" id="state.DelayMatch2Delay-to-state.DelayMatchImage" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="854.2075,1725.53,853.596,1735.3599,855.9506,1730.2163,861.0941,1732.5709,854.2075,1725.53" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="1223.5475" y="1905.7151">&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="1239.0475" y="1922.0667">(&#x6B63;&#x5E38;&#x7CFB;)</text><!--MD5=[c3f0b255b5754fbe8f3588c4e0ec3153]
+link state.DelayMatch2Delay to state.IlegalExitDetection--><path d="M1343.9375,2098.22 C1330.7975,2153.08 1313.5475,2239.58 1313.5475,2315.72 C1313.5475,2315.72 1313.5475,2315.72 1313.5475,2881.72 C1313.5475,2974.16 1256.0075,2990.98 1176.5475,3038.22 C1068.5975,3102.39 696.0875,3134.55 532.0975,3145.86 " fill="none" id="state.DelayMatch2Delay-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="526.8275,3146.22,536.0807,3149.5931,531.8157,3145.877,535.5319,3141.612,526.8275,3146.22" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1314.5475" y="2610.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1321.0475" y="2627.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[d2b9adf25e9fab86f92509ed336ee875]
+link state.Training2Delay to state.Training--><path d="M1049.9875,2098.5 C1011.1175,2133.53 960.3775,2179.93 916.5475,2222.22 C916.2675,2222.49 915.9975,2222.75 915.7175,2223.02 " fill="none" id="state.Training2Delay-to-state.Training" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="912.0975,2226.53,921.339,2223.1248,915.6827,2223.0448,915.7627,2217.3885,912.0975,2226.53" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="980.5475" y="2172.7151">&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="996.0475" y="2189.0667">(&#x6B63;&#x5E38;&#x7CFB;)</text><!--MD5=[abe1e63f131edb9d9cd2162f8e081d64]
+link state.Training2Delay to state.IlegalExitDetection--><path d="M1130.4775,2098.27 C1146.5275,2152.97 1167.5475,2239.21 1167.5475,2315.72 C1167.5475,2315.72 1167.5475,2315.72 1167.5475,2881.72 C1167.5475,2971.58 1113.2775,2986.86 1039.5475,3038.22 C958.3475,3094.78 671.9975,3129.57 531.9075,3143.59 " fill="none" id="state.Training2Delay-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="526.5675,3144.12,535.9129,3147.2285,531.5439,3143.6352,535.1372,3139.2662,526.5675,3144.12" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1168.5475" y="2610.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1175.0475" y="2627.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[cbb23bd0e768b740991c604a1c33a602]
+link state.DelayMatchImage to state.DelayMatch2Black--><path d="M804.6275,1725.34 C778.1675,1777.12 748.3375,1856.45 767.5475,1925.22 C772.1175,1941.59 779.7175,1957.95 788.2575,1973 " fill="none" id="state.DelayMatchImage-to-state.DelayMatch2Black" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="790.9375,1977.63,789.8759,1967.8385,788.4261,1973.3065,782.9582,1971.8567,790.9375,1977.63" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="768.5475" y="1905.7151">&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="784.0475" y="1922.0667">(&#x6B63;&#x5E38;&#x7CFB;)</text><!--MD5=[bd417c4a4d9c13742a62508623a509b2]
+link state.DelayMatchImage to state.IlegalExitDetection--><path d="M731.5075,1718.78 C638.7075,1766.79 506.5475,1848.25 426.5475,1955.22 C197.6675,2261.24 216.5575,2393.98 155.5475,2771.22 C133.6275,2906.79 65.4375,2977.46 156.5475,3080.22 C187.3875,3115 318.9175,3097.22 363.5475,3110.22 C376.1875,3113.9 389.3375,3119.02 401.5675,3124.38 " fill="none" id="state.DelayMatchImage-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="406.3775,3126.52,399.7926,3119.1961,401.8126,3124.48,396.5287,3126.5,406.3775,3126.52" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="205.5475" y="2457.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="212.0475" y="2474.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[5aaa63cf6c5b64492747f43b5afc3c65]
+link state.DelayMatch2Black to state.Training--><path d="M781.5275,2106 C770.4675,2122 760.4475,2139.89 754.5475,2158.22 C748.2875,2177.65 750.3375,2197.91 756.7075,2217.18 " fill="none" id="state.DelayMatch2Black-to-state.Training" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="758.4175,2222.05,759.2065,2212.2328,756.7594,2217.3329,751.6592,2214.8858,758.4175,2222.05" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="755.5475" y="2172.7151">&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="771.0475" y="2189.0667">(&#x6B63;&#x5E38;&#x7CFB;)</text><!--MD5=[b713fa4b65b6ea14a604d736ce945561]
+link state.DelayMatch2Black to state.IlegalExitDetection--><path d="M939.1875,2105.92 C951.4275,2113.46 963.7575,2121.03 975.5475,2128.22 C997.6775,2141.71 1012.4275,2135.87 1025.5475,2158.22 C1043.2875,2188.41 1030.5475,2280.7 1030.5475,2315.72 C1030.5475,2315.72 1030.5475,2315.72 1030.5475,2881.72 C1030.5475,2993.38 978.6075,3034.93 876.5475,3080.22 C763.6175,3130.33 619.3575,3145.1 531.8375,3149.29 " fill="none" id="state.DelayMatch2Black-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="526.6675,3149.53,535.8412,3153.1136,531.6623,3149.301,535.4749,3145.122,526.6675,3149.53" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1031.5475" y="2610.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1038.0475" y="2627.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[17031272bc8577f30c0646ca5e2116f3]
+link state.Training to state.PreOpenDoorProc--><path d="M736.9475,2380.22 C692.9575,2411.66 638.8775,2450.38 590.5475,2485.22 C552.2075,2512.85 509.2675,2544.02 475.5075,2568.56 " fill="none" id="state.Training-to-state.PreOpenDoorProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="471.4375,2571.52,481.0727,2569.4796,475.4867,2568.5868,476.3796,2563.0009,471.4375,2571.52" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="674.5475" y="2457.7151">&#x8A66;&#x884C;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="648.5475" y="2474.0667">&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;</text><!--MD5=[5be3f5c15757c713da6acc944c66116f]
+link state.Training to state.CorrectAnswer--><path d="M815.9675,2411.31 C812.0175,2454.34 807.4275,2504.47 803.8175,2543.88 " fill="none" id="state.Training-to-state.CorrectAnswer" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="803.3375,2549.12,808.1448,2540.5241,803.7953,2544.141,800.1784,2539.7915,803.3375,2549.12" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="813.5475" y="2465.7151">&#x6B63;&#x89E3;&#x56F3;&#x5F62;&#x30BF;&#x30C3;&#x30C1;</text><!--MD5=[c939961afbe4cfb4daf9172f7e07f187]
+link state.Training to state.IlegalExitDetection--><path d="M899.8175,2411.42 C905.3475,2421.72 910.0975,2432.4 913.5475,2443.22 C917.0875,2454.33 964.3375,2965.26 906.5475,3038.22 C860.4975,3096.35 648.7375,3128.87 531.7575,3142.68 " fill="none" id="state.Training-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="526.6075,3143.28,536.0137,3146.1995,531.5732,3142.695,535.0777,3138.2544,526.6075,3143.28" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="934.5475" y="2721.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="941.0475" y="2738.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[12fd0ab4d6cba24ca5c073049ce1a948]
+link state.CorrectAnswer to state.WaitingForFeedComplete--><path d="M785.8775,2677.48 C780.9875,2703.94 775.1575,2735.53 769.5775,2765.79 " fill="none" id="state.CorrectAnswer-to-state.WaitingForFeedComplete" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="768.6075,2771.02,774.1862,2762.9035,769.522,2766.1043,766.3212,2761.4402,768.6075,2771.02" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[40f891261057aa61949513a1470a6877]
+link state.WaitingForFeedComplete to state.PreOpenDoorProc--><path d="M606.9275,2781.63 C589.0475,2768.37 571.1975,2754.69 554.5475,2741.22 C522.2075,2715.06 487.6775,2683.53 461.1275,2658.43 " fill="none" id="state.WaitingForFeedComplete-to-state.PreOpenDoorProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="457.2675,2654.78,461.061,2663.869,460.9014,2658.2144,466.556,2658.0548,457.2675,2654.78" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="555.5475" y="2729.7151">&#x8A66;&#x884C;&#x5B8C;&#x4E86;</text><!--MD5=[23575fe07b88fdad0926d485f0ffd2c8]
+link state.WaitingForFeedComplete to state.InitInterval--><path d="M667.4475,2771.13 C640.6475,2725.14 617.5475,2669.47 617.5475,2614.22 C617.5475,1103.22 617.5475,1103.22 617.5475,1103.22 C617.5475,979.63 773.7575,926.12 883.4475,903.77 " fill="none" id="state.WaitingForFeedComplete-to-state.InitInterval" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="888.6375,902.73,879.0254,900.5835,883.7357,903.7161,880.6031,908.4264,888.6375,902.73" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="618.5475" y="1913.7151">&#x8A66;&#x884C;&#x7D99;&#x7D9A;</text><!--MD5=[b91c5648e4370111290217ccc4d7dd91]
+link state.WaitingForFeedComplete to state.IlegalExitDetection--><path d="M629.4075,2990.36 C576.5475,3038.56 518.6375,3091.36 484.2375,3122.74 " fill="none" id="state.WaitingForFeedComplete-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="480.1575,3126.46,489.5106,3123.3747,483.8604,3123.1002,484.1349,3117.45,480.1575,3126.46" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="566.5475" y="3060.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="573.0475" y="3077.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[d36d2646e51b95d02e7fb6fd743f21f8]
+link state.InitInterval to state.IntervalProc--><path d="M981.3975,936.89 C980.2075,946.74 979.1675,957.05 978.5475,966.72 C977.1075,989.34 975.6975,995.23 978.5475,1017.72 C979.5675,1025.78 981.1075,1034.17 982.9075,1042.4 " fill="none" id="state.InitInterval-to-state.IntervalProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="984.0675,1047.5,985.9869,1037.84,982.9662,1042.6228,978.1834,1039.6021,984.0675,1047.5" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4c603183a5b35d6cac8fd447615dcaad]
+link state.IntervalProc to state.InitInterval--><path d="M997.4375,1047.66 C995.6175,1015.08 993.3275,974.12 991.5275,941.94 " fill="none" id="state.IntervalProc-to-state.InitInterval" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="991.2375,936.86,987.759,946.0741,991.5236,941.8518,995.7459,945.6164,991.2375,936.86" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="996.5475" y="997.7151">&#x753B;&#x9762;&#x30BF;&#x30C3;&#x30C1;</text><!--MD5=[b7930af55c921aa2b799d7ae1ea15957]
+link state.IntervalProc to state.PreTouchTrigerScreenProc--><path d="M1012.8075,1160.98 C1019.9675,1183.44 1030.9575,1208.33 1047.5475,1226.72 C1070.1475,1251.78 1100.8075,1271.23 1130.8175,1285.86 " fill="none" id="state.IntervalProc-to-state.PreTouchTrigerScreenProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1135.6175,1288.17,1129.2216,1280.6805,1131.1061,1286.0142,1125.7724,1287.8987,1135.6175,1288.17" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="1048.5475" y="1215.2151">&#x753B;&#x9762;&#x975E;&#x30BF;&#x30C3;&#x30C1;</text><!--MD5=[bec62e7c5def05b4b32efcd983b37c68]
+link state.PreOpenDoorProc to state.WaitingForOpenDoor--><path d="M405.4475,2654.83 C396.1175,2692.39 381.9475,2749.38 370.2175,2796.58 " fill="none" id="state.PreOpenDoorProc-to-state.WaitingForOpenDoor" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="368.9475,2801.7,374.9894,2793.9221,370.1467,2796.8459,367.2229,2792.0033,368.9475,2801.7" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a8007e2fc864a335224424920c1b5521]
+link state.WaitingForOpenDoor to state.IlegalExitDetection--><path d="M379.7675,2959.89 C400.7175,3014.07 427.4275,3083.15 442.2775,3121.58 " fill="none" id="state.WaitingForOpenDoor-to-state.IlegalExitDetection" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="444.2075,3126.56,444.6939,3116.7232,442.4049,3121.8962,437.2319,3119.6073,444.2075,3126.56" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="426.5475" y="3060.7151">&#x30A4;&#x30EA;&#x30FC;&#x30AC;&#x30EB;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="433.0475" y="3077.0667">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[086e15a420bd10664f2bcba7cb434a18]
+link state.WaitingForOpenDoor to state.PreLeaveCageProc--><path d="M288.2475,2959.82 C271.3275,2985.83 255.2475,3015.94 246.5475,3046.22 C240.9075,3065.86 246.1875,3087.24 254.2775,3105.51 " fill="none" id="state.WaitingForOpenDoor-to-state.PreLeaveCageProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="256.3875,3110.09,256.2675,3100.2419,254.3013,3105.546,248.9971,3103.5798,256.3875,3110.09" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="63" x="247.5475" y="3060.7151">&#x30C9;&#x30A2;OPEN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="266.0475" y="3077.0667">&#x7570;&#x5E38;</text><!--MD5=[086e15a420bd10664f2bcba7cb434a18]
+link state.WaitingForOpenDoor to state.PreLeaveCageProc--><path d="M341.0475,2960.16 C335.7975,2997.13 327.6775,3041.52 315.5475,3080.22 C312.9675,3088.44 309.6275,3096.94 306.0675,3105.07 " fill="none" id="state.WaitingForOpenDoor-to-state.PreLeaveCageProc-1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="303.8275,3110.08,311.1514,3103.4951,305.8675,3105.5151,303.8475,3100.2312,303.8275,3110.08" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="63" x="324.5475" y="3060.7151">&#x30C9;&#x30A2;OPEN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="343.0475" y="3077.0667">&#x7570;&#x5E38;</text><!--MD5=[086e15a420bd10664f2bcba7cb434a18]
+link state.WaitingForOpenDoor to state.PreLeaveCageProc--><path d="M235.9575,2959.89 C209.5575,2984.2 184.9775,3013.37 170.5475,3046.22 C164.4675,3060.06 163.2475,3066.99 170.5475,3080.22 C180.5275,3098.3 197.3075,3112.37 214.8875,3123.03 " fill="none" id="state.WaitingForOpenDoor-to-state.PreLeaveCageProc-2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="219.3675,3125.66,213.6254,3117.6582,215.0538,3123.1318,209.5802,3124.5601,219.3675,3125.66" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="63" x="171.5475" y="3060.7151">&#x30C9;&#x30A2;OPEN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="190.0475" y="3077.0667">&#x6B63;&#x5E38;</text><!--MD5=[0ff395b33bcbc957a78caac924b110d8]
+link state.PreLeaveCageProc to state.WaitingForLeaveCage--><path d="M315.9875,3193.47 C331.1475,3211.94 348.7075,3233.33 362.3875,3250 " fill="none" id="state.PreLeaveCageProc-to-state.WaitingForLeaveCage" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="365.7775,3254.13,363.1685,3244.633,362.609,3250.2621,356.9799,3249.7026,365.7775,3254.13" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[73e2d8c335e49c2da6c7c7822ad4c935]
+link state.WaitingForLeaveCage to state.PreEnterCageProc--><path d="M423.9375,3277.73 C691.2675,3274.07 2264.5475,3248.45 2264.5475,3152.72 C2264.5475,2723.22 2264.5475,2723.22 2264.5475,2723.22 C2264.5475,2616.55 2247.3875,2590.99 2233.5475,2485.22 C2223.8075,2410.77 2211.5475,2392.8 2211.5475,2317.72 C2211.5475,1667.72 2211.5475,1667.72 2211.5475,1667.72 C2211.5475,1524.07 2064.4775,1403.45 1990.2975,1351.75 " fill="none" id="state.WaitingForLeaveCage-to-state.PreEnterCageProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1985.9475,1348.75,1991.078,1357.157,1990.061,1351.5923,1995.6257,1350.5754,1985.9475,1348.75" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="2232.5475" y="2465.7151">&#x9000;&#x5BA4;&#x691C;&#x77E5;</text><!--MD5=[2f9025fa012a4466c8114eb08a7ed324]
+link state.IlegalExitDetection to state.PreEnterCageProc--><path d="M526.8075,3148.32 C751.6475,3140.19 1420.4975,3110.11 1483.5475,3038.22 C1524.1175,2991.97 1468.3675,2529.05 1511.5475,2485.22 C1530.6175,2465.87 1611.0575,2492.47 1633.5475,2477.22 C1650.6575,2465.62 1647.1875,2454.89 1653.5475,2435.22 C1683.1575,2343.65 1672.9375,2316.44 1692.5475,2222.22 C1695.3375,2208.82 1697.2675,2205.72 1699.5475,2192.22 C1717.1675,2087.78 1705.0575,2059.33 1724.5475,1955.22 C1765.1375,1738.4 1766.5875,1678.51 1854.5475,1476.22 C1874.3675,1430.63 1906.3175,1382.62 1927.3775,1353.16 " fill="none" id="state.IlegalExitDetection-to-state.PreEnterCageProc" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1930.3975,1348.95,1921.8949,1353.9205,1927.4779,1353.009,1928.3894,1358.592,1930.3975,1348.95" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7fd6e3bffb0b3aea3a75ecc19f9e5b10]
+@startuml
+
+'left to right direction
+
+state "操作" as group.Operation {
+    note right of group.Operation
+        = はじめに
+        表示の都合上、緊急系の遷移は省略
+
+        =外部で時間および応答制御されるデバイス
+        出力に対して応答を制御されるデバイスは基本的に外部に処理を委託する
+        **対象デバイス**
+        - レバー
+        - ドア
+        - フィード
+        - 入退室検知
+
+        == 補足
+        **入退室検知**
+        在室センサまたは、入室、退室センサを併用することにより入退室の検知を行う機能を有すること
+
+        = 内部でで時間および応答制御されるデバイス
+        - フィードランプの時間の管理
+        - レバーDOWNのタイムアウト
+        - トリガ画面タッチのタイムアウト  
+
+        = ローカルに持つもの
+        - 画面タッチステータスラッチ
+        - 試行カウンタ
+        - ストップウォッチ
+
+        = 機能
+        - コマンド(開始、中止、緊急停止)
+        - ステート通知(ステートマシン遷移時に通知)
+        - エラー通知
+        - メッセージ
+    endnote
+
+    [*] - -> state.Init
+
+    state "初期化" as state.Init {
+        state.Init - -> state.Idle
+        state.Init : exit / アプリケーション起動直後の設定
+    }
+
+    state "アイドル" as state.Idle {
+        state.Idle - -> state.PreEnterCageProc : 開始
+    }
+
+    state "デバイススタンバイ" as state.DeviceStandby {
+        state "デバイススタンバイ開始" as state.DeviceStandbyBegin {
+            state.DeviceStandbyBegin - -> state.DeviceStandby2
+            state.DeviceStandbyBegin : exit / 処理
+            state.DeviceStandbyBegin : * レバーをIN
+            'state.DeviceStandbyBegin : * ドアをOPEN
+            state.DeviceStandbyBegin : * 天井ランプをOFF
+            state.DeviceStandbyBegin : * タッチパネル画面を黒
+            state.DeviceStandbyBegin : * フィードランプをOFF
+            state.DeviceStandbyBegin : * 入室検知フラグをFALSE
+            state.DeviceStandbyBegin : * - -給餌を停止- -
+        }
+
+        state "デバイススタンバイ中" as state.DeviceStandby2 {
+            state.DeviceStandby2 - -> state.DeviceStandbyEnd : レバーIN\n完了
+            state.DeviceStandby2 : * ドアをOPEN
+        }
+
+        state "デバイススタンバイ完了" as state.DeviceStandbyEnd {
+            state.DeviceStandbyEnd - -> state.Stop : ドアOPEN\n完了
+            state.DeviceStandbyEnd - -> state.PreEnterCageProc : ドアOPEN\n完了
+        }
+    }
+
+    state "停止系" as group.Stop {
+        state "停止" as state.Stop {
+            state.Stop - -> state.DeviceStandbyBegin : デバイス\nスタンバイ\n開始
+            state.Stop - -> state.Idle : デバイス\nスタンバイ\n完了
+        }
+
+        state "緊急停止" as stateEmergencyStop {
+            stateEmergencyStop - -> state.Idle
+        }
+    }
+
+    state "入室" as group.EnterCage {
+        state "入室前処理" as state.PreEnterCageProc {
+            state.PreEnterCageProc - -> state.DeviceStandbyBegin : デバイス\nスタンバイ\n開始
+            state.PreEnterCageProc - -> state.WaitingForEnterCage : デバイス\nスタンバイ\n完了
+        }
+
+        state "入室待ち" as state.WaitingForEnterCage {
+            'state.WaitingForEnterCage - -> stateEmergencyStop : 緊急停止
+            'state.WaitingForEnterCage - -> state.Stop : 中止
+
+            state.WaitingForEnterCage - -> state.WaitingForOutLever : 入室検知
+            state.WaitingForEnterCage: exit / 入室検知処理
+            state.WaitingForEnterCage: * レバーをOUT
+        }
+
+        state "レバーOUT待ち" as state.WaitingForOutLever {
+            'state.WaitingForOutLever - -> stateEmergencyStop : 緊急停止
+            'state.WaitingForOutLever - -> state.Stop : 中止
+
+            state.WaitingForOutLever - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForOutLever - -> state.PreLeaveCageProc : レバーOUT\n異常
+            state.WaitingForOutLever: exit / レバーOUT異常処理
+            state.WaitingForOutLever: * レバーOUT回復処理はレバーのステートマシンで処理を行う
+
+            state.WaitingForOutLever: 
+            state.WaitingForOutLever - -> state.WaitingForDownLever : レバーOUT\n正常
+            state.WaitingForOutLever: exit / レバーOUT正常処理
+            state.WaitingForOutLever: * ストップウォッチをリスタート
+            state.WaitingForOutLever: 
+            state.WaitingForOutLever: **レバーOUT異常要因**
+            state.WaitingForOutLever: * タイムアウト
+            state.WaitingForOutLever: * リトライアウト
+        }
+
+        state "レバーDOWN待ち" as state.WaitingForDownLever {
+            'state.WaitingForDownLever - -> stateEmergencyStop : 緊急停止
+            'state.WaitingForDownLever - -> state.Stop : 中止
+            state.WaitingForDownLever - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForDownLever : do / タイムアウト監視処理
+
+            state.WaitingForDownLever: 
+            state.WaitingForDownLever - -> state.PreLeaveCageProc : レバーDOWN\nタイムアウト
+            state.WaitingForDownLever : exit / タイムアウト処理
+            state.WaitingForDownLever : * ストップウォッチを停止
+            state.WaitingForDownLever : * レバーをIN
+
+            state.WaitingForDownLever : 
+            state.WaitingForDownLever - -> state.WaitingForInLever : レバーDOWN\n(正常系)
+            state.WaitingForDownLever : exit / レバーDOWN正常処理
+            state.WaitingForDownLever : * ストップウォッチを停止
+            state.WaitingForDownLever : * レバーをIN
+        }
+
+        state "レバーIN待ち" as state.WaitingForInLever {
+            'state.WaitingForInLever - -> stateEmergencyStop : 緊急停止
+            'state.WaitingForInLever - -> state.Stop : 中止
+            state.WaitingForInLever - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForInLever - -> state.PreOpenDoorProc : レバーIN\n異常
+            state.WaitingForInLever : exit / レバーIN異常処理
+            state.WaitingForInLever : * レバーIN回復処理はレバーのステートマシンで処理を行う
+            state.WaitingForInLever : * ドアをOPEN
+            state.WaitingForInLever : 
+
+            state.WaitingForInLever - -> state.WaitingForCloseDoor : レバーIN\n正常
+            state.WaitingForInLever : exit / レバーIN正常処理
+            state.WaitingForInLever : * ドアをCLOSE
+        }
+
+        state "ドアCLOSE待ち" as state.WaitingForCloseDoor {
+            'state.WaitingForCloseDoor - -> stateEmergencyStop : 緊急停止
+            'state.WaitingForCloseDoor - -> state.Stop : 中止
+            state.WaitingForCloseDoor - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForCloseDoor - -> state.PreLeaveCageProc : ドアCLOSE\n異常
+            state.WaitingForCloseDoor : exit / ドアCLOSE異常処理
+            state.WaitingForCloseDoor : * ドアCLOSE回復処理はレバーのステートマシンで処理を行う
+
+            state.WaitingForCloseDoor : 
+            state.WaitingForCloseDoor - -> state.PreTouchTrigerScreenProc : ドアCLOSE\n正常
+            state.WaitingForCloseDoor : exit ドアCLOSE正常処理
+            state.WaitingForCloseDoor : * どこでもタッチをスタート
+            state.WaitingForCloseDoor : * 試行回数カウンタをクリア
+        }
+    }
+
+    state "試行" as group.Trial {
+        state "トリガ画面タッチ前処理" as state.PreTouchTrigerScreenProc {
+            state.PreTouchTrigerScreenProc - -> state.WaitingForTouchTrigerScreen
+            state.PreTouchTrigerScreenProc : exit / 処理
+            state.PreTouchTrigerScreenProc : * トリガ画面表示
+            state.PreTouchTrigerScreenProc : * ストップウォッチをリスタート
+        }
+        state "トリガ画面タッチ待ち" as state.WaitingForTouchTrigerScreen {
+            'state.WaitingForTouchTrigerScreen - -> stateEmergencyStop : 緊急停止
+            'state.WaitingForTouchTrigerScreen - -> state.Stop : 中止
+
+            state.WaitingForTouchTrigerScreen : do / タイムアウト監視処理
+
+            state.WaitingForTouchTrigerScreen : 
+            state.WaitingForTouchTrigerScreen - -> state.PreOpenDoorProc : 試行\nタイムアウト
+            state.WaitingForTouchTrigerScreen : exit / タイムアウト処理
+            state.WaitingForTouchTrigerScreen : * 天井ランプをOFF
+            state.WaitingForTouchTrigerScreen : * ストップウォッチを停止
+            state.WaitingForTouchTrigerScreen : * どこでもタッチをストップ
+            state.WaitingForTouchTrigerScreen : * ドアをOPEN
+            state.WaitingForTouchTrigerScreen : * ファイル出力
+            state.WaitingForTouchTrigerScreen : 
+
+            state.WaitingForTouchTrigerScreen - -> state.Training2Delay : 画面タッチ\n(訓練)
+            state.WaitingForTouchTrigerScreen : exit / 画面タッチ処理(訓練)
+            state.WaitingForTouchTrigerScreen : * ストップウォッチを停止
+            state.WaitingForTouchTrigerScreen : * どこでもタッチをストップ
+            state.WaitingForTouchTrigerScreen : * 正解図形表示
+            state.WaitingForTouchTrigerScreen : * タッチコレクトをスタート
+
+            state.WaitingForTouchTrigerScreen : 
+            state.WaitingForTouchTrigerScreen - -> state.DelayMatch2Delay : 画面タッチ\n(ディレイマッチ)
+            state.WaitingForTouchTrigerScreen : exit / 画面タッチ処理(ディレイマッチ)
+            state.WaitingForTouchTrigerScreen : * どこでもタッチをストップ
+            state.WaitingForTouchTrigerScreen : * 正解図形表示
+            state.WaitingForTouchTrigerScreen : * ストップウォッチをリスタート
+            state.WaitingForTouchTrigerScreen : 
+            state.WaitingForTouchTrigerScreen : 補足
+            state.WaitingForTouchTrigerScreen : * 画面タッチはマウスクリックのイベントとして処理される
+            state.WaitingForTouchTrigerScreen : * クリックイベントはオブジェクトに対してマウスダウンアップした際に発生する
+            state.WaitingForTouchTrigerScreen - -> state.IlegalExitDetection : イリーガル\n退室検知
+        }
+            state "ランダムディレイ" as state.DelayMatch2Delay{
+                state.DelayMatch2Delay : do / タイムアウト監視処理
+                state.DelayMatch2Delay :
+                state.DelayMatch2Delay - -> state.DelayMatchImage : タイムアウト\n(正常系)
+                state.DelayMatch2Delay : exit / タイムアウト処理(正常系)
+                state.DelayMatch2Delay : * ストップウォッチをリスタート
+                state.DelayMatch2Delay : * 指定時間ランダムタイムディレイ
+                state.DelayMatch2Delay - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+            state "ランダムディレイ" as state.Training2Delay{
+                state.Training2Delay : do / タイムアウト監視処理
+                state.Training2Delay :
+                state.Training2Delay - -> state.Training : タイムアウト\n(正常系)
+                state.Training2Delay : exit / タイムアウト処理(正常系)
+                state.Training2Delay : * ストップウォッチをリスタート
+                state.Training2Delay : * 指定時間ランダムタイムディレイ
+                state.Training2Delay - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+        state "ディレイマッチ" as group.DelayMatch {
+            state "ディレイマッチ(正解図形表示)" as state.DelayMatchImage {
+                'state.DelayMatchImage - -> stateEmergencyStop : 緊急停止
+                'state.DelayMatchImage - -> state.Stop : 中止
+
+                state.DelayMatchImage : do / タイムアウト監視処理
+
+                state.DelayMatchImage : 
+                state.DelayMatchImage - -> state.DelayMatch2Black : タイムアウト\n(正常系)
+                state.DelayMatchImage : exit / タイムアウト処理(正常系)
+                state.DelayMatchImage : * ストップウォッチをリスタート
+                state.DelayMatchImage : * タッチパネル画面を黒
+                state.DelayMatchImage - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+            state "ディレイマッチ(タッチパネル画面を黒)" as state.DelayMatch2Black {
+                'state.DelayMatch2Black - -> stateEmergencyStop : 緊急停止
+                'state.DelayMatch2Black - -> state.Stop : 中止
+
+                state.DelayMatch2Black : do / タイムアウト監視処理
+
+                state.DelayMatch2Black : 
+                state.DelayMatch2Black - -> state.Training : タイムアウト\n(正常系)
+                state.DelayMatch2Black : exit / タイムアウト処理(正常系)
+                state.DelayMatch2Black : * ストップウォッチをリスタート
+                state.DelayMatch2Black : * 正解図形・不正解図形表示
+                state.DelayMatch2Black : * タッチコレクトをスタート
+                state.DelayMatch2Black - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+
+            state "訓練" as state.Training {
+                'state.Training - -> stateEmergencyStop : 緊急停止
+                'state.Training - -> state.Stop : 中止
+
+                state.Training : do / タイムアウト監視処理
+
+                state.Training : 
+                state.Training - -> state.PreOpenDoorProc : 試行\nタイムアウト
+                state.Training : exit / タイムアウト処理
+                state.Training : * タッチコレクトをストップ
+                state.Training : * ドアをOPEN
+                state.Training : * ファイル出力
+
+                state.Training : 
+                state.Training - -> state.CorrectAnswer : 正解図形タッチ
+                state.Training : exit / 正解図形タッチ処理
+                state.Training : * ストップウォッチを停止
+                state.Training : * タッチコレクトをストップ
+                state.Training - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+        }
+
+        state "正解" as group.CorrectAnswer {
+            state "正解" as state.CorrectAnswer {
+                'state.CorrectAnswer - -> stateEmergencyStop : 緊急停止
+                'state.CorrectAnswer - -> state.Stop : 中止
+
+                state.CorrectAnswer - -> state.WaitingForFeedComplete
+                state.CorrectAnswer : exit / 処理
+                state.CorrectAnswer : * タッチパネル画面を黒
+                state.CorrectAnswer : * 天井ランプをOFF
+                state.CorrectAnswer : * フィードランプをON
+                state.CorrectAnswer : * 報酬音を再生
+                state.CorrectAnswer : * 給餌を実行
+            }
+
+            state "給餌完了待ち" as state.WaitingForFeedComplete {
+                'state.WaitingForFeedComplete - -> stateEmergencyStop : 緊急停止
+                'state.WaitingForFeedComplete - -> state.Stop : 中止
+
+                state.WaitingForFeedComplete - -> state.PreOpenDoorProc : 試行完了
+                state.WaitingForFeedComplete : exit / 試行完了処理
+                state.WaitingForFeedComplete : * 天井ランプをON
+                state.WaitingForFeedComplete : * フィードランプをOFF
+                state.WaitingForFeedComplete : * ドアをOPEN
+                state.WaitingForFeedComplete : * ファイル出力
+
+                state.WaitingForFeedComplete : 
+                state.WaitingForFeedComplete - -> state.InitInterval : 試行継続
+                state.WaitingForFeedComplete : exit / 試行継続処理
+                state.WaitingForFeedComplete : * 天井ランプをON
+                state.WaitingForFeedComplete : * 試行回数カウンタをインクリメント
+                state.WaitingForFeedComplete : 
+                state.WaitingForFeedComplete : **試行完了条件**
+                state.WaitingForFeedComplete : * 試行回数カウンタが設定試行回数となったとき
+                state.WaitingForFeedComplete - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+        }
+
+        state "インターバル" as group.Interval {
+            state "インターバル初期化" as state.InitInterval {
+                'state.IntervalProc - -> stateEmergencyStop : 緊急停止
+                'state.IntervalProc - -> state.Stop : 中止
+
+                state.InitInterval - -> state.IntervalProc
+                state.InitInterval : exit / 処理
+                state.InitInterval : * どこでもタッチをスタート
+                state.InitInterval : * インターバル値を取得
+                state.InitInterval : * ストップウォッチをリスタート
+            }
+
+            state "インターバル処理" as state.IntervalProc {
+                'state.IntervalProc - -> stateEmergencyStop : 緊急停止
+                'state.IntervalProc - -> state.Stop : 中止
+
+                state.IntervalProc : do / タイムアウト監視処理
+
+                state.IntervalProc : 
+                state.IntervalProc - -> state.PreTouchTrigerScreenProc : 画面非タッチ
+                state.IntervalProc : exit / タイムアウト処理(画面非タッチ)
+                state.IntervalProc : * ファイル出力
+
+                state.IntervalProc : 
+                state.IntervalProc - -> state.InitInterval : 画面タッチ
+            }
+        }
+    }
+
+    state "退室" as group.LeaveCage {
+        state "ドアOPEドアOPEN前処理N待ち" as state.PreOpenDoorProc {
+            state.PreOpenDoorProc - -> state.WaitingForOpenDoor
+            state.PreOpenDoorProc : exit / 処理
+            state.PreOpenDoorProc : * タッチパネル画面を黒
+            state.PreOpenDoorProc : * ドアをOPEN
+        }
+
+        state "ドアOPEN待ち" as state.WaitingForOpenDoor {
+            'state.WaitingForOpenDoor - -> stateEmergencyStop : 緊急停止
+            'state.WaitingForOpenDoor - -> state.Stop : 中止
+            state.WaitingForOpenDoor - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForOpenDoor : 
+            state.WaitingForOpenDoor - -> state.PreLeaveCageProc : ドアOPEN\n異常
+            state.WaitingForOpenDoor : exit / ドアOPEN異常処理
+            state.WaitingForOpenDoor : * ドアOPEN回復処理はレバーのステートマシンで処理を行う
+
+            state.WaitingForOpenDoor : 
+            state.WaitingForOpenDoor - -> state.PreLeaveCageProc : ドアOPEN\n異常
+            state.WaitingForOpenDoor : **ドアOPEN異常要因**
+            state.WaitingForOpenDoor : * タイムアウト
+            state.WaitingForOpenDoor : * リトライアウト
+
+            state.WaitingForOpenDoor : 
+            state.WaitingForOpenDoor - -> state.PreLeaveCageProc : ドアOPEN\n正常
+        }
+
+        state "退室前処理" as state.PreLeaveCageProc {
+            'state.PreLeaveCageProc - -> stateEmergencyStop : 緊急停止
+            'state.PreLeaveCageProc - -> state.Stop : 中止
+
+            state.PreLeaveCageProc - -> state.WaitingForLeaveCage
+            state.PreLeaveCageProc : exit / 処理
+            state.PreLeaveCageProc : * 天井ランプをOFF
+            state.PreLeaveCageProc : * 終了音を再生
+        }
+
+        state "退室待ち" as state.WaitingForLeaveCage {
+            'state.WaitingForLeaveCage - -> stateEmergencyStop : 緊急停止
+            'state.WaitingForLeaveCage - -> state.Stop : 中止
+            state.WaitingForLeaveCage - -> state.PreEnterCageProc : 退室検知
+        }
+
+        state "イリーガル退室検知" as state.IlegalExitDetection {
+            state.IlegalExitDetection - -> state.PreEnterCageProc
+        }
+    }
+}
+
+@enduml
+
+@startuml
+
+
+state "操作" as group.Operation {
+    note right of group.Operation
+        = はじめに
+        表示の都合上、緊急系の遷移は省略
+
+        =外部で時間および応答制御されるデバイス
+        出力に対して応答を制御されるデバイスは基本的に外部に処理を委託する
+        **対象デバイス**
+        - レバー
+        - ドア
+        - フィード
+        - 入退室検知
+
+        == 補足
+        **入退室検知**
+        在室センサまたは、入室、退室センサを併用することにより入退室の検知を行う機能を有すること
+
+        = 内部でで時間および応答制御されるデバイス
+        - フィードランプの時間の管理
+        - レバーDOWNのタイムアウト
+        - トリガ画面タッチのタイムアウト  
+
+        = ローカルに持つもの
+        - 画面タッチステータスラッチ
+        - 試行カウンタ
+        - ストップウォッチ
+
+        = 機能
+        - コマンド(開始、中止、緊急停止)
+        - ステート通知(ステートマシン遷移時に通知)
+        - エラー通知
+        - メッセージ
+    endnote
+
+    [*] - -> state.Init
+
+    state "初期化" as state.Init {
+        state.Init - -> state.Idle
+        state.Init : exit / アプリケーション起動直後の設定
+    }
+
+    state "アイドル" as state.Idle {
+        state.Idle - -> state.PreEnterCageProc : 開始
+    }
+
+    state "デバイススタンバイ" as state.DeviceStandby {
+        state "デバイススタンバイ開始" as state.DeviceStandbyBegin {
+            state.DeviceStandbyBegin - -> state.DeviceStandby2
+            state.DeviceStandbyBegin : exit / 処理
+            state.DeviceStandbyBegin : * レバーをIN
+            state.DeviceStandbyBegin : * 天井ランプをOFF
+            state.DeviceStandbyBegin : * タッチパネル画面を黒
+            state.DeviceStandbyBegin : * フィードランプをOFF
+            state.DeviceStandbyBegin : * 入室検知フラグをFALSE
+            state.DeviceStandbyBegin : * - -給餌を停止- -
+        }
+
+        state "デバイススタンバイ中" as state.DeviceStandby2 {
+            state.DeviceStandby2 - -> state.DeviceStandbyEnd : レバーIN\n完了
+            state.DeviceStandby2 : * ドアをOPEN
+        }
+
+        state "デバイススタンバイ完了" as state.DeviceStandbyEnd {
+            state.DeviceStandbyEnd - -> state.Stop : ドアOPEN\n完了
+            state.DeviceStandbyEnd - -> state.PreEnterCageProc : ドアOPEN\n完了
+        }
+    }
+
+    state "停止系" as group.Stop {
+        state "停止" as state.Stop {
+            state.Stop - -> state.DeviceStandbyBegin : デバイス\nスタンバイ\n開始
+            state.Stop - -> state.Idle : デバイス\nスタンバイ\n完了
+        }
+
+        state "緊急停止" as stateEmergencyStop {
+            stateEmergencyStop - -> state.Idle
+        }
+    }
+
+    state "入室" as group.EnterCage {
+        state "入室前処理" as state.PreEnterCageProc {
+            state.PreEnterCageProc - -> state.DeviceStandbyBegin : デバイス\nスタンバイ\n開始
+            state.PreEnterCageProc - -> state.WaitingForEnterCage : デバイス\nスタンバイ\n完了
+        }
+
+        state "入室待ち" as state.WaitingForEnterCage {
+
+            state.WaitingForEnterCage - -> state.WaitingForOutLever : 入室検知
+            state.WaitingForEnterCage: exit / 入室検知処理
+            state.WaitingForEnterCage: * レバーをOUT
+        }
+
+        state "レバーOUT待ち" as state.WaitingForOutLever {
+
+            state.WaitingForOutLever - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForOutLever - -> state.PreLeaveCageProc : レバーOUT\n異常
+            state.WaitingForOutLever: exit / レバーOUT異常処理
+            state.WaitingForOutLever: * レバーOUT回復処理はレバーのステートマシンで処理を行う
+
+            state.WaitingForOutLever: 
+            state.WaitingForOutLever - -> state.WaitingForDownLever : レバーOUT\n正常
+            state.WaitingForOutLever: exit / レバーOUT正常処理
+            state.WaitingForOutLever: * ストップウォッチをリスタート
+            state.WaitingForOutLever: 
+            state.WaitingForOutLever: **レバーOUT異常要因**
+            state.WaitingForOutLever: * タイムアウト
+            state.WaitingForOutLever: * リトライアウト
+        }
+
+        state "レバーDOWN待ち" as state.WaitingForDownLever {
+            state.WaitingForDownLever - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForDownLever : do / タイムアウト監視処理
+
+            state.WaitingForDownLever: 
+            state.WaitingForDownLever - -> state.PreLeaveCageProc : レバーDOWN\nタイムアウト
+            state.WaitingForDownLever : exit / タイムアウト処理
+            state.WaitingForDownLever : * ストップウォッチを停止
+            state.WaitingForDownLever : * レバーをIN
+
+            state.WaitingForDownLever : 
+            state.WaitingForDownLever - -> state.WaitingForInLever : レバーDOWN\n(正常系)
+            state.WaitingForDownLever : exit / レバーDOWN正常処理
+            state.WaitingForDownLever : * ストップウォッチを停止
+            state.WaitingForDownLever : * レバーをIN
+        }
+
+        state "レバーIN待ち" as state.WaitingForInLever {
+            state.WaitingForInLever - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForInLever - -> state.PreOpenDoorProc : レバーIN\n異常
+            state.WaitingForInLever : exit / レバーIN異常処理
+            state.WaitingForInLever : * レバーIN回復処理はレバーのステートマシンで処理を行う
+            state.WaitingForInLever : * ドアをOPEN
+            state.WaitingForInLever : 
+
+            state.WaitingForInLever - -> state.WaitingForCloseDoor : レバーIN\n正常
+            state.WaitingForInLever : exit / レバーIN正常処理
+            state.WaitingForInLever : * ドアをCLOSE
+        }
+
+        state "ドアCLOSE待ち" as state.WaitingForCloseDoor {
+            state.WaitingForCloseDoor - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForCloseDoor - -> state.PreLeaveCageProc : ドアCLOSE\n異常
+            state.WaitingForCloseDoor : exit / ドアCLOSE異常処理
+            state.WaitingForCloseDoor : * ドアCLOSE回復処理はレバーのステートマシンで処理を行う
+
+            state.WaitingForCloseDoor : 
+            state.WaitingForCloseDoor - -> state.PreTouchTrigerScreenProc : ドアCLOSE\n正常
+            state.WaitingForCloseDoor : exit ドアCLOSE正常処理
+            state.WaitingForCloseDoor : * どこでもタッチをスタート
+            state.WaitingForCloseDoor : * 試行回数カウンタをクリア
+        }
+    }
+
+    state "試行" as group.Trial {
+        state "トリガ画面タッチ前処理" as state.PreTouchTrigerScreenProc {
+            state.PreTouchTrigerScreenProc - -> state.WaitingForTouchTrigerScreen
+            state.PreTouchTrigerScreenProc : exit / 処理
+            state.PreTouchTrigerScreenProc : * トリガ画面表示
+            state.PreTouchTrigerScreenProc : * ストップウォッチをリスタート
+        }
+        state "トリガ画面タッチ待ち" as state.WaitingForTouchTrigerScreen {
+
+            state.WaitingForTouchTrigerScreen : do / タイムアウト監視処理
+
+            state.WaitingForTouchTrigerScreen : 
+            state.WaitingForTouchTrigerScreen - -> state.PreOpenDoorProc : 試行\nタイムアウト
+            state.WaitingForTouchTrigerScreen : exit / タイムアウト処理
+            state.WaitingForTouchTrigerScreen : * 天井ランプをOFF
+            state.WaitingForTouchTrigerScreen : * ストップウォッチを停止
+            state.WaitingForTouchTrigerScreen : * どこでもタッチをストップ
+            state.WaitingForTouchTrigerScreen : * ドアをOPEN
+            state.WaitingForTouchTrigerScreen : * ファイル出力
+            state.WaitingForTouchTrigerScreen : 
+
+            state.WaitingForTouchTrigerScreen - -> state.Training2Delay : 画面タッチ\n(訓練)
+            state.WaitingForTouchTrigerScreen : exit / 画面タッチ処理(訓練)
+            state.WaitingForTouchTrigerScreen : * ストップウォッチを停止
+            state.WaitingForTouchTrigerScreen : * どこでもタッチをストップ
+            state.WaitingForTouchTrigerScreen : * 正解図形表示
+            state.WaitingForTouchTrigerScreen : * タッチコレクトをスタート
+
+            state.WaitingForTouchTrigerScreen : 
+            state.WaitingForTouchTrigerScreen - -> state.DelayMatch2Delay : 画面タッチ\n(ディレイマッチ)
+            state.WaitingForTouchTrigerScreen : exit / 画面タッチ処理(ディレイマッチ)
+            state.WaitingForTouchTrigerScreen : * どこでもタッチをストップ
+            state.WaitingForTouchTrigerScreen : * 正解図形表示
+            state.WaitingForTouchTrigerScreen : * ストップウォッチをリスタート
+            state.WaitingForTouchTrigerScreen : 
+            state.WaitingForTouchTrigerScreen : 補足
+            state.WaitingForTouchTrigerScreen : * 画面タッチはマウスクリックのイベントとして処理される
+            state.WaitingForTouchTrigerScreen : * クリックイベントはオブジェクトに対してマウスダウンアップした際に発生する
+            state.WaitingForTouchTrigerScreen - -> state.IlegalExitDetection : イリーガル\n退室検知
+        }
+            state "ランダムディレイ" as state.DelayMatch2Delay{
+                state.DelayMatch2Delay : do / タイムアウト監視処理
+                state.DelayMatch2Delay :
+                state.DelayMatch2Delay - -> state.DelayMatchImage : タイムアウト\n(正常系)
+                state.DelayMatch2Delay : exit / タイムアウト処理(正常系)
+                state.DelayMatch2Delay : * ストップウォッチをリスタート
+                state.DelayMatch2Delay : * 指定時間ランダムタイムディレイ
+                state.DelayMatch2Delay - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+            state "ランダムディレイ" as state.Training2Delay{
+                state.Training2Delay : do / タイムアウト監視処理
+                state.Training2Delay :
+                state.Training2Delay - -> state.Training : タイムアウト\n(正常系)
+                state.Training2Delay : exit / タイムアウト処理(正常系)
+                state.Training2Delay : * ストップウォッチをリスタート
+                state.Training2Delay : * 指定時間ランダムタイムディレイ
+                state.Training2Delay - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+        state "ディレイマッチ" as group.DelayMatch {
+            state "ディレイマッチ(正解図形表示)" as state.DelayMatchImage {
+
+                state.DelayMatchImage : do / タイムアウト監視処理
+
+                state.DelayMatchImage : 
+                state.DelayMatchImage - -> state.DelayMatch2Black : タイムアウト\n(正常系)
+                state.DelayMatchImage : exit / タイムアウト処理(正常系)
+                state.DelayMatchImage : * ストップウォッチをリスタート
+                state.DelayMatchImage : * タッチパネル画面を黒
+                state.DelayMatchImage - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+            state "ディレイマッチ(タッチパネル画面を黒)" as state.DelayMatch2Black {
+
+                state.DelayMatch2Black : do / タイムアウト監視処理
+
+                state.DelayMatch2Black : 
+                state.DelayMatch2Black - -> state.Training : タイムアウト\n(正常系)
+                state.DelayMatch2Black : exit / タイムアウト処理(正常系)
+                state.DelayMatch2Black : * ストップウォッチをリスタート
+                state.DelayMatch2Black : * 正解図形・不正解図形表示
+                state.DelayMatch2Black : * タッチコレクトをスタート
+                state.DelayMatch2Black - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+
+            state "訓練" as state.Training {
+
+                state.Training : do / タイムアウト監視処理
+
+                state.Training : 
+                state.Training - -> state.PreOpenDoorProc : 試行\nタイムアウト
+                state.Training : exit / タイムアウト処理
+                state.Training : * タッチコレクトをストップ
+                state.Training : * ドアをOPEN
+                state.Training : * ファイル出力
+
+                state.Training : 
+                state.Training - -> state.CorrectAnswer : 正解図形タッチ
+                state.Training : exit / 正解図形タッチ処理
+                state.Training : * ストップウォッチを停止
+                state.Training : * タッチコレクトをストップ
+                state.Training - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+        }
+
+        state "正解" as group.CorrectAnswer {
+            state "正解" as state.CorrectAnswer {
+
+                state.CorrectAnswer - -> state.WaitingForFeedComplete
+                state.CorrectAnswer : exit / 処理
+                state.CorrectAnswer : * タッチパネル画面を黒
+                state.CorrectAnswer : * 天井ランプをOFF
+                state.CorrectAnswer : * フィードランプをON
+                state.CorrectAnswer : * 報酬音を再生
+                state.CorrectAnswer : * 給餌を実行
+            }
+
+            state "給餌完了待ち" as state.WaitingForFeedComplete {
+
+                state.WaitingForFeedComplete - -> state.PreOpenDoorProc : 試行完了
+                state.WaitingForFeedComplete : exit / 試行完了処理
+                state.WaitingForFeedComplete : * 天井ランプをON
+                state.WaitingForFeedComplete : * フィードランプをOFF
+                state.WaitingForFeedComplete : * ドアをOPEN
+                state.WaitingForFeedComplete : * ファイル出力
+
+                state.WaitingForFeedComplete : 
+                state.WaitingForFeedComplete - -> state.InitInterval : 試行継続
+                state.WaitingForFeedComplete : exit / 試行継続処理
+                state.WaitingForFeedComplete : * 天井ランプをON
+                state.WaitingForFeedComplete : * 試行回数カウンタをインクリメント
+                state.WaitingForFeedComplete : 
+                state.WaitingForFeedComplete : **試行完了条件**
+                state.WaitingForFeedComplete : * 試行回数カウンタが設定試行回数となったとき
+                state.WaitingForFeedComplete - -> state.IlegalExitDetection : イリーガル\n退室検知
+            }
+        }
+
+        state "インターバル" as group.Interval {
+            state "インターバル初期化" as state.InitInterval {
+
+                state.InitInterval - -> state.IntervalProc
+                state.InitInterval : exit / 処理
+                state.InitInterval : * どこでもタッチをスタート
+                state.InitInterval : * インターバル値を取得
+                state.InitInterval : * ストップウォッチをリスタート
+            }
+
+            state "インターバル処理" as state.IntervalProc {
+
+                state.IntervalProc : do / タイムアウト監視処理
+
+                state.IntervalProc : 
+                state.IntervalProc - -> state.PreTouchTrigerScreenProc : 画面非タッチ
+                state.IntervalProc : exit / タイムアウト処理(画面非タッチ)
+                state.IntervalProc : * ファイル出力
+
+                state.IntervalProc : 
+                state.IntervalProc - -> state.InitInterval : 画面タッチ
+            }
+        }
+    }
+
+    state "退室" as group.LeaveCage {
+        state "ドアOPEドアOPEN前処理N待ち" as state.PreOpenDoorProc {
+            state.PreOpenDoorProc - -> state.WaitingForOpenDoor
+            state.PreOpenDoorProc : exit / 処理
+            state.PreOpenDoorProc : * タッチパネル画面を黒
+            state.PreOpenDoorProc : * ドアをOPEN
+        }
+
+        state "ドアOPEN待ち" as state.WaitingForOpenDoor {
+            state.WaitingForOpenDoor - -> state.IlegalExitDetection : イリーガル\n退室検知
+
+            state.WaitingForOpenDoor : 
+            state.WaitingForOpenDoor - -> state.PreLeaveCageProc : ドアOPEN\n異常
+            state.WaitingForOpenDoor : exit / ドアOPEN異常処理
+            state.WaitingForOpenDoor : * ドアOPEN回復処理はレバーのステートマシンで処理を行う
+
+            state.WaitingForOpenDoor : 
+            state.WaitingForOpenDoor - -> state.PreLeaveCageProc : ドアOPEN\n異常
+            state.WaitingForOpenDoor : **ドアOPEN異常要因**
+            state.WaitingForOpenDoor : * タイムアウト
+            state.WaitingForOpenDoor : * リトライアウト
+
+            state.WaitingForOpenDoor : 
+            state.WaitingForOpenDoor - -> state.PreLeaveCageProc : ドアOPEN\n正常
+        }
+
+        state "退室前処理" as state.PreLeaveCageProc {
+
+            state.PreLeaveCageProc - -> state.WaitingForLeaveCage
+            state.PreLeaveCageProc : exit / 処理
+            state.PreLeaveCageProc : * 天井ランプをOFF
+            state.PreLeaveCageProc : * 終了音を再生
+        }
+
+        state "退室待ち" as state.WaitingForLeaveCage {
+            state.WaitingForLeaveCage - -> state.PreEnterCageProc : 退室検知
+        }
+
+        state "イリーガル退室検知" as state.IlegalExitDetection {
+            state.IlegalExitDetection - -> state.PreEnterCageProc
+        }
+    }
+}
+
+@enduml
+
+PlantUML version 1.2020.26(Tue Dec 22 02:45:07 JST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

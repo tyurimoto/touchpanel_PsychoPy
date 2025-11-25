@@ -1,0 +1,12 @@
+norepos/
+/.vs
+/manual/html
+
+assets/
+
+~*
+/cs/Compartment/.editorconfig
+C-Drive/
+cs/Compartment/Compartment/darknet/yolov3.weights
+C-Drive/
+cs/Compartment/Compartment/darknet/yolov3.weights

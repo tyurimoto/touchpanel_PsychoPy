@@ -1,0 +1,662 @@
+﻿#define BG_WORKER       //サル二倍速用
+#define BG_WORKER2       //サル二倍速用
+
+using BlockProgramming;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Compartment
+{
+    public partial class FormMain : Form
+    {
+        public OpeImage opImage;
+        public EpisodeMemory episodeMemory;
+        public UcOperationDataStore ucOperationDataStore;
+        public IdControlHelper idControlHelper;
+        public IdControlHelper recentIdHelper;
+        SyncObject<bool> runBg1 = new SyncObject<bool>(true);
+        SyncObject<bool> runBg2 = new SyncObject<bool>(true);
+        FormScript formScript;
+        private Random globalRandomValue;
+        public UcOperationBlock uob;
+        private const string episodeBaseIdFileName = "baseid.json";
+        private const string recentIdFileName = "recentid.ids";
+
+        public bool Feeding { get => devFeed.Feeding; }
+        public FormMain()
+        {
+            InitializeComponent();
+
+            this.Size = new Size(1920, 1080);
+
+            SetupPurpose();
+            this.Shown += (sender, e) => { multiPurpose.Start(); };
+
+            InitializeComponentOnUcMain();
+            InitializeComponentOnUcOperation();
+            InitializeComponentOnUcCheckDevice();
+            InitializeComponentOnUcCheckIo();
+            InitializeComponentOnUcPreferencesTab();
+#if DEBUG
+            userControlOperationOnFormMain.buttonDebugEnter.Visible = true;
+            userControlOperationOnFormMain.buttonDebugLeave.Visible = true;
+            userControlOperationOnFormMain.textBoxDebugID.Visible = true;
+            userControlOperationOnFormMain.buttonDebugSetID.Visible = true;
+#endif
+
+            //SettingSearcher.SearchSetting();
+
+            uob = new UcOperationBlock(this);
+
+            //** ↓2025/01 多層化対応↓ **//
+            ucOperationDataStore = new UcOperationDataStore();
+
+            // userControlMainOnFormMain: 表示
+            VisibleUcMain();
+            // 注意：イベント定義とイベント登録を同時に行う例→ユーザ・コントロール:userControlMainOnFormMainを生成後でないとアクセスできない
+            //			userControlMainOnFormMain.buttonEndOnUserControlMain.Click += (object sender, EventArgs e) =>
+            //			{
+            //				DialogResult l_dialogresultResult = MessageBox.Show("Do you end this program", "End Program", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+            //				if (l_dialogresultResult == DialogResult.Yes)
+            //				{
+            //					this.Close();
+            //				}
+            //			};
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            // フォーム・テキストへ表示
+            this.Text = GetTextOfFormMain();
+
+            formSub = new FormSub();
+            opImage = new OpeImage(formSub, formSub.pictureBoxOnFormSub, preferencesDatOriginal);
+            globalRandomValue = new Random();
+
+            // Progress
+            formProgress = new FormProgress();
+            formProgress.Show();
+            formProgress.Activate();
+            formProgress.Refresh();
+            this.Enabled = false;
+            this.Refresh();
+
+            if (Program.EnableNewEngine)
+            {
+                try
+                {
+                    formScript = new FormScript();
+                    formScript.formParent = this;
+                    userControlMainOnFormMain.buttonBlockProgramming.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                //formScript.Show();
+
+                //以前の状態復帰
+                try
+                {
+                    //** ↓2025/01 多層化対応↓ **//
+                    //ucOperationDataStore = new UcOperationDataStore();
+
+                    // データの読み込み
+                    List<string> ids = ucOperationDataStore.GetIDs();
+                    foreach (string id in ids)
+                    {
+                        FileRelatedActionParam fileRelatedActionParams = ucOperationDataStore.GetEntry(id);
+                        fileRelatedActionParams.UpdateActionParam();
+                        if (fileRelatedActionParams != null)
+                        {
+                            uob.JsonToOperationProc(id, fileRelatedActionParams.ActionParams);
+                            uob.OperationProcToJson(id, fileRelatedActionParams.FilePath);
+                        }
+                    }
+
+                    //if (File.Exists("latestOperationProc.json"))
+                    //{
+                    //    string latestJsonFilePath = "latestOperationProc.json";
+                    //    var json = File.ReadAllText(latestJsonFilePath);
+                    //    if (json != "")
+                    //    {
+                    //        uob.JsonToOperationProc(json);
+                    //    }
+
+                    //}
+                    //** ↑2025/01 多層化対応↑ **//
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                HighlightScriptSetting(true);
+            }
+            else
+            {
+                userControlMainOnFormMain.buttonBlockProgramming.Visible = false;
+            }
+
+            foreach (var screen in System.Windows.Forms.Screen.AllScreens)
+            {
+                Debug.WriteLine("Device Name: {0}", screen.DeviceName);
+                Debug.WriteLine("Bounds: {0}", screen.Bounds);
+                Debug.WriteLine("Type: {0}", screen.GetType());
+                Debug.WriteLine("Working Area: {0}", screen.WorkingArea);
+                Debug.WriteLine("Primary Screen: {0}", screen.Primary);
+                Debug.WriteLine("");
+                //              if(screen.DeviceName == "\\\\.\\DISPLAY2")
+                //              Windowsの設定のディスプレイ設定をプライマリ/セカンダリに変更しても
+                //              上記のディスプレイ名は変わらず、固定的な名前が割り当てられるよう
+                if (!screen.Primary)
+                {
+                    formSub.TopMost = true;
+                    formSub.StartPosition = FormStartPosition.Manual;
+                    //                    l_formFormSub.Left = screen.Bounds.Left;
+                    //                    l_formFormSub.Top = screen.Bounds.Top;
+                    formSub.Location = new Point(screen.Bounds.Left, screen.Bounds.Top);
+                    formSub.ShowIcon = false;
+                    formSub.ShowInTaskbar = false;
+                    formSub.MaximizeBox = false;
+                    formSub.MinimizeBox = false;
+                    formSub.FormBorderStyle = FormBorderStyle.None;
+                    formSub.BackColor = Color.Black;
+                    Debug.WriteLine("Before: formSub.Left:{0} formSub.Top:{1} screen.Bounds.Left:{2} Top:{3}",
+                                        formSub.Left, formSub.Top,
+                                        screen.Bounds.Left, screen.Bounds.Top);
+                    formSub.WindowState = FormWindowState.Maximized;
+                    formSub.Show();
+                    //                  l_formFormSub.WindowState = FormWindowState.Maximized;
+                    Debug.WriteLine("After: formFormSub.Left:{0} formFormSub.Top:{1} screen.Bounds.Left:{2} Top:{3}",
+                                        formSub.Left, formSub.Top,
+                                        screen.Bounds.Left, screen.Bounds.Top);
+                    // 解像度自動取得
+                    opImage.WidthOfWholeArea = screen.Bounds.Width;
+                    opImage.HeightOfWholeArea = screen.Bounds.Height;
+                    Debug.WriteLine("formsubFormSub.pictureBoxOnFormSub.Width:{0} formsubFormSub.pictureBoxOnFormSub.Height:{1}",
+                                        this.formSub.pictureBoxOnFormSub.Width,
+                                        this.formSub.pictureBoxOnFormSub.Height);
+                    bitmapCanvas = new Bitmap(this.formSub.pictureBoxOnFormSub.Width, this.formSub.pictureBoxOnFormSub.Height);
+
+                    // サブディスプレイを発見できた時、サブ・ディスプレイ存在フラグをセット
+                    opImage.IsThereSubDisplay = true;
+                    break;
+                }
+            }
+
+            // 設定を読み出す
+            if (LoadPreference(out preferencesDatTemp) != true)
+            {
+                string oldSetting = SettingSearcher.SearchSetting();
+
+                if (System.IO.File.Exists(oldSetting))
+                {
+                    if (DialogResult.Yes == MessageBox.Show("設定ファイルが見つかりません。前のバージョンを設定を引き継ぎますか？", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1))
+                    {
+                        LoadPreference(oldSetting, out preferencesDatTemp);
+
+                        preferencesDatOriginal = preferencesDatTemp.Clone();
+                    }
+                }
+                else
+                {
+                    // preferencesDatOriginalはデフォルト値のままとなる
+                    MessageBox.Show("Preference file load error, so use default setting", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+            }
+            else
+            {
+                // 読み込んだ設定をオリジナルへコピー
+                preferencesDatOriginal = preferencesDatTemp.Clone();
+            }
+            // 設定値反映クラス化弊害
+            opImage.UpdatePreferences(preferencesDatOriginal);
+
+            // eDoor有効時
+            eDoor = new EDoor(ioBoardDevice, this);
+
+            //var t = ShowSplashWindow(null);
+            //t.Wait();
+            //Invoke((MethodInvoker)(() => { fp.Activate(); }));
+
+            if (!CheckRuntime("msvcp100.dll"))
+            {
+                this.Activate();
+                MessageBox.Show("VC++2010RedistributionLibraryがインストールされていません", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            if (!CheckRuntime("msvcp140.dll"))
+            {
+                this.Activate();
+                MessageBox.Show("VC++2015-22RedistributionLibraryがインストールされていません", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (!OpeImage.CheckSvgImage())
+            {
+                this.Activate();
+                isErrorHappened = true;
+                MessageBox.Show("SVG画像の読み込みに失敗しました\nプログラムフォルダ内SVG画像フォルダを確認してください。", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            Stopwatch camSw = Stopwatch.StartNew();
+            var camInitializeTask = new Task(() => { camImage = new CamImage(this); });
+            camInitializeTask.Start();
+            //camImage = new CamImage(this);
+            camInitializeTask.Wait();
+            camSw.Stop();
+            Debug.WriteLine("caminitilize :" + camSw.ElapsedMilliseconds.ToString());
+
+            // Preference読み込み後に
+            InitializeIdContoroler();
+
+            // シリアル・ポート初期化
+            serialHelperPort.ComPort = preferencesDatOriginal.ComPort;
+            //serialHelperPort.BaudRate = preferencesDatOriginal.ComBaudRate;
+            serialHelperPort.BaudRate = "9600";
+            serialHelperPort.DataBits = preferencesDatOriginal.ComDataBitLength;
+            serialHelperPort.StopBits = preferencesDatOriginal.ComStopBitLength;
+            serialHelperPort.Handshake = System.IO.Ports.Handshake.None.ToString();
+            serialHelperPort.Parity = preferencesDatOriginal.ComParity;
+            InitSerialPort();
+            // IO開く前にサブからこちらへ
+            this.Activate();
+            // IOボード: デバイス取得
+            try
+            {
+
+                if (!ioBoardDevice.AcquireDevice())
+                {
+                    // IOビヘイビアモデル
+                    ioBoardDevice = null;
+                    this.Activate();
+                    MessageBox.Show("IOオープンエラー ビヘイビアモデルで起動");
+                    ioBoardDevice = new IoMicrochipDummy();
+                }
+                else
+                {
+                    ioBoardDevice.SetMotorSpeed(preferencesDatOriginal.TimeToOutputSoundOfCorrect);
+                    eDoor.Start();
+                }
+            }
+            catch (Exception)
+            {
+                // IOビヘイビアモデル
+                ioBoardDevice = null;
+                MessageBox.Show("IOオープンエラー ビヘイビアモデルで起動");
+                ioBoardDevice = new IoMicrochipDummy();
+            }
+
+            try
+            {
+                if (serialHelperPort.Open() != true)
+                {
+                    serialPortOpenFlag = false;
+                    MessageBox.Show("COM port open error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    serialPortOpenFlag = true;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("シリアルポートが見つかりません\\nアプリケーションを終了します。", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //アプリケーションを終了する
+                isErrorHappened = true;
+                Application.Exit();
+            }
+            // サブ・ディスプレイが存在しない時
+            if (opImage.IsThereSubDisplay != true)
+            {
+                MessageBox.Show("Sub display isn't found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                devFeed = new DevFeedMulti(ioBoardDevice, this, 1);
+                devFeed.UpdateFeedStatus = x => UpdateFeedStatus(x);
+                devFeed2 = new DevFeedMulti(ioBoardDevice, this, 2);
+                devFeed2.UpdateFeedStatus = x => UpdateFeed2Status(x);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            try
+            {
+#if !BG_WORKER
+			timerOperationStateMachine.Enabled = true;
+#else
+                timerOperationStateMachine.Enabled = false;
+                backgroundWorker1.RunWorkerAsync();
+#endif
+
+#if !BG_WORKER2
+			timerOperation.Enabled = true;
+#else
+                timerOperation.Enabled = false;
+                backgroundWorker2.RunWorkerAsync();
+#endif
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            // 自分自身(FormMain)をアクティブにする(理由:FormaSubへフォーカスが行ってしまい、メッセージ・ボックス表示がFormSubに表示されてしまったそれを回避する為)
+            this.Activate();
+            formProgress?.Close();
+            this.Enabled = true;
+
+            opCollection.callbackMessageDebug("アプリ起動");
+            return;
+        }
+        public void InitializeIdContoroler()
+        {
+            episodeMemory = new EpisodeMemory("epsave.json");
+            idControlHelper = new IdControlHelper(episodeBaseIdFileName);
+            recentIdHelper = new IdControlHelper(recentIdFileName);
+            //IdControlHelper null時 強制作成
+            if (idControlHelper is null)
+            {
+                idControlHelper = new IdControlHelper();
+            }
+            if (recentIdHelper is null)
+            {
+                recentIdHelper = new IdControlHelper();
+            }
+            // インスタンス作成直後にCheckExpireする エントリが多量にExpireしていた場合時間がかかるため
+
+            // ID有効期間確認
+            if (idControlHelper.FindId(opCollection.idCode))
+            {
+                idControlHelper.CheckExpire();
+                if (!idControlHelper.FindId(opCollection.idCode))
+                {
+                    // なければエントリ削除？
+                    episodeMemory.RemoveEntry(opCollection.idCode);
+                }
+            }
+            else
+            {
+                // なければエントリ削除
+                episodeMemory.RemoveEntry(opCollection.idCode);
+            }
+
+            idControlHelper.ExpireTime = preferencesDatOriginal.EpisodeExpireTime;
+
+            // RecentID有効期間確認
+            recentIdHelper.ExpireTime = 100;
+            recentIdHelper.CheckExpire();
+        }
+
+        // ID Code重複排除用にID Codeを保存
+        public SyncObject<String> mIdCode0 = new SyncObject<String>("");
+
+        private void InitSerialPort()
+        {
+            RFIDReaderHelper rFIDReaderHelper = new RFIDReaderHelper();
+            rFIDReaderHelper.callbackReceivedDataSub += (x) => { callbackReceivedDataSub(x); };
+            // シリアル受信デリゲートを設定
+            serialHelperPort.callbackReceivedDatagram = rFIDReaderHelper.GetUnivrsalIDAction();
+            //serialHelperPort.ComPort = "COM4";
+            serialHelperPort.StopBits = "Two";
+            serialHelperPort.BaudRate = "9600";
+            serialHelperPort.Parity = "None";
+
+            serialHelperPort.Init(serialPort1);
+        }
+        /// <summary>
+        /// 設定タブ タスク選択有効切り替え
+        /// </summary>
+        /// <param name="n"></param>
+        public void EnableChangeTask(bool n)
+        {
+            userControlPreferencesTabOnFormMain.comboBoxTypeOfTask.Enabled = n;
+        }
+        public void HighlightScriptSetting(bool n)
+        {
+            if (n)
+            {
+                //userControlPreferencesTabOnFormMain.groupBoxTask.BackColor = Color.DarkGray;
+                userControlPreferencesTabOnFormMain.groupBoxDisplay.BackColor = Color.DarkGray;
+                userControlPreferencesTabOnFormMain.groupBoxInterval.BackColor = Color.DarkGray;
+                userControlPreferencesTabOnFormMain.groupBoxTimingSetting.BackColor = Color.DarkGray;
+                userControlPreferencesTabOnFormMain.groupBoxRandomTime.BackColor = Color.DarkGray;
+                userControlPreferencesTabOnFormMain.groupBoxTrigger.BackColor = Color.DarkGray;
+                //userControlPreferencesTabOnFormMain.groupBoxEndSound.BackColor = Color.DarkGray;
+                //userControlPreferencesTabOnFormMain.tableLayoutPanelEndSound.CellPaint += new TableLayoutCellPaintEventHandler((sender, e) =>
+                //{
+                //    if (e.Row == 1)
+                //    {
+                //        e.Graphics.FillRectangle(Brushes.DarkGray, e.CellBounds);
+                //    }
+                //});
+                userControlPreferencesTabOnFormMain.tableLayoutPanelRewardSound.CellPaint += new TableLayoutCellPaintEventHandler((sender, e) =>
+                {
+                    if (e.Row == 1)
+                    {
+                        e.Graphics.FillRectangle(Brushes.DarkGray, e.CellBounds);
+                    }
+                });
+                //userControlPreferencesTabOnFormMain.tableLayoutPanelCorrectSound.CellPaint += new TableLayoutCellPaintEventHandler((sender, e) => 
+                //{
+                //    if (e.Row == 1)
+                //    {
+                //        e.Graphics.FillRectangle(Brushes.DarkGray, e.CellBounds);
+                //    }
+                //});
+                userControlPreferencesTabOnFormMain.tableLayoutPanel7.CellPaint += new TableLayoutCellPaintEventHandler((sender, e) =>
+                {
+                    if (e.Row == 0)
+                    {
+                        e.Graphics.FillRectangle(Brushes.DarkGray, e.CellBounds);
+                    }
+                });
+
+            }
+            else
+            {
+                userControlPreferencesTabOnFormMain.groupBoxTask.BackColor = Color.Transparent;
+                userControlPreferencesTabOnFormMain.groupBoxDisplay.BackColor = Color.Transparent;
+                userControlPreferencesTabOnFormMain.groupBoxInterval.BackColor = Color.Transparent;
+                userControlPreferencesTabOnFormMain.groupBoxTimingSetting.BackColor = Color.Transparent;
+                userControlPreferencesTabOnFormMain.groupBoxRandomTime.BackColor = Color.Transparent;
+            }
+
+        }
+
+        private void timerCheckIo_Tick(object sender, EventArgs e)
+        {
+            timerCheckIo_TickSub(sender, e);
+        }
+
+        private void timerOperation_Tick(object sender, EventArgs e)
+        {
+#if !BG_WORKER2
+			timerOperation_TickSub(sender, e);
+#endif
+
+        }
+
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            serialHelperPort.OnDataReceived2(500);
+        }
+
+        private void timerOperationStateMachine_Tick(object sender, EventArgs e)
+        {
+#if !BG_WORKER
+			OnOperationStateMachineProc();
+#endif
+        }
+        private void StopBgWorkerOperation()
+        {
+#if BG_WORKER
+            runBg1.Value = false;
+#endif
+
+#if BG_WORKER2
+
+            runBg2.Value = false;
+#endif
+            multiPurpose.Stop();
+
+            // IOボード・デバイス開放
+            ioBoardDevice.ReleaseDevice();
+            // シリアル・ポート: クローズ
+            serialHelperPort.Close();
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isErrorHappened == true)
+            {
+                StopBgWorkerOperation();
+            }
+            else
+            {
+                if (MessageBox.Show("End this program ?", "Infomation", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    StopBgWorkerOperation();
+                }
+                else
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                recentIdHelper.SaveId(recentIdFileName);
+            }
+            ucOperationDataStore?.Dispose();
+            camImage?.Dispose();
+            opCollection.callbackMessageDebug("アプリ終了");
+
+            if (Program.EnableNewEngine)
+            {
+
+                try
+                {
+                    formScript?.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        static object syncObjectSplash = new object();
+        private Task ShowSplashWindow(FormMain mainForm)
+        {
+            lock (syncObjectSplash)
+            {
+                if (mainForm != null)
+                {
+                }
+                ManualResetEvent splashShownEvent = new System.Threading.ManualResetEvent(false);
+
+                Task progresstask = new Task(() =>
+                {
+                    formProgress = new FormProgress();
+                    formProgress.Show();
+                });
+                progresstask.Start();
+                return progresstask;
+            }
+        }
+        private void CloseSplash()
+        {
+            lock (syncObjectSplash)
+            {
+                formProgress.Close();
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Action M_OperationProc = () => { };
+
+            UcOperationInternal ucOperationInternal = new UcOperationInternal(this);
+            if (Program.EnableNewEngine)
+            {
+                M_OperationProc = () => { ucOperationInternal.OnOperationStateMachineProc(); };
+            }
+            else
+            {
+                M_OperationProc = () => { OnOperationStateMachineProc(); };
+            }
+#if BG_WORKER
+            try
+            {
+                do
+                {
+                    M_OperationProc();
+                    System.Threading.Thread.Sleep(1);
+                } while (runBg1.Value);
+            }
+            catch (Exception ex)
+            {
+                opCollection.callbackMessageError(ex.Message);
+                //MessageBox.Show(ex.Message);
+            }
+#endif
+
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+#if BG_WORKER2
+            //var stopwatch = new Stopwatch();
+            //var loopCount = 0;
+            try
+            {
+                do
+                {
+                    //if(loopCount<20)
+                    //	stopwatch.Start();
+
+                    timerOperation_TickSub(sender, e);
+                    System.Threading.Thread.Sleep(1);
+
+                    //if (loopCount < 120)
+                    //{
+                    //	Debug.WriteLine("Loop speed : " + stopwatch.ElapsedMilliseconds + "ms");
+                    //	stopwatch.Restart();
+                    //	loopCount++;
+                    //}
+
+
+
+                } while (runBg2.Value);
+            }
+            catch (Exception ex)
+            {
+                opCollection.callbackMessageError(ex.Message);
+                //MessageBox.Show(ex.Message);
+            }
+#endif
+        }
+        public static bool CheckRuntime(string systemFile)
+        {
+            string sysdir = System.Environment.GetFolderPath(System.Environment.SpecialFolder.System);
+            string path = sysdir + "\\" + systemFile;
+            bool ret = File.Exists(path);
+            return ret;
+        }
+    }
+}

@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeCSharpInformation.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/CSharpUtilities.cmake
+C:/darknet/build/CMakeFiles/3.26.0-rc3/CMakeCSharpCompiler.cmake
+C:/darknet/src/csharp/CMakeLists.txt

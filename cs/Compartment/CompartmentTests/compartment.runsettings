@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <!-- configuration elements -->
+	<MSTest>
+		<MapInconclusiveToFailed>True</MapInconclusiveToFailed>
+		<CaptureTraceOutput>False</CaptureTraceOutput>
+		<DeleteDeploymentDirectoryAfterTestRunIsComplete>False</DeleteDeploymentDirectoryAfterTestRunIsComplete>
+		<DeploymentEnabled>False</DeploymentEnabled>
+		<AssemblyResolution>
+			<Directory path="C:\Users\kodama\source\repos\compartment\cs\Compartment\Compartment\bin\" includeSubDirectories="true" />
+		</AssemblyResolution>
+	</MSTest>
+</RunSettings>

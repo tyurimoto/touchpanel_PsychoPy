@@ -1,0 +1,214 @@
+﻿<UserControl
+	x:Class="BlockProgramming.FunctionBlock"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:BlockProgramming"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	d:DataContext="{d:DesignInstance Type=local:FunctionBlockViewModel}"
+	d:DesignHeight="200"
+	d:DesignWidth="400"
+	mc:Ignorable="d">
+	<UserControl.Resources>
+		<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+		<local:BooleanToBrushConverter
+			x:Key="IsAsyncToColorConverter"
+			FalseColor="Aquamarine"
+			TrueColor="LightPink" />
+		<local:ContentTypeDataTemplateSelector x:Key="ContentTypeDataTemplateSelector" />
+		<DataTemplate x:Key="stringTypeTemplate" DataType="{x:Type local:FuncArg}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="1*" />
+				</Grid.ColumnDefinitions>
+				<TextBlock Text="{Binding ArgName}" />
+				<TextBox Grid.Column="1" Text="{Binding ArgValue}" />
+			</Grid>
+		</DataTemplate>
+		<DataTemplate x:Key="boolTypeTemplate" DataType="{x:Type local:FuncArg}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="1*" />
+				</Grid.ColumnDefinitions>
+				<TextBlock Text="{Binding ArgName}" />
+				<CheckBox Grid.Column="1" IsChecked="{Binding ArgValue}" />
+			</Grid>
+		</DataTemplate>
+		<DataTemplate x:Key="valueTypeTemplate" DataType="{x:Type local:FuncArg}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition Height="2*" />
+				</Grid.RowDefinitions>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="20" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<TextBlock
+						Name="ParamText"
+						FontSize="18"
+						Text="{Binding ArgName}" />
+					<TextBlock
+						Grid.Column="1"
+						HorizontalAlignment="Left"
+						FontSize="{Binding FontSize, ElementName=ParamText}"
+						Text=":" />
+					<TextBox
+						Grid.Column="2"
+						HorizontalAlignment="Left"
+						FontSize="{Binding FontSize, ElementName=ParamText}"
+						Text="{Binding ArgValue}" />
+				</Grid>
+				<Grid Grid.Row="1" HorizontalAlignment="Stretch">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<Slider
+						MinWidth="200"
+						IsMoveToPointEnabled="True"
+						IsSnapToTickEnabled="True"
+						LargeChange="1"
+						Maximum="{Binding Maxmin.Max}"
+						Minimum="{Binding Maxmin.Min}"
+						SmallChange="0.1"
+						Thumb.DragCompleted="Slider_DragCompleted"
+						Thumb.DragStarted="Slider_DragStarted"
+						Value="{Binding ArgValue}" />
+				</Grid>
+			</Grid>
+		</DataTemplate>
+		<DataTemplate x:Key="pathTypeTemplate" DataType="{x:Type local:PathFuncArg}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="20" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<TextBlock FontSize="18" Text="{Binding ArgName}" />
+					<TextBlock Grid.Column="1" FontSize="18" Text=":" />
+					<TextBlock
+						Name="FilePath"
+						Grid.Column="2"
+						FontSize="18"
+						TextTrimming="CharacterEllipsis"					
+						Text="{Binding ArgValue, Mode=TwoWay}" ClipToBounds="True" />
+				</Grid>
+				<Button
+					Name="PathDialog"
+					Grid.Row="1"
+					HorizontalAlignment="Left"
+					Command="{Binding OpenFileDialog}"
+					Content="ファイルを選択" />
+			</Grid>
+		</DataTemplate>
+	</UserControl.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition Width="70" />
+		</Grid.ColumnDefinitions>
+		<Rectangle
+			Grid.RowSpan="3"
+			Grid.ColumnSpan="2"
+			Margin="0,0,0,0"
+			Fill="{Binding Function.IsAsync, Converter={StaticResource IsAsyncToColorConverter}}"
+			RadiusX="10"
+			RadiusY="10"
+			Stroke="Black" />
+		<Grid Name="functionView" Panel.ZIndex="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" MinHeight="36" />
+				<RowDefinition Height="Auto" MinHeight="36" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<ComboBox
+				MinWidth="200"
+				Margin="30,0"
+				VerticalAlignment="Center"
+				FontSize="18"
+				ItemsSource="{Binding Items}"
+				SelectedIndex="{Binding SelectedIndex}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding FuncName}" />
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+			<TextBox
+				Grid.Row="1"
+				MinWidth="100"
+				Margin="30,0"
+				VerticalAlignment="Center"
+				FontSize="18"
+				Text="{Binding Function.Description, FallbackValue=Description}"
+				TextWrapping="Wrap" />
+			<Expander
+				Grid.Row="2"
+				Margin="5,0,30,5"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				FontSize="18"
+				Header="パラメータ">
+				<Expander.Style>
+					<Style TargetType="Expander">
+						<Setter Property="Visibility" Value="Collapsed" />
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding Visibility, ElementName=MyListBox}" Value="Visible">
+								<Setter Property="Visibility" Value="Visible" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</Expander.Style>
+				<Grid Margin="30,0,0,0" Background="#FFE5E5E5">
+					<StackPanel x:Name="params">
+						<ListBox
+							x:Name="MyListBox"
+							AllowDrop="False"
+							ItemsSource="{Binding Path=Function.FuncArgs, Mode=TwoWay}"
+							Visibility="{Binding HasItems, RelativeSource={RelativeSource Self}, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<ListBox.ItemTemplateSelector>
+								<local:ContentTypeDataTemplateSelector />
+							</ListBox.ItemTemplateSelector>
+						</ListBox>
+					</StackPanel>
+				</Grid>
+			</Expander>
+		</Grid>
+		<Grid Grid.Column="1">
+			<Button
+				x:Name="button"
+				Margin="5,5,5,5"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Background="{x:Null}"
+				BorderBrush="{x:Null}"
+				Command="{Binding RemoveCommand}">
+				<Button.Content>
+					<Grid>
+						<Rectangle
+							Width="40"
+							Height="40"
+							Fill="LightGray"
+							RadiusX="5"
+							RadiusY="5" />
+						<TextBlock
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							FontSize="20"
+							Text="-" />
+					</Grid>
+				</Button.Content>
+			</Button>
+
+		</Grid>
+	</Grid>
+</UserControl>

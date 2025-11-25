@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{45118954-D583-3E50-B7B7-C1713719AE58}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>YoloCSharpWrapper</ProjectName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <ManagedAssembly>true</ManagedAssembly>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <OutputPath>C:\darknet\build\src\csharp\Debug\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <PlatformToolset>v143</PlatformToolset>
+    <AssemblyName>YoloCSharpWrapperd</AssemblyName>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE;DEBUG;OPENCV;_CRT_SECURE_NO_WARNINGS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>false</Optimize>
+    <SuppressStartupBanner></SuppressStartupBanner>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <OutputPath>C:\darknet\build\src\csharp\Release\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <PlatformToolset>v143</PlatformToolset>
+    <AssemblyName>YoloCSharpWrapper</AssemblyName>
+    <DebugType>none</DebugType>
+    <DefineConstants>TRACE;OPENCV;_CRT_SECURE_NO_WARNINGS</DefineConstants>
+    <ErrorReport>queue</ErrorReport>
+    <Optimize>true</Optimize>
+    <SuppressStartupBanner></SuppressStartupBanner>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <OutputPath>C:\darknet\build\src\csharp\MinSizeRel\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <PlatformToolset>v143</PlatformToolset>
+    <AssemblyName>YoloCSharpWrapper</AssemblyName>
+    <DebugType>none</DebugType>
+    <DefineConstants>TRACE;OPENCV;_CRT_SECURE_NO_WARNINGS</DefineConstants>
+    <Optimize>true</Optimize>
+    <SuppressStartupBanner></SuppressStartupBanner>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <OutputPath>C:\darknet\build\src\csharp\RelWithDebInfo\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <PlatformToolset>v143</PlatformToolset>
+    <AssemblyName>YoloCSharpWrapper</AssemblyName>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE;OPENCV;_CRT_SECURE_NO_WARNINGS</DefineConstants>
+    <Optimize>false</Optimize>
+    <SuppressStartupBanner></SuppressStartupBanner>
+  </PropertyGroup>
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.CSharp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.CSharp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemGroup>
+    <None Include="C:\darknet\src\csharp\CMakeLists.txt">
+      <Link>CMakeLists.txt</Link>
+    </None>
+  </ItemGroup>
+  <Target Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"
+    Name="CustomCommand_Debug_6e123dacc0077a78cf4a182e1e33eeb4"
+    Inputs="C:/darknet/src/csharp/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.26\Modules\CMakeCSharpInformation.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\CSharpUtilities.cmake;C:\darknet\build\CMakeFiles\3.26.0-rc3\CMakeCSharpCompiler.cmake"
+    Outputs="C:\darknet\build\src\csharp\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule C:/darknet/src/csharp/CMakeLists.txt" />
+    <Exec Command="setlocal&#10;&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -SC:/darknet -BC:/darknet/build --check-stamp-file C:/darknet/build/src/csharp/CMakeFiles/generate.stamp&#10;if %errorlevel% neq 0 goto :cmEnd&#10;:cmEnd&#10;endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone&#10;:cmErrorLevel&#10;exit /b %1&#10;:cmDone&#10;if %errorlevel% neq 0 goto :VCEnd&#10;:VCEnd" />
+  </Target>
+  <Target Condition="'$(Configuration)|$(Platform)'=='Release|x64'"
+    Name="CustomCommand_Release_6e123dacc0077a78cf4a182e1e33eeb4"
+    Inputs="C:/darknet/src/csharp/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.26\Modules\CMakeCSharpInformation.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\CSharpUtilities.cmake;C:\darknet\build\CMakeFiles\3.26.0-rc3\CMakeCSharpCompiler.cmake"
+    Outputs="C:\darknet\build\src\csharp\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule C:/darknet/src/csharp/CMakeLists.txt" />
+    <Exec Command="setlocal&#10;&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -SC:/darknet -BC:/darknet/build --check-stamp-file C:/darknet/build/src/csharp/CMakeFiles/generate.stamp&#10;if %errorlevel% neq 0 goto :cmEnd&#10;:cmEnd&#10;endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone&#10;:cmErrorLevel&#10;exit /b %1&#10;:cmDone&#10;if %errorlevel% neq 0 goto :VCEnd&#10;:VCEnd" />
+  </Target>
+  <Target Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"
+    Name="CustomCommand_MinSizeRel_6e123dacc0077a78cf4a182e1e33eeb4"
+    Inputs="C:/darknet/src/csharp/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.26\Modules\CMakeCSharpInformation.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\CSharpUtilities.cmake;C:\darknet\build\CMakeFiles\3.26.0-rc3\CMakeCSharpCompiler.cmake"
+    Outputs="C:\darknet\build\src\csharp\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule C:/darknet/src/csharp/CMakeLists.txt" />
+    <Exec Command="setlocal&#10;&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -SC:/darknet -BC:/darknet/build --check-stamp-file C:/darknet/build/src/csharp/CMakeFiles/generate.stamp&#10;if %errorlevel% neq 0 goto :cmEnd&#10;:cmEnd&#10;endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone&#10;:cmErrorLevel&#10;exit /b %1&#10;:cmDone&#10;if %errorlevel% neq 0 goto :VCEnd&#10;:VCEnd" />
+  </Target>
+  <Target Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"
+    Name="CustomCommand_RelWithDebInfo_6e123dacc0077a78cf4a182e1e33eeb4"
+    Inputs="C:/darknet/src/csharp/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.26\Modules\CMakeCSharpInformation.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\CSharpUtilities.cmake;C:\darknet\build\CMakeFiles\3.26.0-rc3\CMakeCSharpCompiler.cmake"
+    Outputs="C:\darknet\build\src\csharp\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule C:/darknet/src/csharp/CMakeLists.txt" />
+    <Exec Command="setlocal&#10;&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -SC:/darknet -BC:/darknet/build --check-stamp-file C:/darknet/build/src/csharp/CMakeFiles/generate.stamp&#10;if %errorlevel% neq 0 goto :cmEnd&#10;:cmEnd&#10;endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone&#10;:cmErrorLevel&#10;exit /b %1&#10;:cmDone&#10;if %errorlevel% neq 0 goto :VCEnd&#10;:VCEnd" />
+  </Target>
+  <ItemGroup>
+    <Compile Include="C:\darknet\src\csharp\YoloCSharpWrapper.cs">
+      <Link>YoloCSharpWrapper.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Include="PThreads4W::PThreads4W">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <Private>True</Private>
+      <HintPath>C:\darknet\3rdparty\pthreads\lib\pthreadVC2.lib</HintPath>
+    </Reference>
+    <Reference Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Include="PThreads4W::PThreads4W">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <Private>True</Private>
+      <HintPath>C:\darknet\3rdparty\pthreads\lib\pthreadVC2.lib</HintPath>
+    </Reference>
+    <Reference Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Include="PThreads4W::PThreads4W">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <Private>True</Private>
+      <HintPath>C:\darknet\3rdparty\pthreads\lib\pthreadVC2.lib</HintPath>
+    </Reference>
+    <Reference Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Include="PThreads4W::PThreads4W">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <Private>True</Private>
+      <HintPath>C:\darknet\3rdparty\pthreads\lib\pthreadVC2.lib</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\darknet\build\ZERO_CHECK.vcxproj">
+      <Project>{7F3F99A7-4F8D-3842-B1D2-ABE293DE7CC2}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\darknet\build\dark.vcxproj">
+      <Project>{E54EAD55-5BC5-33A5-8B16-78C3C9557B54}</Project>
+      <Name>dark</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'MinSizeRel'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'RelWithDebInfo'">
+  </PropertyGroup>
+  <PropertyGroup>
+    <BuildDependsOn>
+      CustomCommand_Debug_6e123dacc0077a78cf4a182e1e33eeb4;
+      CustomCommand_MinSizeRel_6e123dacc0077a78cf4a182e1e33eeb4;
+      CustomCommand_RelWithDebInfo_6e123dacc0077a78cf4a182e1e33eeb4;
+      CustomCommand_Release_6e123dacc0077a78cf4a182e1e33eeb4;
+      $(BuildDependsOn)
+</BuildDependsOn>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,563 @@
+<!DOCTYPE html><html><head>
+      <title>InOutStaySensorStateMachine</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\miura\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.16\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E5%85%A5%E5%AE%A4%E9%80%80%E5%AE%A4%E5%9C%A8%E5%AE%A4%E3%82%BB%E3%83%B3%E3%82%B5%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%E5%9B%B3">&#x5165;&#x5BA4;&#x30FB;&#x9000;&#x5BA4;&#x30FB;&#x5728;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;&#x72B6;&#x614B;&#x9077;&#x79FB;&#x56F3;</h1>
+
+<h2 class="mume-header" id="%E5%85%A5%E5%AE%A4%E9%80%80%E5%AE%A4%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%E5%9B%B3">&#x5165;&#x5BA4;&#x30FB;&#x9000;&#x5BA4;&#x72B6;&#x614B;&#x9077;&#x79FB;&#x56F3;</h2>
+
+<ul>
+<li>&#x7B52;&#x5185;&#x3067;&#x5916;&#x5074;&#x30BB;&#x30F3;&#x30B5;&#x304C;FALSE&#x304B;&#x3064;&#x306F;&#x30B1;&#x30FC;&#x30B8;&#x5074;&#x30BB;&#x30F3;&#x30B5;&#x304C;FALSE&#x306E;&#x6761;&#x4EF6;&#x306F;&#x8D77;&#x304D;&#x306A;&#x3044;&#x3082;&#x306E;&#x3068;&#x3059;&#x308B;</li>
+<li>I/O&#x30DC;&#x30FC;&#x30C9;&#x304C;&#x5272;&#x308A;&#x8FBC;&#x307F;&#x3092;&#x4F7F;&#x3048;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;Windows&#x3067;&#x306F;&#x30DD;&#x30FC;&#x30EA;&#x30F3;&#x30B0;&#x3092;&#x884C;&#x3046;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3002;<br>
+&#x30DD;&#x30FC;&#x30EA;&#x30F3;&#x30B0;&#x51E6;&#x7406;&#x306F;&#x6570;&#x767E;ms&#x7A0B;&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30D0;&#x30EB;&#x3092;&#x6301;&#x3064;&#x305F;&#x3081;&#x3001;&#x30DE;&#x30FC;&#x30E2;&#x30BB;&#x30C3;&#x30C8;&#x306E;&#x52D5;&#x304D;&#x304C;&#x3086;&#x3063;&#x304F;&#x308A;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x304C;&#x6761;&#x4EF6;</li>
+</ul>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="657px" preserveAspectRatio="none" style="width:1267px;height:657px;" version="1.1" viewBox="0 0 1267 657" width="1267px" zoomAndPan="magnify"><defs><filter height="300%" id="f170vvj5vw69rl" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[86c205ebcfb01721e391bc62dba46dfb]
+cluster group.InOutSensor--><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="638" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="1248" x="7" y="7"/><rect fill="#FFFFFF" height="604.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="1242" x="10" y="37.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="7" x2="1255" y1="34.6094" y2="34.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="589" y="25.5332">&#x5165;&#x9000;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;</text><!--MD5=[1eaa0ad0bf7571b912fbc717933c29b2]
+cluster group.In--><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="570" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="400" x="31" y="51"/><rect fill="#FFFFFF" height="536.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="394" x="34" y="81.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="31" x2="431" y1="78.6094" y2="78.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="203" y="69.5332">&#x5165;&#x5BA4;&#x65B9;&#x5411;</text><!--MD5=[90f20f8536eaaa49de9be018337208d6]
+cluster group.Out--><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="570" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="374" x="751" y="51"/><rect fill="#FFFFFF" height="536.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="368" x="754" y="81.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="751" x2="1125" y1="78.6094" y2="78.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="910" y="69.5332">&#x9000;&#x5BA4;&#x65B9;&#x5411;</text><ellipse cx="632" cy="112" fill="#000000" filter="url(#f170vvj5vw69rl)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><g id="group.InOutSensor.state.init"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="200" x="532" y="231"/><line style="stroke:#A80036;stroke-width:1.5;" x1="532" x2="732" y1="258.6094" y2="258.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="611" y="250.5332">&#x521D;&#x671F;&#x5316;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="537" y="276.0664">exit / &#x51E6;&#x7406;</text><ellipse cx="542.5" cy="286.2969" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="145" x="548" y="291.1602">&#x5916;&#x306B;&#x623B;&#x3063;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x3092;FALSE</text><ellipse cx="542.5" cy="301.3906" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="169" x="548" y="306.2539">&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x5165;&#x3063;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x3092;FALSE</text></g><g id="state.init.state.idle"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="206" x="529" y="408"/><line style="stroke:#A80036;stroke-width:1.5;" x1="529" x2="735" y1="435.6094" y2="435.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="186" x="539" y="427.5332">&#x5916;&#x5074;&#x307E;&#x305F;&#x306F;&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x5C45;&#x308B;(idle)</text></g><g id="state.ReturnOutSide"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="52.7031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="188" x="172" y="246"/><line style="stroke:#A80036;stroke-width:1.5;" x1="172" x2="360" y1="273.6094" y2="273.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="217" y="265.5332">&#x5916;&#x306B;&#x623B;&#x3063;&#x305F;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="177" y="291.0664">exit / &#x5916;&#x306B;&#x623B;&#x3063;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x3092;TRUE</text></g><g id="state.idle.state.inState1"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="62" x="250" y="87"/><line style="stroke:#A80036;stroke-width:1.5;" x1="250" x2="312" y1="114.6094" y2="114.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="260" y="106.5332">&#x7B52;&#x306B;&#x982D;</text></g><g id="state.inState1.state.inState2"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="90" x="47" y="247.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="47" x2="137" y1="275.1094" y2="275.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="57" y="267.0332">&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x982D;</text></g><g id="state.inState2.state.inState3"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="146" x="126" y="408"/><line style="stroke:#A80036;stroke-width:1.5;" x1="126" x2="272" y1="435.6094" y2="435.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="136" y="427.5332">&#x4F53;&#x304C;&#x5916;&#x3088;&#x308A;&#x30B1;&#x30FC;&#x30B8;&#x5074;</text></g><g id="state.inState3.state.EnterCage"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="52.7031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="212" x="172" y="552"/><line style="stroke:#A80036;stroke-width:1.5;" x1="172" x2="384" y1="579.6094" y2="579.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="215" y="571.5332">&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x5165;&#x3063;&#x305F;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="192" x="177" y="597.0664">exit / &#x30B1;&#x30FC;&#x30B8;&#x306B;&#x5165;&#x3063;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x3092;TRUE</text></g><g id="state.ReturnCage"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="52.7031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="212" x="767" y="246"/><line style="stroke:#A80036;stroke-width:1.5;" x1="767" x2="979" y1="273.6094" y2="273.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="810" y="265.5332">&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x623B;&#x3063;&#x305F;&#x78BA;&#x5B9A;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="192" x="772" y="291.0664">exit / &#x30B1;&#x30FC;&#x30B8;&#x306B;&#x623B;&#x3063;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x3092;TRUE</text></g><g id="state.idle.state.outState1"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="62" x="957" y="87"/><line style="stroke:#A80036;stroke-width:1.5;" x1="957" x2="1019" y1="114.6094" y2="114.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="967" y="106.5332">&#x7B52;&#x306B;&#x982D;</text></g><g id="state.outState1.state.outState2"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="62" x="1014" y="247.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1014" x2="1076" y1="275.1094" y2="275.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="1024" y="267.0332">&#x5916;&#x306B;&#x982D;</text></g><g id="state.outState2.state.outState3"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="146" x="810" y="408"/><line style="stroke:#A80036;stroke-width:1.5;" x1="810" x2="956" y1="435.6094" y2="435.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="820" y="427.5332">&#x4F53;&#x304C;&#x30B1;&#x30FC;&#x30B8;&#x3088;&#x308A;&#x5916;&#x5074;</text></g><g id="state.outState3.state.EnterOutSide"><rect fill="#FEFECE" filter="url(#f170vvj5vw69rl)" height="52.7031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="176" x="781" y="552"/><line style="stroke:#A80036;stroke-width:1.5;" x1="781" x2="957" y1="579.6094" y2="579.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="827" y="571.5332">&#x5916;&#x306B;&#x51FA;&#x305F;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="156" x="786" y="597.0664">exit / &#x5916;&#x306B;&#x51FA;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x3092;TRUE</text></g><!--MD5=[d4a575dc2fb55dfd2172c56c9371d7d8]
+link *start*group.InOutSensor to state.init--><path d="M632,122.44 C632,142.32 632,189.64 632,225.67 " fill="none" id="*start*group.InOutSensor-to-state.init" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="632,230.9,636,221.9,632,225.9,628,221.9,632,230.9" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[42487dcf76dffd41f86ef57a591ca070]
+link state.init to state.idle--><path d="M632,314.32 C632,341.89 632,377.66 632,402.49 " fill="none" id="state.init-to-state.idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="632,407.61,636,398.61,632,402.61,628,398.61,632,407.61" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[28c2256342a5f7d9b139af0fbfd84f9f]
+link state.idle to state.inState1--><path d="M576.88,407.86 C536.54,387.78 482.95,355.76 448,314 C402.6,259.76 436.86,217.18 387,167 C363.99,143.84 347.65,152.51 316.76,137.22 " fill="none" id="state.idle-to-state.inState1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="312.1,134.78,318.2341,142.4854,316.5344,137.0899,321.9299,135.3903,312.1,134.78" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="449" y="269.9951">&#x5916;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="449" y="286.3467">&#x7ACB;&#x3061;&#x4E0A;&#x304C;&#x308A;</text><!--MD5=[5c44e8c3c2bba3d1f4dde0f22ac72122]
+link state.idle to state.outState1--><path d="M735.08,410.46 C740.45,409.57 745.78,408.74 751,408 C790.19,402.41 1079.21,407.15 1106,378 C1169.58,308.82 1144.85,245.36 1093,167 C1077.37,143.38 1048.02,129.53 1024.32,121.78 " fill="none" id="state.idle-to-state.outState1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1019.36,120.21,1026.7405,126.7313,1024.1286,121.7136,1029.1463,119.1016,1019.36,120.21" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="1144" y="269.9951">&#x30B1;&#x30FC;&#x30B8;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1157" y="286.3467">&#x7ACB;&#x3061;&#x4E0A;&#x304C;&#x308A;</text><!--MD5=[1b5a308198b26c678eaf15597f2f7053]
+link state.ReturnOutSide to state.idle--><path d="M297.04,299.16 C327.05,322.78 374.66,357.2 421,378 C453.3,392.5 490.21,403.62 524.03,411.89 " fill="none" id="state.ReturnOutSide-to-state.idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="528.99,413.09,521.1787,407.0914,524.1294,411.9177,519.303,414.8684,528.99,413.09" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[82646b0609db1f30f901ab7e93b220ff]
+link state.inState1 to state.ReturnOutSide--><path d="M296.59,137.02 C301.58,146.05 306.47,156.64 309,167 C312.58,181.68 313.09,186.45 309,201 C304.96,215.38 297.08,229.74 289.17,241.7 " fill="none" id="state.inState1-to-state.ReturnOutSide" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="286.25,246,294.6037,240.7832,289.0498,241.8574,287.9756,236.3035,286.25,246" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="313" y="181.4951">&#x5916;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="313" y="197.8467">&#x7ACB;&#x3061;&#x4E0B;&#x304C;&#x308A;</text><!--MD5=[6ce08bd3ce6c958024d98f9642de3087]
+link state.inState1 to state.inState2--><path d="M249.8,116.73 C198.45,123.59 99.73,140.01 79,167 C62.58,188.39 69.4,219.83 78.13,242.63 " fill="none" id="state.inState1-to-state.inState2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="80.01,247.36,80.3814,237.5181,78.153,242.7176,72.9536,240.4893,80.01,247.36" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="80" y="181.4951">&#x30B1;&#x30FC;&#x30B8;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="93" y="197.8467">&#x7ACB;&#x3061;&#x4E0A;&#x304C;&#x308A;</text><!--MD5=[e91c23bea92692db4a1dc53d633d42c4]
+link state.inState2 to state.inState1--><path d="M122.68,247.21 C138.92,233.98 158.98,217.08 176,201 C191.08,186.75 192.49,180.78 208,167 C219.75,156.56 233.43,146.06 245.74,137.13 " fill="none" id="state.inState2-to-state.inState1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="249.86,134.16,240.2214,136.1842,245.8059,137.0864,244.9037,142.6709,249.86,134.16" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="209" y="181.4951">&#x30B1;&#x30FC;&#x30B8;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="222" y="197.8467">&#x7ACB;&#x3061;&#x4E0B;&#x304C;&#x308A;</text><!--MD5=[dfff67c0af0969c4857307eaeded74e0]
+link state.inState2 to state.inState3--><path d="M84.13,297.88 C78.42,320.42 74.03,353.97 89,378 C96.83,390.57 108.54,400.3 121.44,407.8 " fill="none" id="state.inState2-to-state.inState3" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="125.86,410.26,119.9352,402.3926,121.4892,407.8318,116.05,409.3858,125.86,410.26" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="90" y="358.4951">&#x5916;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="90" y="374.8467">&#x7ACB;&#x3061;&#x4E0B;&#x304C;&#x308A;</text><!--MD5=[61117967ece8b596c77b8f18d1a5adc2]
+link state.inState3 to state.inState2--><path d="M190.85,407.67 C184.09,389.31 173.43,363.97 160,344 C149.68,328.66 135.85,313.63 123.37,301.41 " fill="none" id="state.inState3-to-state.inState2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="119.54,297.72,123.2421,306.8466,123.1392,301.1907,128.7951,301.0878,119.54,297.72" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="179" y="358.4951">&#x5916;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="179" y="374.8467">&#x7ACB;&#x3061;&#x4E0A;&#x304C;&#x308A;</text><!--MD5=[cda5d6fca44cdd2c6728ed8cc9c25f3e]
+link state.inState3 to state.EnterCage--><path d="M168.49,458.26 C149.83,476.14 131.99,500.91 146,522 C153.41,533.15 163.54,542.07 174.92,549.19 " fill="none" id="state.inState3-to-state.EnterCage" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="179.52,551.94,173.829,543.9018,175.2225,549.3843,169.74,550.7778,179.52,551.94" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="147" y="502.4951">&#x30B1;&#x30FC;&#x30B8;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="160" y="518.8467">&#x7ACB;&#x3061;&#x4E0B;&#x304C;&#x308A;</text><!--MD5=[8ac542c450371ddd532654951002b0ed]
+link state.EnterCage to state.idle--><path d="M341.03,551.95 C404.97,526.03 503.43,486.12 567.79,460.03 " fill="none" id="state.EnterCage-to-state.idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="572.75,458.02,562.9068,457.6852,568.1146,459.8942,565.9056,465.1019,572.75,458.02" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a2a19aad9d856684fdc930e4d7c92be9]
+link state.ReturnCage to state.idle--><path d="M834.01,299.14 C789.75,328.25 717.85,375.54 672.83,405.14 " fill="none" id="state.ReturnCage-to-state.idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="668.56,407.95,678.2801,406.3628,672.7421,405.2095,673.8954,399.6715,668.56,407.95" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bf756dacc4380dba94ca809c17555ad3]
+link state.outState1 to state.ReturnCage--><path d="M956.64,135.27 C955.43,135.88 954.21,136.46 953,137 C899.96,160.46 861.99,121.52 826,167 C808.22,189.47 825.33,219.73 843.69,241.91 " fill="none" id="state.outState1-to-state.ReturnCage" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="847.13,245.95,844.3479,236.5023,843.8913,242.1407,838.2529,241.6841,847.13,245.95" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="827" y="181.4951">&#x30B1;&#x30FC;&#x30B8;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="840" y="197.8467">&#x7ACB;&#x3061;&#x4E0B;&#x304C;&#x308A;</text><!--MD5=[7fe145d9ad2e892a68ae9eb19c0e6cfe]
+link state.outState1 to state.outState2--><path d="M956.74,136.55 C937.15,154.28 918.04,179.19 932,201 C949.15,227.8 970.16,213.92 997,231 C1003.13,234.9 1009.32,239.51 1015.12,244.2 " fill="none" id="state.outState1-to-state.outState2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1019.07,247.46,1014.678,238.6446,1015.2149,244.276,1009.5836,244.8128,1019.07,247.46" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="933" y="181.4951">&#x5916;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="933" y="197.8467">&#x7ACB;&#x3061;&#x4E0A;&#x304C;&#x308A;</text><!--MD5=[0a999228c7ea5dc834127fd3ec25ff65]
+link state.outState2 to state.outState1--><path d="M1036.36,247.46 C1026.16,219.12 1009.23,172.04 998.35,141.78 " fill="none" id="state.outState2-to-state.outState1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="996.66,137.07,995.9238,146.8913,998.3435,141.7781,1003.4567,144.1977,996.66,137.07" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1019" y="181.4951">&#x5916;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1019" y="197.8467">&#x7ACB;&#x3061;&#x4E0B;&#x304C;&#x308A;</text><!--MD5=[8f718f6279bb50afeaef9a8aedd00644]
+link state.outState2 to state.outState3--><path d="M1020.64,297.68 C1013.49,303.72 1005.33,309.7 997,314 C949.28,338.6 912.91,301.59 880,344 C867.32,360.34 868.88,383.98 873.17,402.65 " fill="none" id="state.outState2-to-state.outState3" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="874.44,407.77,876.1646,398.0733,873.2408,402.9159,868.3981,399.9921,874.44,407.77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="881" y="358.4951">&#x30B1;&#x30FC;&#x30B8;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="894" y="374.8467">&#x7ACB;&#x3061;&#x4E0B;&#x304C;&#x308A;</text><!--MD5=[4b9252559c132453cf9479c157f498a9]
+link state.outState3 to state.outState2--><path d="M935.28,407.74 C949.76,399.55 964.83,389.51 977,378 C1000.05,356.2 1018.99,325.1 1030.98,302.51 " fill="none" id="state.outState3-to-state.outState2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1033.43,297.82,1025.7246,303.9541,1031.1201,302.2544,1032.8197,307.6499,1033.43,297.82" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="1006" y="358.4951">&#x30B1;&#x30FC;&#x30B8;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="1019" y="374.8467">&#x7ACB;&#x3061;&#x4E0A;&#x304C;&#x308A;</text><!--MD5=[4bf2a6e542eec9f21ae795d6bc12a1b6]
+link state.outState3 to state.EnterOutSide--><path d="M880.66,458.02 C878.28,482.4 874.59,520.25 872,546.8 " fill="none" id="state.outState3-to-state.EnterOutSide" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="871.49,551.95,876.3462,543.3816,871.9762,546.9737,868.3841,542.6037,871.49,551.95" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="878" y="502.4951">&#x5916;&#x5074;&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="878" y="518.8467">&#x7ACB;&#x3061;&#x4E0B;&#x304C;&#x308A;</text><!--MD5=[7b995342b9ec891bbf1f0265a17eedd4]
+link state.EnterOutSide to state.idle--><path d="M826.8,551.95 C784.34,526.24 719.13,486.76 676.03,460.66 " fill="none" id="state.EnterOutSide-to-state.idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="671.67,458.02,677.3097,466.0943,675.9512,460.603,681.4425,459.2444,671.67,458.02" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[84ab7f081aaebefcf714ee2a96ad2795]
+@startuml
+'left to right direction
+state "入退室センサ" as group.InOutSensor {
+    [*] - -> state.init
+
+    state "初期化" as state.init {
+        state.init - -> state.idle
+        state.init : exit / 処理
+        state.init : * 外に戻ったフラグをFALSE
+        state.init : * ケージに入ったフラグをFALSE
+    }
+
+    state "外側またはケージに居る(idle)" as state.idle {
+        state.idle - -> state.inState1 : 外側センサ\n立ち上がり
+        state.idle - -> state.outState1 : ケージ側センサ\n立ち上がり
+    }
+
+    state "入室方向" as group.In {
+        state "外に戻った処理" as state.ReturnOutSide {
+            state.ReturnOutSide : exit / 外に戻ったフラグをTRUE
+            state.ReturnOutSide - -> state.idle
+        }
+
+        state "筒に頭" as state.inState1 {
+            state.inState1 - -> state.ReturnOutSide : 外側センサ\n立ち下がり
+            state.inState1 - -> state.inState2 : ケージ側センサ\n立ち上がり
+        }
+
+        state "ケージに頭" as state.inState2 {
+            state.inState2 - -> state.inState1 : ケージ側センサ\n立ち下がり
+            state.inState2 - -> state.inState3 : 外側センサ\n立ち下がり
+        }
+
+        state "体が外よりケージ側" as state.inState3 {
+            state.inState3 - -> state.inState2 : 外側センサ\n立ち上がり
+            state.inState3 - -> state.EnterCage : ケージ側センサ\n立ち下がり
+        }
+
+        state "ケージに入った処理" as state.EnterCage {
+            state.EnterCage : exit / ケージに入ったフラグをTRUE
+            state.EnterCage - -> state.idle
+        }
+    }
+
+    state "退室方向" as group.Out {
+        state "ケージに戻った確定" as state.ReturnCage {
+            state.ReturnCage : exit / ケージに戻ったフラグをTRUE
+            state.ReturnCage - -> state.idle
+        }
+
+        state "筒に頭" as state.outState1 {
+            state.outState1 - -> state.ReturnCage : ケージ側センサ\n立ち下がり
+            state.outState1 - -> state.outState2 : 外側センサ\n立ち上がり
+        }
+
+        state "外に頭" as state.outState2 {
+            state.outState2 - -> state.outState1 : 外側センサ\n立ち下がり
+            state.outState2 - -> state.outState3 : ケージ側センサ\n立ち下がり
+        }
+
+        state "体がケージより外側" as state.outState3 {
+            state.outState3 - -> state.outState2 : ケージ側センサ\n立ち上がり
+            state.outState3 - -> state.EnterOutSide : 外側センサ\n立ち下がり
+        }
+
+        state "外に出た処理" as state.EnterOutSide {
+            state.EnterOutSide : exit / 外に出たフラグをTRUE
+            state.EnterOutSide - -> state.idle
+        }
+    }
+}
+@enduml
+
+@startuml
+state "入退室センサ" as group.InOutSensor {
+    [*] - -> state.init
+
+    state "初期化" as state.init {
+        state.init - -> state.idle
+        state.init : exit / 処理
+        state.init : * 外に戻ったフラグをFALSE
+        state.init : * ケージに入ったフラグをFALSE
+    }
+
+    state "外側またはケージに居る(idle)" as state.idle {
+        state.idle - -> state.inState1 : 外側センサ\n立ち上がり
+        state.idle - -> state.outState1 : ケージ側センサ\n立ち上がり
+    }
+
+    state "入室方向" as group.In {
+        state "外に戻った処理" as state.ReturnOutSide {
+            state.ReturnOutSide : exit / 外に戻ったフラグをTRUE
+            state.ReturnOutSide - -> state.idle
+        }
+
+        state "筒に頭" as state.inState1 {
+            state.inState1 - -> state.ReturnOutSide : 外側センサ\n立ち下がり
+            state.inState1 - -> state.inState2 : ケージ側センサ\n立ち上がり
+        }
+
+        state "ケージに頭" as state.inState2 {
+            state.inState2 - -> state.inState1 : ケージ側センサ\n立ち下がり
+            state.inState2 - -> state.inState3 : 外側センサ\n立ち下がり
+        }
+
+        state "体が外よりケージ側" as state.inState3 {
+            state.inState3 - -> state.inState2 : 外側センサ\n立ち上がり
+            state.inState3 - -> state.EnterCage : ケージ側センサ\n立ち下がり
+        }
+
+        state "ケージに入った処理" as state.EnterCage {
+            state.EnterCage : exit / ケージに入ったフラグをTRUE
+            state.EnterCage - -> state.idle
+        }
+    }
+
+    state "退室方向" as group.Out {
+        state "ケージに戻った確定" as state.ReturnCage {
+            state.ReturnCage : exit / ケージに戻ったフラグをTRUE
+            state.ReturnCage - -> state.idle
+        }
+
+        state "筒に頭" as state.outState1 {
+            state.outState1 - -> state.ReturnCage : ケージ側センサ\n立ち下がり
+            state.outState1 - -> state.outState2 : 外側センサ\n立ち上がり
+        }
+
+        state "外に頭" as state.outState2 {
+            state.outState2 - -> state.outState1 : 外側センサ\n立ち下がり
+            state.outState2 - -> state.outState3 : ケージ側センサ\n立ち下がり
+        }
+
+        state "体がケージより外側" as state.outState3 {
+            state.outState3 - -> state.outState2 : ケージ側センサ\n立ち上がり
+            state.outState3 - -> state.EnterOutSide : 外側センサ\n立ち下がり
+        }
+
+        state "外に出た処理" as state.EnterOutSide {
+            state.EnterOutSide : exit / 外に出たフラグをTRUE
+            state.EnterOutSide - -> state.idle
+        }
+    }
+}
+@enduml
+
+PlantUML version 1.2020.26(Tue Dec 22 02:45:07 GMT+09:00 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p><h2 class="mume-header" id="%E5%9C%A8%E5%AE%A4%E3%82%BB%E3%83%B3%E3%82%B5%E7%8A%B6%E6%85%8B%E9%81%B7%E7%A7%BB%E5%9B%B3">&#x5728;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;&#x72B6;&#x614B;&#x9077;&#x79FB;&#x56F3;</h2>
+
+<h3 class="mume-header" id="%E5%85%A5%E5%AE%A4%E9%80%80%E5%AE%A4%E3%82%BB%E3%83%B3%E3%82%B5%E3%82%92%E4%BD%BF%E3%81%86%E5%A0%B4%E5%90%88">&#x5165;&#x5BA4;&#x30FB;&#x9000;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="543px" preserveAspectRatio="none" style="width:519px;height:543px;" version="1.1" viewBox="0 0 519 543" width="519px" zoomAndPan="magnify"><defs><filter height="300%" id="f1vosnyrz7jwm" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#f1vosnyrz7jwm)" height="524.5" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="500.85" x="7" y="7"/><rect fill="#FFFFFF" height="490.8906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="494.85" x="10" y="37.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="7" x2="507.85" y1="34.6094" y2="34.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="222.425" y="26.5332">&#x5728;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;</text><ellipse cx="226" cy="55.6094" fill="#000000" filter="url(#f1vosnyrz7jwm)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><g id="group.StaySensor.state.init"><rect fill="#FEFECE" filter="url(#f1vosnyrz7jwm)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="140" x="156" y="102.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="156" x2="296" y1="130.2188" y2="130.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="205" y="122.1426">&#x521D;&#x671F;&#x5316;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="161" y="147.6758">exit / &#x51E6;&#x7406;</text><ellipse cx="166.5" cy="157.9063" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="109" x="172" y="162.7695">&#x5165;&#x5BA4;&#x30D5;&#x30E9;&#x30B0;&#x3092;FALSE</text><ellipse cx="166.5" cy="173" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="109" x="172" y="177.8633">&#x9000;&#x5BA4;&#x30D5;&#x30E9;&#x30B0;&#x3092;FALSE</text></g><g id="state.init.state.idle"><rect fill="#FEFECE" filter="url(#f1vosnyrz7jwm)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="201" y="222.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="201" x2="251" y1="250.2188" y2="250.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="22" x="215" y="242.1426">idle</text></g><g id="state.idle.state.enterState1"><rect fill="#FEFECE" filter="url(#f1vosnyrz7jwm)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="76" x="104" y="326.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="104" x2="180" y1="354.2188" y2="354.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="114" y="346.1426">&#x5165;&#x5BA4;&#x5F85;&#x3061;</text></g><g id="state.enterState1.state.enterState2"><rect fill="#FEFECE" filter="url(#f1vosnyrz7jwm)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="164" x="19" y="430.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="19" x2="183" y1="458.2188" y2="458.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="73" y="450.1426">&#x5165;&#x5BA4;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="24" y="475.6758">exit / &#x51E6;&#x7406;</text><ellipse cx="29.5" cy="485.9063" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="133" x="35" y="490.7695">&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x5165;&#x3063;&#x305F;&#x3092;FALSE</text><ellipse cx="29.5" cy="501" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="105" x="35" y="505.8633">&#x5165;&#x5BA4;&#x30D5;&#x30E9;&#x30B0;&#x3092;TRUE</text></g><g id="state.idle.state.LeaveState1"><rect fill="#FEFECE" filter="url(#f1vosnyrz7jwm)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="76" x="301" y="326.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="301" x2="377" y1="354.2188" y2="354.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="311" y="346.1426">&#x9000;&#x5BA4;&#x5F85;&#x3061;</text></g><g id="state.LeaveState1.state.LeaveState2"><rect fill="#FEFECE" filter="url(#f1vosnyrz7jwm)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="160" x="325" y="430.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="325" x2="485" y1="458.2188" y2="458.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="377" y="450.1426">&#x9000;&#x5BA4;&#x51E6;&#x7406;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="330" y="475.6758">exit / &#x51E6;&#x7406;</text><ellipse cx="335.5" cy="485.9063" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="129" x="341" y="490.7695">&#x5916;&#x306B;&#x51FA;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x3092;TRUE</text><ellipse cx="335.5" cy="501" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="105" x="341" y="505.8633">&#x9000;&#x5BA4;&#x30D5;&#x30E9;&#x30B0;&#x3092;TRUE</text></g><!--MD5=[0a4ae9898b7ec32dbdbcf95b53acabed]
+link *start*group.StaySensor to state.init--><path d="M226,65.8694 C226,73.6494 226,85.3894 226,97.3894 " fill="none" id="*start*group.StaySensor-to-state.init" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="226,102.5394,230,93.5394,226,97.5394,222,93.5394,226,102.5394" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[42487dcf76dffd41f86ef57a591ca070]
+link state.init to state.idle--><path d="M226,185.8094 C226,196.4194 226,207.6494 226,217.5294 " fill="none" id="state.init-to-state.idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="226,222.5594,230,213.5594,226,217.5594,222,213.5594,226,222.5594" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0e497a9bfd7e7ff8b55cd1321a682dee]
+link state.idle to state.enterState1--><path d="M200.95,251.3894 C177.13,255.5094 142.57,265.6694 126,290.6094 C119.89,299.7994 121.23,311.2294 125.02,321.6394 " fill="none" id="state.idle-to-state.enterState1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="126.93,326.3394,127.2648,316.4962,125.0558,321.7039,119.8481,319.4949,126.93,326.3394" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="177" x="127" y="305.1045">&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x5165;&#x3063;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x304C;TRUE</text><!--MD5=[87e76f2559007ab14680cfc61af171f7]
+link state.idle to state.LeaveState1--><path d="M251.09,257.6194 C267.88,264.6194 289.64,275.6594 305,290.6094 C314.08,299.4494 321.47,311.2394 327.01,322.0294 " fill="none" id="state.idle-to-state.LeaveState1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="329.27,326.5794,328.8606,316.739,327.0511,322.0987,321.6915,320.2892,329.27,326.5794" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="138" x="320" y="305.1045">&#x5916;&#x306B;&#x51FA;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x304C;TRUE</text><!--MD5=[730536d7cd2bef6a2dc3d204b072de50]
+link state.enterState1 to state.enterState2--><path d="M133.6,376.8794 C128.76,390.8694 122.52,408.9094 116.79,425.4594 " fill="none" id="state.enterState1-to-state.enterState2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="115.04,430.5394,121.7594,423.3387,116.6726,425.8134,114.1979,420.7266,115.04,430.5394" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="84" x="128" y="409.1045">&#x5728;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;ON</text><!--MD5=[d32954e05eec9aca3080aa5c35189561]
+link state.enterState2 to state.idle--><path d="M92.44,430.3994 C87.9,400.9794 85.07,360.5894 95,326.6094 C100.32,308.3894 103.32,302.6494 118,290.6094 C140.71,271.9994 172.63,260.9494 195.88,254.8994 " fill="none" id="state.enterState2-to-state.idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="201,253.6094,191.2927,251.9453,196.1535,254.8389,193.2599,259.6996,201,253.6094" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6f016269e7d52fd2507bcf15e37990c8]
+link state.LeaveState1 to state.LeaveState2--><path d="M352.52,376.8794 C360.38,390.9894 370.53,409.2194 379.81,425.8894 " fill="none" id="state.LeaveState1-to-state.LeaveState2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="382.41,430.5394,381.5114,420.7316,379.9709,426.1747,374.5278,424.6342,382.41,430.5394" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="373" y="409.1045">&#x5728;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;OFF</text><!--MD5=[c0828de0eda05b453741ab9e02a246a8]
+link state.LeaveState2 to state.idle--><path d="M457.09,430.2994 C461.46,424.8194 465.26,418.8994 468,412.6094 C489.69,362.8694 498.85,331.3494 463,290.6094 C436.2,260.1594 313.75,251.7394 256.13,249.4494 " fill="none" id="state.LeaveState2-to-state.idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="251.1,249.2594,259.9453,253.5907,256.0966,249.445,260.2423,245.5962,251.1,249.2594" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[07021cffc4b8d4a40b6c560375298e60]
+@startuml
+'left to right direction
+state "在室センサ"  as group.StaySensor {
+    [*] - -> state.init
+
+    state "初期化" as state.init {
+        state.init - -> state.idle
+        state.init : exit / 処理
+        state.init : * 入室フラグをFALSE
+        state.init : * 退室フラグをFALSE
+    }
+
+    state "idle" as state.idle {
+        state.idle - -> state.enterState1 : ケージに入ったフラグがTRUE
+        state.idle - -> state.LeaveState1 : 外に出たフラグがTRUE
+    }
+
+    state "入室待ち" as state.enterState1 {
+        state.enterState1 - -> state.enterState2 : 在室センサON
+    }
+
+    state "入室処理" as state.enterState2 {
+        state.enterState2 - -> state.idle
+        state.enterState2 : exit / 処理
+        state.enterState2 : * ケージに入ったをFALSE
+        state.enterState2 : * 入室フラグをTRUE
+    }
+
+    state "退室待ち" as state.LeaveState1 {
+        state.LeaveState1 - -> state.LeaveState2 : 在室センサOFF
+    }
+
+    state "退室処理" as state.LeaveState2 {
+        state.LeaveState2 - -> state.idle
+        state.LeaveState2 : exit / 処理
+        state.LeaveState2 : * 外に出たフラグをTRUE
+        state.LeaveState2 : * 退室フラグをTRUE
+    }
+}
+@enduml
+
+@startuml
+state "在室センサ"  as group.StaySensor {
+    [*] - -> state.init
+
+    state "初期化" as state.init {
+        state.init - -> state.idle
+        state.init : exit / 処理
+        state.init : * 入室フラグをFALSE
+        state.init : * 退室フラグをFALSE
+    }
+
+    state "idle" as state.idle {
+        state.idle - -> state.enterState1 : ケージに入ったフラグがTRUE
+        state.idle - -> state.LeaveState1 : 外に出たフラグがTRUE
+    }
+
+    state "入室待ち" as state.enterState1 {
+        state.enterState1 - -> state.enterState2 : 在室センサON
+    }
+
+    state "入室処理" as state.enterState2 {
+        state.enterState2 - -> state.idle
+        state.enterState2 : exit / 処理
+        state.enterState2 : * ケージに入ったをFALSE
+        state.enterState2 : * 入室フラグをTRUE
+    }
+
+    state "退室待ち" as state.LeaveState1 {
+        state.LeaveState1 - -> state.LeaveState2 : 在室センサOFF
+    }
+
+    state "退室処理" as state.LeaveState2 {
+        state.LeaveState2 - -> state.idle
+        state.LeaveState2 : exit / 処理
+        state.LeaveState2 : * 外に出たフラグをTRUE
+        state.LeaveState2 : * 退室フラグをTRUE
+    }
+}
+@enduml
+
+PlantUML version 1.2020.26(Tue Dec 22 02:45:07 GMT+09:00 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

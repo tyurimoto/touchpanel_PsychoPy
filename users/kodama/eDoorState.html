@@ -1,0 +1,489 @@
+<!DOCTYPE html><html><head>
+      <title>eDoorState</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\tok\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.5\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E3%83%9E%E3%83%BC%E3%83%A2%E3%82%BB%E3%83%83%E3%83%88edoor%E3%82%B9%E3%83%86%E3%83%BC%E3%83%88%E3%83%9E%E3%82%B7%E3%83%B3">&#x30DE;&#x30FC;&#x30E2;&#x30BB;&#x30C3;&#x30C8;eDoor&#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x30DE;&#x30B7;&#x30F3;</h1>
+
+<h2 class="mume-header" id="%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%81%B7%E7%A7%BB%E5%9B%B3-parameter%E4%BB%95%E6%A7%98">&#x30AA;&#x30DA;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x9077;&#x79FB;&#x56F3; Parameter&#x4ED5;&#x69D8;</h2>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="1291px" preserveAspectRatio="none" style="width:1886px;height:1291px;background:#FFFFFF;" version="1.1" viewBox="0 0 1886 1291" width="1886px" zoomAndPan="magnify"><defs><filter height="300%" id="f49hwl1xvn9u5" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[580a1ad2d95e6d15ff46f37056e782cf]
+cluster group.Operation--><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="1271" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="1867" x="7" y="8.96"/><rect fill="#FFFFFF" height="1237.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="1861" x="10" y="39.5694"/><line style="stroke:#A80036;stroke-width:1.5;" x1="7" x2="1874" y1="36.5694" y2="36.5694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="907" y="27.4932">eDoor&#x52D5;&#x4F5C;</text><!--MD5=[47b5587c3c63a269b9d0f980b165ba59]
+cluster state.DoorOpenStay--><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="267" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="228" x="854" y="209.96"/><rect fill="#FFFFFF" height="198.2031" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="222" x="857" y="275.7569"/><line style="stroke:#A80036;stroke-width:1.5;" x1="854" x2="1082" y1="272.7569" y2="272.7569"/><line style="stroke:#A80036;stroke-width:1.5;" x1="854" x2="1082" y1="237.5694" y2="237.5694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="907.5" y="228.4932">&#x30C9;&#x30A2;&#x958B;&#x304D;&#x5F85;&#x6A5F;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="121" x="859" y="252.5264">OpenIntervalTime&#x9045;&#x5EF6;</text><ellipse cx="864.5" cy="262.7569" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="870" y="267.6202">&#x30C9;&#x30A2;&#x958B;&#x304D;&#x5F85;&#x6A5F;&#x72B6;&#x614B;</text><!--MD5=[1ae88334a5d5d0933300a043f7696e87]
+cluster state.CheckIllegalMiddleOnOpen--><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="140" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="164" x="886" y="296.96"/><rect fill="#FFFFFF" height="86.2969" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="158" x="889" y="347.6631"/><line style="stroke:#A80036;stroke-width:1.5;" x1="886" x2="1050" y1="344.6631" y2="344.6631"/><line style="stroke:#A80036;stroke-width:1.5;" x1="886" x2="1050" y1="324.5694" y2="324.5694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="919" y="315.4932">&#x4E0D;&#x6B63;&#x4E2D;&#x9593;&#x6249;&#x691C;&#x77E5;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="891" y="339.5264">&#x547C;&#x3073;&#x51FA;&#x3057;&#x6642;&#x9593;&#x8A18;&#x9332;</text><!--MD5=[d5217e21ca41f11b16f23baac86d2f58]
+cluster state.CloseS--><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="267" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="228" x="39" y="398.96"/><rect fill="#FFFFFF" height="198.2031" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="222" x="42" y="464.7569"/><line style="stroke:#A80036;stroke-width:1.5;" x1="39" x2="267" y1="461.7569" y2="461.7569"/><line style="stroke:#A80036;stroke-width:1.5;" x1="39" x2="267" y1="426.5694" y2="426.5694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="73.5" y="417.4932">&#x30C9;&#x30A2;&#x9589;&#x3058;&#x5F85;&#x6A5F;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="159" x="44" y="441.5264">EDoorCloseIntervalTime&#x9045;&#x5EF6;</text><ellipse cx="49.5" cy="451.7569" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="60" x="55" y="456.6202">&#x30C9;&#x30A2;&#x9589;&#x72B6;&#x614B;</text><!--MD5=[aa0cc5f9e1b63288b9a2e2d0b4aa2355]
+cluster state.CheckIllegalMiddle--><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="140" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="164" x="71" y="485.96"/><rect fill="#FFFFFF" height="86.2969" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="158" x="74" y="536.6631"/><line style="stroke:#A80036;stroke-width:1.5;" x1="71" x2="235" y1="533.6631" y2="533.6631"/><line style="stroke:#A80036;stroke-width:1.5;" x1="71" x2="235" y1="513.5694" y2="513.5694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="104" y="504.4932">&#x4E0D;&#x6B63;&#x4E2D;&#x9593;&#x6249;&#x691C;&#x77E5;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="76" y="528.5264">&#x547C;&#x3073;&#x51FA;&#x3057;&#x6642;&#x9593;&#x8A18;&#x9332;</text><ellipse cx="968" cy="1253.96" fill="#000000" filter="url(#f49hwl1xvn9u5)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><g id="group.Operation.state.Init"><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="52.7031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="227" x="1333" y="1210.46"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1333" x2="1560" y1="1238.0694" y2="1238.0694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="1425.5" y="1229.9932">&#x521D;&#x671F;&#x5316;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="207" x="1338" y="1255.5264">exit / &#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x8D77;&#x52D5;&#x76F4;&#x5F8C;&#x306E;&#x8A2D;&#x5B9A;</text></g><g id="state.Init.state.DoorOpen"><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="67.7969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="104" x="1754" y="630.96"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1754" x2="1858" y1="658.5694" y2="658.5694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="1764" y="650.4932">&#x30C9;&#x30A2;&#x958B;&#x304D;&#x52D5;&#x4F5C;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="74" x="1759" y="676.0264">CW&#x30BB;&#x30F3;&#x30B5;ON</text><ellipse cx="1764.5" cy="686.2569" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="72" x="1770" y="691.1202">&#x30C9;&#x30A2;&#x958B;&#x304D;&#x52D5;&#x4F5C;</text></g><g id="state.DoorOpenStay.state.Middle"><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="149" x="454" y="707.46"/><line style="stroke:#A80036;stroke-width:1.5;" x1="454" x2="603" y1="735.0694" y2="735.0694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="493.5" y="726.9932">&#x4E2D;&#x9593;&#x6249;&#x52D5;&#x4F5C;</text><ellipse cx="464.5" cy="747.6631" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="108" x="470" y="752.5264">&#x30C9;&#x30A2;&#x30B9;&#x30EB;&#x30FC;&#x72B6;&#x614B;&#x52D5;&#x4F5C;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="112" x="459" y="767.6202">OpenToMiddleTimer</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="129" x="459" y="782.7139">or CloseToMiddleTimer</text></g><g id="state.Middle.state.MiddleS"><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="67.7969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="182" x="877" y="904.96"/><line style="stroke:#A80036;stroke-width:1.5;" x1="877" x2="1059" y1="932.5694" y2="932.5694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="933" y="924.4932">&#x4E2D;&#x9593;&#x6249;&#x5F85;&#x6A5F;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="162" x="882" y="950.0264">EDoorMiddleIntervalTime&#x9045;&#x5EF6;</text><ellipse cx="887.5" cy="960.2569" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="84" x="893" y="965.1202">&#x30C9;&#x30A2;&#x30B9;&#x30EB;&#x30FC;&#x72B6;&#x614B;</text></g><g id="state.DoorOpenStay.state.Close"><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="148" x="1372.5" y="550.46"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1372.5" x2="1520.5" y1="578.0694" y2="578.0694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="1404.5" y="569.9932">&#x30C9;&#x30A2;&#x9589;&#x3058;&#x52D5;&#x4F5C;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="1377.5" y="595.5264">CCW&#x30BB;&#x30F3;&#x30B5;ON</text><ellipse cx="1383" cy="605.7569" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="60" x="1388.5" y="610.6202">&#x30C9;&#x30A2;&#x9589;&#x52D5;&#x4F5C;</text><ellipse cx="1383" cy="620.8506" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="117" x="1388.5" y="625.7139">&#x7570;&#x5E38;&#x9000;&#x5BA4;&#x6642; &#x5F37;&#x5236;Open</text></g><g id="state.CheckIllegalMiddleOnOpen.state.checkDoorOnOpen"><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="67.7969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="132" x="902" y="352.96"/><line style="stroke:#A80036;stroke-width:1.5;" x1="902" x2="1034" y1="380.5694" y2="380.5694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="912" y="372.4932">&#x30BB;&#x30F3;&#x30B5;&#x30FC;&#x72B6;&#x614B;&#x691C;&#x77E5;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="65" x="907" y="398.0264">CWLIM OFF</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="74" x="907" y="413.1202">CCWLIM OFF</text></g><g id="state.CheckIllegalMiddle.state.checkDoor"><rect fill="#FEFECE" filter="url(#f49hwl1xvn9u5)" height="67.7969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="132" x="87" y="541.96"/><line style="stroke:#A80036;stroke-width:1.5;" x1="87" x2="219" y1="569.5694" y2="569.5694"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="97" y="561.4932">&#x30BB;&#x30F3;&#x30B5;&#x30FC;&#x72B6;&#x614B;&#x691C;&#x77E5;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="65" x="92" y="587.0264">CWLIM OFF</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="74" x="92" y="602.1202">CCWLIM OFF</text></g><!--MD5=[1d3d6d1934802dd054f998a59b6efc5c]
+link *start*group.Operation to state.Init--><path d="M978.09,1253.64 C1020.7,1252.12 1203.73,1245.59 1327.71,1241.16 " fill="none" id="*start*group.Operation-to-state.Init" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1332.83,1240.98,1323.6982,1237.2907,1327.8329,1241.1513,1323.9723,1245.286,1332.83,1240.98" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[62134812be6b67645b539b4f61a5c398]
+link state.Init to state.DoorOpen--><path d="M1560.1,1251.66 C1616.51,1252.49 1681.64,1242.46 1724,1200.96 C1794.48,1131.91 1803.84,816.41 1804.93,704.48 " fill="none" id="state.Init-to-state.DoorOpen" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1804.97,699.31,1800.8674,708.2637,1804.9129,704.3097,1808.8669,708.3551,1804.97,699.31" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="130" x="1592" y="1197.4551">&#x30C9;&#x30A2;&#x4F4D;&#x7F6E;&#x521D;&#x671F;&#x4F4D;&#x7F6E;&#x79FB;&#x52D5;</text><!--MD5=[d2960f46cd9ddee24e8e9f2708bd7707]
+link state.DoorOpen to state.DoorOpenStay--><path d="M1803.04,630.79 C1798.23,579.03 1781.58,480.86 1724,424.96 C1669.33,371.88 1633.48,395.15 1560,374.96 C1461.78,347.97 1180.29,242.28 1106,311.96 C1085.7,331 1115.84,415.6 1098,436.96 C1095.6706,439.7494 1093.1396,442.3166 1090.4406,444.6786 C1089.0911,445.8595 1087.6995,446.9892 1086.2702,448.0696 C1085.5556,448.6098 1084.8315,449.1376 1084.0984,449.6535 C1083.7319,449.9114 1083.3632,450.1663 1082.9923,450.4182 C1082.8068,450.5442 1082.6208,450.6694 1082.4343,450.7939 " fill="none" id="state.DoorOpen-to-state.DoorOpenStay" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="1082.4343,450.7939,1092.1408,449.1253,1086.5932,448.0185,1087.7001,442.471,1082.4343,450.7939" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="1393.5" y="307.4551">CW&#x30BB;&#x30F3;&#x30B5;ON&#x78BA;&#x8A8D;</text><!--MD5=[8ee10e70085b8eedbbf1196269d0d9f4]
+link state.DoorOpenStay to state.DoorOpen--><path d="M1082.5411,448.1538 C1083.3304,447.6921 1084.1132,447.2207 1084.889,446.7394 C1086.4406,445.7767 1087.9643,444.7744 1089.4563,443.7307 C1092.4404,441.6433 1095.2981,439.3906 1098,436.96 C1105.73,430 1097.48,420.93 1106,414.96 C1141.86,389.84 1260.95,402.77 1303,414.96 C1318.16,419.36 1318.44,427.86 1333,433.96 C1428.55,474.02 1463.51,449.24 1560,486.96 C1638.04,517.46 1657.94,528.41 1724,579.96 C1741.63,593.72 1759.02,611.29 1773.15,626.89 " fill="none" id="state.DoorOpenStay-to-state.DoorOpen" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1776.67,630.81,1773.6404,621.4387,1773.3323,627.0872,1767.6838,626.7791,1776.67,630.81" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="1404.5" y="397.4551">MiddleTimeout</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="87" x="1405" y="413.8067">CW&#x30BB;&#x30F3;&#x30B5;OFF</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="96" x="1398.5" y="430.1582">CCW&#x30BB;&#x30F3;&#x30B5;OFF</text><!--MD5=[bea4b1c1783b3daa5113559dfd897fb5]
+link state.DoorOpen to state.DoorOpen--><path d="M1779.39,630.88 C1774.87,612.61 1783.74,595.96 1806,595.96 C1826.17,595.96 1835.35,609.63 1833.52,625.79 " fill="none" id="state.DoorOpen-to-state.DoorOpen" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1832.61,630.88,1838.1388,622.7294,1833.4944,625.9588,1830.265,621.3144,1832.61,630.88" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="1753" y="587.4551">CW&#x30BB;&#x30F3;&#x30B5;ON&#x76E3;&#x8996;</text><!--MD5=[2921f71b30d185db4baefb13d52d9bcf]
+link state.DoorOpenStay to state.Middle--><path d="M853.4118,454.0996 C849.2655,453.9263 845.0569,453.7924 840.795,453.7038 C772.605,452.285 690.79,462.445 633,507.96 C572.18,555.86 546.49,646.43 536.1,701.87 " fill="none" id="state.DoorOpenStay-to-state.Middle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="535.14,707.12,540.6959,698.9878,536.0407,702.2018,532.8267,697.5467,535.14,707.12" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="142" x="660.5" y="450.4551">Outside&#x30BB;&#x30F3;&#x30B5;ON&#x30A8;&#x30C3;&#x30B8;</text><!--MD5=[5c4dd5d1925fc4365921fca7a9f3b4fa]
+link state.DoorOpenStay to state.Close--><path d="M1082.2018,457.3563 C1082.7078,457.3353 1083.2149,457.3147 1083.7229,457.2944 C1084.7391,457.2539 1085.7594,457.2149 1086.7838,457.1775 C1152.34,454.7825 1234.325,458.81 1303,483.96 C1339.67,497.39 1374.72,523.71 1400.88,547 " fill="none" id="state.DoorOpenStay-to-state.Close" style="stroke:#00008B;stroke-width:1.0;"/><polygon fill="#00008B" points="1404.67,550.41,1400.6391,541.4238,1400.9472,547.0723,1395.2987,547.3804,1404.67,550.41" style="stroke:#00008B;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="1139" y="437.4551">Inside&#x30BB;&#x30F3;&#x30B5;ON&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="1124" y="453.8067">EDoorInsideDetectCloseTime</text><!--MD5=[5c4dd5d1925fc4365921fca7a9f3b4fa]
+link state.DoorOpenStay to state.Close--><path d="M1082.2162,462.7641 C1082.412,462.8537 1082.6074,462.9443 1082.8024,463.0357 C1083.5822,463.4014 1084.3552,463.7815 1085.1207,464.1763 C1086.6518,464.9659 1088.1533,465.8146 1089.6214,466.7254 C1092.5577,468.5469 1095.3606,470.6169 1098,472.96 C1115.82,488.78 1089.25,509.02 1106,525.96 C1137.18,557.5 1259.51,549.25 1303,557.96 C1323.89,562.14 1346.38,567.23 1367.17,572.18 " fill="none" id="state.DoorOpenStay-to-state.Close-1" style="stroke:#00008B;stroke-width:1.0;"/><polygon fill="#00008B" points="1372.13,573.37,1364.3147,567.3766,1367.2686,572.201,1362.4442,575.1549,1372.13,573.37" style="stroke:#00008B;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="1165.5" y="506.4551">&#x5165;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;&#x30FC;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="111" x="1151" y="522.8067">EDoorReEntryTime</text><!--MD5=[0cad4a06ef56972f9d6112d420ed99de]
+link state.checkDoorOnOpen to state.DoorOpen--><path d="M1034.32,382.19 C1057.64,377.16 1082.06,367.43 1098,348.96 C1114.71,329.59 1086.96,309.04 1106,291.96 C1256.23,157.22 1366.94,226.21 1560,284.96 C1643.96,310.51 1671.89,324.34 1724,394.96 C1775.94,465.34 1794.83,569.06 1801.51,625.25 " fill="none" id="state.checkDoorOnOpen-to-state.DoorOpen" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1802.12,630.54,1805.0661,621.1421,1801.549,625.5727,1797.1184,622.0556,1802.12,630.54" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="1349" y="215.4551">EDoorCloseDoorMonitorStartTime</text><!--MD5=[0cad4a06ef56972f9d6112d420ed99de]
+link state.checkDoorOnOpen to state.DoorOpen--><path d="M1034.26,382.85 C1057.87,377.92 1082.5,368.1 1098,348.96 C1112.58,330.94 1090.87,262.52 1106,244.96 C1238.57,91.1 1369.82,121.69 1560,192.96 C1650.56,226.9 1673.66,253.39 1724,335.96 C1780.89,429.26 1797.87,560.41 1802.9,625.34 " fill="none" id="state.checkDoorOnOpen-to-state.DoorOpen-1" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1803.3,630.65,1806.6203,621.3777,1802.9285,625.6638,1798.6424,621.972,1803.3,630.65" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="120" x="1386.5" y="131.4551">EDoorMiddleTimeout</text><!--MD5=[45d4ed25a045dd1912fba1bd517b4025]
+link state.checkDoorOnOpen to state.Close--><path d="M1034.3,374.63 C1106.58,364.73 1223.38,360.27 1303,414.96 C1328.23,432.29 1315.4,451.91 1333,476.96 C1350.61,502.02 1373.78,526.72 1394.51,546.76 " fill="none" id="state.checkDoorOnOpen-to-state.Close" style="stroke:#00008B;stroke-width:1.0;"/><polygon fill="#00008B" points="1398.36,550.45,1394.6211,541.3384,1394.7468,546.9939,1389.0913,547.1196,1398.36,550.45" style="stroke:#00008B;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="1162.5" y="332.4551">&#x5165;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;ON</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="1107" y="348.8067">EDoorCloseDoorMonitorStartTime</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="99" x="1155" y="365.1582">Inside&#x30BB;&#x30F3;&#x30B5;OFF</text><!--MD5=[e3eb52413172d538fff5232908757093]
+link state.Middle to state.MiddleS--><path d="M603.22,780.98 C680.82,814.68 802.74,867.62 883.75,902.8 " fill="none" id="state.Middle-to-state.MiddleS" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="888.54,904.89,881.8705,897.6431,883.9517,902.9032,878.6916,904.9843,888.54,904.89" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="692.5" y="791.4551">&#x4E2D;&#x9593;&#x4F4D;&#x7F6E;&#x52D5;&#x4F5C;</text><!--MD5=[c1e8252bc076f1db078dae11ed669339]
+link state.MiddleS to state.Close--><path d="M1059.13,933.55 C1152.11,927.08 1285.93,914.97 1303,897.96 C1378.22,823.03 1275.41,750.16 1333,660.96 C1341.84,647.27 1354.46,635.85 1368.06,626.51 " fill="none" id="state.MiddleS-to-state.Close" style="stroke:#00008B;stroke-width:1.0;"/><polygon fill="#00008B" points="1372.32,623.68,1362.6127,625.3441,1368.1597,626.4535,1367.0503,632.0005,1372.32,623.68" style="stroke:#00008B;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="1139" y="878.4551">Inside&#x30BB;&#x30F3;&#x30B5;ON&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="57" x="1176" y="894.8067">&#x76F4;&#x524D;Open</text><!--MD5=[c1e8252bc076f1db078dae11ed669339]
+link state.MiddleS to state.Close--><path d="M1018.68,904.78 C1043.84,888.93 1075.46,871.17 1106,859.96 C1189.55,829.28 1240.02,886.86 1303,823.96 C1355.12,771.91 1291.33,721.7 1333,660.96 C1342.1,647.69 1354.68,636.51 1368.14,627.27 " fill="none" id="state.MiddleS-to-state.Close-1" style="stroke:#00008B;stroke-width:1.0;"/><polygon fill="#00008B" points="1372.34,624.46,1362.6327,626.1241,1368.1797,627.2335,1367.0703,632.7805,1372.34,624.46" style="stroke:#00008B;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="1135.5" y="804.4551">Inside&#x30BB;&#x30F3;&#x30B5;OFF&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="1175" y="820.8067">&#x76F4;&#x524D;Close</text><!--MD5=[c1e8252bc076f1db078dae11ed669339]
+link state.MiddleS to state.Close--><path d="M989.6,904.96 C1013.11,869.29 1054.98,814.54 1106,785.96 C1183.65,742.46 1235.69,808.19 1303,749.96 C1334.57,722.65 1306.98,693.6 1333,660.96 C1342.62,648.89 1354.97,638.39 1367.95,629.47 " fill="none" id="state.MiddleS-to-state.Close-2" style="stroke:#00008B;stroke-width:1.0;"/><polygon fill="#00008B" points="1372.37,626.51,1362.6667,628.1972,1368.2163,629.2934,1367.1201,634.843,1372.37,626.51" style="stroke:#00008B;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="110" x="1149.5" y="697.4551">Outside&#x30BB;&#x30F3;&#x30B5;OFF</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="1135.5" y="713.8067">Inside&#x30BB;&#x30F3;&#x30B5;OFF&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="175" x="1117" y="730.1582">EDoorMiddleCancelCloseTime</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="1175" y="746.5098">&#x76F4;&#x524D;Close</text><!--MD5=[c1e8252bc076f1db078dae11ed669339]
+link state.MiddleS to state.Close--><path d="M976.73,904.78 C991.44,848.13 1029.09,735.42 1106,678.96 C1177.75,626.29 1217.04,666.03 1303,642.96 C1324.15,637.28 1346.62,629.9 1367.32,622.52 " fill="none" id="state.MiddleS-to-state.Close-3" style="stroke:#00008B;stroke-width:1.0;"/><polygon fill="#00008B" points="1372.26,620.75,1362.438,620.0233,1367.5536,622.438,1365.1388,627.5536,1372.26,620.75" style="stroke:#00008B;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="99" x="1155" y="590.4551">Inside&#x30BB;&#x30F3;&#x30B5;OFF</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="87" x="1161" y="606.8067">InDirectionOFF</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="153" x="1128" y="623.1582">EDoorMiddleCloseTimeout</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="57" x="1176" y="639.5098">&#x76F4;&#x524D;Open</text><!--MD5=[c1e8252bc076f1db078dae11ed669339]
+link state.MiddleS to state.Close--><path d="M1027.61,972.98 C1101.51,1010.9 1227.95,1058.48 1303,989.96 C1357.22,940.46 1294.27,723.32 1333,660.96 C1341.65,647.03 1354.27,635.49 1367.95,626.1 " fill="none" id="state.MiddleS-to-state.Close-4" style="stroke:#00008B;stroke-width:1.0;"/><polygon fill="#00008B" points="1372.22,623.25,1362.5101,624.8987,1368.0554,626.0169,1366.9372,631.5622,1372.22,623.25" style="stroke:#00008B;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="1139" y="953.4551">Inside&#x30BB;&#x30F3;&#x30B5;ON&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="87" x="1161" y="969.8067">InDirectionOFF</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="57" x="1176" y="986.1582">&#x76F4;&#x524D;Open</text><!--MD5=[3b174fd1af0d1b733bd8459a811961ff]
+link state.MiddleS to state.DoorOpen--><path d="M1011.49,973.06 C1037.2,991.47 1071.58,1012.35 1106,1021.96 C1127.08,1027.85 1286.65,1036.51 1303,1021.96 C1345.95,983.73 1294.27,807.46 1333,764.96 C1388.34,704.25 1635.94,677.87 1748.72,668.85 " fill="none" id="state.MiddleS-to-state.DoorOpen" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1753.99,668.43,1744.6989,665.1626,1749.006,668.8299,1745.3387,673.1369,1753.99,668.43" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="142" x="1375.5" y="671.4551">Outside&#x30BB;&#x30F3;&#x30B5;ON&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="1417" y="687.8067">&#x76F4;&#x524D;Close</text><!--MD5=[3b174fd1af0d1b733bd8459a811961ff]
+link state.MiddleS to state.DoorOpen--><path d="M1011,973.26 C1050.74,1005.68 1104.55,1049.45 1106,1049.96 C1149.14,1065.24 1554.21,1040.5 1560,1038.96 C1639.33,1017.82 1672.19,1017.64 1724,953.96 C1784.01,880.2 1799.62,764.74 1803.64,704.51 " fill="none" id="state.MiddleS-to-state.DoorOpen-1" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1803.98,699.22,1799.4217,707.9505,1803.6654,704.2101,1807.4059,708.4538,1803.98,699.22" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="149" x="1372" y="1002.4551">Outside&#x30BB;&#x30F3;&#x30B5;OFF&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="1377.5" y="1018.8067">Inside&#x30BB;&#x30F3;&#x30B5;OFF&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="1417" y="1035.1582">&#x76F4;&#x524D;Close</text><!--MD5=[3b174fd1af0d1b733bd8459a811961ff]
+link state.MiddleS to state.DoorOpen--><path d="M1007.51,973.12 C1033.37,993.71 1069.33,1017.99 1106,1028.96 C1126.97,1035.23 1286.01,1042.76 1303,1028.96 C1353.41,988.03 1288.48,933.23 1333,885.96 C1404.71,809.83 1464.55,866.71 1560,823.96 C1633.45,791.06 1709.99,737.84 1757.56,702.14 " fill="none" id="state.MiddleS-to-state.DoorOpen-2" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1761.79,698.96,1752.195,701.1819,1757.7969,701.9691,1757.0096,707.5709,1761.79,698.96" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="149" x="1372" y="787.4551">Outside&#x30BB;&#x30F3;&#x30B5;OFF&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="99" x="1397" y="803.8067">Inside&#x30BB;&#x30F3;&#x30B5;OFF</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="57" x="1418" y="820.1582">&#x76F4;&#x524D;Open</text><!--MD5=[3b174fd1af0d1b733bd8459a811961ff]
+link state.MiddleS to state.DoorOpen--><path d="M1003.95,973.04 C1029.79,995.74 1067.12,1023.59 1106,1035.96 C1126.86,1042.6 1284.05,1046.91 1303,1035.96 C1326.1,1022.62 1311.11,999.22 1333,983.96 C1416.97,925.42 1466.38,986.37 1560,944.96 C1644.56,907.56 1664.52,887.75 1724,816.96 C1752.88,782.59 1775.74,736.27 1789.71,703.82 " fill="none" id="state.MiddleS-to-state.DoorOpen-3" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1791.71,699.14,1784.5058,705.8556,1789.7525,703.7409,1791.8672,708.9876,1791.71,699.14" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="1404.5" y="908.4551">&#x5165;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;ON</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="1410" y="924.8067">Inside&#x30BB;&#x30F3;&#x30B5;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="1349" y="941.1582">EDoorPresenceMiddleDetectTime</text><!--MD5=[a33cfb70b0b57e825ea50c72039400a5]
+link state.Close to state.CloseS--><path d="M1372.48,579.72 C1350.24,576.53 1325.68,573.54 1303,571.96 C1259.33,568.91 1148.61,561.9 1106,571.96 C1102.13,572.87 1101.83,574.9 1098,575.96 C982.86,607.71 949.18,587.98 830,595.96 C590.56,612 528.71,595.08 291,627.96 C283.4025,629.0113 275.6005,630.258 267.7593,631.6361 C267.5142,631.6792 267.2691,631.7224 267.024,631.7657 " fill="none" id="state.Close-to-state.CloseS" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="267.024,631.7657,276.5829,634.1382,271.9477,630.8955,275.1905,626.2603,267.024,631.7657" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="115" x="674" y="592.4551">CCW&#x30BB;&#x30F3;&#x30B5;ON&#x78BA;&#x8A8D;</text><!--MD5=[7a652ee59b30b829d086ed3dd1b3fbda]
+link state.Close to state.Close--><path d="M1407.74,550.25 C1404.05,531.6 1416.97,515.46 1446.5,515.46 C1473.26,515.46 1486.38,528.71 1485.86,545.08 " fill="none" id="state.Close-to-state.Close" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1485.26,550.25,1490.2643,541.7673,1485.8326,545.2829,1482.317,540.8511,1485.26,550.25" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="115" x="1389" y="506.9551">CCW&#x30BB;&#x30F3;&#x30B5;ON&#x76E3;&#x8996;</text><!--MD5=[db32e11657d748d0191d2a2e4cbb3475]
+link state.Close to state.DoorOpen--><path d="M1520.71,606.91 C1588.26,620.7 1687.16,640.9 1748.72,653.47 " fill="none" id="state.Close-to-state.DoorOpen" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1753.82,654.51,1745.8016,648.7911,1748.921,653.5102,1744.2019,656.6296,1753.82,654.51" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="103" x="1605.5" y="602.4551">Outside&#x30BB;&#x30F3;&#x30B5;ON</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="128" x="1595" y="618.8067">Inside&#x30BB;&#x30F3;&#x30B5;Off&#x30A8;&#x30C3;&#x30B8;</text><!--MD5=[2aa7cc1c768f4ff58b10495e5123ed98]
+link state.CloseS to state.Middle--><path d="M157.5125,666.2031 C157.7446,666.726 157.988,667.2712 158.2427,667.8379 C158.7521,668.9712 159.3067,670.1904 159.9062,671.4892 C161.1051,674.087 162.4834,677.0036 164.0381,680.1895 C170.2569,692.9334 179.2975,709.9881 190.9675,728.1938 C214.3075,764.605 248.165,805.62 291,825.96 C344.4,851.32 367.89,844.54 424,825.96 C444.29,819.24 463.83,806.84 480.36,793.91 " fill="none" id="state.CloseS-to-state.Middle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="484.5,790.62,474.9712,793.1103,480.5929,793.74,479.9631,799.3617,484.5,790.62" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="292" y="806.4551">Inside&#x30BB;&#x30F3;&#x30B5;ON&#x30A8;&#x30C3;&#x30B8;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="110" x="302.5" y="822.8067">Outside&#x30BB;&#x30F3;&#x30B5;OFF</text><!--MD5=[2aa7cc1c768f4ff58b10495e5123ed98]
+link state.CloseS to state.Middle--><path d="M162.0584,666.21 C162.2502,666.3999 162.4452,666.5927 162.6432,666.7881 C163.0394,667.1789 163.4481,667.5806 163.8691,667.9927 C164.7112,668.8168 165.6025,669.6824 166.5413,670.5859 C174.0512,677.8144 184.5975,687.4713 197.25,697.7325 C222.555,718.255 256.285,741.195 291,751.96 C341.9,767.74 401.96,766.75 448.83,761.94 " fill="none" id="state.CloseS-to-state.Middle-1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="453.9,761.4,444.5275,758.374,448.928,761.9286,445.3733,766.3291,453.9,761.4" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="92" x="311.5" y="715.4551">Inside&#x30BB;&#x30F3;&#x30B5;ON</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="110" x="302.5" y="731.8067">Outside&#x30BB;&#x30F3;&#x30B5;OFF</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="123" x="296" y="748.1582">EDoorReMonitorTime</text><!--MD5=[2aa7cc1c768f4ff58b10495e5123ed98]
+link state.CloseS to state.Middle--><path d="M265.8562,665.9651 C266.7212,666.0633 267.589,666.1627 268.4594,666.2633 C275.4224,667.0681 282.5537,667.9499 289.8082,668.9159 C304.3174,670.8478 319.3198,673.1166 334.4559,675.78 C364.7281,681.1069 395.535,688.0125 424,696.96 C432.34,699.58 440.82,702.81 449.17,706.36 " fill="none" id="state.CloseS-to-state.Middle-2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="453.79,708.37,447.1395,701.1056,449.2069,706.3712,443.9414,708.4385,453.79,708.37" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="92" x="311.5" y="650.4551">Inside&#x30BB;&#x30F3;&#x30B5;ON</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="66" x="324.5" y="666.8067">InCage&#x691C;&#x77E5;</text><!--MD5=[1a62c1cc0c40d7372664de8881fc85e1]
+link state.CloseS to state.DoorOpen--><path d="M154.2124,665.9939 C154.2695,667.598 154.3418,669.4287 154.4329,671.474 C154.7973,679.655 155.464,691.2679 156.6792,705.5289 C159.1097,734.0509 163.7344,773.1656 172.5238,816.6038 C190.1025,903.48 224.34,1007.65 291,1078.96 C368.35,1161.71 414.23,1173.96 527.5,1173.96 C527.5,1173.96 527.5,1173.96 1447.5,1173.96 C1509.26,1173.96 1678.91,1188.17 1724,1145.96 C1788.06,1085.99 1801.49,807.87 1804.28,704.12 " fill="none" id="state.CloseS-to-state.DoorOpen" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1804.41,699.02,1800.18,707.9142,1804.2815,704.0183,1808.1773,708.1198,1804.41,699.02" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="922.5" y="1154.4551">&#x5165;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;OFF</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="150" x="893" y="1170.8067">EDoorPresenceOpenTime</text><!--MD5=[1a62c1cc0c40d7372664de8881fc85e1]
+link state.CloseS to state.DoorOpen--><path d="M157.41,666.2186 C157.4676,666.3536 157.526,666.4901 157.5851,666.6281 C157.8216,667.1802 158.0695,667.756 158.3289,668.355 C158.8477,669.553 159.4123,670.8434 160.0221,672.2204 C161.2419,674.9743 162.6427,678.0744 164.2209,681.4731 C170.5338,695.0681 179.6838,713.4425 191.425,733.5625 C214.9075,773.8025 248.755,821.025 291,850.96 C596.37,1067.36 733.64,1025.15 1106,1062.96 C1379.47,1090.73 1521.47,1224.8 1724,1038.96 C1773.02,993.99 1794.91,790.51 1802.12,704.03 " fill="none" id="state.CloseS-to-state.DoorOpen-1" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1802.54,699.01,1797.8331,707.6613,1802.1401,703.994,1805.8074,708.3011,1802.54,699.01" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="115" x="910.5" y="1039.4551">EDoorCloseTimeout</text><!--MD5=[3fc74712b2ed25915d2152dd65ebc081]
+link state.checkDoor to state.DoorOpen--><path d="M219.25,541.99 C460.11,418.51 1298.71,6 1560,108.96 C1652.74,145.5 1675.4,174.92 1724,261.96 C1791.1,382.14 1803.07,549.98 1804.89,625.45 " fill="none" id="state.checkDoor-to-state.DoorOpen" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1805.01,630.72,1808.8292,621.6418,1804.91,625.721,1800.8308,621.8018,1805.01,630.72" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="870.5" y="163.4551">EDoorCloseDoorMonitorStartTime</text><!--MD5=[3fc74712b2ed25915d2152dd65ebc081]
+link state.checkDoor to state.DoorOpen--><path d="M191.98,541.74 C290.15,455.7 563.85,230.81 838,140.96 C1143.63,40.79 1248.82,10.64 1560,91.96 C1640.86,113.09 1675.9,115.61 1724,183.96 C1774.26,255.38 1796.11,523.98 1802.71,625.64 " fill="none" id="state.checkDoor-to-state.DoorOpen-1" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="1803.03,630.65,1806.4295,621.4064,1802.7012,625.6608,1798.4468,621.9325,1803.03,630.65" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="120" x="908" y="61.4551">EDoorMiddleTimeout</text><!--MD5=[8a81af4f241a5daf6cf5da320887deb9]
+link state.checkDoor to state.Close--><path d="M219.21,574.95 C373.4,572.61 772.54,566.89 1106,564.96 C1193.55,564.45 1215.83,556.77 1303,564.96 C1324,566.93 1346.52,570.51 1367.32,574.42 " fill="none" id="state.checkDoor-to-state.Close" style="stroke:#00008B;stroke-width:1.0;"/><polygon fill="#00008B" points="1372.28,575.37,1364.1949,569.7458,1367.3696,574.4279,1362.6875,577.6025,1372.28,575.37" style="stroke:#00008B;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="689.5" y="531.4551">&#x5165;&#x5BA4;&#x30BB;&#x30F3;&#x30B5;ON</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="634" y="547.8067">EDoorCloseDoorMonitorStartTime</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="99" x="682" y="564.1582">Inside&#x30BB;&#x30F3;&#x30B5;OFF</text><!--MD5=[62570454c677f88c8f535beea554f56c]
+@startuml
+
+left to right direction
+
+state "eDoor動作" as group.Operation {
+
+    [*] - -> state.Init
+
+    state "初期化" as state.Init {
+        state.Init -[#red]-> state.DoorOpen : ドア位置初期位置移動
+        state.Init : exit / アプリケーション起動直後の設定
+    }
+
+    state "ドア開き動作" as state.DoorOpen {
+        state.DoorOpen -[#blue,bold]-> state.DoorOpenStay : CWセンサON確認
+        state.DoorOpen : CWセンサON
+        state.DoorOpen : * ドア開き動作
+        state.DoorOpen -[#red]-> state.DoorOpen : CWセンサON監視
+    }
+    state "ドア開き待機" as state.DoorOpenStay {
+        state.DoorOpenStay - -> state.Middle : OutsideセンサONエッジ
+        state.DoorOpenStay -[#darkblue]-> state.Close : InsideセンサONエッジ\n  EDoorInsideDetectCloseTime
+        state.DoorOpenStay -[#darkblue]-> state.Close : 入室センサー\n EDoorReEntryTime
+        state.DoorOpenStay : OpenIntervalTime遅延
+        state.DoorOpenStay : * ドア開き待機状態
+        state.DoorOpenStay -[#red]-> state.DoorOpen : MiddleTimeout\n CWセンサOFF\nCCWセンサOFF
+        state "不正中間扉検知" as state.CheckIllegalMiddleOnOpen{
+            state "不正中間扉検知" as state.CheckIllegalMiddleOnOpen : 呼び出し時間記録
+            state "センサー状態検知" as state.checkDoorOnOpen : CWLIM OFF\nCCWLIM OFF
+            state.checkDoorOnOpen -[#red]-> state.DoorOpen : EDoorCloseDoorMonitorStartTime
+            state.checkDoorOnOpen -[#red]-> state.DoorOpen : EDoorMiddleTimeout
+            state.checkDoorOnOpen -[#darkblue]-> state.Close : 入室センサON\nEDoorCloseDoorMonitorStartTime\nInsideセンサOFF
+        }
+    }
+    state "中間扉動作" as state.Middle {
+        state.Middle -[#blue,bold]-> state.MiddleS : 中間位置動作
+        state.Middle : * ドアスルー状態動作
+        state.Middle : OpenToMiddleTimer \nor CloseToMiddleTimer
+    }
+    state "中間扉待機" as state.MiddleS {
+        state.MiddleS -[#darkblue]-> state.Close : InsideセンサONエッジ\n直前Open
+        state.MiddleS -[#darkblue]-> state.Close : InsideセンサOFFエッジ\n直前Close
+        state.MiddleS -[#darkblue]-> state.Close : OutsideセンサOFF\nInsideセンサOFFエッジ\nEDoorMiddleCancelCloseTime\n直前Close
+        state.MiddleS -[#darkblue]-> state.Close : InsideセンサOFF\nInDirectionOFF\nEDoorMiddleCloseTimeout\n直前Open
+        state.MiddleS -[#darkblue]-> state.Close : InsideセンサONエッジ\nInDirectionOFF\n直前Open
+        state.MiddleS -[#red]-> state.DoorOpen : OutsideセンサONエッジ\n直前Close
+        state.MiddleS -[#red]-> state.DoorOpen : OutsideセンサOFFエッジ\nInsideセンサOFFエッジ\n直前Close
+        state.MiddleS -[#red]-> state.DoorOpen : OutsideセンサOFFエッジ\nInsideセンサOFF\n直前Open
+        state.MiddleS -[#red]-> state.DoorOpen : 入室センサON\nInsideセンサ\nEDoorPresenceMiddleDetectTime
+        state.MiddleS : EDoorMiddleIntervalTime遅延
+        state.MiddleS : * ドアスルー状態
+    }
+    state "ドア閉じ動作" as state.Close {
+        state.Close -[#blue,bold]-> state.CloseS : CCWセンサON確認
+        state.Close : CCWセンサON
+        state.Close : * ドア閉動作
+        state.Close : * 異常退室時 強制Open
+        state.Close - -> state.Close : CCWセンサON監視
+        state.Close -[#red]-> state.DoorOpen : OutsideセンサON\n InsideセンサOffエッジ
+    }
+    state "ドア閉じ待機" as state.CloseS {
+        state.CloseS : EDoorCloseIntervalTime遅延
+        state.CloseS : * ドア閉状態
+        'state.CloseS - -> state.CloseS : 条件監視
+        state.CloseS - -> state.Middle : InsideセンサONエッジ\nOutsideセンサOFF
+        state.CloseS - -> state.Middle : InsideセンサON\nOutsideセンサOFF\nEDoorReMonitorTime
+        state.CloseS - -> state.Middle : InsideセンサON\nInCage検知
+        state.CloseS -[#red]-> state.DoorOpen : 入室センサOFF\nEDoorPresenceOpenTime
+        state.CloseS -[#red]-> state.DoorOpen : EDoorCloseTimeout
+        
+        state "不正中間扉検知" as state.CheckIllegalMiddle{
+            state "不正中間扉検知" as state.CheckIllegalMiddle : 呼び出し時間記録
+            state "センサー状態検知" as state.checkDoor : CWLIM OFF\nCCWLIM OFF
+            state.checkDoor -[#red]-> state.DoorOpen : EDoorCloseDoorMonitorStartTime
+            state.checkDoor -[#red]-> state.DoorOpen : EDoorMiddleTimeout
+            state.checkDoor -[#darkblue]-> state.Close : 入室センサON\nEDoorCloseDoorMonitorStartTime\nInsideセンサOFF
+        }
+    }
+}
+
+@enduml
+
+@startuml
+
+left to right direction
+
+state "eDoor動作" as group.Operation {
+
+    [*] - -> state.Init
+
+    state "初期化" as state.Init {
+        state.Init -[#red]-> state.DoorOpen : ドア位置初期位置移動
+        state.Init : exit / アプリケーション起動直後の設定
+    }
+
+    state "ドア開き動作" as state.DoorOpen {
+        state.DoorOpen -[#blue,bold]-> state.DoorOpenStay : CWセンサON確認
+        state.DoorOpen : CWセンサON
+        state.DoorOpen : * ドア開き動作
+        state.DoorOpen -[#red]-> state.DoorOpen : CWセンサON監視
+    }
+    state "ドア開き待機" as state.DoorOpenStay {
+        state.DoorOpenStay - -> state.Middle : OutsideセンサONエッジ
+        state.DoorOpenStay -[#darkblue]-> state.Close : InsideセンサONエッジ\n  EDoorInsideDetectCloseTime
+        state.DoorOpenStay -[#darkblue]-> state.Close : 入室センサー\n EDoorReEntryTime
+        state.DoorOpenStay : OpenIntervalTime遅延
+        state.DoorOpenStay : * ドア開き待機状態
+        state.DoorOpenStay -[#red]-> state.DoorOpen : MiddleTimeout\n CWセンサOFF\nCCWセンサOFF
+        state "不正中間扉検知" as state.CheckIllegalMiddleOnOpen{
+            state "不正中間扉検知" as state.CheckIllegalMiddleOnOpen : 呼び出し時間記録
+            state "センサー状態検知" as state.checkDoorOnOpen : CWLIM OFF\nCCWLIM OFF
+            state.checkDoorOnOpen -[#red]-> state.DoorOpen : EDoorCloseDoorMonitorStartTime
+            state.checkDoorOnOpen -[#red]-> state.DoorOpen : EDoorMiddleTimeout
+            state.checkDoorOnOpen -[#darkblue]-> state.Close : 入室センサON\nEDoorCloseDoorMonitorStartTime\nInsideセンサOFF
+        }
+    }
+    state "中間扉動作" as state.Middle {
+        state.Middle -[#blue,bold]-> state.MiddleS : 中間位置動作
+        state.Middle : * ドアスルー状態動作
+        state.Middle : OpenToMiddleTimer \nor CloseToMiddleTimer
+    }
+    state "中間扉待機" as state.MiddleS {
+        state.MiddleS -[#darkblue]-> state.Close : InsideセンサONエッジ\n直前Open
+        state.MiddleS -[#darkblue]-> state.Close : InsideセンサOFFエッジ\n直前Close
+        state.MiddleS -[#darkblue]-> state.Close : OutsideセンサOFF\nInsideセンサOFFエッジ\nEDoorMiddleCancelCloseTime\n直前Close
+        state.MiddleS -[#darkblue]-> state.Close : InsideセンサOFF\nInDirectionOFF\nEDoorMiddleCloseTimeout\n直前Open
+        state.MiddleS -[#darkblue]-> state.Close : InsideセンサONエッジ\nInDirectionOFF\n直前Open
+        state.MiddleS -[#red]-> state.DoorOpen : OutsideセンサONエッジ\n直前Close
+        state.MiddleS -[#red]-> state.DoorOpen : OutsideセンサOFFエッジ\nInsideセンサOFFエッジ\n直前Close
+        state.MiddleS -[#red]-> state.DoorOpen : OutsideセンサOFFエッジ\nInsideセンサOFF\n直前Open
+        state.MiddleS -[#red]-> state.DoorOpen : 入室センサON\nInsideセンサ\nEDoorPresenceMiddleDetectTime
+        state.MiddleS : EDoorMiddleIntervalTime遅延
+        state.MiddleS : * ドアスルー状態
+    }
+    state "ドア閉じ動作" as state.Close {
+        state.Close -[#blue,bold]-> state.CloseS : CCWセンサON確認
+        state.Close : CCWセンサON
+        state.Close : * ドア閉動作
+        state.Close : * 異常退室時 強制Open
+        state.Close - -> state.Close : CCWセンサON監視
+        state.Close -[#red]-> state.DoorOpen : OutsideセンサON\n InsideセンサOffエッジ
+    }
+    state "ドア閉じ待機" as state.CloseS {
+        state.CloseS : EDoorCloseIntervalTime遅延
+        state.CloseS : * ドア閉状態
+        state.CloseS - -> state.Middle : InsideセンサONエッジ\nOutsideセンサOFF
+        state.CloseS - -> state.Middle : InsideセンサON\nOutsideセンサOFF\nEDoorReMonitorTime
+        state.CloseS - -> state.Middle : InsideセンサON\nInCage検知
+        state.CloseS -[#red]-> state.DoorOpen : 入室センサOFF\nEDoorPresenceOpenTime
+        state.CloseS -[#red]-> state.DoorOpen : EDoorCloseTimeout
+        
+        state "不正中間扉検知" as state.CheckIllegalMiddle{
+            state "不正中間扉検知" as state.CheckIllegalMiddle : 呼び出し時間記録
+            state "センサー状態検知" as state.checkDoor : CWLIM OFF\nCCWLIM OFF
+            state.checkDoor -[#red]-> state.DoorOpen : EDoorCloseDoorMonitorStartTime
+            state.checkDoor -[#red]-> state.DoorOpen : EDoorMiddleTimeout
+            state.checkDoor -[#darkblue]-> state.Close : 入室センサON\nEDoorCloseDoorMonitorStartTime\nInsideセンサOFF
+        }
+    }
+}
+
+@enduml
+
+PlantUML version 1.2021.12(Wed Oct 06 01:01:58 JST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg></p>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
