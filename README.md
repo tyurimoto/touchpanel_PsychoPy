@@ -13,6 +13,44 @@ toc-title: "目次"
 
 <!--- pandoc report.md -s -o manual.pdf --pdf-engine=lualatex -V documentclass=ltjsarticle -V luatexjapresetoptions=yu-win -N  --->
 
+# ⚠️ 重要なお知らせ - PsychoPy統合機能追加（2026年1月）
+
+## 🎉 新機能: PsychoPyから課題制御が可能になりました
+
+このCompartmentソフトに **REST API機能** と **デバッグモード** が追加されました。
+
+### 📚 新機能ドキュメント
+
+PsychoPy統合機能については、以下のドキュメントを参照してください：
+
+- **[PROJECT_OVERVIEW.md](./PROJECT_OVERVIEW.md)** - プロジェクト概要（まずここから）
+- **[README_BUILD.md](./README_BUILD.md)** - Windows環境でのビルド方法
+- **[USAGE.md](./USAGE.md)** - 操作方法マニュアル
+- **[psychopy/README.md](./psychopy/README.md)** - PsychoPy課題の作り方
+
+### ✨ 主な機能
+
+1. **REST API**: PsychoPyや他のプログラムからハードウェアを制御
+2. **デバッグモード**: ハードウェアなしでPC単体で動作確認
+3. **Python統合**: PsychoPyで柔軟な課題プログラミング
+
+### 🔄 既存機能への影響
+
+**既存のCompartment機能は一切変更されていません。**
+- Training、DelayMatch等の既存課題は従来通り動作します
+- 新機能を使わない場合は、今まで通りご利用いただけます
+
+### 📖 詳細情報
+
+技術的な詳細や実装状況は以下を参照：
+- [STATUS.md](./STATUS.md) - 実装状況
+- [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) - 実装計画
+- [NEXT_STEPS.md](./NEXT_STEPS.md) - 次のステップ
+
+---
+
+# コンパートメント・ソフト説明書（元のマニュアル）
+
 * コンパートメント・ソフト説明書
 * 2.0.1.1版
 
