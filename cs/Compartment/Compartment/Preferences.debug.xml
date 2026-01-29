@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  デバッグモード用設定ファイル
+
+  このファイルをコピーして Preferences.xml として使用すると、
+  ハードウェアなしでPC単体で動作確認できます。
+-->
+<PreferencesDat>
+  <CompartmentNo>1</CompartmentNo>
+  <ApiServerPort>5000</ApiServerPort>
+
+  <!-- デバッグモード有効化 -->
+  <EnableDebugMode>true</EnableDebugMode>
+  <DebugModeType>FullDummy</DebugModeType>
+
+  <!-- COMポート設定（デバッグモード時は使用されない） -->
+  <ComPort>COM1</ComPort>
+  <ComBaudRate>19200</ComBaudRate>
+</PreferencesDat>

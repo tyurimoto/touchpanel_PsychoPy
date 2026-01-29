@@ -13,6 +13,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Owin.Hosting;
+using Compartment.Services;
+using Compartment.Controllers;
 
 namespace Compartment
 {
@@ -30,6 +33,10 @@ namespace Compartment
         public UcOperationBlock uob;
         private const string episodeBaseIdFileName = "baseid.json";
         private const string recentIdFileName = "recentid.ids";
+
+        // OWIN Web API server
+        private IDisposable _apiServer;
+        private HardwareService _hardwareService;
 
         public bool Feeding { get => devFeed.Feeding; }
         public FormMain()
@@ -274,6 +281,11 @@ namespace Compartment
             InitSerialPort();
             // IO開く前にサブからこちらへ
             this.Activate();
+
+            // Debug mode initialization
+            InitializeIoBoardForDebugMode();
+            InitializeRFIDReaderForDebugMode();
+
             // IOボード: デバイス取得
             try
             {
@@ -362,6 +374,9 @@ namespace Compartment
             formProgress?.Close();
             this.Enabled = true;
 
+            // Start OWIN Web API server
+            StartApiServer();
+
             opCollection.callbackMessageDebug("アプリ起動");
             return;
         }
@@ -404,15 +419,119 @@ namespace Compartment
             recentIdHelper.CheckExpire();
         }
 
+        /// <summary>
+        /// Start OWIN Web API server for PsychoPy integration
+        /// </summary>
+        private void StartApiServer()
+        {
+            try
+            {
+                // Get port number from preferences (default: 5000)
+                int port = preferencesDatOriginal?.ApiServerPort ?? 5000;
+                string baseAddress = $"http://localhost:{port}/";
+
+                // Initialize hardware service
+                _hardwareService = new HardwareService(this);
+
+                // Initialize all controllers
+                SensorController.Initialize(_hardwareService);
+                DoorController.Initialize(_hardwareService);
+                LeverController.Initialize(_hardwareService);
+                FeedController.Initialize(_hardwareService);
+                RFIDController.Initialize(_hardwareService);
+                DebugController.Initialize(_hardwareService);
+
+                // Start OWIN server
+                _apiServer = WebApp.Start<Startup>(baseAddress);
+
+                Debug.WriteLine($"[API] Web API server started at {baseAddress}");
+                opCollection?.callbackMessageDebug($"API起動: {baseAddress}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[API] Failed to start Web API server: {ex.Message}");
+                MessageBox.Show($"API起動エラー: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Stop OWIN Web API server
+        /// </summary>
+        private void StopApiServer()
+        {
+            try
+            {
+                if (_apiServer != null)
+                {
+                    _apiServer.Dispose();
+                    _apiServer = null;
+                    Debug.WriteLine("[API] Web API server stopped");
+                    opCollection?.callbackMessageDebug("API停止");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[API] Error stopping Web API server: {ex.Message}");
+            }
+        }
+
         // ID Code重複排除用にID Codeを保存
         public SyncObject<String> mIdCode0 = new SyncObject<String>("");
 
+        /// <summary>
+        /// Initialize IOBoard based on debug mode settings
+        /// </summary>
+        private void InitializeIoBoardForDebugMode()
+        {
+            if (preferencesDatOriginal.EnableDebugMode)
+            {
+                if (preferencesDatOriginal.DebugModeType == EDebugModeType.FullDummy)
+                {
+                    // Full dummy mode - no hardware required
+                    ioBoardDevice = new IoMicrochipDummyEx();
+                    Debug.WriteLine("[Debug] Initialized IoMicrochipDummyEx (Full Dummy Mode)");
+                }
+                else if (preferencesDatOriginal.DebugModeType == EDebugModeType.Hybrid)
+                {
+                    // Hybrid mode - try to use real hardware, manual override for difficult sensors
+                    ioBoardDevice = new IoHybridBoard(useRealHardware: true);
+                    Debug.WriteLine("[Debug] Initialized IoHybridBoard (Hybrid Mode)");
+                }
+            }
+            else
+            {
+                // Normal mode - use real hardware
+                ioBoardDevice = new IoMicrochip();
+                Debug.WriteLine("[Debug] Initialized IoMicrochip (Normal Mode)");
+            }
+        }
+
+        /// <summary>
+        /// Initialize RFID reader based on debug mode settings
+        /// </summary>
+        private void InitializeRFIDReaderForDebugMode()
+        {
+            if (preferencesDatOriginal.EnableDebugMode)
+            {
+                // Debug mode - use dummy RFID reader
+                rfidReaderHelper = new RFIDReaderDummy();
+                Debug.WriteLine("[Debug] Initialized RFIDReaderDummy");
+            }
+            // Normal mode initialization happens in InitSerialPort()
+        }
+
         private void InitSerialPort()
         {
-            RFIDReaderHelper rFIDReaderHelper = new RFIDReaderHelper();
-            rFIDReaderHelper.callbackReceivedDataSub += (x) => { callbackReceivedDataSub(x); };
-            // シリアル受信デリゲートを設定
-            serialHelperPort.callbackReceivedDatagram = rFIDReaderHelper.GetUnivrsalIDAction();
+            // Skip normal RFID initialization if debug mode is enabled
+            if (!preferencesDatOriginal.EnableDebugMode)
+            {
+                RFIDReaderHelper rFIDReaderHelper = new RFIDReaderHelper();
+                rFIDReaderHelper.callbackReceivedDataSub += (x) => { callbackReceivedDataSub(x); };
+                // シリアル受信デリゲートを設定
+                serialHelperPort.callbackReceivedDatagram = rFIDReaderHelper.GetUnivrsalIDAction();
+                rfidReaderHelper = rFIDReaderHelper;
+            }
+
             //serialHelperPort.ComPort = "COM4";
             serialHelperPort.StopBits = "Two";
             serialHelperPort.BaudRate = "9600";
@@ -544,6 +663,10 @@ namespace Compartment
             }
             ucOperationDataStore?.Dispose();
             camImage?.Dispose();
+
+            // Stop Web API server
+            StopApiServer();
+
             opCollection.callbackMessageDebug("アプリ終了");
 
             if (Program.EnableNewEngine)

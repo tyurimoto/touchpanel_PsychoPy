@@ -69,6 +69,12 @@ namespace Compartment
         UnConditionalFeeding = 4
     }
 
+    public enum EDebugModeType
+    {
+        FullDummy = 0,    // 完全ダミー（実機不要）
+        Hybrid = 1        // ハイブリッド（実機＋手動シミュレート）
+    }
+
     public enum ECpCommand
     {
         ClearScreen = 0,
@@ -197,6 +203,15 @@ namespace Compartment
         // Compartmentカテゴリ
         [System.Xml.Serialization.XmlElement("CompartmentNo")]
         public int CompartmentNo { get; set; } = 0;
+
+        [System.Xml.Serialization.XmlElement("ApiServerPort")]
+        public int ApiServerPort { get; set; } = 5000;
+
+        [System.Xml.Serialization.XmlElement("EnableDebugMode")]
+        public bool EnableDebugMode { get; set; } = false;
+
+        [System.Xml.Serialization.XmlElement("DebugModeType")]
+        public EDebugModeType DebugModeType { get; set; } = EDebugModeType.FullDummy;
 
         //----------------------------------------------------------------------------
         // ID codeカテゴリ
