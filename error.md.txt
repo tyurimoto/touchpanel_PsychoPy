@@ -1,68 +1,12 @@
-重大度レベル	コード	説明	プロジェクト	ファイル	行	抑制状態
-エラー (アクティブ)	CS0246	型または名前空間の名前 'RFIDReaderDummy' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	561	
-エラー (アクティブ)	CS0246	型または名前空間の名前 'IoMicrochipDummyEx' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	536	
-エラー (アクティブ)	CS0246	型または名前空間の名前 'IoMicrochipDummyEx' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	545	
-エラー (アクティブ)	CS0246	型または名前空間の名前 'RFIDReaderDummy' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	561	
-エラー (アクティブ)	CS0006	メタデータ ファイル 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Compartment.exe' が見つかりませんでした	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\CSC	1	
-警告 (アクティブ)	CS0067	イベント 'RelayCommand.CanExecuteChanged' は使用されていません	BlockProgrammingControl	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\BlockProgrammingControl\UserControl1.xaml.cs	341	
-警告		参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Buffers' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'MccDaq' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Memory' が見つかりませんでした。	Compartment			
-警告		"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。	Compartment			
-警告		参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Svg' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。	Compartment			
-警告		"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。	Compartment			
-警告		参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。	Compartment			
-警告 (アクティブ)	CS0168	変数 'aa' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\CamImage.cs	1069	
-警告 (アクティブ)	CS0169	フィールド 'DevFeedMulti.pulseTimeCount' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\DevFeedMulti.cs	21	
-警告 (アクティブ)	CS0169	フィールド 'DevFeedMulti.timeoutCount' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\DevFeedMulti.cs	22	
-警告 (アクティブ)	CS0414	フィールド 'FileRelatedActionParam._Updated' が割り当てられていますが、値は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FileRelatedActionParam.cs	10	
-警告 (アクティブ)	CS0169	フィールド 'FormIpCam.Pitch' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormIpCam.cs	30	
-警告 (アクティブ)	CS0169	フィールド 'FormIpCam.Lines' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormIpCam.cs	31	
-警告 (アクティブ)	CS0067	イベント 'IoMicrochip.ConveyorErrorHandler' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoMicrochip.cs	49	
-警告 (アクティブ)	CS0168	変数 'ex' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\OpeImage.cs	1749	
-警告 (アクティブ)	CS0168	変数 'ex' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\OpeImage.cs	1931	
-警告 (アクティブ)	CS0219	変数 'ret' は割り当てられていますが、その値は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\OpeImage.cs	3006	
-警告 (アクティブ)	CS0219	変数 'shapeOffset' は割り当てられていますが、その値は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcCheckDevice.cs	700	
-警告 (アクティブ)	CS0219	変数 'l_ushortInValueOfPort5' は割り当てられていますが、その値は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcCheckIo.cs	113	
-警告 (アクティブ)	CS0219	変数 'l_ushortInValueOfPort6' は割り当てられていますが、その値は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcCheckIo.cs	114	
-警告 (アクティブ)	CS0162	到達できないコードが検出されました	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	726	
-警告 (アクティブ)	CS0414	フィールド 'UcOperationBlock.lastState' が割り当てられていますが、値は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperationBlock.cs	29	
-警告 (アクティブ)	CS0168	変数 'eCpColorBackColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2253	
-警告 (アクティブ)	CS0168	変数 'eCpColorEpBackColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2277	
-警告 (アクティブ)	CS0168	変数 'eCpColorEpBackColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2301	
-警告 (アクティブ)	CS0168	変数 'eCpColorDelayBackColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2325	
-警告 (アクティブ)	CS0168	変数 'eCpColorShapeColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2348	
-警告 (アクティブ)	CS0168	変数 'eCpColorCorrectShapeColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2508	
-警告 (アクティブ)	CS0168	変数 'eCpColorIncorrectFixColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2561	
-警告 (アクティブ)	CS0168	変数 'eCpColorIncorrectFixColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2584	
-警告 (アクティブ)	CS0168	変数 'eCpColorIncorrectFixColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2606	
-警告 (アクティブ)	CS0168	変数 'eCpColorIncorrectFixColor' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcPreferencesTab.cs	2628	
-警告 (アクティブ)	CS0168	変数 'exception' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\YoloWrapper.cs	92	
-警告 (アクティブ)	CS0168	変数 'exception' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\YoloWrapper.cs	119	
-警告 (アクティブ)	CS0168	変数 'exception' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\YoloWrapper.cs	166	
-警告		"System.Runtime.CompilerServices.Unsafe" の異なるバージョン間で、解決できない競合が見つかりました。
-"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" と "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間で競合が発生しました。
-    プライマリであるため、"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" が選択されました。"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" はプライマリではありませんでした。
-    "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" [C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll] に依存する参照です。
-        C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll
-          参照 "C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll" の原因となったプロジェクト ファイルの項目インクルード。
-            System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL
-    "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" [] に依存しているか、統合されている参照。
-        C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll
-          参照 "C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll" の原因となったプロジェクト ファイルの項目インクルード。
-            System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL
-            LibVLCSharp, Version=3.6.8.0, Culture=neutral, processorArchitecture=MSIL
-            Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL	CompartmentTests			
+デバックの出力
+'Compartment.exe' (CLR v4.0.30319: DefaultDomain): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: DefaultDomain): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Compartment.exe' が読み込まれました。シンボルが読み込まれました。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+プログラム '[22688] Compartment.exe' はコード 4294967295 (0xffffffff) で終了しました。
+
+
