@@ -89,7 +89,7 @@ namespace Darknet
                 Marshal.Copy(imageData, 0, pnt, size);
                 DetectCount = DetectImage(pnt, width, height, colorChannels, ref container, threshold);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -116,7 +116,7 @@ namespace Darknet
                 Marshal.Copy(imageData, 0, pnt, size);
                 DetectCount = DetectImage(pnt, width, height, colorChannels, ref container, threashold);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -163,7 +163,7 @@ namespace Darknet
                     throw new NotSupportedException($"{YoloLibraryName} has no OpenCV support");
                 }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 throw;
             }

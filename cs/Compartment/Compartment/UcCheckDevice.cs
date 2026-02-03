@@ -697,7 +697,6 @@ namespace Compartment
                 so.ShapeColor = Color.AliceBlue;
                 opImage.ShapeOpeImageCorrectShape = so;
 
-                const int shapeOffset = 10;
                 // ShapeSizeの1/3
                 int drawWidth = opImage.OpeImageSizeOfShapeInPixel / 3;
                 int drawHeight = opImage.OpeImageSizeOfShapeInPixel / 3;

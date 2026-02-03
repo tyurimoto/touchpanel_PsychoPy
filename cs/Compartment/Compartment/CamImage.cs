@@ -1066,7 +1066,6 @@ namespace Compartment
         }
         public void Detect(byte[] rgbPixelData, int width, int height, double threshold)
         {
-            byte[] aa;
             var bb = Yolo.Detect(rgbPixelData, width, height, threshold);
         }
         /// <summary>

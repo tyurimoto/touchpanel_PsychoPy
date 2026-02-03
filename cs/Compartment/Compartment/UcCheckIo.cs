@@ -110,8 +110,6 @@ namespace Compartment
             ushort l_ushortInValueOfPort2 = 0;
             ushort l_ushortInValueOfPort3 = 0;
             ushort l_ushortInValueOfPort4 = 0;
-            ushort l_ushortInValueOfPort5 = 0;
-            ushort l_ushortInValueOfPort6 = 0;
 
 
             if (userControlCheckIoOnFormMain.Visible == true)

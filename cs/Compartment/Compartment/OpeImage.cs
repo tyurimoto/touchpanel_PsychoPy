@@ -1746,7 +1746,7 @@ namespace Compartment
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
                 throw;
@@ -1928,7 +1928,7 @@ namespace Compartment
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
                 throw;
@@ -3003,7 +3003,6 @@ namespace Compartment
             stopwatch.Start();
             List<bool> resultTestList = new List<bool>();
             //int count = 0;
-            bool ret = false;
 
             var path = new GraphicsPath();
             path.AddEllipse(correctPoint.X, correctPoint.Y, (float)distance, distance);

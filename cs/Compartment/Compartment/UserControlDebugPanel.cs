@@ -88,7 +88,7 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.DoorOpen };
+                var cmdPkt = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.DoorOpen };
                 formMain.concurrentQueueDevCmdPktDoor.Enqueue(cmdPkt);
                 AddLog("[制御] ドアを開く");
             }
@@ -102,7 +102,7 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.DoorClose };
+                var cmdPkt = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.DoorClose };
                 formMain.concurrentQueueDevCmdPktDoor.Enqueue(cmdPkt);
                 AddLog("[制御] ドアを閉じる");
             }
@@ -116,7 +116,7 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverOut };
+                var cmdPkt = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.LeverOut };
                 formMain.concurrentQueueDevCmdPktLever.Enqueue(cmdPkt);
                 AddLog("[制御] レバーを出す");
             }
@@ -130,7 +130,7 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverIn };
+                var cmdPkt = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.LeverIn };
                 formMain.concurrentQueueDevCmdPktLever.Enqueue(cmdPkt);
                 AddLog("[制御] レバーを引っ込める");
             }
@@ -144,7 +144,7 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.FeedForward };
+                var cmdPkt = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.FeedForward };
                 cmdPkt.iParam[0] = 1000; // 1秒間の給餌
                 formMain.concurrentQueueDevCmdPktFeed.Enqueue(cmdPkt);
                 AddLog("[制御] 給餌実行 (1秒)");

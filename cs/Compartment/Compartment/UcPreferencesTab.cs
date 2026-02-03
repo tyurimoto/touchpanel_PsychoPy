@@ -2250,8 +2250,6 @@ namespace Compartment
                 {
                     {
                         // BackColor設定
-                        ECpColor eCpColorBackColor;
-
                         // BackColorコンボ・ボックス選択候補設定
                         userControlPreferencesTabOnFormMain.comboBoxBackColor.Items.Clear();
                         userControlPreferencesTabOnFormMain.comboBoxBackColor.Items.Add(ECpColor.Black.ToString());
@@ -2274,8 +2272,6 @@ namespace Compartment
 
                     {
                         // EpisodeFirst用BackColor設定
-                        ECpColor eCpColorEpBackColor;
-
                         // BackColorコンボ・ボックス選択候補設定
                         //userControlPreferencesTabOnFormMain.comboBoxEpFirstBackColor.Items.Clear();
                         //userControlPreferencesTabOnFormMain.comboBoxEpFirstBackColor.Items.Add(ECpColor.Black.ToString());
@@ -2298,8 +2294,6 @@ namespace Compartment
 
                     {
                         // EpisodeTest用BackColor設定
-                        ECpColor eCpColorEpBackColor;
-
                         // BackColorコンボ・ボックス選択候補設定
                         //userControlPreferencesTabOnFormMain.comboBoxEpTestBackColor.Items.Clear();
                         //userControlPreferencesTabOnFormMain.comboBoxEpTestBackColor.Items.Add(ECpColor.Black.ToString());
@@ -2322,8 +2316,6 @@ namespace Compartment
 
                     {
                         // DelayBackColor設定
-                        ECpColor eCpColorDelayBackColor;
-
                         // BackColorコンボ・ボックス選択候補設定
                         userControlPreferencesTabOnFormMain.comboBoxDelayBackColor.Items.Clear();
                         userControlPreferencesTabOnFormMain.comboBoxDelayBackColor.Items.Add(ECpColor.Black.ToString());
@@ -2345,8 +2337,6 @@ namespace Compartment
                     }
                     {
                         // ShapeColor設定
-                        ECpColor eCpColorShapeColor;
-
                         // ShapeColorコンボ・ボックス選択候補設定
                         userControlPreferencesTabOnFormMain.comboBoxShapeColor.Items.Clear();
                         userControlPreferencesTabOnFormMain.comboBoxShapeColor.Items.Add(ECpColor.Black.ToString());
@@ -2505,8 +2495,6 @@ namespace Compartment
 
                 {
                     // ShapeColor設定
-                    ECpColor eCpColorCorrectShapeColor;
-
                     // ShapeColorコンボ・ボックス選択候補設定
                     userControlPreferencesTabOnFormMain.comboBoxCorrectFixColor.Items.Clear();
                     userControlPreferencesTabOnFormMain.comboBoxCorrectFixColor.Items.Add(ECpColor.Black.ToString());
@@ -2558,8 +2546,6 @@ namespace Compartment
                 }
                 {
                     // ShapeColor設定
-                    ECpColor eCpColorIncorrectFixColor;
-
                     // ShapeColorコンボ・ボックス1選択候補設定
                     userControlPreferencesTabOnFormMain.comboBoxIncorrectColorFix1.Items.Clear();
                     userControlPreferencesTabOnFormMain.comboBoxIncorrectColorFix1.Items.Add(ECpColor.Black.ToString());
@@ -2581,7 +2567,6 @@ namespace Compartment
                 }
                 {
                     // ShapeColor設定
-                    ECpColor eCpColorIncorrectFixColor;
                     // ShapeColorコンボ・ボックス2選択候補設定
                     userControlPreferencesTabOnFormMain.comboBoxIncorrectColorFix2.Items.Clear();
                     userControlPreferencesTabOnFormMain.comboBoxIncorrectColorFix2.Items.Add(ECpColor.Black.ToString());
@@ -2603,7 +2588,6 @@ namespace Compartment
                 }
                 {
                     // ShapeColor設定
-                    ECpColor eCpColorIncorrectFixColor;
                     // ShapeColorコンボ・ボックス2選択候補設定
                     userControlPreferencesTabOnFormMain.comboBoxIncorrectColorFix3.Items.Clear();
                     userControlPreferencesTabOnFormMain.comboBoxIncorrectColorFix3.Items.Add(ECpColor.Black.ToString());
@@ -2625,7 +2609,6 @@ namespace Compartment
                 }
                 {
                     // ShapeColor設定
-                    ECpColor eCpColorIncorrectFixColor;
                     // ShapeColorコンボ・ボックス2選択候補設定
                     userControlPreferencesTabOnFormMain.comboBoxIncorrectColorFix4.Items.Clear();
                     userControlPreferencesTabOnFormMain.comboBoxIncorrectColorFix4.Items.Add(ECpColor.Black.ToString());
