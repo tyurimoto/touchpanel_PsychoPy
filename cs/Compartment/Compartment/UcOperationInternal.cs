@@ -47,6 +47,7 @@ namespace Compartment
         private ref OpCollection opCollection => ref mainForm.Parent.opCollection;
 
         private OpCollection.Sequencer.EState lastState = OpCollection.Sequencer.EState.Init;
+        private int debugLogCounter = 0; // デバッグログ用カウンター
         /// <summary>
         /// UcOperationInternalコンストラクタ
         /// </summary>
@@ -78,6 +79,13 @@ namespace Compartment
         /// </summary>
         public void OnOperationStateMachineProc()
         {
+            // デバッグ：状態とコマンドを定期的にログ出力（大量出力に注意）
+            // 1秒に1回だけログを出力
+            if (debugLogCounter++ % 1000 == 0)
+            {
+                System.Diagnostics.Debug.WriteLine($"[OnOperationStateMachineProc] State={opCollection.sequencer.State}, Command={opCollection.Command}, IsBusy={opCollection.IsBusy.Value}");
+            }
+
             switch (opCollection.sequencer.State)
             {
                 // State部とプログラマブル部
@@ -493,6 +501,12 @@ namespace Compartment
         }
         private void Idle()
         {
+            // デバッグ：Idle()が呼ばれているか確認（大量出力される）
+            if (debugLogCounter % 1000 == 0)
+            {
+                System.Diagnostics.Debug.WriteLine($"[UcOperationInternal Idle()] Called. Command={opCollection.Command}");
+            }
+
             // 開始
             if (opCollection.Command == OpCollection.ECommand.Start)
             {
@@ -547,14 +561,30 @@ namespace Compartment
                 opCollection.callbackMessageNormal("[デバッグモード] デバイススタンバイをスキップ");
                 System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] デバイススタンバイをスキップ");
 
-                // IoMicrochipDummyEx のセンサー状態を初期化
-                if (mainForm.Parent.ioBoardDevice is IoMicrochipDummyEx dummyEx)
+                // レバーとランプを初期化
+                InvokeMethod(() =>
                 {
-                    dummyEx.SetManualSensorState(IoBoardDInLogicalName.LeverIn, true);
-                    dummyEx.SetManualSensorState(IoBoardDInLogicalName.LeverOut, false);
-                    dummyEx.SetManualSensorState(IoBoardDInLogicalName.DoorOpen, true);
-                    dummyEx.SetManualSensorState(IoBoardDInLogicalName.DoorClose, false);
-                    System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] センサー状態を初期化: LeverIn=true, DoorOpen=true");
+                    mainForm.Parent.OpMoveLeverIn(); // レバーをIN
+                    mainForm.Parent.OpSetRoomLampOff(); // 天井ランプをOFF
+                    mainForm.Parent.OpDrawBackColorBlackOnTouchPanel(); // タッチパネル画面を黒
+                    mainForm.Parent.OpSetFeedLampOff(); // フィードランプをOFF
+                    mainForm.Parent.OpSetLeverLampOff(); // レバーランプをOFF
+                    System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）");
+                });
+
+                // 課題開始時にドアを開く（重要！）
+                if (!PreferencesDatOriginal.DisableDoor)
+                {
+                    InvokeMethod(() =>
+                    {
+                        mainForm.Parent.OpOpenDoor(); // ドアをOPEN
+                        System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] ドアを開きます");
+                    });
+                }
+                else
+                {
+                    opCollection.callbackMessageNormal("[デバッグモード] ドア無効のため、ドア開閉をスキップ");
+                    System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] ドア無効");
                 }
 
                 System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移");
