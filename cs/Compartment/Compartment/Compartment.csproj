@@ -306,6 +306,8 @@
     <Compile Include="IoMicrochip.cs" />
     <Compile Include="IdControlHelper.cs" />
     <Compile Include="IoMicrochipDummy.cs" />
+    <Compile Include="IoMicrochipDummyEx.cs" />
+    <Compile Include="RFIDReaderDummy.cs" />
     <Compile Include="OperationHelper.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="IoBoard.cs" />
