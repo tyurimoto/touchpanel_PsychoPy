@@ -400,6 +400,14 @@ namespace Compartment
             // デバッグモードチェックボックスの状態を設定ファイルから反映
             userControlMainOnFormMain.checkBoxEnableDebugMode.Checked = preferencesDatOriginal.EnableDebugMode;
 
+            // デバッグモード時は実機を必要とする機能を無効化
+            if (preferencesDatOriginal.EnableDebugMode)
+            {
+                userControlMainOnFormMain.buttonCheckDeviceOnUserControlMain.Enabled = false;
+                userControlMainOnFormMain.buttonCheckIoOnUserControlMain.Enabled = false;
+                Debug.WriteLine("[Debug] Check device/Check IO ボタンを無効化しました（デバッグモード）");
+            }
+
             opCollection.callbackMessageDebug("アプリ起動");
             return;
         }

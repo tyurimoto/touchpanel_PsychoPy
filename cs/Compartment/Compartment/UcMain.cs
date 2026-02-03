@@ -129,6 +129,18 @@ namespace Compartment
             // デバッグモードチェックボックスの状態を設定
             userControlMainOnFormMain.checkBoxEnableDebugMode.Checked = preferencesDatOriginal.EnableDebugMode;
 
+            // デバッグモード時は実機を必要とする機能を無効化
+            if (preferencesDatOriginal.EnableDebugMode)
+            {
+                userControlMainOnFormMain.buttonCheckDeviceOnUserControlMain.Enabled = false;
+                userControlMainOnFormMain.buttonCheckIoOnUserControlMain.Enabled = false;
+            }
+            else
+            {
+                userControlMainOnFormMain.buttonCheckDeviceOnUserControlMain.Enabled = true;
+                userControlMainOnFormMain.buttonCheckIoOnUserControlMain.Enabled = true;
+            }
+
             // Form.Text設定
             this.Text = GetTextOfFormMain();
         }
