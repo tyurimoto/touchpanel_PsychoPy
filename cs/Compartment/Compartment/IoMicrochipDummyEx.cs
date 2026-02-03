@@ -326,20 +326,18 @@ namespace Compartment
         /// 出力ビットを設定（eDoor用のモーター制御など）
         /// デバッグモードでは実際には何もしない
         /// </summary>
-        public override bool SetOutBit(byte portNum, bool state, byte mask)
+        public override void SetOutBit(byte bitMask, bool data, int frameCount)
         {
             // デバッグモードでは出力制御は無視
-            return true;
         }
 
         /// <summary>
         /// モーター速度を設定
         /// デバッグモードでは実際には何もしない
         /// </summary>
-        public override bool SetMotorSpeed(int speed)
+        public override void SetMotorSpeed(int speed)
         {
             // デバッグモードではモーター速度設定は無視
-            return true;
         }
     }
 }
