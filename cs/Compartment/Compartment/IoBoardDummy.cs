@@ -3,7 +3,7 @@ using System;
 
 namespace Compartment
 {
-    public class IoBoardDummy
+    public class IoBoardDummy : IoBoardBase
     {
 
         public String errorMsg { get; set; }

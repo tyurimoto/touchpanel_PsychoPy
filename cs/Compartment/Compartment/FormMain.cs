@@ -285,9 +285,10 @@ namespace Compartment
             // IO開く前にサブからこちらへ
             this.Activate();
 
+            // TODO: APIサーバー実装時にデバッグモードを有効化
             // Debug mode initialization
-            InitializeIoBoardForDebugMode();
-            InitializeRFIDReaderForDebugMode();
+            // InitializeIoBoardForDebugMode();
+            // InitializeRFIDReaderForDebugMode();
 
             // IOボード: デバイス取得
             try
@@ -490,19 +491,23 @@ namespace Compartment
         /// </summary>
         private void InitializeIoBoardForDebugMode()
         {
+            // TODO: APIサーバー実装時にデバッグモードを有効化
+            /*
             if (preferencesDatOriginal.EnableDebugMode)
             {
                 if (preferencesDatOriginal.DebugModeType == EDebugModeType.FullDummy)
                 {
                     // Full dummy mode - no hardware required
-                    ioBoardDevice = new IoMicrochipDummyEx();
-                    Debug.WriteLine("[Debug] Initialized IoMicrochipDummyEx (Full Dummy Mode)");
+                    // TODO: Implement IoMicrochipDummyEx
+                    ioBoardDevice = new IoMicrochipDummy();
+                    Debug.WriteLine("[Debug] Initialized IoMicrochipDummy (Full Dummy Mode)");
                 }
                 else if (preferencesDatOriginal.DebugModeType == EDebugModeType.Hybrid)
                 {
                     // Hybrid mode - try to use real hardware, manual override for difficult sensors
-                    ioBoardDevice = new IoHybridBoard(useRealHardware: true);
-                    Debug.WriteLine("[Debug] Initialized IoHybridBoard (Hybrid Mode)");
+                    // TODO: Implement IoHybridBoard
+                    ioBoardDevice = new IoMicrochipDummy();
+                    Debug.WriteLine("[Debug] Initialized IoMicrochipDummy (Hybrid Mode)");
                 }
             }
             else
@@ -511,8 +516,13 @@ namespace Compartment
                 ioBoardDevice = new IoMicrochip();
                 Debug.WriteLine("[Debug] Initialized IoMicrochip (Normal Mode)");
             }
+            */
+            // Temporarily always use IoMicrochip (will be initialized later in FormMain_Load)
+            // ioBoardDevice = new IoMicrochip();
         }
 
+        // TODO: APIサーバー実装時にデバッグモード用RFIDReaderを有効化
+        /*
         /// <summary>
         /// Initialize RFID reader based on debug mode settings
         /// </summary>
@@ -521,11 +531,13 @@ namespace Compartment
             if (preferencesDatOriginal.EnableDebugMode)
             {
                 // Debug mode - use dummy RFID reader
+                // TODO: Implement RFIDReaderDummy
                 rfidReaderHelper = new RFIDReaderDummy();
                 Debug.WriteLine("[Debug] Initialized RFIDReaderDummy");
             }
             // Normal mode initialization happens in InitSerialPort()
         }
+        */
 
         private void InitSerialPort()
         {
