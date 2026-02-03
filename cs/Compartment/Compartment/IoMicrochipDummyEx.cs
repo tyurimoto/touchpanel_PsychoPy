@@ -4,99 +4,28 @@ using System.Collections.Generic;
 namespace Compartment
 {
     /// <summary>
-    /// Extended dummy IOBoard that holds sensor states and allows external setting.
-    /// Used for debug mode to simulate hardware without physical devices.
+    /// デバッグモード用の拡張ダミーIOボード
+    /// センサー状態を保持し、手動で設定可能
     /// </summary>
     public class IoMicrochipDummyEx : IoBoardBase
     {
-        private readonly object _syncLock = new object();
-
-        // Sensor states (true = active/on, false = inactive/off)
-        private Dictionary<IoBoardDInLogicalName, bool> _sensorStates;
-
-        // Output states for tracking device commands
-        private Dictionary<IoBoardDOutLogicalName, bool> _outputStates;
+        // センサー状態を保持するDictionary
+        private Dictionary<IoBoardDInLogicalName, bool> sensorStates = new Dictionary<IoBoardDInLogicalName, bool>();
+        private readonly object sensorStateLock = new object();
 
         public IoMicrochipDummyEx()
         {
             errorMsg = "";
-            InitializeSensorStates();
-        }
 
-        private void InitializeSensorStates()
-        {
-            _sensorStates = new Dictionary<IoBoardDInLogicalName, bool>
+            // すべてのセンサーを初期化（全てfalse）
+            foreach (IoBoardDInLogicalName sensor in Enum.GetValues(typeof(IoBoardDInLogicalName)))
             {
-                { IoBoardDInLogicalName.RoomEntrance, false },
-                { IoBoardDInLogicalName.RoomExit, false },
-                { IoBoardDInLogicalName.RoomStay, false },
-                { IoBoardDInLogicalName.DoorOpen, false },
-                { IoBoardDInLogicalName.DoorClose, true },  // Default: door is closed
-                { IoBoardDInLogicalName.LeverIn, true },    // Default: lever is in
-                { IoBoardDInLogicalName.LeverOut, false },
-                { IoBoardDInLogicalName.LeverSw, false }
-            };
-
-            _outputStates = new Dictionary<IoBoardDOutLogicalName, bool>
-            {
-                { IoBoardDOutLogicalName.DoorOpen, false },
-                { IoBoardDOutLogicalName.DoorClose, false },
-                { IoBoardDOutLogicalName.DoorStop, false },
-                { IoBoardDOutLogicalName.LeverExtend, false },
-                { IoBoardDOutLogicalName.LeverRetract, false },
-                { IoBoardDOutLogicalName.LeverStop, false },
-                { IoBoardDOutLogicalName.LeverLamp, false },
-                { IoBoardDOutLogicalName.FeedOn, false },
-                { IoBoardDOutLogicalName.FeedLamp, false },
-                { IoBoardDOutLogicalName.RoomLamp, false }
-            };
-        }
-
-        /// <summary>
-        /// Manually set sensor state (for debug/simulation)
-        /// </summary>
-        public void SetSensorState(IoBoardDInLogicalName sensor, bool state)
-        {
-            lock (_syncLock)
-            {
-                if (_sensorStates.ContainsKey(sensor))
-                {
-                    _sensorStates[sensor] = state;
-                }
+                sensorStates[sensor] = false;
             }
-        }
 
-        /// <summary>
-        /// Get current sensor state
-        /// </summary>
-        public bool GetSensorState(IoBoardDInLogicalName sensor)
-        {
-            lock (_syncLock)
-            {
-                return _sensorStates.ContainsKey(sensor) ? _sensorStates[sensor] : false;
-            }
-        }
-
-        /// <summary>
-        /// Get all sensor states (for debug UI)
-        /// </summary>
-        public Dictionary<IoBoardDInLogicalName, bool> GetAllSensorStates()
-        {
-            lock (_syncLock)
-            {
-                return new Dictionary<IoBoardDInLogicalName, bool>(_sensorStates);
-            }
-        }
-
-        /// <summary>
-        /// Reset all states to default
-        /// </summary>
-        public void ResetAllStates()
-        {
-            lock (_syncLock)
-            {
-                InitializeSensorStates();
-            }
+            // 初期状態: ドアは閉じている、レバーは引っ込んでいる
+            sensorStates[IoBoardDInLogicalName.DoorClose] = true;
+            sensorStates[IoBoardDInLogicalName.LeverIn] = true;
         }
 
         public override bool AcquireDevice()
@@ -120,22 +49,39 @@ namespace Compartment
             return true;
         }
 
-        public ushort SaveDInForPort1 { get; set; } = 0x00;
-        public ushort SaveDInForPort3 { get; set; } = 0x00;
-
         public override bool SaveDIn()
         {
-            // In dummy mode, we don't actually read from hardware
             return true;
         }
 
+        /// <summary>
+        /// センサー状態を手動で設定する（デバッグ用）
+        /// </summary>
+        /// <param name="sensor">センサー名</param>
+        /// <param name="state">状態（true=ON, false=OFF）</param>
+        public void SetManualSensorState(IoBoardDInLogicalName sensor, bool state)
+        {
+            lock (sensorStateLock)
+            {
+                sensorStates[sensor] = state;
+            }
+        }
+
+        /// <summary>
+        /// センサー状態を取得
+        /// </summary>
         public override bool GetRawStateOfSaveDIn(IoBoardDInLogicalName a_IoBoardDInLogicalNameObj, out bool a_boolRawState)
         {
-            lock (_syncLock)
+            lock (sensorStateLock)
             {
-                a_boolRawState = _sensorStates.ContainsKey(a_IoBoardDInLogicalNameObj)
-                    ? _sensorStates[a_IoBoardDInLogicalNameObj]
-                    : false;
+                if (sensorStates.ContainsKey(a_IoBoardDInLogicalNameObj))
+                {
+                    a_boolRawState = sensorStates[a_IoBoardDInLogicalNameObj];
+                }
+                else
+                {
+                    a_boolRawState = false;
+                }
             }
             return true;
         }
@@ -145,73 +91,38 @@ namespace Compartment
             return GetRawStateOfSaveDIn(a_IoBoardDInLogicalNameObj, out a_boolLogicalState);
         }
 
+        /// <summary>
+        /// 出力制御（ドア開閉、レバー出し入れなど）
+        /// デバイスコマンドに応じてセンサー状態を自動更新
+        /// </summary>
         public override bool SetUpperStateOfDOut(IoBoardDOutLogicalName a_IoBoardDOutLogicalNameObj)
         {
-            lock (_syncLock)
+            lock (sensorStateLock)
             {
-                _outputStates[a_IoBoardDOutLogicalNameObj] = true;
+                switch (a_IoBoardDOutLogicalNameObj)
+                {
+                    case IoBoardDOutLogicalName.DoorOpen:
+                        // ドアを開く → DoorOpenセンサーON、DoorCloseセンサーOFF
+                        sensorStates[IoBoardDInLogicalName.DoorOpen] = true;
+                        sensorStates[IoBoardDInLogicalName.DoorClose] = false;
+                        break;
 
-                // Automatically update sensor states based on commands
-                SimulateDeviceResponse(a_IoBoardDOutLogicalNameObj);
+                    case IoBoardDOutLogicalName.DoorClose:
+                        // ドアを閉じる → DoorOpenセンサーOFF、DoorCloseセンサーON
+                        sensorStates[IoBoardDInLogicalName.DoorOpen] = false;
+                        sensorStates[IoBoardDInLogicalName.DoorClose] = true;
+                        break;
+
+                    case IoBoardDOutLogicalName.DoorStop:
+                        // ドア停止 → 状態変更なし
+                        break;
+
+                    // レバー制御は将来拡張
+                    default:
+                        break;
+                }
             }
             return true;
-        }
-
-        /// <summary>
-        /// Simulate how real hardware would respond to output commands
-        /// </summary>
-        private void SimulateDeviceResponse(IoBoardDOutLogicalName command)
-        {
-            switch (command)
-            {
-                case IoBoardDOutLogicalName.DoorOpen:
-                    // Simulate door opening: after command, door open sensor becomes true, close becomes false
-                    System.Threading.Tasks.Task.Delay(500).ContinueWith(_ =>
-                    {
-                        lock (_syncLock)
-                        {
-                            _sensorStates[IoBoardDInLogicalName.DoorOpen] = true;
-                            _sensorStates[IoBoardDInLogicalName.DoorClose] = false;
-                        }
-                    });
-                    break;
-
-                case IoBoardDOutLogicalName.DoorClose:
-                    // Simulate door closing
-                    System.Threading.Tasks.Task.Delay(500).ContinueWith(_ =>
-                    {
-                        lock (_syncLock)
-                        {
-                            _sensorStates[IoBoardDInLogicalName.DoorOpen] = false;
-                            _sensorStates[IoBoardDInLogicalName.DoorClose] = true;
-                        }
-                    });
-                    break;
-
-                case IoBoardDOutLogicalName.LeverExtend:
-                    // Simulate lever extending
-                    System.Threading.Tasks.Task.Delay(300).ContinueWith(_ =>
-                    {
-                        lock (_syncLock)
-                        {
-                            _sensorStates[IoBoardDInLogicalName.LeverOut] = true;
-                            _sensorStates[IoBoardDInLogicalName.LeverIn] = false;
-                        }
-                    });
-                    break;
-
-                case IoBoardDOutLogicalName.LeverRetract:
-                    // Simulate lever retracting
-                    System.Threading.Tasks.Task.Delay(300).ContinueWith(_ =>
-                    {
-                        lock (_syncLock)
-                        {
-                            _sensorStates[IoBoardDInLogicalName.LeverOut] = false;
-                            _sensorStates[IoBoardDInLogicalName.LeverIn] = true;
-                        }
-                    });
-                    break;
-            }
         }
 
         public override bool GetData(IoMicrochip.IoBoardDInCode ioBoardDInCode)
@@ -222,6 +133,35 @@ namespace Compartment
         public override bool GetData(IoMicrochip.IoBoardDInStatusCode ioBoardDInCode, bool n)
         {
             return true;
+        }
+
+        /// <summary>
+        /// すべてのセンサー状態をリセット
+        /// </summary>
+        public void ResetAllSensors()
+        {
+            lock (sensorStateLock)
+            {
+                foreach (IoBoardDInLogicalName sensor in Enum.GetValues(typeof(IoBoardDInLogicalName)))
+                {
+                    sensorStates[sensor] = false;
+                }
+
+                // 初期状態に戻す
+                sensorStates[IoBoardDInLogicalName.DoorClose] = true;
+                sensorStates[IoBoardDInLogicalName.LeverIn] = true;
+            }
+        }
+
+        /// <summary>
+        /// 現在のセンサー状態を取得（デバッグ表示用）
+        /// </summary>
+        public Dictionary<IoBoardDInLogicalName, bool> GetAllSensorStates()
+        {
+            lock (sensorStateLock)
+            {
+                return new Dictionary<IoBoardDInLogicalName, bool>(sensorStates);
+            }
         }
     }
 }

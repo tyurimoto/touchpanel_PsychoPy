@@ -3,115 +3,82 @@ using System;
 namespace Compartment
 {
     /// <summary>
-    /// Dummy RFID reader for debug mode.
-    /// Allows manual setting of RFID values without physical hardware.
+    /// デバッグモード用のダミーRFIDリーダー
+    /// 手動でRFID値を設定可能
     /// </summary>
     public class RFIDReaderDummy
     {
-        private readonly object _syncLock = new object();
+        // ID Code重複排除用にID Codeを保存
+        public SyncObject<string> CurrentIDCode = new SyncObject<string>("");
 
-        /// <summary>
-        /// Current ID Code (compatible with RFIDReaderHelper interface)
-        /// </summary>
-        public SyncObject<string> CurrentIDCode { get; set; }
+        public Action<string> callbackReceivedDataSub = (str) => { };
 
-        /// <summary>
-        /// Callback for received data (compatible with RFIDReaderHelper interface)
-        /// </summary>
-        public Action<string> callbackReceivedDataSub { get; set; }
+        private bool hasNewID = false;
+        private readonly object idLock = new object();
 
         public RFIDReaderDummy()
         {
-            CurrentIDCode = new SyncObject<string>("");
-            callbackReceivedDataSub = (str) => { };
         }
 
         /// <summary>
-        /// Manually set RFID value (for debug/simulation)
+        /// 手動でRFID値を設定する（デバッグ用）
         /// </summary>
-        /// <param name="rfidValue">RFID string (e.g., "3920145000567278")</param>
-        public void SetRFID(string rfidValue)
+        /// <param name="id">RFID値（16桁の数字）</param>
+        public void SetRFID(string id)
         {
-            lock (_syncLock)
+            lock (idLock)
             {
-                CurrentIDCode.Value = rfidValue;
-                // Trigger callback like real hardware would
-                callbackReceivedDataSub?.Invoke(rfidValue);
+                if (CurrentIDCode.Value != id)
+                {
+                    CurrentIDCode.Value = id;
+                    hasNewID = true;
+
+                    // コールバックを呼び出す
+                    callbackReceivedDataSub?.Invoke(id);
+                }
             }
         }
 
         /// <summary>
-        /// Clear current RFID value
+        /// RFID値をクリア
         /// </summary>
         public void ClearRFID()
         {
-            lock (_syncLock)
+            lock (idLock)
             {
                 CurrentIDCode.Value = "";
+                hasNewID = false;
             }
         }
 
         /// <summary>
-        /// Generate a random RFID for testing
+        /// Universal ID読み取りアクション取得
+        /// 実際のRFIDReaderHelperと同じシグネチャ
         /// </summary>
-        /// <returns>Random 16-digit RFID string</returns>
-        public string GenerateRandomRFID()
-        {
-            var random = new Random();
-            string rfid = "";
-
-            // Generate 16 random digits
-            for (int i = 0; i < 16; i++)
-            {
-                rfid += random.Next(0, 10).ToString();
-            }
-
-            return rfid;
-        }
-
-        /// <summary>
-        /// Set a random RFID and return it
-        /// </summary>
-        public string SetRandomRFID()
-        {
-            string rfid = GenerateRandomRFID();
-            SetRFID(rfid);
-            return rfid;
-        }
-
-        /// <summary>
-        /// Get current RFID value
-        /// </summary>
-        public string GetCurrentRFID()
-        {
-            lock (_syncLock)
-            {
-                return CurrentIDCode.Value;
-            }
-        }
-
-        /// <summary>
-        /// Check if RFID is present (non-empty)
-        /// </summary>
-        public bool HasRFID()
-        {
-            lock (_syncLock)
-            {
-                return !string.IsNullOrEmpty(CurrentIDCode.Value);
-            }
-        }
-
-        // Compatibility methods with RFIDReaderHelper interface
-        public Action<byte[]> GetDosetIDAction()
-        {
-            // Dummy implementation - not used in debug mode
-            return (datagram) => { };
-        }
-
         public Action<byte[]> GetUnivrsalIDAction()
         {
-            // Dummy implementation - not used in debug mode
-            return (datagram) => { };
+            Action<byte[]> readIdAction = (datagram) =>
+            {
+                // ダミー実装: SetRFID()で設定された値がある場合のみコールバックを呼び出す
+                lock (idLock)
+                {
+                    if (hasNewID && !string.IsNullOrEmpty(CurrentIDCode.Value))
+                    {
+                        callbackReceivedDataSub?.Invoke(CurrentIDCode.Value);
+                        hasNewID = false;
+                    }
+                }
+            };
+            return readIdAction;
+        }
+
+        /// <summary>
+        /// Doset ID読み取りアクション取得
+        /// 実際のRFIDReaderHelperと同じシグネチャ
+        /// </summary>
+        public Action<byte[]> GetDosetIDAction()
+        {
+            return GetUnivrsalIDAction();
         }
     }
 }

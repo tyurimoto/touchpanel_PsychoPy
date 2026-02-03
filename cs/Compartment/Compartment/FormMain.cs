@@ -273,59 +273,65 @@ namespace Compartment
             // Preference読み込み後に
             InitializeIdContoroler();
 
-            // シリアル・ポート初期化
-            serialHelperPort.ComPort = preferencesDatOriginal.ComPort;
-            //serialHelperPort.BaudRate = preferencesDatOriginal.ComBaudRate;
-            serialHelperPort.BaudRate = "9600";
-            serialHelperPort.DataBits = preferencesDatOriginal.ComDataBitLength;
-            serialHelperPort.StopBits = preferencesDatOriginal.ComStopBitLength;
-            serialHelperPort.Handshake = System.IO.Ports.Handshake.None.ToString();
-            serialHelperPort.Parity = preferencesDatOriginal.ComParity;
-            InitSerialPort();
-            // IO開く前にサブからこちらへ
-            this.Activate();
-
-            // TODO: APIサーバー実装時にデバッグモードを有効化
-            // Debug mode initialization
-            // InitializeIoBoardForDebugMode();
-            // InitializeRFIDReaderForDebugMode();
-
-            // IOボード: デバイス取得
-            try
+            // デバッグモード初期化
+            if (preferencesDatOriginal.EnableDebugMode)
             {
+                InitializeIoBoardForDebugMode();
+                InitializeRFIDReaderForDebugMode();
+                // デバッグモードではシリアルポートとIOボードの実機初期化をスキップ
+                serialPortOpenFlag = false;
+                this.Activate();
+            }
+            else
+            {
+                // 通常モード: シリアル・ポート初期化
+                serialHelperPort.ComPort = preferencesDatOriginal.ComPort;
+                //serialHelperPort.BaudRate = preferencesDatOriginal.ComBaudRate;
+                serialHelperPort.BaudRate = "9600";
+                serialHelperPort.DataBits = preferencesDatOriginal.ComDataBitLength;
+                serialHelperPort.StopBits = preferencesDatOriginal.ComStopBitLength;
+                serialHelperPort.Handshake = System.IO.Ports.Handshake.None.ToString();
+                serialHelperPort.Parity = preferencesDatOriginal.ComParity;
+                InitSerialPort();
+                // IO開く前にサブからこちらへ
+                this.Activate();
 
-                if (!ioBoardDevice.AcquireDevice())
+                // IOボード: デバイス取得
+                try
+                {
+
+                    if (!ioBoardDevice.AcquireDevice())
+                    {
+                        // IOビヘイビアモデル
+                        ioBoardDevice = null;
+                        this.Activate();
+                        MessageBox.Show("IOオープンエラー ビヘイビアモデルで起動");
+                        ioBoardDevice = new IoMicrochipDummy();
+                    }
+                    else
+                    {
+                        ioBoardDevice.SetMotorSpeed(preferencesDatOriginal.TimeToOutputSoundOfCorrect);
+                        eDoor.Start();
+                    }
+                }
+                catch (Exception)
                 {
                     // IOビヘイビアモデル
                     ioBoardDevice = null;
-                    this.Activate();
                     MessageBox.Show("IOオープンエラー ビヘイビアモデルで起動");
                     ioBoardDevice = new IoMicrochipDummy();
                 }
-                else
-                {
-                    ioBoardDevice.SetMotorSpeed(preferencesDatOriginal.TimeToOutputSoundOfCorrect);
-                    eDoor.Start();
-                }
-            }
-            catch (Exception)
-            {
-                // IOビヘイビアモデル
-                ioBoardDevice = null;
-                MessageBox.Show("IOオープンエラー ビヘイビアモデルで起動");
-                ioBoardDevice = new IoMicrochipDummy();
-            }
 
-            try
-            {
-                if (serialHelperPort.Open() != true)
+                try
                 {
-                    serialPortOpenFlag = false;
-                    MessageBox.Show("COM port open error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    serialPortOpenFlag = true;
+                    if (serialHelperPort.Open() != true)
+                    {
+                        serialPortOpenFlag = false;
+                        MessageBox.Show("COM port open error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        serialPortOpenFlag = true;
                 }
             }
             catch (Exception)
@@ -560,6 +566,60 @@ namespace Compartment
 
             serialHelperPort.Init(serialPort1);
         }
+
+        /// <summary>
+        /// デバッグモード用IOボード初期化
+        /// </summary>
+        private void InitializeIoBoardForDebugMode()
+        {
+            // 既存のioBoardDeviceを破棄
+            if (ioBoardDevice != null)
+            {
+                try
+                {
+                    ioBoardDevice.ReleaseDevice();
+                }
+                catch { }
+            }
+
+            // デバッグモードタイプに応じて初期化
+            if (preferencesDatOriginal.DebugModeType == EDebugModeType.FullDummy)
+            {
+                // 完全ダミーモード
+                ioBoardDevice = new IoMicrochipDummyEx();
+                ioBoardDevice.AcquireDevice();
+                Debug.WriteLine("デバッグモード（完全ダミー）で起動しました");
+            }
+            else if (preferencesDatOriginal.DebugModeType == EDebugModeType.Hybrid)
+            {
+                // ハイブリッドモード（将来実装）
+                // TODO: IoHybridBoard実装後に有効化
+                // ioBoardDevice = new IoHybridBoard(useRealHardware: true);
+                ioBoardDevice = new IoMicrochipDummyEx();
+                ioBoardDevice.AcquireDevice();
+                Debug.WriteLine("デバッグモード（ハイブリッド - 未実装のため完全ダミー）で起動しました");
+            }
+
+            // eDoorを初期化
+            eDoor = new EDoor(ioBoardDevice, this);
+            eDoor.Start();
+        }
+
+        /// <summary>
+        /// デバッグモード用RFIDリーダー初期化
+        /// </summary>
+        private void InitializeRFIDReaderForDebugMode()
+        {
+            // ダミーRFIDリーダーを作成
+            RFIDReaderDummy rfidReaderDummy = new RFIDReaderDummy();
+            rfidReaderDummy.callbackReceivedDataSub += (x) => { callbackReceivedDataSub(x); };
+
+            // シリアルポートのコールバックを設定（実際には呼ばれないが、互換性のため）
+            serialHelperPort.callbackReceivedDatagram = rfidReaderDummy.GetUnivrsalIDAction();
+
+            Debug.WriteLine("デバッグモード用RFIDリーダーを初期化しました");
+        }
+
         /// <summary>
         /// 設定タブ タスク選択有効切り替え
         /// </summary>

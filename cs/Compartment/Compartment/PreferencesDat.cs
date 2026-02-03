@@ -208,7 +208,7 @@ namespace Compartment
         public int ApiServerPort { get; set; } = 5000;
 
         [System.Xml.Serialization.XmlElement("EnableDebugMode")]
-        public bool EnableDebugMode { get; set; } = false;
+        public bool EnableDebugMode { get; set; } = true;  // 一時的にtrueに設定（テスト用）
 
         [System.Xml.Serialization.XmlElement("DebugModeType")]
         public EDebugModeType DebugModeType { get; set; } = EDebugModeType.FullDummy;

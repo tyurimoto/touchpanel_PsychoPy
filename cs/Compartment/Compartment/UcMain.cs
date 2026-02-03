@@ -20,6 +20,7 @@ namespace Compartment
         private FormSub formSub = null;
         public Bitmap bitmapCanvas;
 #if DUMMY_IO
+        // デバッグモードで実行時に初期化されます（FormMain_Load参照）
         private IoBoardBase ioBoardDevice = new IoMicrochipDummy();
 #elif NORMAL
         private IoBoardBase ioBoardDevice = new IoBoard();
