@@ -1056,8 +1056,27 @@ namespace Compartment
                             System.Diagnostics.Debug.WriteLine("[Idle] eDoor enabled");
 
                             opCollection.IsBusy.Value = true;
-                            opCollection.file.Open(preferencesDatOriginal.OutputResultFile);
-                            // opCollection.file.Open(Application.LocalUserAppDataPath, "OpCollection.csv");
+
+                            // ファイルオープン（デバッグモード時はエラーハンドリング）
+                            try
+                            {
+                                opCollection.file.Open(preferencesDatOriginal.OutputResultFile);
+                                System.Diagnostics.Debug.WriteLine($"[Idle] File opened: {preferencesDatOriginal.OutputResultFile}");
+                            }
+                            catch (Exception ex)
+                            {
+                                System.Diagnostics.Debug.WriteLine($"[Idle] File open failed: {ex.Message}");
+                                if (!preferencesDatOriginal.EnableDebugMode)
+                                {
+                                    MessageBox.Show($"結果ファイルを開けません: {ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    opCollection.IsBusy.Value = false;
+                                    break;
+                                }
+                                else
+                                {
+                                    System.Diagnostics.Debug.WriteLine("[Idle] Debug mode - continuing without file");
+                                }
+                            }
 
                             //初期回数表示
                             opCollection.trialCount = 0; // 試行回数カウンタをクリア
