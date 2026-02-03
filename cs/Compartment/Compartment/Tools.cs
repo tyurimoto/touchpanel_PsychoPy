@@ -386,10 +386,10 @@ namespace Compartment
             public EDevCmd DevCmdVal { set; get; }
             public int[] iParam = new int[10];
         }
-        private ConcurrentQueue<DevCmdPkt> concurrentQueueDevCmdPktTouchPanel = new ConcurrentQueue<DevCmdPkt>();
-        private ConcurrentQueue<DevCmdPkt> concurrentQueueDevCmdPktFeed = new ConcurrentQueue<DevCmdPkt>();
-        private ConcurrentQueue<DevCmdPkt> concurrentQueueDevCmdPktDoor = new ConcurrentQueue<DevCmdPkt>();
-        private ConcurrentQueue<DevCmdPkt> concurrentQueueDevCmdPktLever = new ConcurrentQueue<DevCmdPkt>();
+        public ConcurrentQueue<DevCmdPkt> concurrentQueueDevCmdPktTouchPanel = new ConcurrentQueue<DevCmdPkt>();
+        public ConcurrentQueue<DevCmdPkt> concurrentQueueDevCmdPktFeed = new ConcurrentQueue<DevCmdPkt>();
+        public ConcurrentQueue<DevCmdPkt> concurrentQueueDevCmdPktDoor = new ConcurrentQueue<DevCmdPkt>();
+        public ConcurrentQueue<DevCmdPkt> concurrentQueueDevCmdPktLever = new ConcurrentQueue<DevCmdPkt>();
 
         //		public Dev	devDoor= new Dev((Action<int>)callbackInitForDevDoor, (Action<int>)callbackExeForDevDoor);
         public Dev devDoor = new Dev();

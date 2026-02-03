@@ -116,7 +116,7 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverForward };
+                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverOut };
                 formMain.concurrentQueueDevCmdPktLever.Enqueue(cmdPkt);
                 AddLog("[制御] レバーを出す");
             }
@@ -130,7 +130,7 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverBackward };
+                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverIn };
                 formMain.concurrentQueueDevCmdPktLever.Enqueue(cmdPkt);
                 AddLog("[制御] レバーを引っ込める");
             }
@@ -144,7 +144,8 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.Feed, TimeOn = 1000 };
+                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.FeedForward };
+                cmdPkt.iParam[0] = 1000; // 1秒間の給餌
                 formMain.concurrentQueueDevCmdPktFeed.Enqueue(cmdPkt);
                 AddLog("[制御] 給餌実行 (1秒)");
             }
@@ -158,9 +159,17 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = on ? EDevCmd.RoomLampOn : EDevCmd.RoomLampOff };
-                formMain.concurrentQueueDevCmdPktRoomLamp.Enqueue(cmdPkt);
-                AddLog($"[制御] ルームランプ {(on ? "ON" : "OFF")}");
+                bool result = formMain.ioBoardDevice.SetUpperStateOfDOut(
+                    on ? IoBoardDOutLogicalName.RoomLampOn : IoBoardDOutLogicalName.RoomLampOff);
+
+                if (result)
+                {
+                    AddLog($"[制御] ルームランプ {(on ? "ON" : "OFF")}");
+                }
+                else
+                {
+                    AddLog($"エラー: ルームランプ制御失敗");
+                }
             }
             catch (Exception ex)
             {
@@ -172,9 +181,17 @@ namespace Compartment
         {
             try
             {
-                var cmdPkt = new DevCmdPkt { DevCmdVal = on ? EDevCmd.LeverLampOn : EDevCmd.LeverLampOff };
-                formMain.concurrentQueueDevCmdPktLeverLamp.Enqueue(cmdPkt);
-                AddLog($"[制御] レバーランプ {(on ? "ON" : "OFF")}");
+                bool result = formMain.ioBoardDevice.SetUpperStateOfDOut(
+                    on ? IoBoardDOutLogicalName.LeverLampOn : IoBoardDOutLogicalName.LeverLampOff);
+
+                if (result)
+                {
+                    AddLog($"[制御] レバーランプ {(on ? "ON" : "OFF")}");
+                }
+                else
+                {
+                    AddLog($"エラー: レバーランプ制御失敗");
+                }
             }
             catch (Exception ex)
             {
