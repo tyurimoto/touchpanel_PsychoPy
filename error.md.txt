@@ -19,7 +19,12 @@
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\PresentationCore\v4.0_4.0.0.0__31bf3856ad364e35\PresentationCore.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Xaml.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\WindowsFormsIntegration\v4.0_4.0.0.0__31bf3856ad364e35\WindowsFormsIntegration.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'c:\program files\microsoft visual studio\2022\community\common7\ide\commonextensions\microsoft\xamldiagnostics\Framework\x64\Microsoft.VisualStudio.DesignTools.WpfTap.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+スレッド 11668 はコード 0 (0x0) で終了しました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationFramework.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.resources\v4.0_4.0.0.0_ja_b77a5c561934e089\System.Runtime.Serialization.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\GongSolutions.WPF.DragDrop.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Microsoft.Xaml.Behaviors.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.Aero2\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.Aero2.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
@@ -30,14 +35,9 @@ Working Area: {X=0,Y=0,Width=1920,Height=1080}
 Primary Screen: True
 
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'Microsoft.GeneratedCode' が読み込まれました。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'c:\program files\microsoft visual studio\2022\community\common7\ide\commonextensions\microsoft\xamldiagnostics\Framework\x64\Microsoft.VisualStudio.DesignTools.WpfTap.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-スレッド 23036 はコード 0 (0x0) で終了しました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\LibVLCSharp.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 Loading C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\libvlc\win-x64\libvlccore.dll
 Loading C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\libvlc\win-x64\libvlc.dll
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.resources\v4.0_4.0.0.0_ja_b77a5c561934e089\System.Runtime.Serialization.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Discovery\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Discovery.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
    layer   filters  size/strd(dil)      input                output
@@ -151,7 +151,7 @@ nms_kind: diounms (2), beta = 0.600000
 nms_kind: diounms (2), beta = 0.600000 
 nms_kind: diounms (2), beta = 0.600000 
 Done! Loaded 99 layers from weights-file 
-caminitilize :3317
+caminitilize :3481
 0ms
 デバッグモード（完全ダミー）で起動しました
 デバッグモード用RFIDリーダーを初期化しました
@@ -164,23 +164,693 @@ RoomState:RoomInOutIdle
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationCore.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationCore.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 [Debug] Check device/Check IO ボタンを無効化しました（デバッグモード）
 RoomState:RoomInOutInit
-RoomState:RoomInOutIdle
 InitOpeImage().Start:----------
   WholeArea:[X:0 Y:0 Width:1920 Height:1080]
+RoomState:RoomInOutIdle
   ValidArea:[X:20 Y:20 Width:1880 Height:1040]
 InitOpeImage().End:----------
 SetParamOfShapeOpeImage().Start:----------
   WholeArea:[X:60 Y:60 Width:1800 Height:960]
 SetParamOfShapeOpeImage().End:----------
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.Core.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\netstandard\v4.0_2.0.0.0__cc7b13ffcd2ddd51\netstandard.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.WinForms.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+スレッド 23980 はコード 0 (0x0) で終了しました。
+スレッド 28116 はコード 0 (0x0) で終了しました。
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorOpen
 [IoMicrochipDummyEx] SimulateDoorOpen: DoorOpen=true, DoorClose=false
-スレッド 23812 はコード 0 (0x0) で終了しました。
-スレッド 29404 はコード 0 (0x0) で終了しました。
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: AirPuffOff
+[IoMicrochipDummyEx] 未処理のコマンド: AirPuffOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+例外がスローされました: 'System.ObjectDisposedException' (System.Windows.Forms.dll の中)
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\WindowsBase.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\WindowsBase.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 例外がスローされました: 'System.ObjectDisposedException' (mscorlib.dll の中)
 
  seen 64, trained: 89600 K-images (1400 Kilo-batches_64) 
-プログラム '[22972] Compartment.exe' はコード 0 (0x0) で終了しました。
+プログラム '[27116] Compartment.exe' はコード 0 (0x0) で終了しました。
