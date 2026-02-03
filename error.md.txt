@@ -14,7 +14,7 @@
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 =================================================
-[BUILD VERIFICATION] FormMain_Load - ビルド日時: 2026-02-03 23:12:42
+[BUILD VERIFICATION] FormMain_Load - ビルド日時: 2026-02-03 23:19:25
 =================================================
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\BlockProgrammingControl.dll' が読み込まれました。シンボルが読み込まれました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
@@ -22,13 +22,13 @@
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\PresentationCore\v4.0_4.0.0.0__31bf3856ad364e35\PresentationCore.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Xaml.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\WindowsFormsIntegration\v4.0_4.0.0.0__31bf3856ad364e35\WindowsFormsIntegration.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationFramework.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'c:\program files\microsoft visual studio\2022\community\common7\ide\commonextensions\microsoft\xamldiagnostics\Framework\x64\Microsoft.VisualStudio.DesignTools.WpfTap.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-スレッド 15876 はコード 0 (0x0) で終了しました。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\GongSolutions.WPF.DragDrop.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationFramework.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+スレッド 15668 はコード 0 (0x0) で終了しました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.resources\v4.0_4.0.0.0_ja_b77a5c561934e089\System.Runtime.Serialization.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\GongSolutions.WPF.DragDrop.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Microsoft.Xaml.Behaviors.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.Aero2\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.Aero2.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 \\.\DISPLAY1: Device Name: {0}
@@ -73,10 +73,10 @@ Loading C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compa
   26 conv    256       1 x 1/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.022 BF
   27 route  25 		                           ->   13 x  13 x 256 
   28 conv    256       1 x 1/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.022 BF
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Channels\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Channels.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
   29 conv    256       3 x 3/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.199 BF
   30 conv    256       3 x 3/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.199 BF
   31 route  26 28 29 30 	                   ->   13 x  13 x1024 
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Channels\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Channels.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
   32 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
   33 conv    256       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 256 0.044 BF
   34 route  32 		                           ->   13 x  13 x 512 
@@ -154,7 +154,7 @@ nms_kind: diounms (2), beta = 0.600000
 nms_kind: diounms (2), beta = 0.600000 
 nms_kind: diounms (2), beta = 0.600000 
 Done! Loaded 99 layers from weights-file 
-caminitilize :3673
+caminitilize :3709
 0ms
 デバッグモード（完全ダミー）で起動しました
 デバッグモード用RFIDリーダーを初期化しました
@@ -170,10 +170,10 @@ RoomState:RoomInOutIdle
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationCore.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationCore.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 [Debug] Check device/Check IO ボタンを無効化しました（デバッグモード）
 InitOpeImage().Start:----------
+RoomState:RoomInOutInit
   WholeArea:[X:0 Y:0 Width:1920 Height:1080]
   ValidArea:[X:20 Y:20 Width:1880 Height:1040]
 InitOpeImage().End:----------
-RoomState:RoomInOutInit
 RoomState:RoomInOutIdle
 SetParamOfShapeOpeImage().Start:----------
   WholeArea:[X:60 Y:60 Width:1800 Height:960]
@@ -186,16 +186,9 @@ backgroundWorker1.IsBusy: True
 backgroundWorker1 is already running!
 Command set to: Start
 IsBusy after setCommand: False
-=== START BUTTON CLICKED ===
-Current State: Idle
-Current IsBusy: False
-EnableDebugMode: True
-backgroundWorker1.IsBusy: True
-backgroundWorker1 is already running!
-Command set to: Start
-IsBusy after setCommand: False
-スレッド 5312 はコード 0 (0x0) で終了しました。
-スレッド 13872 はコード 0 (0x0) で終了しました。
+スレッド 6100 はコード 0 (0x0) で終了しました。
+スレッド 26588 はコード 0 (0x0) で終了しました。
+スレッド 10836 はコード 0 (0x0) で終了しました。
 === START BUTTON CLICKED ===
 Current State: Idle
 Current IsBusy: False
@@ -228,38 +221,7 @@ RoomState:RoomInOutIdle
 [IoMicrochipDummyEx] SimulateDoorClose: DoorOpen=false, DoorClose=true
 [IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
 [IoMicrochipDummyEx] DoorStop - 状態変更なし
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
-[IoMicrochipDummyEx] LeverStop - 状態変更なし
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
-[IoMicrochipDummyEx] LeverStop - 状態変更なし
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
-[IoMicrochipDummyEx] LeverStop - 状態変更なし
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
-[IoMicrochipDummyEx] LeverStop - 状態変更なし
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverOut
-[IoMicrochipDummyEx] SimulateLeverOut: LeverIn=false, LeverOut=true
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
-[IoMicrochipDummyEx] LeverStop - 状態変更なし
-[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOn
-[IoMicrochipDummyEx] ランプ制御: RoomLampOn
-[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
-[IoMicrochipDummyEx] ランプ制御: RoomLampOff
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
-[IoMicrochipDummyEx] ランプ制御: LeverLampOff
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOn
-[IoMicrochipDummyEx] ランプ制御: LeverLampOn
-  Enter+++
-RoomState:RoomInOutLeaveHead
-  Enter---
-RoomState:RoomInOutIdle
-  Exit+++
-RoomState:RoomInOutEnterHead
-  Exit---
-RoomState:RoomInOutIdle
-スレッド 14052 はコード 0 (0x0) で終了しました。
-スレッド 28384 はコード 0 (0x0) で終了しました。
-スレッド 15624 はコード 0 (0x0) で終了しました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\WindowsBase.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\WindowsBase.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 
  seen 64, trained: 89600 K-images (1400 Kilo-batches_64) 
-プログラム '[13540] Compartment.exe' はコード 0 (0x0) で終了しました。
+プログラム '[13688] Compartment.exe' はコード 0 (0x0) で終了しました。
