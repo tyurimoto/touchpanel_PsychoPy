@@ -188,7 +188,6 @@ namespace Compartment
             //
             // labelEntranceName
             //
-            this.labelEntranceName.AutoSize = true;
             this.labelEntranceName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelEntranceName.Font = new System.Drawing.Font("MS UI Gothic", 9F);
             this.labelEntranceName.Location = new System.Drawing.Point(3, 0);
@@ -222,7 +221,6 @@ namespace Compartment
             //
             // labelEntranceStatus
             //
-            this.labelEntranceStatus.AutoSize = true;
             this.labelEntranceStatus.BackColor = System.Drawing.Color.Gray;
             this.labelEntranceStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelEntranceStatus.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -236,7 +234,6 @@ namespace Compartment
             //
             // labelExitName
             //
-            this.labelExitName.AutoSize = true;
             this.labelExitName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelExitName.Font = new System.Drawing.Font("MS UI Gothic", 9F);
             this.labelExitName.Location = new System.Drawing.Point(3, 38);
@@ -270,7 +267,6 @@ namespace Compartment
             //
             // labelExitStatus
             //
-            this.labelExitStatus.AutoSize = true;
             this.labelExitStatus.BackColor = System.Drawing.Color.Gray;
             this.labelExitStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelExitStatus.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -284,7 +280,6 @@ namespace Compartment
             //
             // labelStayName
             //
-            this.labelStayName.AutoSize = true;
             this.labelStayName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelStayName.Font = new System.Drawing.Font("MS UI Gothic", 9F);
             this.labelStayName.Location = new System.Drawing.Point(3, 76);
@@ -318,7 +313,6 @@ namespace Compartment
             //
             // labelStayStatus
             //
-            this.labelStayStatus.AutoSize = true;
             this.labelStayStatus.BackColor = System.Drawing.Color.Gray;
             this.labelStayStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelStayStatus.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -332,7 +326,6 @@ namespace Compartment
             //
             // labelLeverSwName
             //
-            this.labelLeverSwName.AutoSize = true;
             this.labelLeverSwName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelLeverSwName.Font = new System.Drawing.Font("MS UI Gothic", 9F);
             this.labelLeverSwName.Location = new System.Drawing.Point(3, 114);
@@ -366,7 +359,6 @@ namespace Compartment
             //
             // labelLeverSwStatus
             //
-            this.labelLeverSwStatus.AutoSize = true;
             this.labelLeverSwStatus.BackColor = System.Drawing.Color.Gray;
             this.labelLeverSwStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelLeverSwStatus.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -261,6 +261,39 @@ namespace Compartment
         }
 
         /// <summary>
+        /// センサーデータを取得（eDoor用のリミットスイッチなど）
+        /// </summary>
+        public override bool GetRecieveData(int portNum)
+        {
+            lock (sensorStateLock)
+            {
+                // リミットスイッチの状態を返す
+                // DoorMotorCWLimit_B: ドアが完全に開いているときfalse、それ以外true
+                // DoorMotorCCWLimit_B: ドアが完全に閉じているときfalse、それ以外true
+                switch ((IoMicrochip.IoBoardInPortNum)portNum)
+                {
+                    case IoMicrochip.IoBoardInPortNum.DoorMotorCWLimit_B:
+                        // ドアが完全に開いている場合はfalse
+                        return !sensorStates[IoBoardDInLogicalName.DoorOpen];
+
+                    case IoMicrochip.IoBoardInPortNum.DoorMotorCCWLimit_B:
+                        // ドアが完全に閉じている場合はfalse
+                        return !sensorStates[IoBoardDInLogicalName.DoorClose];
+
+                    case IoMicrochip.IoBoardInPortNum.DetectOutDirection:
+                    case IoMicrochip.IoBoardInPortNum.DetectInDirection:
+                    case IoMicrochip.IoBoardInPortNum.DoorOutsideSensor:
+                    case IoMicrochip.IoBoardInPortNum.DoorInsideSensor:
+                        // その他のセンサーは常にfalse
+                        return false;
+
+                    default:
+                        return false;
+                }
+            }
+        }
+
+        /// <summary>
         /// すべてのセンサー状態をリセット
         /// </summary>
         public void ResetAllSensors()
@@ -287,6 +320,26 @@ namespace Compartment
             {
                 return new Dictionary<IoBoardDInLogicalName, bool>(sensorStates);
             }
+        }
+
+        /// <summary>
+        /// 出力ビットを設定（eDoor用のモーター制御など）
+        /// デバッグモードでは実際には何もしない
+        /// </summary>
+        public override bool SetOutBit(byte portNum, bool state, byte mask)
+        {
+            // デバッグモードでは出力制御は無視
+            return true;
+        }
+
+        /// <summary>
+        /// モーター速度を設定
+        /// デバッグモードでは実際には何もしない
+        /// </summary>
+        public override bool SetMotorSpeed(int speed)
+        {
+            // デバッグモードではモーター速度設定は無視
+            return true;
         }
     }
 }
