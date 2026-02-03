@@ -397,6 +397,9 @@ namespace Compartment
             // Start OWIN Web API server
             // StartApiServer();
 
+            // デバッグモードチェックボックスの状態を設定ファイルから反映
+            userControlMainOnFormMain.checkBoxEnableDebugMode.Checked = preferencesDatOriginal.EnableDebugMode;
+
             opCollection.callbackMessageDebug("アプリ起動");
             return;
         }
