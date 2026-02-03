@@ -1,7 +1,19 @@
-型または名前空間の名前 'ImageLoader' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)
-証明書ストアでマニフェスト署名用の証明書が見つかりません。
-イベント 'RelayCommand.CanExecuteChanged' は使用されていません
-"System.Runtime.CompilerServices.Unsafe" の異なるバージョン間で、解決できない競合が見つかりました。
+重大度レベル	コード	説明	プロジェクト	ファイル	行	抑制状態
+エラー (アクティブ)	CS0246	型または名前空間の名前 'ImageLoader' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\ImageLoaderTests.cs	13	
+エラー (アクティブ)	CS0246	型または名前空間の名前 'ImageLoader' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\ImageLoaderTests.cs	36	
+エラー (アクティブ)	CS0103	現在のコンテキストに 'ImageLoader' という名前は存在しません	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\ImageLoaderTests.cs	44	
+エラー (アクティブ)	CS0234	型または名前空間の名前 'CSharp' が名前空間 'Microsoft.CodeAnalysis' に存在しません (アセンブリ参照があることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	5	
+エラー (アクティブ)	CS0234	型または名前空間の名前 'Services' が名前空間 'Compartment' に存在しません (アセンブリ参照があることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	17	
+エラー (アクティブ)	CS0234	型または名前空間の名前 'Controllers' が名前空間 'Compartment' に存在しません (アセンブリ参照があることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	18	
+エラー (アクティブ)	CS0246	型または名前空間の名前 'HardwareService' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	39	
+エラー (アクティブ)	CS0246	型または名前空間の名前 'MccDaq' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoard.cs	1	
+エラー (アクティブ)	CS0246	型または名前空間の名前 'MccDaq' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoard.cs	114	
+エラー (アクティブ)	CS0246	型または名前空間の名前 'ErrorInfo' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoard.cs	116	
+エラー (アクティブ)	CS0246	型または名前空間の名前 'Svg' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\OpeImage.cs	12	
+エラー (アクティブ)	CS0246	型または名前空間の名前 'SvgElement' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\OpeImage.cs	3958	
+エラー (アクティブ)	CS0246	型または名前空間の名前 'SvgPaintServer' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\OpeImage.cs	3958	
+警告 (アクティブ)	CS0067	イベント 'RelayCommand.CanExecuteChanged' は使用されていません	BlockProgrammingControl	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\BlockProgrammingControl\UserControl1.xaml.cs	341	
+警告		"System.Runtime.CompilerServices.Unsafe" の異なるバージョン間で、解決できない競合が見つかりました。
 "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" と "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間で競合が発生しました。
     プライマリであるため、"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" が選択されました。"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" はプライマリではありませんでした。
     "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" [C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll] に依存する参照です。
@@ -13,25 +25,22 @@
           参照 "C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll" の原因となったプロジェクト ファイルの項目インクルード。
             System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL
             LibVLCSharp, Version=3.6.8.0, Culture=neutral, processorArchitecture=MSIL
-            Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL
-"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。
-"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。
-参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。
-参照コンポーネント 'MccDaq' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。
-参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。
-参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。
-参照コンポーネント 'Svg' が見つかりませんでした。
-参照コンポーネント 'System.Buffers' が見つかりませんでした。
-参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。
-参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。
-参照コンポーネント 'System.Memory' が見つかりませんでした。
-参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。
-参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。
-参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。
-参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。
-参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。
-現在のユーザーの Windows 証明書ストアにコード署名証明書が見つかりません。これを修正するには、ClickOnce マニフェストの署名を無効にするか、証明書ストアに証明書をインストールしてください。
+            Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL	CompartmentTests			
+警告		参照コンポーネント 'Svg' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。	Compartment			
+警告		"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。	Compartment			
+警告		"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'MccDaq' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。	Compartment			
+メッセージ (アクティブ)	IDE0039	ローカル関数を使用します	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\ImageLoaderTests.cs	19	
+メッセージ (アクティブ)	IDE0039	ローカル関数を使用します	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\ImageLoaderTests.cs	34	
