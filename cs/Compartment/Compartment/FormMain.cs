@@ -492,60 +492,6 @@ namespace Compartment
 
         // ID Code重複排除用にID Codeを保存
         public SyncObject<String> mIdCode0 = new SyncObject<String>("");
-
-        /// <summary>
-        /// Initialize IOBoard based on debug mode settings
-        /// </summary>
-        private void InitializeIoBoardForDebugMode()
-        {
-            // TODO: APIサーバー実装時にデバッグモードを有効化
-            /*
-            if (preferencesDatOriginal.EnableDebugMode)
-            {
-                if (preferencesDatOriginal.DebugModeType == EDebugModeType.FullDummy)
-                {
-                    // Full dummy mode - no hardware required
-                    // TODO: Implement IoMicrochipDummyEx
-                    ioBoardDevice = new IoMicrochipDummy();
-                    Debug.WriteLine("[Debug] Initialized IoMicrochipDummy (Full Dummy Mode)");
-                }
-                else if (preferencesDatOriginal.DebugModeType == EDebugModeType.Hybrid)
-                {
-                    // Hybrid mode - try to use real hardware, manual override for difficult sensors
-                    // TODO: Implement IoHybridBoard
-                    ioBoardDevice = new IoMicrochipDummy();
-                    Debug.WriteLine("[Debug] Initialized IoMicrochipDummy (Hybrid Mode)");
-                }
-            }
-            else
-            {
-                // Normal mode - use real hardware
-                ioBoardDevice = new IoMicrochip();
-                Debug.WriteLine("[Debug] Initialized IoMicrochip (Normal Mode)");
-            }
-            */
-            // Temporarily always use IoMicrochip (will be initialized later in FormMain_Load)
-            // ioBoardDevice = new IoMicrochip();
-        }
-
-        // TODO: APIサーバー実装時にデバッグモード用RFIDReaderを有効化
-        /*
-        /// <summary>
-        /// Initialize RFID reader based on debug mode settings
-        /// </summary>
-        private void InitializeRFIDReaderForDebugMode()
-        {
-            if (preferencesDatOriginal.EnableDebugMode)
-            {
-                // Debug mode - use dummy RFID reader
-                // TODO: Implement RFIDReaderDummy
-                rfidReaderHelper = new RFIDReaderDummy();
-                Debug.WriteLine("[Debug] Initialized RFIDReaderDummy");
-            }
-            // Normal mode initialization happens in InitSerialPort()
-        }
-        */
-
         private void InitSerialPort()
         {
             // TODO: APIサーバー実装時にデバッグモードを有効化
