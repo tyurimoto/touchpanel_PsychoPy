@@ -587,9 +587,15 @@ namespace Compartment
             // 開始ボタン
             userControlOperationOnFormMain.buttonStart.Click += (sender, e) =>
             {
+                System.Diagnostics.Debug.WriteLine("=== START BUTTON CLICKED ===");
+                System.Diagnostics.Debug.WriteLine($"Current State: {opCollection.sequencer.State}");
+                System.Diagnostics.Debug.WriteLine($"EnableDebugMode: {preferencesDatOriginal.EnableDebugMode}");
+
                 if (!backgroundWorker1.IsBusy)
                     backgroundWorker1.RunWorkerAsync();
                 setCommand(OpCollection.ECommand.Start);
+
+                System.Diagnostics.Debug.WriteLine($"Command set to: {opCollection.Command}");
             };
 
             // 停止ボタン
@@ -1050,6 +1056,14 @@ namespace Compartment
                         if (opCollection.Command == OpCollection.ECommand.Start)
                         {
                             System.Diagnostics.Debug.WriteLine($"[Idle] Start command received. EnableDebugMode={preferencesDatOriginal.EnableDebugMode}");
+                            System.Diagnostics.Debug.WriteLine("=== START BUTTON PRESSED - THIS MESSAGE CONFIRMS CODE IS RUNNING ===");
+
+                            // デバッグ確認用メッセージ（一時的）
+                            if (preferencesDatOriginal.EnableDebugMode)
+                            {
+                                System.Windows.Forms.MessageBox.Show("Startボタンが押されました（デバッグモード）", "確認",
+                                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                            }
 
                             //eDoor自動開始（デバッグモードでも有効化して、IoMicrochipDummyExとの連携を動かす）
                             eDoor.Enable = true;
