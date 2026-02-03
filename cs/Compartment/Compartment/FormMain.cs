@@ -2,7 +2,8 @@
 #define BG_WORKER2       //サル二倍速用
 
 using BlockProgramming;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+// TODO: APIサーバー実装時に有効化
+// using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Owin.Hosting;
-using Compartment.Services;
-using Compartment.Controllers;
+// TODO: APIサーバー実装時に有効化
+// using Compartment.Services;
+// using Compartment.Controllers;
 
 namespace Compartment
 {
@@ -36,7 +38,8 @@ namespace Compartment
 
         // OWIN Web API server
         private IDisposable _apiServer;
-        private HardwareService _hardwareService;
+        // TODO: APIサーバー実装時に有効化
+        // private HardwareService _hardwareService;
 
         public bool Feeding { get => devFeed.Feeding; }
         public FormMain()
@@ -374,8 +377,9 @@ namespace Compartment
             formProgress?.Close();
             this.Enabled = true;
 
+            // TODO: APIサーバー実装時に有効化
             // Start OWIN Web API server
-            StartApiServer();
+            // StartApiServer();
 
             opCollection.callbackMessageDebug("アプリ起動");
             return;
@@ -419,6 +423,8 @@ namespace Compartment
             recentIdHelper.CheckExpire();
         }
 
+        // TODO: APIサーバー実装時に有効化
+        /*
         /// <summary>
         /// Start OWIN Web API server for PsychoPy integration
         /// </summary>
@@ -453,6 +459,7 @@ namespace Compartment
                 MessageBox.Show($"API起動エラー: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        */
 
         /// <summary>
         /// Stop OWIN Web API server
