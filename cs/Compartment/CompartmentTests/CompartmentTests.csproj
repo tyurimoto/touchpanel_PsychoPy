@@ -154,12 +154,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Compartment\Compartment.csproj">
-      <Project>{306F2D42-1DCE-498A-8A60-7F19B7FFEFC7}</Project>
-      <Name>Compartment</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="0000698.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

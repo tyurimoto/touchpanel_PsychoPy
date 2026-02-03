@@ -1,0 +1,33 @@
+型または名前空間の名前 'ImageLoader' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)
+イベント 'RelayCommand.CanExecuteChanged' は使用されていません
+参照コンポーネント 'System.Windows.Forms' が見つかりませんでした。
+参照コンポーネント 'System.Xml' が見つかりませんでした。
+参照コンポーネント 'Microsoft.VisualStudio.TestPlatform.TestFramework' が見つかりませんでした。
+参照コンポーネント 'LibVLCSharp' が見つかりませんでした。
+参照コンポーネント 'Vlc.DotNet.Core' が見つかりませんでした。
+参照コンポーネント 'System.Security.Principal.Windows' が見つかりませんでした。
+参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。
+参照コンポーネント 'Vlc.DotNet.Core.Interops' が見つかりませんでした。
+参照コンポーネント 'Fizzler' が見つかりませんでした。
+参照コンポーネント 'NAudio.WinMM' が見つかりませんでした。
+参照コンポーネント 'NAudio.Asio' が見つかりませんでした。
+参照コンポーネント 'NAudio.Core' が見つかりませんでした。
+参照コンポーネント 'NAudio.Midi' が見つかりませんでした。
+参照コンポーネント 'Microsoft.Win32.Registry' が見つかりませんでした。
+参照コンポーネント 'Vlc.DotNet.Forms' が見つかりませんでした。
+参照コンポーネント 'NAudio' が見つかりませんでした。
+参照コンポーネント 'System.Numerics' が見つかりませんでした。
+参照コンポーネント 'Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions' が見つかりませんでした。
+参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。
+参照コンポーネント 'NAudio.Wasapi' が見つかりませんでした。
+参照コンポーネント 'System.Drawing' が見つかりませんでした。
+参照コンポーネント 'System.Web' が見つかりませんでした。
+参照コンポーネント 'System.Security.AccessControl' が見つかりませんでした。
+参照コンポーネント 'NAudio.WinForms' が見つかりませんでした。
+参照コンポーネント 'System.Memory' が見つかりませんでした。
+参照コンポーネント 'System.Data' が見つかりませんでした。
+参照コンポーネント 'System.Buffers' が見つかりませんでした。
+参照コンポーネント 'System' が見つかりませんでした。
+参照コンポーネント 'Svg' が見つかりませんでした。
+要素 名前空間 'http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet' の 'Header' には無効な子要素 名前空間 'http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet' の 'FileExtensions' が含まれています。必要とされる要素は 名前空間 'http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet' の 'Title, Author, Description, HelpUrl, SnippetTypes, Keywords, Shortcut' です。
+'Key' 属性が宣言されていません。
