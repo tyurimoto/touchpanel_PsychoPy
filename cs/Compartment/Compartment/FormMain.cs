@@ -85,6 +85,11 @@ namespace Compartment
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            // ビルド確認用ログ（このログが表示されたら、リビルドが正しく反映されています）
+            System.Diagnostics.Debug.WriteLine("=================================================");
+            System.Diagnostics.Debug.WriteLine($"[BUILD VERIFICATION] FormMain_Load - ビルド日時: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+            System.Diagnostics.Debug.WriteLine("=================================================");
+
             // フォーム・テキストへ表示
             this.Text = GetTextOfFormMain();
 
