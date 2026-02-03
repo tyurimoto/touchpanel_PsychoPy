@@ -151,6 +151,7 @@ namespace Compartment
                 sensorStates[IoBoardDInLogicalName.DoorOpen] = true;
                 sensorStates[IoBoardDInLogicalName.DoorClose] = false;
             }
+            System.Diagnostics.Debug.WriteLine("[IoMicrochipDummyEx] SimulateDoorOpen: DoorOpen=true, DoorClose=false");
         }
 
         /// <summary>
@@ -164,6 +165,7 @@ namespace Compartment
                 sensorStates[IoBoardDInLogicalName.DoorOpen] = false;
                 sensorStates[IoBoardDInLogicalName.DoorClose] = true;
             }
+            System.Diagnostics.Debug.WriteLine("[IoMicrochipDummyEx] SimulateDoorClose: DoorOpen=false, DoorClose=true");
         }
 
         /// <summary>
@@ -177,6 +179,7 @@ namespace Compartment
                 sensorStates[IoBoardDInLogicalName.LeverIn] = false;
                 sensorStates[IoBoardDInLogicalName.LeverOut] = true;
             }
+            System.Diagnostics.Debug.WriteLine("[IoMicrochipDummyEx] SimulateLeverOut: LeverIn=false, LeverOut=true");
         }
 
         /// <summary>
@@ -190,6 +193,7 @@ namespace Compartment
                 sensorStates[IoBoardDInLogicalName.LeverOut] = false;
                 sensorStates[IoBoardDInLogicalName.LeverIn] = true;
             }
+            System.Diagnostics.Debug.WriteLine("[IoMicrochipDummyEx] SimulateLeverIn: LeverOut=false, LeverIn=true");
         }
 
         public override bool GetData(IoMicrochip.IoBoardDInCode ioBoardDInCode)

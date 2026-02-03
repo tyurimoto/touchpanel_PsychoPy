@@ -1114,8 +1114,17 @@ namespace Compartment
                             {
                                 OpOpenDoor(); // ドアをOPEN
                             }
+                            else
+                            {
+                                opCollection.callbackMessageNormal("[Debug] ドア無効のためスキップ");
+                            }
 
                             opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandbyEnd;
+                        }
+                        else
+                        {
+                            // デバッグ: レバーIN待ち中
+                            System.Diagnostics.Debug.WriteLine("[DeviceStandby2] レバーIN待ち中... OpFlagMoveLeverIn=" + OpFlagMoveLeverIn);
                         }
                         break;
                     }
@@ -1137,7 +1146,7 @@ namespace Compartment
                                 opCollection.sequencer.State = OpCollection.Sequencer.EState.Idle;
                             }
                         }
-                        if (preferencesDatOriginal.DisableDoor)
+                        else if (preferencesDatOriginal.DisableDoor)
                         {
                             opCollection.callbackMessageNormal("ドア無効待機完了");
                             opCollection.sequencer.LoadState();
@@ -1151,6 +1160,11 @@ namespace Compartment
                                 opCollection.IsBusy.Value = false;
                                 opCollection.sequencer.State = OpCollection.Sequencer.EState.Idle;
                             }
+                        }
+                        else
+                        {
+                            // デバッグ: ドアOPEN待ち中
+                            System.Diagnostics.Debug.WriteLine("[DeviceStandbyEnd] ドアOPEN待ち中... OpFlagOpenDoor=" + OpFlagOpenDoor);
                         }
                         break;
                     }
