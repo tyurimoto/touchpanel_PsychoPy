@@ -345,7 +345,15 @@ namespace Compartment
             // サブ・ディスプレイが存在しない時
             if (opImage.IsThereSubDisplay != true)
             {
-                MessageBox.Show("Sub display isn't found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // デバッグモードではサブディスプレイなしでも動作可能
+                if (!preferencesDatOriginal.EnableDebugMode)
+                {
+                    MessageBox.Show("Sub display isn't found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Debug.WriteLine("[Debug] サブディスプレイが見つかりませんが、デバッグモードのため続行します");
+                }
             }
 
             try
