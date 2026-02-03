@@ -397,6 +397,12 @@
     <Compile Include="UserControlDebugPanel.Designer.cs">
       <DependentUpon>UserControlDebugPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlAnimalSimulator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlAnimalSimulator.Designer.cs">
+      <DependentUpon>UserControlAnimalSimulator.cs</DependentUpon>
+    </Compile>
     <Compile Include="WMTouchPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>

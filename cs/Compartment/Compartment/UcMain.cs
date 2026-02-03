@@ -154,9 +154,19 @@ namespace Compartment
         {
             userControlMainOnFormMain.buttonEndOnUserControlMain.Enabled = n;
             userControlMainOnFormMain.buttonOperationOnUserControlMain.Enabled = n;
-            userControlMainOnFormMain.buttonCheckDeviceOnUserControlMain.Enabled = n;
-            userControlMainOnFormMain.buttonCheckIoOnUserControlMain.Enabled = n;
             userControlMainOnFormMain.buttonPreferencesOnUserControlMain.Enabled = n;
+
+            // デバッグモード時はCheck Device/Check IOボタンを常に無効
+            if (preferencesDatOriginal.EnableDebugMode)
+            {
+                userControlMainOnFormMain.buttonCheckDeviceOnUserControlMain.Enabled = false;
+                userControlMainOnFormMain.buttonCheckIoOnUserControlMain.Enabled = false;
+            }
+            else
+            {
+                userControlMainOnFormMain.buttonCheckDeviceOnUserControlMain.Enabled = n;
+                userControlMainOnFormMain.buttonCheckIoOnUserControlMain.Enabled = n;
+            }
         }
         /// <summary>
         /// ForｍMainのTextへ表示する文字列を取得する

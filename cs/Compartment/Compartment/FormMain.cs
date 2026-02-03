@@ -403,11 +403,47 @@ namespace Compartment
             // デバッグモード時のデバッグコントロールパネル表示
             if (preferencesDatOriginal.EnableDebugMode)
             {
+                // デバッグコントロールパネルと動作画面を分割表示
+                // メインの左右分割
+                SplitContainer splitContainerMain = new SplitContainer();
+                splitContainerMain.Dock = DockStyle.Fill;
+                splitContainerMain.Orientation = Orientation.Vertical;
+                splitContainerMain.SplitterDistance = this.ClientSize.Width - 500; // 右側500pxをデバッグパネルに
+                splitContainerMain.FixedPanel = FixedPanel.Panel2; // 右パネルを固定サイズに
+                splitContainerMain.IsSplitterFixed = false; // スプリッターを移動可能に
+
+                // 左側パネルをさらに上下に分割
+                SplitContainer splitContainerLeft = new SplitContainer();
+                splitContainerLeft.Dock = DockStyle.Fill;
+                splitContainerLeft.Orientation = Orientation.Horizontal;
+                splitContainerLeft.SplitterDistance = this.ClientSize.Height - 150; // 下側150pxを動物シミュレーターに
+                splitContainerLeft.FixedPanel = FixedPanel.Panel2; // 下パネルを固定サイズに
+                splitContainerLeft.IsSplitterFixed = false;
+
+                // 左上: 既存のpanelBaseを移動
+                this.Controls.Remove(panelBase);
+                splitContainerLeft.Panel1.Controls.Add(panelBase);
+                panelBase.Dock = DockStyle.Fill;
+                splitContainerLeft.Panel1.AutoScroll = true;
+
+                // 左下: 動物位置シミュレーターを追加
+                UserControlAnimalSimulator animalSimulator = new UserControlAnimalSimulator(this);
+                animalSimulator.Dock = DockStyle.Fill;
+                splitContainerLeft.Panel2.Controls.Add(animalSimulator);
+                splitContainerLeft.Panel2.AutoScroll = true;
+
+                // 左側の上下分割をメインの左側に配置
+                splitContainerMain.Panel1.Controls.Add(splitContainerLeft);
+
+                // 右側: デバッグコントロールパネルを追加
                 userControlDebugPanel = new UserControlDebugPanel(this);
-                userControlDebugPanel.Dock = DockStyle.Right;
-                userControlDebugPanel.Width = 500;
-                this.Controls.Add(userControlDebugPanel);
-                userControlDebugPanel.BringToFront();
+                userControlDebugPanel.Dock = DockStyle.Fill;
+                splitContainerMain.Panel2.Controls.Add(userControlDebugPanel);
+                splitContainerMain.Panel2.AutoScroll = true;
+
+                // メインSplitContainerをフォームに追加
+                this.Controls.Add(splitContainerMain);
+                splitContainerMain.BringToFront();
             }
 
             // デバッグモード時は実機を必要とする機能を無効化

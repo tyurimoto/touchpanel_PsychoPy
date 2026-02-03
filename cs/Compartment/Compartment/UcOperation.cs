@@ -658,8 +658,8 @@ namespace Compartment
             {
                 if (userControlOperationOnFormMain.Visible == true)
                 {
-                    // シリアル・ポート・オープンしていない時
-                    if (serialPortOpenFlag != true)
+                    // シリアル・ポート・オープンしていない時（デバッグモードではスキップ）
+                    if (serialPortOpenFlag != true && !preferencesDatOriginal.EnableDebugMode)
                     {
                         MessageBox.Show("COM port isn't openned", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         if (Properties.Settings.Default.IS_CHECK_SERIAL_OPENED == true)
@@ -772,8 +772,8 @@ namespace Compartment
         /// </summary>
         private void VisibleUcOperation()
         {
-            // シリアル・ポート・オープンしていない時
-            if (serialPortOpenFlag != true)
+            // シリアル・ポート・オープンしていない時（デバッグモードではスキップ）
+            if (serialPortOpenFlag != true && !preferencesDatOriginal.EnableDebugMode)
             {
                 MessageBox.Show("COM port isn't openned", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (Properties.Settings.Default.IS_CHECK_SERIAL_OPENED == true)
