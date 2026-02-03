@@ -1,44 +1,33 @@
 重大度レベル	コード	説明	プロジェクト	ファイル	行	抑制状態
-警告		参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。	Compartment			
 エラー		ファイル 'darknet.pdb' が見つかりませんでした。	Compartment			
 エラー (アクティブ)	CS0006	メタデータ ファイル 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Compartment.exe' が見つかりませんでした	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\CSC	1	
 警告 (アクティブ)	CS0067	イベント 'RelayCommand.CanExecuteChanged' は使用されていません	BlockProgrammingControl	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\BlockProgrammingControl\UserControl1.xaml.cs	341	
-警告		参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。	Compartment			
 警告		参照コンポーネント 'System.Buffers' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。	Compartment			
-警告		"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。	Compartment			
 警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。	Compartment			
 警告		参照コンポーネント 'MccDaq' が見つかりませんでした。	Compartment			
 警告		参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Svg' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Memory' が見つかりませんでした。	Compartment			
-警告		"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。	Compartment			
 警告		参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Svg' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。	Compartment			
+警告		"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。	Compartment			
+警告		参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Memory' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。	Compartment			
+警告		"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。	Compartment			
+警告		参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。	Compartment			
 警告 (アクティブ)	CS0168	変数 'aa' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\CamImage.cs	1069	
 警告 (アクティブ)	CS0169	フィールド 'DevFeedMulti.pulseTimeCount' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\DevFeedMulti.cs	21	
 警告 (アクティブ)	CS0169	フィールド 'DevFeedMulti.timeoutCount' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\DevFeedMulti.cs	22	
 警告 (アクティブ)	CS0414	フィールド 'FileRelatedActionParam._Updated' が割り当てられていますが、値は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FileRelatedActionParam.cs	10	
 警告 (アクティブ)	CS0169	フィールド 'FormIpCam.Pitch' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormIpCam.cs	30	
 警告 (アクティブ)	CS0169	フィールド 'FormIpCam.Lines' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormIpCam.cs	31	
-警告 (アクティブ)	CS0108	基本データ型の変数と同じ名前で宣言された変数がありましたが、キーワード new は使用されませんでした。この警告は、new を使用する必要があることを通知するものです。変数は、あたかも宣言で new が使用されたかのように宣言されます。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	9	
-警告 (アクティブ)	CS0114	'IoBoardDummy.AcquireDevice()' は継承されたメンバー 'IoBoardBase.AcquireDevice()' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	41	
-警告 (アクティブ)	CS0114	'IoBoardDummy.ReleaseDevice()' は継承されたメンバー 'IoBoardBase.ReleaseDevice()' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	46	
-警告 (アクティブ)	CS0114	'IoBoardDummy.DirectOut(IoBoardPortNo, ushort)' は継承されたメンバー 'IoBoardBase.DirectOut(IoBoardPortNo, ushort)' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	54	
-警告 (アクティブ)	CS0114	'IoBoardDummy.DirectIn(IoBoardPortNo, out ushort)' は継承されたメンバー 'IoBoardBase.DirectIn(IoBoardPortNo, out ushort)' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	60	
-警告 (アクティブ)	CS0114	'IoBoardDummy.SaveDIn()' は継承されたメンバー 'IoBoardBase.SaveDIn()' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	75	
-警告 (アクティブ)	CS0114	'IoBoardDummy.GetRawStateOfSaveDIn(IoBoardDInLogicalName, out bool)' は継承されたメンバー 'IoBoardBase.GetRawStateOfSaveDIn(IoBoardDInLogicalName, out bool)' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	87	
-警告 (アクティブ)	CS0114	'IoBoardDummy.GetUpperStateOfSaveDIn(IoBoardDInLogicalName, out bool)' は継承されたメンバー 'IoBoardBase.GetUpperStateOfSaveDIn(IoBoardDInLogicalName, out bool)' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	100	
-警告 (アクティブ)	CS0114	'IoBoardDummy.SetUpperStateOfDOut(IoBoardDOutLogicalName)' は継承されたメンバー 'IoBoardBase.SetUpperStateOfDOut(IoBoardDOutLogicalName)' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	118	
-警告 (アクティブ)	CS0114	'IoBoardDummy.GetData(IoMicrochip.IoBoardDInCode)' は継承されたメンバー 'IoBoardBase.GetData(IoMicrochip.IoBoardDInCode)' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	123	
-警告 (アクティブ)	CS0114	'IoBoardDummy.GetData(IoMicrochip.IoBoardDInStatusCode, bool)' は継承されたメンバー 'IoBoardBase.GetData(IoMicrochip.IoBoardDInStatusCode, bool)' を非表示にします。現在のメンバーでその実装をオーバーライドするには、override キーワードを追加してください。オーバーライドしない場合は、new キーワードを追加してください。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoBoardDummy.cs	124	
 警告 (アクティブ)	CS0067	イベント 'IoMicrochip.ConveyorErrorHandler' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoMicrochip.cs	49	
 警告 (アクティブ)	CS0168	変数 'ex' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\OpeImage.cs	1749	
 警告 (アクティブ)	CS0168	変数 'ex' は宣言されていますが、使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\OpeImage.cs	1931	
