@@ -589,13 +589,24 @@ namespace Compartment
             {
                 System.Diagnostics.Debug.WriteLine("=== START BUTTON CLICKED ===");
                 System.Diagnostics.Debug.WriteLine($"Current State: {opCollection.sequencer.State}");
+                System.Diagnostics.Debug.WriteLine($"Current IsBusy: {opCollection.IsBusy.Value}");
                 System.Diagnostics.Debug.WriteLine($"EnableDebugMode: {preferencesDatOriginal.EnableDebugMode}");
+                System.Diagnostics.Debug.WriteLine($"backgroundWorker1.IsBusy: {backgroundWorker1.IsBusy}");
 
                 if (!backgroundWorker1.IsBusy)
+                {
+                    System.Diagnostics.Debug.WriteLine("Starting backgroundWorker1...");
                     backgroundWorker1.RunWorkerAsync();
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("backgroundWorker1 is already running!");
+                }
+
                 setCommand(OpCollection.ECommand.Start);
 
                 System.Diagnostics.Debug.WriteLine($"Command set to: {opCollection.Command}");
+                System.Diagnostics.Debug.WriteLine($"IsBusy after setCommand: {opCollection.IsBusy.Value}");
             };
 
             // 停止ボタン
@@ -1040,6 +1051,8 @@ namespace Compartment
         /// </summary>
         private void OnOperationStateMachineProc()
         {
+            // デバッグ：この関数が呼ばれているか確認（ループで大量出力されるので注意）
+            // System.Diagnostics.Debug.WriteLine($"[OnOperationStateMachineProc] Called. State={opCollection.sequencer.State}, Command={opCollection.Command}");
 
             switch (opCollection.sequencer.State)
             {
@@ -1052,6 +1065,9 @@ namespace Compartment
                 case OpCollection.Sequencer.EState.Idle:
                     // アイドル
                     {
+                        // デバッグ：Idle stateに到達した
+                        System.Diagnostics.Debug.WriteLine($"[OnOperationStateMachineProc] In Idle state. Command={opCollection.Command}");
+
                         // 開始
                         if (opCollection.Command == OpCollection.ECommand.Start)
                         {

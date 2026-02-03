@@ -718,7 +718,8 @@ namespace Compartment
         private void timerOperationStateMachine_Tick(object sender, EventArgs e)
         {
 #if !BG_WORKER
-			OnOperationStateMachineProc();
+            // BG_WORKER未定義の場合、タイマーから呼ばれる
+            OnOperationStateMachineProc();
 #endif
         }
         private void StopBgWorkerOperation()
@@ -810,17 +811,26 @@ namespace Compartment
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Started!");
+
             Action M_OperationProc = () => { };
 
             UcOperationInternal ucOperationInternal = new UcOperationInternal(this);
             if (Program.EnableNewEngine)
             {
+                System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using NEW engine (UcOperationInternal)");
                 M_OperationProc = () => { ucOperationInternal.OnOperationStateMachineProc(); };
             }
             else
             {
+                System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using OLD engine (UcOperation)");
                 M_OperationProc = () => { OnOperationStateMachineProc(); };
             }
+#if BG_WORKER
+            System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] BG_WORKER is DEFINED - using background worker loop");
+#else
+            System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] BG_WORKER is NOT DEFINED - background worker will do nothing!");
+#endif
 #if BG_WORKER
             try
             {
