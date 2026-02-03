@@ -577,19 +577,12 @@ namespace Compartment
                 });
 
                 // 課題開始時にドアを開く（重要！）
-                if (!PreferencesDatOriginal.DisableDoor)
+                // デバッグモードでは DisableDoor 設定を無視して常にドアを開く
+                InvokeMethod(() =>
                 {
-                    InvokeMethod(() =>
-                    {
-                        mainForm.Parent.OpOpenDoor(); // ドアをOPEN
-                        System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] ドアを開きます");
-                    });
-                }
-                else
-                {
-                    opCollection.callbackMessageNormal("[デバッグモード] ドア無効のため、ドア開閉をスキップ");
-                    System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] ドア無効");
-                }
+                    mainForm.Parent.OpOpenDoor(); // ドアをOPEN
+                    System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] ドアを開きます");
+                });
 
                 System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移");
                 opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandbyEnd;
