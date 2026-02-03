@@ -1069,6 +1069,7 @@ namespace Compartment
                     // デバイススタンバイ開始
                     {
                         opCollection.callbackMessageNormal("デバイススタンバイ開始");
+                        System.Diagnostics.Debug.WriteLine($"[DeviceStandbyBegin] EnableDebugMode={preferencesDatOriginal.EnableDebugMode}");
 
                         // デバッグモード時は即座に完了
                         if (preferencesDatOriginal.EnableDebugMode)
