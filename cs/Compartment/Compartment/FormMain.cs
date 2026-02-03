@@ -541,14 +541,16 @@ namespace Compartment
 
         private void InitSerialPort()
         {
+            // TODO: APIサーバー実装時にデバッグモードを有効化
             // Skip normal RFID initialization if debug mode is enabled
-            if (!preferencesDatOriginal.EnableDebugMode)
+            // if (!preferencesDatOriginal.EnableDebugMode)
             {
                 RFIDReaderHelper rFIDReaderHelper = new RFIDReaderHelper();
                 rFIDReaderHelper.callbackReceivedDataSub += (x) => { callbackReceivedDataSub(x); };
                 // シリアル受信デリゲートを設定
                 serialHelperPort.callbackReceivedDatagram = rFIDReaderHelper.GetUnivrsalIDAction();
-                rfidReaderHelper = rFIDReaderHelper;
+                // TODO: rfidReaderHelperメンバ変数を定義してから有効化
+                // rfidReaderHelper = rFIDReaderHelper;
             }
 
             //serialHelperPort.ComPort = "COM4";

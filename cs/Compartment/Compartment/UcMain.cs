@@ -20,9 +20,9 @@ namespace Compartment
         private FormSub formSub = null;
         public Bitmap bitmapCanvas;
 #if DUMMY_IO
-        private IoBoardDummy ioBoardDevice = new IoBoardDummy();
+        private IoBoardBase ioBoardDevice = new IoMicrochipDummy();
 #elif NORMAL
-        private IoBoard ioBoardDevice = new IoBoard();
+        private IoBoardBase ioBoardDevice = new IoBoard();
 #else
         private IoBoardBase ioBoardDevice = new IoMicrochip();
 
