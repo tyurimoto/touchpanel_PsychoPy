@@ -13,19 +13,22 @@
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Numerics\v4.0_4.0.0.0__b77a5c561934e089\System.Numerics.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+=================================================
+[BUILD VERIFICATION] FormMain_Load - ビルド日時: 2026-02-03 22:33:24
+=================================================
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\BlockProgrammingControl.dll' が読み込まれました。シンボルが読み込まれました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\WindowsBase\v4.0_4.0.0.0__31bf3856ad364e35\WindowsBase.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\PresentationCore\v4.0_4.0.0.0__31bf3856ad364e35\PresentationCore.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Xaml.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\WindowsFormsIntegration\v4.0_4.0.0.0__31bf3856ad364e35\WindowsFormsIntegration.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationFramework.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'c:\program files\microsoft visual studio\2022\community\common7\ide\commonextensions\microsoft\xamldiagnostics\Framework\x64\Microsoft.VisualStudio.DesignTools.WpfTap.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-スレッド 28292 はコード 0 (0x0) で終了しました。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.resources\v4.0_4.0.0.0_ja_b77a5c561934e089\System.Runtime.Serialization.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationFramework.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+スレッド 10448 はコード 0 (0x0) で終了しました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\GongSolutions.WPF.DragDrop.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.resources\v4.0_4.0.0.0_ja_b77a5c561934e089\System.Runtime.Serialization.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Microsoft.Xaml.Behaviors.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.Aero2\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.Aero2.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 \\.\DISPLAY1: Device Name: {0}
@@ -39,11 +42,11 @@ Primary Screen: True
 Loading C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\libvlc\win-x64\libvlccore.dll
 Loading C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\libvlc\win-x64\libvlc.dll
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Discovery\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Discovery.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
    layer   filters  size/strd(dil)      input                output
    0 conv     32       3 x 3/ 2    416 x 416 x   3 ->  208 x 208 x  32 0.075 BF
    1 conv     64       3 x 3/ 2    208 x 208 x  32 ->  104 x 104 x  64 0.399 BF
    2 conv     32       1 x 1/ 1    104 x 104 x  64 ->  104 x 104 x  32 0.044 BF
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
    3 route  1 		                           ->  104 x 104 x  64 
    4 conv     32       1 x 1/ 1    104 x 104 x  64 ->  104 x 104 x  32 0.044 BF
    5 conv     32       3 x 3/ 1    104 x 104 x  32 ->  104 x 104 x  32 0.199 BF
@@ -69,9 +72,9 @@ Loading C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compa
   25 max                2x 2/ 2     26 x  26 x 256 ->   13 x  13 x 256 0.000 BF
   26 conv    256       1 x 1/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.022 BF
   27 route  25 		                           ->   13 x  13 x 256 
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Channels\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Channels.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
   28 conv    256       1 x 1/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.022 BF
   29 conv    256       3 x 3/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.199 BF
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Channels\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Channels.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
   30 conv    256       3 x 3/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.199 BF
   31 route  26 28 29 30 	                   ->   13 x  13 x1024 
   32 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
@@ -150,33 +153,33 @@ Loading weights from C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Comp
 nms_kind: diounms (2), beta = 0.600000 
 nms_kind: diounms (2), beta = 0.600000 
 nms_kind: diounms (2), beta = 0.600000 
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 Done! Loaded 99 layers from weights-file 
-caminitilize :892
+caminitilize :3873
 0ms
 デバッグモード（完全ダミー）で起動しました
 デバッグモード用RFIDリーダーを初期化しました
 [Debug] サブディスプレイが見つかりませんが、デバッグモードのため続行します
 RoomState:RoomInOutInit
 RoomState:RoomInOutIdle
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework-SystemXmlLinq\v4.0_4.0.0.0__b77a5c561934e089\PresentationFramework-SystemXmlLinq.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework-SystemXml\v4.0_4.0.0.0__b77a5c561934e089\PresentationFramework-SystemXml.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationCore.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationCore.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 [Debug] Check device/Check IO ボタンを無効化しました（デバッグモード）
 InitOpeImage().Start:----------
-  WholeArea:[X:0 Y:0 Width:1920 Height:1080]
 RoomState:RoomInOutInit
+  WholeArea:[X:0 Y:0 Width:1920 Height:1080]
   ValidArea:[X:20 Y:20 Width:1880 Height:1040]
 InitOpeImage().End:----------
 RoomState:RoomInOutIdle
 SetParamOfShapeOpeImage().Start:----------
   WholeArea:[X:60 Y:60 Width:1800 Height:960]
 SetParamOfShapeOpeImage().End:----------
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
 [IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
-[IoMicrochipDummyEx] LeverStop - 状態変更なし
-[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
-[IoMicrochipDummyEx] LeverStop - 状態変更なし
 [IoMicrochipDummyEx] ランプ制御: RoomLampOff
 [IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
 [IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
@@ -218,4 +221,4 @@ SetParamOfShapeOpeImage().End:----------
 **writer** が null でした。
 
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\PrivateAssemblies\Runtime\Microsoft.VisualStudio.Debugger.Runtime.Desktop.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-プログラム '[27240] Compartment.exe' はコード 4294967295 (0xffffffff) で終了しました。
+プログラム '[7028] Compartment.exe' はコード 4294967295 (0xffffffff) で終了しました。
