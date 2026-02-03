@@ -111,6 +111,7 @@ namespace Compartment
         LeverIn = 0x20,
         LeverOut = 0x40,
     };
+#if !DUMMY_IO
     public class IoBoard
     {
         private MccDaq.MccBoard mMccDaqBoard = null;
@@ -786,4 +787,5 @@ namespace Compartment
             return ret;
         }
     }
+#endif
 }
