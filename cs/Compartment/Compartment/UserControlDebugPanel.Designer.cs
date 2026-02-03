@@ -13,12 +13,22 @@ namespace Compartment
         /// <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                if (updateTimer != null)
+                {
+                    updateTimer.Stop();
+                    updateTimer.Dispose();
+                }
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
         }
+
+        private System.Windows.Forms.Timer updateTimer;
 
         #region コンポーネント デザイナーで生成されたコード
 

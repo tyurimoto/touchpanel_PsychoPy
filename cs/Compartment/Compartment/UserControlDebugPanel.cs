@@ -8,7 +8,6 @@ namespace Compartment
     {
         private IoMicrochipDummyEx dummyIoBoard;
         private FormMain formMain;
-        private Timer updateTimer;
 
         public UserControlDebugPanel(FormMain parent)
         {
@@ -217,23 +216,6 @@ namespace Compartment
                 default:
                     return sensor.ToString();
             }
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (updateTimer != null)
-                {
-                    updateTimer.Stop();
-                    updateTimer.Dispose();
-                }
-                if (components != null)
-                {
-                    components.Dispose();
-                }
-            }
-            base.Dispose(disposing);
         }
     }
 }
