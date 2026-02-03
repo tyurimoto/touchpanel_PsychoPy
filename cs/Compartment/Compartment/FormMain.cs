@@ -405,7 +405,7 @@ namespace Compartment
             {
                 userControlDebugPanel = new UserControlDebugPanel(this);
                 userControlDebugPanel.Dock = DockStyle.Right;
-                userControlDebugPanel.Width = 450;
+                userControlDebugPanel.Width = 500;
                 this.Controls.Add(userControlDebugPanel);
                 userControlDebugPanel.BringToFront();
             }

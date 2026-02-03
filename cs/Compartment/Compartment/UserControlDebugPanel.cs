@@ -46,6 +46,21 @@ namespace Compartment
             buttonEntranceOff.Click += (s, e) => SetSensor(IoBoardDInLogicalName.RoomEntrance, false);
             buttonExitOn.Click += (s, e) => SetSensor(IoBoardDInLogicalName.RoomExit, true);
             buttonExitOff.Click += (s, e) => SetSensor(IoBoardDInLogicalName.RoomExit, false);
+            buttonStayOn.Click += (s, e) => SetSensor(IoBoardDInLogicalName.RoomStay, true);
+            buttonStayOff.Click += (s, e) => SetSensor(IoBoardDInLogicalName.RoomStay, false);
+            buttonLeverSwOn.Click += (s, e) => SetSensor(IoBoardDInLogicalName.LeverSw, true);
+            buttonLeverSwOff.Click += (s, e) => SetSensor(IoBoardDInLogicalName.LeverSw, false);
+
+            // デバイス制御ボタン
+            buttonDoorOpen.Click += ButtonDoorOpen_Click;
+            buttonDoorClose.Click += ButtonDoorClose_Click;
+            buttonLeverExtend.Click += ButtonLeverExtend_Click;
+            buttonLeverRetract.Click += ButtonLeverRetract_Click;
+            buttonFeedDispense.Click += ButtonFeedDispense_Click;
+            buttonRoomLampOn.Click += (s, e) => ControlRoomLamp(true);
+            buttonRoomLampOff.Click += (s, e) => ControlRoomLamp(false);
+            buttonLeverLampOn.Click += (s, e) => ControlLeverLamp(true);
+            buttonLeverLampOff.Click += (s, e) => ControlLeverLamp(false);
 
             // RFIDボタン
             buttonRFIDRandom.Click += ButtonRFIDRandom_Click;
@@ -61,11 +76,109 @@ namespace Compartment
             {
                 dummyIoBoard.SetManualSensorState(sensor, state);
                 string sensorName = GetSensorDisplayName(sensor);
-                AddLog($"{sensorName} {(state ? "ON" : "OFF")}");
+                AddLog($"[手動] {sensorName} {(state ? "ON" : "OFF")}");
             }
             catch (Exception ex)
             {
                 AddLog($"エラー: {ex.Message}");
+            }
+        }
+
+        private void ButtonDoorOpen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.DoorOpen };
+                formMain.concurrentQueueDevCmdPktDoor.Enqueue(cmdPkt);
+                AddLog("[制御] ドアを開く");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"エラー: ドア開 - {ex.Message}");
+            }
+        }
+
+        private void ButtonDoorClose_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.DoorClose };
+                formMain.concurrentQueueDevCmdPktDoor.Enqueue(cmdPkt);
+                AddLog("[制御] ドアを閉じる");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"エラー: ドア閉 - {ex.Message}");
+            }
+        }
+
+        private void ButtonLeverExtend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverForward };
+                formMain.concurrentQueueDevCmdPktLever.Enqueue(cmdPkt);
+                AddLog("[制御] レバーを出す");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"エラー: レバー出 - {ex.Message}");
+            }
+        }
+
+        private void ButtonLeverRetract_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverBackward };
+                formMain.concurrentQueueDevCmdPktLever.Enqueue(cmdPkt);
+                AddLog("[制御] レバーを引っ込める");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"エラー: レバー引込 - {ex.Message}");
+            }
+        }
+
+        private void ButtonFeedDispense_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.Feed, TimeOn = 1000 };
+                formMain.concurrentQueueDevCmdPktFeed.Enqueue(cmdPkt);
+                AddLog("[制御] 給餌実行 (1秒)");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"エラー: 給餌 - {ex.Message}");
+            }
+        }
+
+        private void ControlRoomLamp(bool on)
+        {
+            try
+            {
+                var cmdPkt = new DevCmdPkt { DevCmdVal = on ? EDevCmd.RoomLampOn : EDevCmd.RoomLampOff };
+                formMain.concurrentQueueDevCmdPktRoomLamp.Enqueue(cmdPkt);
+                AddLog($"[制御] ルームランプ {(on ? "ON" : "OFF")}");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"エラー: ルームランプ - {ex.Message}");
+            }
+        }
+
+        private void ControlLeverLamp(bool on)
+        {
+            try
+            {
+                var cmdPkt = new DevCmdPkt { DevCmdVal = on ? EDevCmd.LeverLampOn : EDevCmd.LeverLampOff };
+                formMain.concurrentQueueDevCmdPktLeverLamp.Enqueue(cmdPkt);
+                AddLog($"[制御] レバーランプ {(on ? "ON" : "OFF")}");
+            }
+            catch (Exception ex)
+            {
+                AddLog($"エラー: レバーランプ - {ex.Message}");
             }
         }
 
@@ -120,12 +233,17 @@ namespace Compartment
 
             try
             {
-                // センサー状態更新
+                // 手動シミュレート可能なセンサー状態更新
                 UpdateSensorDisplay(IoBoardDInLogicalName.RoomEntrance, labelEntranceStatus);
                 UpdateSensorDisplay(IoBoardDInLogicalName.RoomExit, labelExitStatus);
+                UpdateSensorDisplay(IoBoardDInLogicalName.RoomStay, labelStayStatus);
+                UpdateSensorDisplay(IoBoardDInLogicalName.LeverSw, labelLeverSwStatus);
 
-                // デバイス状態更新
-                UpdateDeviceStatus();
+                // デバイスセンサー状態更新（リアルタイム表示）
+                UpdateSensorDisplay(IoBoardDInLogicalName.DoorOpen, labelDoorOpenStatus);
+                UpdateSensorDisplay(IoBoardDInLogicalName.DoorClose, labelDoorCloseStatus);
+                UpdateSensorDisplay(IoBoardDInLogicalName.LeverIn, labelLeverInStatus);
+                UpdateSensorDisplay(IoBoardDInLogicalName.LeverOut, labelLeverOutStatus);
             }
             catch (Exception ex)
             {
@@ -141,39 +259,6 @@ namespace Compartment
                 statusLabel.BackColor = state ? Color.Lime : Color.Gray;
                 statusLabel.Text = state ? "ON" : "OFF";
             }
-        }
-
-        private void UpdateDeviceStatus()
-        {
-            // ドア状態
-            bool doorOpen = false;
-            bool doorClose = false;
-            dummyIoBoard.GetUpperStateOfSaveDIn(IoBoardDInLogicalName.DoorOpen, out doorOpen);
-            dummyIoBoard.GetUpperStateOfSaveDIn(IoBoardDInLogicalName.DoorClose, out doorClose);
-
-            if (doorOpen)
-                labelDoorStatus.Text = "● Open";
-            else if (doorClose)
-                labelDoorStatus.Text = "● Close";
-            else
-                labelDoorStatus.Text = "○ 不明";
-
-            // レバー状態
-            bool leverOut = false;
-            bool leverIn = false;
-            dummyIoBoard.GetUpperStateOfSaveDIn(IoBoardDInLogicalName.LeverOut, out leverOut);
-            dummyIoBoard.GetUpperStateOfSaveDIn(IoBoardDInLogicalName.LeverIn, out leverIn);
-
-            if (leverOut)
-                labelLeverStatus.Text = "○ Out";
-            else if (leverIn)
-                labelLeverStatus.Text = "● In";
-            else
-                labelLeverStatus.Text = "○ 不明";
-
-            // 給餌状態
-            bool feeding = formMain.Feeding;
-            labelFeedingStatus.Text = feeding ? "● 給餌中" : "○ 給餌中ではありません";
         }
 
         private void AddLog(string message)
