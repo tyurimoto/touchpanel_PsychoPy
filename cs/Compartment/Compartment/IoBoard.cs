@@ -1,6 +1,8 @@
-﻿using MccDaq;
-using System;
+﻿using System;
 using System.Diagnostics;
+#if !DUMMY_IO
+using MccDaq;
+#endif
 
 namespace Compartment
 {
