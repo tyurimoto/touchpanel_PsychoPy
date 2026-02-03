@@ -97,6 +97,8 @@ namespace Compartment
         /// </summary>
         public override bool SetUpperStateOfDOut(IoBoardDOutLogicalName a_IoBoardDOutLogicalNameObj)
         {
+            System.Diagnostics.Debug.WriteLine($"[IoMicrochipDummyEx] SetUpperStateOfDOut: {a_IoBoardDOutLogicalNameObj}");
+
             switch (a_IoBoardDOutLogicalNameObj)
             {
                 case IoBoardDOutLogicalName.DoorOpen:
@@ -111,6 +113,7 @@ namespace Compartment
 
                 case IoBoardDOutLogicalName.DoorStop:
                     // ドア停止 → 状態変更なし
+                    System.Diagnostics.Debug.WriteLine("[IoMicrochipDummyEx] DoorStop - 状態変更なし");
                     break;
 
                 case IoBoardDOutLogicalName.LeverOut:
@@ -125,6 +128,7 @@ namespace Compartment
 
                 case IoBoardDOutLogicalName.LeverStop:
                     // レバー停止 → 状態変更なし
+                    System.Diagnostics.Debug.WriteLine("[IoMicrochipDummyEx] LeverStop - 状態変更なし");
                     break;
 
                 case IoBoardDOutLogicalName.RoomLampOn:
@@ -132,9 +136,11 @@ namespace Compartment
                 case IoBoardDOutLogicalName.LeverLampOn:
                 case IoBoardDOutLogicalName.LeverLampOff:
                     // ランプ制御 → センサー状態に影響なし
+                    System.Diagnostics.Debug.WriteLine($"[IoMicrochipDummyEx] ランプ制御: {a_IoBoardDOutLogicalNameObj}");
                     break;
 
                 default:
+                    System.Diagnostics.Debug.WriteLine($"[IoMicrochipDummyEx] 未処理のコマンド: {a_IoBoardDOutLogicalNameObj}");
                     break;
             }
             return true;

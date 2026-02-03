@@ -1069,8 +1069,35 @@ namespace Compartment
                     // デバイススタンバイ開始
                     {
                         opCollection.callbackMessageNormal("デバイススタンバイ開始");
-                        // 処理内容
+
+                        // デバッグモード時は即座に完了
+                        if (preferencesDatOriginal.EnableDebugMode)
                         {
+                            opCollection.callbackMessageNormal("[デバッグモード] デバイススタンバイをスキップ");
+
+                            // デバッグモード用にセンサー状態を設定
+                            if (ioBoardDevice is IoMicrochipDummyEx dummyEx)
+                            {
+                                // レバーを引っ込める
+                                dummyEx.SetManualSensorState(IoBoardDInLogicalName.LeverIn, true);
+                                dummyEx.SetManualSensorState(IoBoardDInLogicalName.LeverOut, false);
+
+                                // ドアを開く
+                                dummyEx.SetManualSensorState(IoBoardDInLogicalName.DoorOpen, true);
+                                dummyEx.SetManualSensorState(IoBoardDInLogicalName.DoorClose, false);
+                            }
+
+                            OpSetRoomLampOff(); // 天井ランプをOFF
+                            OpDrawBackColorBlackOnTouchPanel(); // タッチパネル画面を黒
+                            OpSetFeedLampOff(); // フィードランプをOFF
+                            OpSetLeverLampOff(); // レバーランプをOFF
+                            OpAirPuffOff(); // エアパフをOFF
+
+                            opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandbyEnd;
+                        }
+                        else
+                        {
+                            // 通常モード: 従来の処理
                             OpMoveLeverIn(); // レバーをIN
 
                             OpSetRoomLampOff(); // 天井ランプをOFF
@@ -1078,23 +1105,24 @@ namespace Compartment
                             OpSetFeedLampOff(); // フィードランプをOFF
                             OpSetLeverLampOff(); // レバーランプをOFF
                             OpAirPuffOff(); // エアパフをOFF
-                        }
-                        if (preferencesDatOriginal.DisableLever)
-                        {
-                            // DisableDoor時操作しない
-                            if (!preferencesDatOriginal.DisableDoor)
+
+                            if (preferencesDatOriginal.DisableLever)
                             {
-                                OpOpenDoor(); // ドアをOPEN
+                                // DisableDoor時操作しない
+                                if (!preferencesDatOriginal.DisableDoor)
+                                {
+                                    OpOpenDoor(); // ドアをOPEN
+                                }
+                                else
+                                {
+                                    opCollection.callbackMessageNormal("ドア無効ユーザー入室");
+                                }
+                                opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandbyEnd;
                             }
                             else
                             {
-                                opCollection.callbackMessageNormal("ドア無効ユーザー入室");
+                                opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandby2;
                             }
-                            opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandbyEnd;
-                        }
-                        else
-                        {
-                            opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandby2;
                         }
 
                         break;
@@ -1131,7 +1159,23 @@ namespace Compartment
                 case OpCollection.Sequencer.EState.DeviceStandbyEnd:
                     // デバイススタンバイ完了
                     {
-                        if (OpFlagOpenDoor == true)
+                        // デバッグモード時は即座に完了
+                        if (preferencesDatOriginal.EnableDebugMode)
+                        {
+                            opCollection.callbackMessageNormal("[デバッグモード] デバイススタンバイ完了");
+                            opCollection.sequencer.LoadState();
+
+                            // Stop状態からDeviceStandbyに遷移した場合、LoadStateでStopに戻ってしまうので
+                            // その場合はIsBusyをfalseにしてIdleに遷移する
+                            if (opCollection.sequencer.State == OpCollection.Sequencer.EState.Stop)
+                            {
+                                opCollection.callbackMessageNormal("停止完了");
+                                opCollection.file.Close();
+                                opCollection.IsBusy.Value = false;
+                                opCollection.sequencer.State = OpCollection.Sequencer.EState.Idle;
+                            }
+                        }
+                        else if (OpFlagOpenDoor == true)
                         {
                             opCollection.callbackMessageNormal("ドアOPEN完了");
                             opCollection.sequencer.LoadState();
