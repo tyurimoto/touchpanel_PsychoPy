@@ -1049,8 +1049,11 @@ namespace Compartment
                         // 開始
                         if (opCollection.Command == OpCollection.ECommand.Start)
                         {
-                            //eDoor自動開始
+                            System.Diagnostics.Debug.WriteLine($"[Idle] Start command received. EnableDebugMode={preferencesDatOriginal.EnableDebugMode}");
+
+                            //eDoor自動開始（デバッグモードでも有効化して、IoMicrochipDummyExとの連携を動かす）
                             eDoor.Enable = true;
+                            System.Diagnostics.Debug.WriteLine("[Idle] eDoor enabled");
 
                             opCollection.IsBusy.Value = true;
                             opCollection.file.Open(preferencesDatOriginal.OutputResultFile);
@@ -1061,6 +1064,7 @@ namespace Compartment
                             opCollection.callbackSetUiCurentNumberOfTrial(opCollection.trialCount);
 
                             opCollection.sequencer.State = OpCollection.Sequencer.EState.PreEnterCageProc;
+                            System.Diagnostics.Debug.WriteLine("[Idle] Transitioned to PreEnterCageProc");
                         }
                         break;
                     }
@@ -1131,6 +1135,8 @@ namespace Compartment
                 case OpCollection.Sequencer.EState.DeviceStandby2:
                     // デバイススタンバイ中
                     {
+                        System.Diagnostics.Debug.WriteLine($"[DeviceStandby2] OpFlagMoveLeverIn={OpFlagMoveLeverIn}, DisableLever={preferencesDatOriginal.DisableLever}");
+
                         // レバーIN待ち
                         if (OpFlagMoveLeverIn == true)
                         {
@@ -1142,6 +1148,7 @@ namespace Compartment
                             if (!preferencesDatOriginal.DisableDoor)
                             {
                                 OpOpenDoor(); // ドアをOPEN
+                                System.Diagnostics.Debug.WriteLine("[DeviceStandby2] OpOpenDoor() called");
                             }
                             else
                             {
@@ -1149,11 +1156,7 @@ namespace Compartment
                             }
 
                             opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandbyEnd;
-                        }
-                        else
-                        {
-                            // デバッグ: レバーIN待ち中
-                            System.Diagnostics.Debug.WriteLine("[DeviceStandby2] レバーIN待ち中... OpFlagMoveLeverIn=" + OpFlagMoveLeverIn);
+                            System.Diagnostics.Debug.WriteLine("[DeviceStandby2] Transitioned to DeviceStandbyEnd");
                         }
                         break;
                     }
@@ -1251,17 +1254,21 @@ namespace Compartment
                 case OpCollection.Sequencer.EState.PreEnterCageProc:
                     // 入室前処理
                     {
+                        System.Diagnostics.Debug.WriteLine($"[PreEnterCageProc] BeforeState={opCollection.sequencer.BeforeState}");
+
                         if (opCollection.sequencer.BeforeState == OpCollection.Sequencer.EState.DeviceStandbyEnd)
                         {
                             OpeClearIdCode();
                             dt = DateTime.Now;
                             opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForEnterCage;
                             OpFlagRoomIn = false;
+                            System.Diagnostics.Debug.WriteLine("[PreEnterCageProc] Transitioned to WaitingForEnterCage");
                         }
                         else
                         {
                             opCollection.sequencer.StoreStateStack();
                             opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandbyBegin;
+                            System.Diagnostics.Debug.WriteLine("[PreEnterCageProc] Transitioned to DeviceStandbyBegin");
                         }
                         break;
                     }
