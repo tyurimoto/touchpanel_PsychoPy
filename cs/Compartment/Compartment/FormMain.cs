@@ -332,14 +332,15 @@ namespace Compartment
                     else
                     {
                         serialPortOpenFlag = true;
+                    }
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("シリアルポートが見つかりません\\nアプリケーションを終了します。", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //アプリケーションを終了する
-                isErrorHappened = true;
-                Application.Exit();
+                catch (Exception)
+                {
+                    MessageBox.Show("シリアルポートが見つかりません\\nアプリケーションを終了します。", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //アプリケーションを終了する
+                    isErrorHappened = true;
+                    Application.Exit();
+                }
             }
             // サブ・ディスプレイが存在しない時
             if (opImage.IsThereSubDisplay != true)
