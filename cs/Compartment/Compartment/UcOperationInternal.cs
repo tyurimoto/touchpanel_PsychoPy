@@ -496,26 +496,72 @@ namespace Compartment
             // 開始
             if (opCollection.Command == OpCollection.ECommand.Start)
             {
+                System.Diagnostics.Debug.WriteLine($"[UcOperationInternal Idle] Start command received. EnableDebugMode={PreferencesDatOriginal.EnableDebugMode}");
+
                 // 多層化対応 id 認識時に変更
                 //SetStateFunction();
                 SetStateFunctionId();
                 opCollection.IsBusy.Value = true;
-                //eDoor自動開始
-                mainForm.Parent.eDoor.Enable = true;
 
-                opCollection.file.Open(PreferencesDatOriginal.OutputResultFile);
-                // opCollection.file.Open(Application.LocalUserAppDataPath, "OpCollection.csv");
+                //eDoor自動開始（デバッグモードでも有効化して、IoMicrochipDummyExとの連携を動かす）
+                mainForm.Parent.eDoor.Enable = true;
+                System.Diagnostics.Debug.WriteLine("[UcOperationInternal Idle] eDoor enabled");
+
+                // ファイルオープン（デバッグモード時はエラーハンドリング）
+                try
+                {
+                    opCollection.file.Open(PreferencesDatOriginal.OutputResultFile);
+                    System.Diagnostics.Debug.WriteLine($"[UcOperationInternal Idle] File opened: {PreferencesDatOriginal.OutputResultFile}");
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[UcOperationInternal Idle] File open error: {ex.Message}");
+                    if (PreferencesDatOriginal.EnableDebugMode)
+                    {
+                        System.Diagnostics.Debug.WriteLine("[UcOperationInternal Idle] デバッグモードのため、ファイルオープンエラーを無視して続行");
+                        opCollection.callbackMessageNormal("[デバッグモード] ファイルオープンに失敗しましたが続行します");
+                    }
+                    else
+                    {
+                        throw; // デバッグモードでない場合はエラーを再スロー
+                    }
+                }
 
                 //初期回数表示
                 opCollection.trialCount = 0; // 試行回数カウンタをクリア
                 opCollection.callbackSetUiCurentNumberOfTrial(opCollection.trialCount);
                 opCollection.callbackMessageNormal("スタート押された認識(Internal)");
+
+                System.Diagnostics.Debug.WriteLine("[UcOperationInternal Idle] Transitioned to PreEnterCageProc");
                 opCollection.sequencer.State = OpCollection.Sequencer.EState.PreEnterCageProc;
             }
 
         }
         private void DeviceStandbyBegin()
         {
+            System.Diagnostics.Debug.WriteLine($"[UcOperationInternal DeviceStandbyBegin] EnableDebugMode={PreferencesDatOriginal.EnableDebugMode}");
+
+            // デバッグモードの場合、デバイススタンバイをスキップ
+            if (PreferencesDatOriginal.EnableDebugMode)
+            {
+                opCollection.callbackMessageNormal("[デバッグモード] デバイススタンバイをスキップ");
+                System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] デバイススタンバイをスキップ");
+
+                // IoMicrochipDummyEx のセンサー状態を初期化
+                if (mainForm.Parent.ioBoardDevice is IoMicrochipDummyEx dummyEx)
+                {
+                    dummyEx.SetManualSensorState(IoBoardDInLogicalName.LeverIn, true);
+                    dummyEx.SetManualSensorState(IoBoardDInLogicalName.LeverOut, false);
+                    dummyEx.SetManualSensorState(IoBoardDInLogicalName.DoorOpen, true);
+                    dummyEx.SetManualSensorState(IoBoardDInLogicalName.DoorClose, false);
+                    System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] センサー状態を初期化: LeverIn=true, DoorOpen=true");
+                }
+
+                System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移");
+                opCollection.sequencer.State = OpCollection.Sequencer.EState.DeviceStandbyEnd;
+                return;
+            }
+
             opCollection.callbackMessageNormal("デバイススタンバイ開始");
             InvokeMethod(() =>
             // 処理内容
@@ -608,6 +654,27 @@ namespace Compartment
         }
         private void DeviceStandbyEnd()
         {
+            // デバッグモードの場合、即座に完了
+            if (PreferencesDatOriginal.EnableDebugMode)
+            {
+                opCollection.callbackMessageNormal("[デバッグモード] デバイススタンバイ完了");
+                System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] デバイススタンバイ完了");
+
+                opCollection.sequencer.LoadState();
+
+                // Stop状態の場合、停止処理を完了してIdleに戻る
+                if (opCollection.sequencer.State == OpCollection.Sequencer.EState.Stop)
+                {
+                    System.Diagnostics.Debug.WriteLine("[UcOperationInternal デバッグモード] Stop状態検出、停止完了処理を実行");
+                    opCollection.callbackMessageNormal("停止完了");
+                    opCollection.file.Close();
+                    opCollection.IsBusy.Value = false;
+                    opCollection.sequencer.State = OpCollection.Sequencer.EState.Idle;
+                }
+
+                return;
+            }
+
             if (mainForm.Parent.OpFlagOpenDoor == true)
             {
                 opCollection.callbackMessageNormal("ドアOPEN完了");
