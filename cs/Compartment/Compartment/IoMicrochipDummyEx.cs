@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Compartment
 {
@@ -14,10 +12,6 @@ namespace Compartment
         // センサー状態を保持するDictionary
         private Dictionary<IoBoardDInLogicalName, bool> sensorStates = new Dictionary<IoBoardDInLogicalName, bool>();
         private readonly object sensorStateLock = new object();
-
-        // デバイス動作の遅延時間（ミリ秒）
-        private const int DOOR_DELAY_MS = 500;
-        private const int LEVER_DELAY_MS = 500;
 
         public IoMicrochipDummyEx()
         {
@@ -151,25 +145,12 @@ namespace Compartment
         /// </summary>
         private void SimulateDoorOpen()
         {
-            Task.Run(() =>
+            // 即座にドアが開いた状態にする（リミットスイッチをfalseにしてeDoorを進める）
+            lock (sensorStateLock)
             {
-                // 即座に現在の状態を解除
-                lock (sensorStateLock)
-                {
-                    sensorStates[IoBoardDInLogicalName.DoorClose] = false;
-                    sensorStates[IoBoardDInLogicalName.DoorOpen] = false;
-                }
-
-                // ドアが開くまで待機
-                Thread.Sleep(DOOR_DELAY_MS);
-
-                // ドアが開いた状態にする
-                lock (sensorStateLock)
-                {
-                    sensorStates[IoBoardDInLogicalName.DoorOpen] = true;
-                    sensorStates[IoBoardDInLogicalName.DoorClose] = false;
-                }
-            });
+                sensorStates[IoBoardDInLogicalName.DoorOpen] = true;
+                sensorStates[IoBoardDInLogicalName.DoorClose] = false;
+            }
         }
 
         /// <summary>
@@ -177,25 +158,12 @@ namespace Compartment
         /// </summary>
         private void SimulateDoorClose()
         {
-            Task.Run(() =>
+            // 即座にドアが閉じた状態にする（リミットスイッチをfalseにしてeDoorを進める）
+            lock (sensorStateLock)
             {
-                // 即座に現在の状態を解除
-                lock (sensorStateLock)
-                {
-                    sensorStates[IoBoardDInLogicalName.DoorOpen] = false;
-                    sensorStates[IoBoardDInLogicalName.DoorClose] = false;
-                }
-
-                // ドアが閉じるまで待機
-                Thread.Sleep(DOOR_DELAY_MS);
-
-                // ドアが閉じた状態にする
-                lock (sensorStateLock)
-                {
-                    sensorStates[IoBoardDInLogicalName.DoorOpen] = false;
-                    sensorStates[IoBoardDInLogicalName.DoorClose] = true;
-                }
-            });
+                sensorStates[IoBoardDInLogicalName.DoorOpen] = false;
+                sensorStates[IoBoardDInLogicalName.DoorClose] = true;
+            }
         }
 
         /// <summary>
@@ -203,25 +171,12 @@ namespace Compartment
         /// </summary>
         private void SimulateLeverOut()
         {
-            Task.Run(() =>
+            // 即座にレバーが出た状態にする
+            lock (sensorStateLock)
             {
-                // 即座に現在の状態を解除
-                lock (sensorStateLock)
-                {
-                    sensorStates[IoBoardDInLogicalName.LeverIn] = false;
-                    sensorStates[IoBoardDInLogicalName.LeverOut] = false;
-                }
-
-                // レバーが出るまで待機
-                Thread.Sleep(LEVER_DELAY_MS);
-
-                // レバーが出た状態にする
-                lock (sensorStateLock)
-                {
-                    sensorStates[IoBoardDInLogicalName.LeverIn] = false;
-                    sensorStates[IoBoardDInLogicalName.LeverOut] = true;
-                }
-            });
+                sensorStates[IoBoardDInLogicalName.LeverIn] = false;
+                sensorStates[IoBoardDInLogicalName.LeverOut] = true;
+            }
         }
 
         /// <summary>
@@ -229,25 +184,12 @@ namespace Compartment
         /// </summary>
         private void SimulateLeverIn()
         {
-            Task.Run(() =>
+            // 即座にレバーが引っ込んだ状態にする
+            lock (sensorStateLock)
             {
-                // 即座に現在の状態を解除
-                lock (sensorStateLock)
-                {
-                    sensorStates[IoBoardDInLogicalName.LeverOut] = false;
-                    sensorStates[IoBoardDInLogicalName.LeverIn] = false;
-                }
-
-                // レバーが引っ込むまで待機
-                Thread.Sleep(LEVER_DELAY_MS);
-
-                // レバーが引っ込んだ状態にする
-                lock (sensorStateLock)
-                {
-                    sensorStates[IoBoardDInLogicalName.LeverOut] = false;
-                    sensorStates[IoBoardDInLogicalName.LeverIn] = true;
-                }
-            });
+                sensorStates[IoBoardDInLogicalName.LeverOut] = false;
+                sensorStates[IoBoardDInLogicalName.LeverIn] = true;
+            }
         }
 
         public override bool GetData(IoMicrochip.IoBoardDInCode ioBoardDInCode)
