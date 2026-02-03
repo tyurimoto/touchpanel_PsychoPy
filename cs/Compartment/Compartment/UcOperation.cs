@@ -605,7 +605,7 @@ namespace Compartment
 
                 setCommand(OpCollection.ECommand.Start);
 
-                System.Diagnostics.Debug.WriteLine($"Command set to: {opCollection.Command}");
+                // 注意：opCollection.Command は読み取ると Nop にリセットされるため、診断出力で読み取らない
                 System.Diagnostics.Debug.WriteLine($"IsBusy after setCommand: {opCollection.IsBusy.Value}");
             };
 
@@ -1065,11 +1065,14 @@ namespace Compartment
                 case OpCollection.Sequencer.EState.Idle:
                     // アイドル
                     {
+                        // 注意：opCollection.Command は読み取ると Nop にリセットされるので、一度だけ読み取る
+                        OpCollection.ECommand command = opCollection.Command;
+
                         // デバッグ：Idle stateに到達した
-                        System.Diagnostics.Debug.WriteLine($"[OnOperationStateMachineProc] In Idle state. Command={opCollection.Command}");
+                        System.Diagnostics.Debug.WriteLine($"[OnOperationStateMachineProc] In Idle state. Command={command}");
 
                         // 開始
-                        if (opCollection.Command == OpCollection.ECommand.Start)
+                        if (command == OpCollection.ECommand.Start)
                         {
                             System.Diagnostics.Debug.WriteLine($"[Idle] Start command received. EnableDebugMode={preferencesDatOriginal.EnableDebugMode}");
                             System.Diagnostics.Debug.WriteLine("=== START BUTTON PRESSED - THIS MESSAGE CONFIRMS CODE IS RUNNING ===");
