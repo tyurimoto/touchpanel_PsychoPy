@@ -1051,6 +1051,7 @@ namespace Compartment
                         {
                             //eDoor自動開始
                             eDoor.Enable = true;
+
                             opCollection.IsBusy.Value = true;
                             opCollection.file.Open(preferencesDatOriginal.OutputResultFile);
                             // opCollection.file.Open(Application.LocalUserAppDataPath, "OpCollection.csv");
@@ -1125,11 +1126,31 @@ namespace Compartment
                         {
                             opCollection.callbackMessageNormal("ドアOPEN完了");
                             opCollection.sequencer.LoadState();
+
+                            // Stop状態からDeviceStandbyに遷移した場合、LoadStateでStopに戻ってしまうので
+                            // その場合はIsBusyをfalseにしてIdleに遷移する
+                            if (opCollection.sequencer.State == OpCollection.Sequencer.EState.Stop)
+                            {
+                                opCollection.callbackMessageNormal("停止完了");
+                                opCollection.file.Close();
+                                opCollection.IsBusy.Value = false;
+                                opCollection.sequencer.State = OpCollection.Sequencer.EState.Idle;
+                            }
                         }
                         if (preferencesDatOriginal.DisableDoor)
                         {
                             opCollection.callbackMessageNormal("ドア無効待機完了");
                             opCollection.sequencer.LoadState();
+
+                            // Stop状態からDeviceStandbyに遷移した場合、LoadStateでStopに戻ってしまうので
+                            // その場合はIsBusyをfalseにしてIdleに遷移する
+                            if (opCollection.sequencer.State == OpCollection.Sequencer.EState.Stop)
+                            {
+                                opCollection.callbackMessageNormal("停止完了");
+                                opCollection.file.Close();
+                                opCollection.IsBusy.Value = false;
+                                opCollection.sequencer.State = OpCollection.Sequencer.EState.Idle;
+                            }
                         }
                         break;
                     }
