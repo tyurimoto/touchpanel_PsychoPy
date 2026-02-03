@@ -81,9 +81,10 @@ namespace Compartment
         {
             // デバッグ：状態とコマンドを定期的にログ出力（大量出力に注意）
             // 1秒に1回だけログを出力
+            // 注意：opCollection.Command は読み取ると Nop にリセットされるので、診断ログでは読まない
             if (debugLogCounter++ % 1000 == 0)
             {
-                System.Diagnostics.Debug.WriteLine($"[OnOperationStateMachineProc] State={opCollection.sequencer.State}, Command={opCollection.Command}, IsBusy={opCollection.IsBusy.Value}");
+                System.Diagnostics.Debug.WriteLine($"[OnOperationStateMachineProc] State={opCollection.sequencer.State}, IsBusy={opCollection.IsBusy.Value}");
             }
 
             switch (opCollection.sequencer.State)
@@ -501,14 +502,17 @@ namespace Compartment
         }
         private void Idle()
         {
+            // 注意：opCollection.Command は読み取ると Nop にリセットされるので、一度だけ読み取る
+            OpCollection.ECommand command = opCollection.Command;
+
             // デバッグ：Idle()が呼ばれているか確認（大量出力される）
             if (debugLogCounter % 1000 == 0)
             {
-                System.Diagnostics.Debug.WriteLine($"[UcOperationInternal Idle()] Called. Command={opCollection.Command}");
+                System.Diagnostics.Debug.WriteLine($"[UcOperationInternal Idle()] Called. Command={command}");
             }
 
             // 開始
-            if (opCollection.Command == OpCollection.ECommand.Start)
+            if (command == OpCollection.ECommand.Start)
             {
                 System.Diagnostics.Debug.WriteLine($"[UcOperationInternal Idle] Start command received. EnableDebugMode={PreferencesDatOriginal.EnableDebugMode}");
 
