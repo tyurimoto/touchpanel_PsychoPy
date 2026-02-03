@@ -14,7 +14,7 @@
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 =================================================
-[BUILD VERIFICATION] FormMain_Load - ビルド日時: 2026-02-03 23:58:00
+[BUILD VERIFICATION] FormMain_Load - ビルド日時: 2026-02-04 00:16:03
 =================================================
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\BlockProgrammingControl.dll' が読み込まれました。シンボルが読み込まれました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
@@ -26,7 +26,7 @@
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationFramework.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
-スレッド 20192 はコード 0 (0x0) で終了しました。
+スレッド 29796 はコード 0 (0x0) で終了しました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.resources\v4.0_4.0.0.0_ja_b77a5c561934e089\System.Runtime.Serialization.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\GongSolutions.WPF.DragDrop.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Microsoft.Xaml.Behaviors.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
@@ -76,8 +76,8 @@ Loading C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compa
   29 conv    256       3 x 3/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.199 BF
   30 conv    256       3 x 3/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.199 BF
   31 route  26 28 29 30 	                   ->   13 x  13 x1024 
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Channels\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Channels.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
   32 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Channels\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Channels.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
   33 conv    256       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 256 0.044 BF
   34 route  32 		                           ->   13 x  13 x 512 
   35 conv    256       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 256 0.044 BF
@@ -154,7 +154,7 @@ nms_kind: diounms (2), beta = 0.600000
 nms_kind: diounms (2), beta = 0.600000 
 nms_kind: diounms (2), beta = 0.600000 
 Done! Loaded 99 layers from weights-file 
-caminitilize :3298
+caminitilize :3417
 0ms
 デバッグモード（完全ダミー）で起動しました
 デバッグモード用RFIDリーダーを初期化しました
@@ -171,11 +171,11 @@ RoomState:RoomInOutIdle
 'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationCore.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationCore.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
 [Debug] Check device/Check IO ボタンを無効化しました（デバッグモード）
 InitOpeImage().Start:----------
+RoomState:RoomInOutInit
   WholeArea:[X:0 Y:0 Width:1920 Height:1080]
+RoomState:RoomInOutIdle
   ValidArea:[X:20 Y:20 Width:1880 Height:1040]
 InitOpeImage().End:----------
-RoomState:RoomInOutInit
-RoomState:RoomInOutIdle
 SetParamOfShapeOpeImage().Start:----------
   WholeArea:[X:60 Y:60 Width:1800 Height:960]
 SetParamOfShapeOpeImage().End:----------
@@ -205,16 +205,8 @@ IsBusy after setCommand: False
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
 [IoMicrochipDummyEx] ランプ制御: LeverLampOff
 [UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
-[UcOperationInternal デバッグモード] ドア無効
+[UcOperationInternal デバッグモード] ドアを開きます
 [UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
-[UcOperationInternal デバッグモード] デバイススタンバイ完了
-[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
-[IoMicrochipDummyEx] ランプ制御: RoomLampOff
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.Core.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\netstandard\v4.0_2.0.0.0__cc7b13ffcd2ddd51\netstandard.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.WinForms.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
-[OnOperationStateMachineProc] State=WaitingForLeaveCage, IsBusy=True
 [IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
 [IoMicrochipDummyEx] DoorStop - 状態変更なし
 [IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
@@ -223,9 +215,8 @@ IsBusy after setCommand: False
 [IoMicrochipDummyEx] SimulateDoorOpen: DoorOpen=true, DoorClose=false
 [IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
 [IoMicrochipDummyEx] DoorStop - 状態変更なし
-スレッド 19360 はコード 0 (0x0) で終了しました。
-スレッド 12784 はコード 0 (0x0) で終了しました。
-[OnOperationStateMachineProc] State=WaitingForLeaveCage, IsBusy=True
+[UcOperationInternal デバッグモード] デバイススタンバイ完了
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
 [UcOperationInternal DeviceStandbyBegin] EnableDebugMode=True
 [UcOperationInternal デバッグモード] デバイススタンバイをスキップ
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
@@ -239,8 +230,12 @@ IsBusy after setCommand: False
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
 [IoMicrochipDummyEx] ランプ制御: LeverLampOff
 [UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
-[UcOperationInternal デバッグモード] ドア無効
+[UcOperationInternal デバッグモード] ドアを開きます
 [UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
 [UcOperationInternal デバッグモード] デバイススタンバイ完了
 [UcOperationInternal デバッグモード] Stop状態検出、停止完了処理を実行
 === START BUTTON CLICKED ===
@@ -267,9 +262,37 @@ IsBusy after setCommand: False
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
 [IoMicrochipDummyEx] ランプ制御: LeverLampOff
 [UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
-[UcOperationInternal デバッグモード] ドア無効
+[UcOperationInternal デバッグモード] ドアを開きます
 [UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
 [UcOperationInternal デバッグモード] デバイススタンバイ完了
+スレッド 30692 はコード 0 (0x0) で終了しました。
+スレッド 29224 はコード 0 (0x0) で終了しました。
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorClose
+[IoMicrochipDummyEx] SimulateDoorClose: DoorOpen=false, DoorClose=true
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.Core.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\netstandard\v4.0_2.0.0.0__cc7b13ffcd2ddd51\netstandard.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+[OnOperationStateMachineProc] State=WaitingForLeaveCage, IsBusy=True
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.WinForms.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+=== START BUTTON CLICKED ===
+Current State: WaitingForLeaveCage
+Current IsBusy: True
+EnableDebugMode: True
+backgroundWorker1.IsBusy: True
+backgroundWorker1 is already running!
+IsBusy after setCommand: True
 [UcOperationInternal DeviceStandbyBegin] EnableDebugMode=True
 [UcOperationInternal デバッグモード] デバイススタンバイをスキップ
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
@@ -283,8 +306,112 @@ IsBusy after setCommand: False
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
 [IoMicrochipDummyEx] ランプ制御: LeverLampOff
 [UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
-[UcOperationInternal デバッグモード] ドア無効
+[UcOperationInternal デバッグモード] ドアを開きます
 [UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorOpen
+[IoMicrochipDummyEx] SimulateDoorOpen: DoorOpen=true, DoorClose=false
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[UcOperationInternal デバッグモード] デバイススタンバイ完了
+[UcOperationInternal デバッグモード] Stop状態検出、停止完了処理を実行
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorClose
+[IoMicrochipDummyEx] SimulateDoorClose: DoorOpen=false, DoorClose=true
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+=== START BUTTON CLICKED ===
+Current State: Idle
+Current IsBusy: False
+EnableDebugMode: True
+backgroundWorker1.IsBusy: True
+backgroundWorker1 is already running!
+IsBusy after setCommand: False
+[UcOperationInternal Idle] Start command received. EnableDebugMode=True
+[UcOperationInternal Idle] eDoor enabled
+[UcOperationInternal Idle] File opened: C:\Users\marmoset\AppData\Roaming\Company\Compartment\2.1.1.1\result.csv
+[UcOperationInternal Idle] Transitioned to PreEnterCageProc
+[UcOperationInternal DeviceStandbyBegin] EnableDebugMode=True
+[UcOperationInternal デバッグモード] デバイススタンバイをスキップ
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
+[UcOperationInternal デバッグモード] ドアを開きます
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorOpen
+[IoMicrochipDummyEx] SimulateDoorOpen: DoorOpen=true, DoorClose=false
+[UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[UcOperationInternal デバッグモード] デバイススタンバイ完了
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+  Enter+++
+RoomState:RoomInOutLeaveHead
+  Exit+++
+RoomState:RoomInOutLeaveBody
+  Enter---
+RoomState:RoomInOutLeaveTail
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+  Exit---
+AckLeave:-----------------------------
+RoomState:RoomInOutIdle
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+  Enter+++
+RoomState:RoomInOutLeaveHead
+  Exit+++
+RoomState:RoomInOutLeaveBody
+  Enter---
+RoomState:RoomInOutLeaveTail
+  Exit---
+AckLeave:-----------------------------
+RoomState:RoomInOutIdle
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+スレッド 27072 はコード 0 (0x0) で終了しました。
+スレッド 19804 はコード 0 (0x0) で終了しました。
+スレッド 26992 はコード 0 (0x0) で終了しました。
+スレッド 28588 はコード 0 (0x0) で終了しました。
+[UcOperationInternal DeviceStandbyBegin] EnableDebugMode=True
+[UcOperationInternal デバッグモード] デバイススタンバイをスキップ
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
+[UcOperationInternal デバッグモード] ドアを開きます
+[UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
 [UcOperationInternal デバッグモード] デバイススタンバイ完了
 [UcOperationInternal デバッグモード] Stop状態検出、停止完了処理を実行
 [UcOperationInternal Idle()] Called. Command=Nop
@@ -321,9 +448,108 @@ IsBusy after setCommand: False
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
 [IoMicrochipDummyEx] ランプ制御: LeverLampOff
 [UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
-[UcOperationInternal デバッグモード] ドア無効
+[UcOperationInternal デバッグモード] ドアを開きます
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorOpen
+[IoMicrochipDummyEx] SimulateDoorOpen: DoorOpen=true, DoorClose=false
 [UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
 [UcOperationInternal デバッグモード] デバイススタンバイ完了
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorClose
+[IoMicrochipDummyEx] SimulateDoorClose: DoorOpen=false, DoorClose=true
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[OnOperationStateMachineProc] State=WaitingForLeaveCage, IsBusy=True
+[OnOperationStateMachineProc] State=WaitingForLeaveCage, IsBusy=True
+[UcOperationInternal DeviceStandbyBegin] EnableDebugMode=True
+[UcOperationInternal デバッグモード] デバイススタンバイをスキップ
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
+[UcOperationInternal デバッグモード] ドアを開きます
+[UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorOpen
+[IoMicrochipDummyEx] SimulateDoorOpen: DoorOpen=true, DoorClose=false
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[UcOperationInternal デバッグモード] デバイススタンバイ完了
+[UcOperationInternal デバッグモード] Stop状態検出、停止完了処理を実行
+InitOpeImage().Start:----------
+  WholeArea:[X:0 Y:0 Width:1920 Height:1080]
+  ValidArea:[X:20 Y:20 Width:1880 Height:1040]
+InitOpeImage().End:----------
+SetParamOfShapeOpeImage().Start:----------
+  WholeArea:[X:60 Y:60 Width:1800 Height:960]
+SetParamOfShapeOpeImage().End:----------
+RoomState:RoomInOutInit
+RoomState:RoomInOutIdle
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+=== START BUTTON CLICKED ===
+Current State: Idle
+Current IsBusy: False
+EnableDebugMode: True
+backgroundWorker1.IsBusy: True
+backgroundWorker1 is already running!
+IsBusy after setCommand: False
+[UcOperationInternal Idle] Start command received. EnableDebugMode=True
+[UcOperationInternal Idle] eDoor enabled
+[UcOperationInternal Idle] File opened: C:\Users\marmoset\AppData\Roaming\Company\Compartment\2.1.1.1\result.csv
+[UcOperationInternal Idle] Transitioned to PreEnterCageProc
+[UcOperationInternal DeviceStandbyBegin] EnableDebugMode=True
+[UcOperationInternal デバッグモード] デバイススタンバイをスキップ
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverStop
+[IoMicrochipDummyEx] LeverStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
+[IoMicrochipDummyEx] ランプ制御: LeverLampOff
+[UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
+[UcOperationInternal デバッグモード] ドアを開きます
+[UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[UcOperationInternal デバッグモード] デバイススタンバイ完了
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorClose
+[IoMicrochipDummyEx] SimulateDoorClose: DoorOpen=false, DoorClose=true
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
 [IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
 [IoMicrochipDummyEx] ランプ制御: RoomLampOff
 [UcOperationInternal DeviceStandbyBegin] EnableDebugMode=True
@@ -339,12 +565,8 @@ IsBusy after setCommand: False
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
 [IoMicrochipDummyEx] ランプ制御: LeverLampOff
 [UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
-[UcOperationInternal デバッグモード] ドア無効
+[UcOperationInternal デバッグモード] ドアを開きます
 [UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
-[UcOperationInternal デバッグモード] デバイススタンバイ完了
-[UcOperationInternal デバッグモード] Stop状態検出、停止完了処理を実行
-[UcOperationInternal Idle()] Called. Command=Nop
-[OnOperationStateMachineProc] State=Idle, IsBusy=False
 [IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
 [IoMicrochipDummyEx] DoorStop - 状態変更なし
 [IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
@@ -353,10 +575,111 @@ IsBusy after setCommand: False
 [IoMicrochipDummyEx] SimulateDoorOpen: DoorOpen=true, DoorClose=false
 [IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
 [IoMicrochipDummyEx] DoorStop - 状態変更なし
-=== START BUTTON CLICKED ===
+[UcOperationInternal デバッグモード] デバイススタンバイ完了
+[UcOperationInternal デバッグモード] Stop状態検出、停止完了処理を実行
 [UcOperationInternal Idle()] Called. Command=Nop
-Current State: Idle
 [OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\UIAutomationTypes\v4.0_4.0.0.0__31bf3856ad364e35\UIAutomationTypes.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\UIAutomationProvider\v4.0_4.0.0.0__31bf3856ad364e35\UIAutomationProvider.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+BlockProgramming.ValueTypeFuncArg:60815118
+BlockProgramming.ValueTypeFuncArg:10465156
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework-SystemData\v4.0_4.0.0.0__b77a5c561934e089\PresentationFramework-SystemData.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+BlockProgramming.ValueTypeFuncArg:33459681
+BlockProgramming.ValueTypeFuncArg:32701678
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Accessibility\v4.0_4.0.0.0__b03f5f7f11d50a3a\Accessibility.dll' が読み込まれました。含める/除外するの設定でシンボルの読み込みが無効になっています。
+BlockProgramming.ValueTypeFuncArg:4705914
+BlockProgramming.ValueTypeFuncArg:42353227
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=HorizontalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'HorizontalContentAlignment' (type 'HorizontalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=VerticalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'VerticalContentAlignment' (type 'VerticalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=HorizontalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'HorizontalContentAlignment' (type 'HorizontalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=VerticalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'VerticalContentAlignment' (type 'VerticalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=HorizontalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'HorizontalContentAlignment' (type 'HorizontalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=VerticalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'VerticalContentAlignment' (type 'VerticalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=HorizontalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'HorizontalContentAlignment' (type 'HorizontalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=VerticalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'VerticalContentAlignment' (type 'VerticalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=HorizontalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'HorizontalContentAlignment' (type 'HorizontalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=VerticalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'VerticalContentAlignment' (type 'VerticalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=HorizontalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'HorizontalContentAlignment' (type 'HorizontalAlignment')
+System.Windows.Data Error: 4 : Cannot find source for binding with reference 'RelativeSource FindAncestor, AncestorType='System.Windows.Controls.ItemsControl', AncestorLevel='1''. BindingExpression:Path=VerticalContentAlignment; DataItem=null; target element is 'ListViewItem' (Name=''); target property is 'VerticalContentAlignment' (type 'VerticalAlignment')
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Controls.Ribbon\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Controls.Ribbon.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationUI\v4.0_4.0.0.0__31bf3856ad364e35\PresentationUI.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationUI.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\PresentationUI.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+BlockProgramming.FunctionBlockViewModel:46712854
+BlockProgramming.FunctionBlockViewModel:46712854
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\System32\DriverStore\FileRepository\iastorpinningcomponent.inf_amd64_d51acc8493d6b911\OptaneShellExt.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\System32\DriverStore\FileRepository\iastorpinningcomponent.inf_amd64_d51acc8493d6b911\SharpShell.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\System32\DriverStore\FileRepository\iastorpinningcomponent.inf_amd64_d51acc8493d6b911\PinningServiceApi.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.Composition\v4.0_4.0.0.0__b77a5c561934e089\System.ComponentModel.Composition.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework-SystemCore\v4.0_4.0.0.0__b77a5c561934e089\PresentationFramework-SystemCore.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+RoomState:RoomInOutInit
+InitOpeImage().Start:----------
+  WholeArea:[X:0 Y:0 Width:1920 Height:1080]
+  ValidArea:[X:20 Y:20 Width:1880 Height:1040]
+InitOpeImage().End:----------
+SetParamOfShapeOpeImage().Start:----------
+RoomState:RoomInOutIdle
+  WholeArea:[X:60 Y:60 Width:1800 Height:960]
+SetParamOfShapeOpeImage().End:----------
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+=== START BUTTON CLICKED ===
+Current State: Idle
 Current IsBusy: False
 EnableDebugMode: True
 backgroundWorker1.IsBusy: True
@@ -379,70 +702,53 @@ IsBusy after setCommand: False
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
 [IoMicrochipDummyEx] ランプ制御: LeverLampOff
 [UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
-[UcOperationInternal デバッグモード] ドア無効
+[UcOperationInternal デバッグモード] ドアを開きます
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
 [UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
 [UcOperationInternal デバッグモード] デバイススタンバイ完了
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
   Enter+++
 RoomState:RoomInOutLeaveHead
   Exit+++
 RoomState:RoomInOutLeaveBody
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+  Exit---
+RoomState:RoomInOutLeaveHead
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+  Enter---
+RoomState:RoomInOutIdle
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+  Enter+++
+RoomState:RoomInOutLeaveHead
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+  Enter---
+RoomState:RoomInOutIdle
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
+  Enter+++
+RoomState:RoomInOutLeaveHead
+  Exit+++
+RoomState:RoomInOutLeaveBody
+[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
   Enter---
 RoomState:RoomInOutLeaveTail
 [OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
   Exit---
 AckLeave:-----------------------------
 RoomState:RoomInOutIdle
-  Enter+++
-RoomState:RoomInOutLeaveHead
 [OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
-  Exit+++
-RoomState:RoomInOutLeaveBody
-  Enter---
-RoomState:RoomInOutLeaveTail
-  Exit---
-AckLeave:-----------------------------
-RoomState:RoomInOutIdle
+スレッド 17552 はコード 0 (0x0) で終了しました。
 [OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
-スレッド 14476 はコード 0 (0x0) で終了しました。
-スレッド 6176 はコード 0 (0x0) で終了しました。
-スレッド 24760 はコード 0 (0x0) で終了しました。
-スレッド 1292 はコード 0 (0x0) で終了しました。
-スレッド 21220 はコード 0 (0x0) で終了しました。
-スレッド 7060 はコード 0 (0x0) で終了しました。
-スレッド 14684 はコード 0 (0x0) で終了しました。
-スレッド 8876 はコード 0 (0x0) で終了しました。
-スレッド 9608 はコード 0 (0x0) で終了しました。
-スレッド 12760 はコード 0 (0x0) で終了しました。
-スレッド 29044 はコード 0 (0x0) で終了しました。
-スレッド 28136 はコード 0 (0x0) で終了しました。
-スレッド 18148 はコード 0 (0x0) で終了しました。
-スレッド 29068 はコード 0 (0x0) で終了しました。
-スレッド 23956 はコード 0 (0x0) で終了しました。
-スレッド 27728 はコード 0 (0x0) で終了しました。
-スレッド 13672 はコード 0 (0x0) で終了しました。
-スレッド 15812 はコード 0 (0x0) で終了しました。
-スレッド 12012 はコード 0 (0x0) で終了しました。
-スレッド 29516 はコード 0 (0x0) で終了しました。
-スレッド 9536 はコード 0 (0x0) で終了しました。
-スレッド 29720 はコード 0 (0x0) で終了しました。
-スレッド 30384 はコード 0 (0x0) で終了しました。
-スレッド 6460 はコード 0 (0x0) で終了しました。
-スレッド 23572 はコード 0 (0x0) で終了しました。
-スレッド 27308 はコード 0 (0x0) で終了しました。
-スレッド 17832 はコード 0 (0x0) で終了しました。
-スレッド 26368 はコード 0 (0x0) で終了しました。
-スレッド 13124 はコード 0 (0x0) で終了しました。
-[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
-  Enter+++
-RoomState:RoomInOutLeaveHead
-  Exit+++
-RoomState:RoomInOutLeaveBody
-  Enter---
-RoomState:RoomInOutLeaveTail
-[OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
-  Exit---
-AckLeave:-----------------------------
-RoomState:RoomInOutIdle
+スレッド 17340 はコード 0 (0x0) で終了しました。
+スレッド 12428 はコード 0 (0x0) で終了しました。
+スレッド 10288 はコード 0 (0x0) で終了しました。
+スレッド 19656 はコード 0 (0x0) で終了しました。
 [OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
 [OnOperationStateMachineProc] State=WaitingForEnterCage, IsBusy=True
 [UcOperationInternal DeviceStandbyBegin] EnableDebugMode=True
@@ -458,11 +764,20 @@ RoomState:RoomInOutIdle
 [IoMicrochipDummyEx] SetUpperStateOfDOut: LeverLampOff
 [IoMicrochipDummyEx] ランプ制御: LeverLampOff
 [UcOperationInternal デバッグモード] デバイスを初期化（レバー、ランプ）
-[UcOperationInternal デバッグモード] ドア無効
+[UcOperationInternal デバッグモード] ドアを開きます
 [UcOperationInternal デバッグモード] DeviceStandbyEnd に遷移
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
+[IoMicrochipDummyEx] SetUpperStateOfDOut: DoorStop
+[IoMicrochipDummyEx] DoorStop - 状態変更なし
 [UcOperationInternal デバッグモード] デバイススタンバイ完了
 [UcOperationInternal デバッグモード] Stop状態検出、停止完了処理を実行
-'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\WindowsBase.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\WindowsBase.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
+[UcOperationInternal Idle()] Called. Command=Nop
+[OnOperationStateMachineProc] State=Idle, IsBusy=False
 
  seen 64, trained: 89600 K-images (1400 Kilo-batches_64) 
-プログラム '[12820] Compartment.exe' はコード 0 (0x0) で終了しました。
+プログラム '[3512] Compartment.exe' はコード 0 (0x0) で終了しました。
