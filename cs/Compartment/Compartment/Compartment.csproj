@@ -391,6 +391,12 @@
     <Compile Include="UserControlPreferencesTab.Designer.cs">
       <DependentUpon>UserControlPreferencesTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlDebugPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDebugPanel.Designer.cs">
+      <DependentUpon>UserControlDebugPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="WMTouchPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>

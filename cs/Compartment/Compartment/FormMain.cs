@@ -400,6 +400,16 @@ namespace Compartment
             // デバッグモードチェックボックスの状態を設定ファイルから反映
             userControlMainOnFormMain.checkBoxEnableDebugMode.Checked = preferencesDatOriginal.EnableDebugMode;
 
+            // デバッグモード時のデバッグコントロールパネル表示
+            if (preferencesDatOriginal.EnableDebugMode)
+            {
+                userControlDebugPanel = new UserControlDebugPanel(this);
+                userControlDebugPanel.Dock = DockStyle.Right;
+                userControlDebugPanel.Width = 450;
+                this.Controls.Add(userControlDebugPanel);
+                userControlDebugPanel.BringToFront();
+            }
+
             // デバッグモード時は実機を必要とする機能を無効化
             if (preferencesDatOriginal.EnableDebugMode)
             {
@@ -576,8 +586,8 @@ namespace Compartment
         /// </summary>
         private void InitializeRFIDReaderForDebugMode()
         {
-            // ダミーRFIDリーダーを作成
-            RFIDReaderDummy rfidReaderDummy = new RFIDReaderDummy();
+            // ダミーRFIDリーダーを作成（メンバー変数に保存）
+            rfidReaderDummy = new RFIDReaderDummy();
             rfidReaderDummy.callbackReceivedDataSub += (x) => { callbackReceivedDataSub(x); };
 
             // シリアルポートのコールバックを設定（実際には呼ばれないが、互換性のため）

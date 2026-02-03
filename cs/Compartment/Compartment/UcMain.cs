@@ -21,11 +21,11 @@ namespace Compartment
         public Bitmap bitmapCanvas;
 #if DUMMY_IO
         // デバッグモードで実行時に初期化されます（FormMain_Load参照）
-        private IoBoardBase ioBoardDevice = new IoMicrochipDummy();
+        public IoBoardBase ioBoardDevice = new IoMicrochipDummy();
 #elif NORMAL
-        private IoBoardBase ioBoardDevice = new IoBoard();
+        public IoBoardBase ioBoardDevice = new IoBoard();
 #else
-        private IoBoardBase ioBoardDevice = new IoMicrochip();
+        public IoBoardBase ioBoardDevice = new IoMicrochip();
 
 #endif
         public EDoor eDoor;
@@ -42,6 +42,12 @@ namespace Compartment
 
         //シリアル・ポート・オープン・フラグ
         private bool serialPortOpenFlag = false;
+
+        // デバッグモード用RFIDリーダー
+        public RFIDReaderDummy rfidReaderDummy = null;
+
+        // デバッグコントロールパネル
+        private UserControlDebugPanel userControlDebugPanel = null;
 
         #endregion
         private void InitializeComponentOnUcMain()
