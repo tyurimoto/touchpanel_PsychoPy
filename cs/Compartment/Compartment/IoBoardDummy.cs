@@ -5,8 +5,6 @@ namespace Compartment
 {
     public class IoBoardDummy : IoBoardBase
     {
-
-        public String errorMsg { get; set; }
         class DInLogical
         {
             //	IoBoardDInLogicalName Name;
@@ -38,12 +36,12 @@ namespace Compartment
             errorMsg = "";
         }
 
-        public bool AcquireDevice()
+        public override bool AcquireDevice()
         {
             return true;
         }
 
-        public bool ReleaseDevice()
+        public override bool ReleaseDevice()
         {
             bool l_boolRet = true;
             return l_boolRet;
@@ -51,13 +49,13 @@ namespace Compartment
 
         private static readonly object IoOutSyncObject = new object();
         private static readonly object IoIntSyncObject = new object();
-        public bool DirectOut(IoBoardPortNo a_IoBoardPortNoObj, ushort a_ushortOutCode)
+        public override bool DirectOut(IoBoardPortNo a_IoBoardPortNoObj, ushort a_ushortOutCode)
         {
             bool l_boolRet = true;
-            
+
             return l_boolRet;
         }
-        public bool DirectIn(IoBoardPortNo a_IoBoardPortNoObj, out ushort a_ushortInCode)
+        public override bool DirectIn(IoBoardPortNo a_IoBoardPortNoObj, out ushort a_ushortInCode)
         {
             a_ushortInCode = 0;
             return true;
@@ -72,7 +70,7 @@ namespace Compartment
         /// 入力ポートの内容をメンバ変数へセーブする
         /// </summary>
         /// <returns></returns>
-        public bool SaveDIn()
+        public override bool SaveDIn()
         {
             bool l_boolRet = true;
 
@@ -84,7 +82,7 @@ namespace Compartment
         /// <param name="a_IoBoardDInLogicalNameObj"></param>
         /// <param name="a_boolRawState"></param>
         /// <returns></returns>
-        public bool GetRawStateOfSaveDIn(IoBoardDInLogicalName a_IoBoardDInLogicalNameObj, out bool a_boolRawState)
+        public override bool GetRawStateOfSaveDIn(IoBoardDInLogicalName a_IoBoardDInLogicalNameObj, out bool a_boolRawState)
         {
             bool l_boolRet = true;
             a_boolRawState = true;
@@ -97,7 +95,7 @@ namespace Compartment
         /// <param name="a_IoBoardDInLogicalNameObj"></param>
         /// <param name="a_boolLogicalState"></param>
         /// <returns></returns>
-        public bool GetUpperStateOfSaveDIn(IoBoardDInLogicalName a_IoBoardDInLogicalNameObj, out bool a_boolLogicalState)
+        public override bool GetUpperStateOfSaveDIn(IoBoardDInLogicalName a_IoBoardDInLogicalNameObj, out bool a_boolLogicalState)
         {
             return GetRawStateOfSaveDIn(a_IoBoardDInLogicalNameObj, out a_boolLogicalState);
         }
@@ -115,12 +113,12 @@ namespace Compartment
             RangeOver = 4
         };
 
-        public bool SetUpperStateOfDOut(IoBoardDOutLogicalName a_IoBoardDOutLogicalNameObj)
+        public override bool SetUpperStateOfDOut(IoBoardDOutLogicalName a_IoBoardDOutLogicalNameObj)
         {
             return true;
         }
 
-        public bool GetData(IoMicrochip.IoBoardDInCode ioBoardDInCode) { return true; }
-        public bool GetData(IoMicrochip.IoBoardDInStatusCode ioBoardDInCode, bool n) { return true; }
+        public override bool GetData(IoMicrochip.IoBoardDInCode ioBoardDInCode) { return true; }
+        public override bool GetData(IoMicrochip.IoBoardDInStatusCode ioBoardDInCode, bool n) { return true; }
     }
 }
