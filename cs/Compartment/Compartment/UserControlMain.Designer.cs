@@ -36,6 +36,7 @@ namespace Compartment
             this.buttonCheckIoOnUserControlMain = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonBlockProgramming = new System.Windows.Forms.Button();
+            this.checkBoxEnableDebugMode = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +102,7 @@ namespace Compartment
             this.buttonCheckIoOnUserControlMain.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
-            // 
+            //
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.buttonOperationOnUserControlMain, 0, 0);
@@ -110,22 +111,24 @@ namespace Compartment
             this.tableLayoutPanel1.Controls.Add(this.buttonPreferencesOnUserControlMain, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.buttonCheckDeviceOnUserControlMain, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonBlockProgramming, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxEnableDebugMode, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("MS UI Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(606, 527);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(606, 587);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // buttonBlockProgramming
-            // 
+            //
             this.buttonBlockProgramming.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonBlockProgramming.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBlockProgramming.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Bold);
@@ -135,15 +138,28 @@ namespace Compartment
             this.buttonBlockProgramming.TabIndex = 5;
             this.buttonBlockProgramming.Text = "Block Programming";
             this.buttonBlockProgramming.UseVisualStyleBackColor = true;
-            // 
+            //
+            // checkBoxEnableDebugMode
+            //
+            this.checkBoxEnableDebugMode.AutoSize = true;
+            this.checkBoxEnableDebugMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBoxEnableDebugMode.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold);
+            this.checkBoxEnableDebugMode.Location = new System.Drawing.Point(3, 530);
+            this.checkBoxEnableDebugMode.Name = "checkBoxEnableDebugMode";
+            this.checkBoxEnableDebugMode.Size = new System.Drawing.Size(600, 54);
+            this.checkBoxEnableDebugMode.TabIndex = 6;
+            this.checkBoxEnableDebugMode.Text = "デバッグモードで実行";
+            this.checkBoxEnableDebugMode.UseVisualStyleBackColor = true;
+            //
             // UserControlMain
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControlMain";
-            this.Size = new System.Drawing.Size(606, 527);
+            this.Size = new System.Drawing.Size(606, 587);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -157,5 +173,6 @@ namespace Compartment
 		public System.Windows.Forms.Button buttonCheckIoOnUserControlMain;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.Button buttonBlockProgramming;
+        public System.Windows.Forms.CheckBox checkBoxEnableDebugMode;
     }
 }

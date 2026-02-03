@@ -89,6 +89,26 @@ namespace Compartment
                 formScript?.Activate();
 
             };
+
+            // デバッグモードチェックボックスのイベントハンドラ
+            userControlMainOnFormMain.checkBoxEnableDebugMode.CheckedChanged += (object sender, EventArgs e) =>
+            {
+                // チェックボックスの状態をpreferencesDatOriginalに反映
+                preferencesDatOriginal.EnableDebugMode = userControlMainOnFormMain.checkBoxEnableDebugMode.Checked;
+
+                // 設定を保存
+                SavePreference(preferencesDatOriginal);
+
+                // メッセージを表示
+                if (preferencesDatOriginal.EnableDebugMode)
+                {
+                    MessageBox.Show("デバッグモードが有効になりました。\nアプリケーションを再起動してください。", "デバッグモード", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("デバッグモードが無効になりました。\nアプリケーションを再起動してください。", "デバッグモード", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            };
             #endregion
         }
 
@@ -105,6 +125,10 @@ namespace Compartment
             userControlCheckIoOnFormMain.Visible = false;
             userControlPreferencesTabOnFormMain.Visible = false;
             userControlInputComOnFormMain.Visible = false;
+
+            // デバッグモードチェックボックスの状態を設定
+            userControlMainOnFormMain.checkBoxEnableDebugMode.Checked = preferencesDatOriginal.EnableDebugMode;
+
             // Form.Text設定
             this.Text = GetTextOfFormMain();
         }
