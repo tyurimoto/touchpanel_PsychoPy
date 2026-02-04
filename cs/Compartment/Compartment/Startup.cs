@@ -15,7 +15,10 @@ namespace Compartment
         {
             var config = new HttpConfiguration();
 
-            // Web API routes
+            // Enable attribute routing (required for [Route] attributes in controllers)
+            config.MapHttpAttributeRoutes();
+
+            // Web API conventional routes (fallback)
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
@@ -29,7 +32,8 @@ namespace Compartment
                 Newtonsoft.Json.NullValueHandling.Ignore;
 
             // Enable CORS (Cross-Origin Resource Sharing) for PsychoPy access
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            // TODO: Enable if needed for remote access (requires Microsoft.Owin.Cors package)
+            // app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
             // Use Web API with OWIN
             app.UseWebApi(config);
