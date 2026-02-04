@@ -519,6 +519,7 @@ namespace Compartment
                 FeedController.Initialize(_hardwareService);
                 RFIDController.Initialize(_hardwareService);
                 DebugController.Initialize(_hardwareService);
+                EmergencyController.Initialize(_hardwareService);
 
                 // Start OWIN server
                 _apiServer = WebApp.Start<Startup>(baseAddress);
@@ -756,6 +757,9 @@ namespace Compartment
             }
             ucOperationDataStore?.Dispose();
             camImage?.Dispose();
+
+            // Disable EventLogger if enabled
+            _hardwareService?.EventLogger?.Disable();
 
             // Stop Web API server
             StopApiServer();

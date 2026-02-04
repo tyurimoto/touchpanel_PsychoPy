@@ -593,6 +593,13 @@ namespace Compartment
                 System.Diagnostics.Debug.WriteLine($"EnableDebugMode: {preferencesDatOriginal.EnableDebugMode}");
                 System.Diagnostics.Debug.WriteLine($"backgroundWorker1.IsBusy: {backgroundWorker1.IsBusy}");
 
+                // ExternalControlモード時、EventLoggerを有効化
+                if (preferencesDatOriginal.OpeTypeOfTask == ECpTask.ExternalControl.ToString())
+                {
+                    _hardwareService?.EventLogger.Enable();
+                    System.Diagnostics.Debug.WriteLine("[ExternalControl] EventLogger enabled");
+                }
+
                 if (!backgroundWorker1.IsBusy)
                 {
                     System.Diagnostics.Debug.WriteLine("Starting backgroundWorker1...");
@@ -613,6 +620,13 @@ namespace Compartment
             userControlOperationOnFormMain.buttonStop.Click += (sender, e) =>
             {
                 setCommand(OpCollection.ECommand.Stop);
+
+                // ExternalControlモード時、EventLoggerを無効化
+                if (preferencesDatOriginal.OpeTypeOfTask == ECpTask.ExternalControl.ToString())
+                {
+                    _hardwareService?.EventLogger.Disable();
+                    System.Diagnostics.Debug.WriteLine("[ExternalControl] EventLogger disabled");
+                }
             };
 
             // 緊急停止ボタン

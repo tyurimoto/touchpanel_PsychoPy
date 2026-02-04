@@ -11,11 +11,18 @@ namespace Compartment.Services
     public class HardwareService
     {
         private readonly FormMain _formMain;
+        private readonly EventLogger _eventLogger;
 
         public HardwareService(FormMain formMain)
         {
             _formMain = formMain ?? throw new ArgumentNullException(nameof(formMain));
+            _eventLogger = new EventLogger(GetCompartmentNo());
         }
+
+        /// <summary>
+        /// Get event logger instance
+        /// </summary>
+        public EventLogger EventLogger => _eventLogger;
 
         /// <summary>
         /// Get compartment number (room ID)
@@ -108,6 +115,53 @@ namespace Compartment.Services
                     _formMain.ioBoardDevice?.GetUpperStateOfSaveDIn(
                         IoBoardDInLogicalName.LeverSw, out state);
                     tcs.SetResult(state);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            }));
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Get door status from sensors
+        /// </summary>
+        public Task<(bool sensorOpen, bool sensorClose, string state)> GetDoorStatusAsync()
+        {
+            var tcs = new TaskCompletionSource<(bool, bool, string)>();
+            _formMain.Invoke((MethodInvoker)(() =>
+            {
+                try
+                {
+                    bool sensorOpen = false;
+                    bool sensorClose = false;
+
+                    _formMain.ioBoardDevice?.GetUpperStateOfSaveDIn(
+                        IoBoardDInLogicalName.DoorOpen, out sensorOpen);
+                    _formMain.ioBoardDevice?.GetUpperStateOfSaveDIn(
+                        IoBoardDInLogicalName.DoorClose, out sensorClose);
+
+                    // Determine door state from sensors
+                    string state;
+                    if (sensorOpen && sensorClose)
+                    {
+                        state = "error"; // Both sensors ON is abnormal
+                    }
+                    else if (sensorOpen)
+                    {
+                        state = "open";
+                    }
+                    else if (sensorClose)
+                    {
+                        state = "closed";
+                    }
+                    else
+                    {
+                        state = "moving"; // Neither sensor ON = door is moving
+                    }
+
+                    tcs.SetResult((sensorOpen, sensorClose, state));
                 }
                 catch (Exception ex)
                 {
@@ -225,6 +279,42 @@ namespace Compartment.Services
                 }
                 catch (Exception ex)
                 {
+                    tcs.SetException(ex);
+                }
+            }));
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Emergency stop all motors (door, lever, feed)
+        /// Called when PsychoPy script crashes or encounters an error
+        /// </summary>
+        public Task<bool> EmergencyStopAllAsync()
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            _formMain.Invoke((MethodInvoker)(() =>
+            {
+                try
+                {
+                    System.Diagnostics.Debug.WriteLine("[EmergencyStop] Stopping all motors");
+
+                    // Stop door motor
+                    var doorStopCmd = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.DoorStop };
+                    _formMain.concurrentQueueDevCmdPktDoor?.Enqueue(doorStopCmd);
+
+                    // Stop lever motor (retract to safe position)
+                    var leverStopCmd = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.LeverStop };
+                    _formMain.concurrentQueueDevCmdPktLever?.Enqueue(leverStopCmd);
+
+                    // Stop feed motor
+                    var feedStopCmd = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.FeedStop };
+                    _formMain.concurrentQueueDevCmdPktFeed?.Enqueue(feedStopCmd);
+
+                    tcs.SetResult(true);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[EmergencyStop] Error: {ex.Message}");
                     tcs.SetException(ex);
                 }
             }));

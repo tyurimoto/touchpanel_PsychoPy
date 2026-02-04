@@ -37,6 +37,10 @@ namespace Compartment.Controllers
             bool success = await _hardwareService.DispenseFeedAsync(request.DurationMs);
             bool feeding = await _hardwareService.IsFeedingAsync();
 
+            // Log event
+            _hardwareService.EventLogger.LogEvent("FeedDispense", "Feeder",
+                $"{request.DurationMs}ms", success);
+
             return Ok(new
             {
                 roomId = _hardwareService.GetCompartmentNo(),

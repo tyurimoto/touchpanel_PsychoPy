@@ -32,6 +32,11 @@ namespace Compartment.Controllers
                 return BadRequest("Hardware service not initialized");
 
             bool success = await _hardwareService.OpenDoorAsync();
+
+            // Log event
+            _hardwareService.EventLogger.LogEvent("DoorOpen", "Door", "", success,
+                success ? "" : "Failed (animal may be inside)");
+
             return Ok(new DeviceCommandResponse
             {
                 RoomId = _hardwareService.GetCompartmentNo(),
@@ -51,6 +56,10 @@ namespace Compartment.Controllers
                 return BadRequest("Hardware service not initialized");
 
             bool success = await _hardwareService.CloseDoorAsync();
+
+            // Log event
+            _hardwareService.EventLogger.LogEvent("DoorClose", "Door", "", success);
+
             return Ok(new DeviceCommandResponse
             {
                 RoomId = _hardwareService.GetCompartmentNo(),
@@ -61,21 +70,23 @@ namespace Compartment.Controllers
 
         /// <summary>
         /// GET api/door/status
+        /// Get door status from sensors
         /// </summary>
         [HttpGet]
         [Route("status")]
-        public IHttpActionResult GetStatus()
+        public async Task<IHttpActionResult> GetStatus()
         {
             if (_hardwareService == null)
                 return BadRequest("Hardware service not initialized");
 
-            // TODO: Implement door status reading from sensors
+            var (sensorOpen, sensorClose, state) = await _hardwareService.GetDoorStatusAsync();
+
             return Ok(new
             {
                 roomId = _hardwareService.GetCompartmentNo(),
-                state = "unknown",
-                sensorOpen = false,
-                sensorClose = false,
+                state = state,
+                sensorOpen = sensorOpen,
+                sensorClose = sensorClose,
                 timestamp = System.DateTime.Now
             });
         }

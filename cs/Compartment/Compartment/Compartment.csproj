@@ -311,12 +311,14 @@
     <Compile Include="RFIDReaderDummy.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Services\HardwareService.cs" />
+    <Compile Include="Services\EventLogger.cs" />
     <Compile Include="Controllers\SensorController.cs" />
     <Compile Include="Controllers\DoorController.cs" />
     <Compile Include="Controllers\LeverController.cs" />
     <Compile Include="Controllers\FeedController.cs" />
     <Compile Include="Controllers\RFIDController.cs" />
     <Compile Include="Controllers\DebugController.cs" />
+    <Compile Include="Controllers\EmergencyController.cs" />
     <Compile Include="Models\ApiResponseBase.cs" />
     <Compile Include="Models\DeviceCommandResponse.cs" />
     <Compile Include="Models\FeedRequest.cs" />

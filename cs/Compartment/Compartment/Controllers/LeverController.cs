@@ -32,6 +32,10 @@ namespace Compartment.Controllers
                 return BadRequest("Hardware service not initialized");
 
             bool success = await _hardwareService.ExtendLeverAsync();
+
+            // Log event
+            _hardwareService.EventLogger.LogEvent("LeverExtend", "Lever", "", success);
+
             return Ok(new DeviceCommandResponse
             {
                 RoomId = _hardwareService.GetCompartmentNo(),
@@ -51,6 +55,10 @@ namespace Compartment.Controllers
                 return BadRequest("Hardware service not initialized");
 
             bool success = await _hardwareService.RetractLeverAsync();
+
+            // Log event
+            _hardwareService.EventLogger.LogEvent("LeverRetract", "Lever", "", success);
+
             return Ok(new DeviceCommandResponse
             {
                 RoomId = _hardwareService.GetCompartmentNo(),

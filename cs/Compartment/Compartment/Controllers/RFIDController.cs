@@ -32,6 +32,13 @@ namespace Compartment.Controllers
                 return BadRequest("Hardware service not initialized");
 
             string rfid = await _hardwareService.ReadRFIDAsync();
+
+            // Log event (only if RFID was read)
+            if (!string.IsNullOrEmpty(rfid))
+            {
+                _hardwareService.EventLogger.LogEvent("RFIDRead", "RFID", rfid, true);
+            }
+
             return Ok(new RFIDResponse
             {
                 RoomId = _hardwareService.GetCompartmentNo(),
@@ -40,15 +47,20 @@ namespace Compartment.Controllers
         }
 
         /// <summary>
-        /// DELETE api/rfid
+        /// POST api/rfid/clear
         /// </summary>
-        [HttpDelete]
+        [HttpPost]
+        [Route("clear")]
         public async Task<IHttpActionResult> Clear()
         {
             if (_hardwareService == null)
                 return BadRequest("Hardware service not initialized");
 
             bool success = await _hardwareService.ClearRFIDAsync();
+
+            // Log event
+            _hardwareService.EventLogger.LogEvent("RFIDClear", "RFID", "", success);
+
             return Ok(new
             {
                 roomId = _hardwareService.GetCompartmentNo(),
