@@ -1,47 +1,27 @@
-'IoMicrochipDummyEx' に 'SaveDInForPort1' の定義が含まれておらず、型 'IoMicrochipDummyEx' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort1' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'IoMicrochip' に 'SaveDInForPort1' の定義が含まれておらず、型 'IoMicrochip' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort1' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'IoMicrochip' に 'SaveDInForPort1' の定義が含まれておらず、型 'IoMicrochip' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort1' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'IoMicrochipDummyEx' に 'SaveDInForPort1' の定義が含まれておらず、型 'IoMicrochipDummyEx' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort1' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'IoMicrochip' に 'SaveDInForPort3' の定義が含まれておらず、型 'IoMicrochip' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort3' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'IoMicrochipDummyEx' に 'SaveDInForPort3' の定義が含まれておらず、型 'IoMicrochipDummyEx' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort3' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'IoMicrochip' に 'SaveDInForPort3' の定義が含まれておらず、型 'IoMicrochip' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort3' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'IoMicrochipDummyEx' に 'SaveDInForPort3' の定義が含まれておらず、型 'IoMicrochipDummyEx' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort3' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'object' に 'SessionNum' の定義が含まれておらず、型 'object' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SessionNum' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'object' に 'Result' の定義が含まれておらず、型 'object' の最初の引数を受け付けるアクセス可能な拡張メソッド 'Result' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'object' に 'TimeOfStartOfOperation' の定義が含まれておらず、型 'object' の最初の引数を受け付けるアクセス可能な拡張メソッド 'TimeOfStartOfOperation' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-'object' に 'IdCode' の定義が含まれておらず、型 'object' の最初の引数を受け付けるアクセス可能な拡張メソッド 'IdCode' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
 メタデータ ファイル 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Compartment.exe' が見つかりませんでした
+現在のコンテキストに '_Updated' という名前は存在しません
 イベント 'RelayCommand.CanExecuteChanged' は使用されていません
-"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。
-参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。
-参照コンポーネント 'System.Buffers' が見つかりませんでした。
-参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。
-参照コンポーネント 'MccDaq' が見つかりませんでした。
-"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。
-参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。
-参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。
-参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。
-参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。
-参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。
-参照コンポーネント 'Svg' が見つかりませんでした。
-参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。
-参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。
-参照コンポーネント 'System.Memory' が見つかりませんでした。
 参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。
+参照コンポーネント 'System.Buffers' が見つかりませんでした。
+"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。
 参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。
-フィールド 'DevFeedMulti.pulseTimeCount' は使用されていません
-フィールド 'DevFeedMulti.timeoutCount' は使用されていません
-フィールド 'FileRelatedActionParam._Updated' が割り当てられていますが、値は使用されていません
-フィールド 'FormIpCam.Pitch' は使用されていません
-フィールド 'FormIpCam.Lines' は使用されていません
+参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。
+参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。
+参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。
+参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。
+参照コンポーネント 'MccDaq' が見つかりませんでした。
+参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。
+参照コンポーネント 'Svg' が見つかりませんでした。
+参照コンポーネント 'System.Memory' が見つかりませんでした。
+"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。
+参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。
+参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。
+参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。
+参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。
+参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。
+参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。
+参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。
 フィールド 'FormMain._hardwareService' は使用されていません
-イベント 'IoMicrochip.ConveyorErrorHandler' は使用されていません
-到達できないコードが検出されました
-到達できないコードが検出されました
-フィールド 'UcOperationBlock.lastState' が割り当てられていますが、値は使用されていません
 "System.Runtime.CompilerServices.Unsafe" の異なるバージョン間で、解決できない競合が見つかりました。
 "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" と "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間で競合が発生しました。
     プライマリであるため、"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" が選択されました。"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" はプライマリではありませんでした。
