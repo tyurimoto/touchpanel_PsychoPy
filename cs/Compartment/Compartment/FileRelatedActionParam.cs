@@ -43,7 +43,7 @@ namespace Compartment
                     {
                         string actionParamString = File.ReadAllText(FilePath);
                         ActionParams = actionParamString;
-                        _Updated = true;
+                        // _Updated = true;
                     }
                     catch (Exception)
                     {

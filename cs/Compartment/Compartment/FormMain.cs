@@ -396,9 +396,8 @@ namespace Compartment
             formProgress?.Close();
             this.Enabled = true;
 
-            // TODO: APIサーバー実装時に有効化
             // Start OWIN Web API server
-            // StartApiServer();
+            StartApiServer();
 
             // デバッグモードチェックボックスの状態を設定ファイルから反映
             userControlMainOnFormMain.checkBoxEnableDebugMode.Checked = preferencesDatOriginal.EnableDebugMode;
@@ -499,8 +498,6 @@ namespace Compartment
             recentIdHelper.CheckExpire();
         }
 
-        // TODO: APIサーバー実装時に有効化
-        /*
         /// <summary>
         /// Start OWIN Web API server for PsychoPy integration
         /// </summary>
@@ -535,7 +532,6 @@ namespace Compartment
                 MessageBox.Show($"API起動エラー: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        */
 
         /// <summary>
         /// Stop OWIN Web API server
