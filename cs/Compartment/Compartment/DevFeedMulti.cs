@@ -18,8 +18,9 @@ namespace Compartment
         public EDevResult devResultVal { set; get; }
         public EDevResult devResultValSaved { set; get; }
 
-        private int pulseTimeCount;
-        private int timeoutCount;
+        // Unused fields - commented out to remove warnings
+        // private int pulseTimeCount;
+        // private int timeoutCount;
         private int[] param = new int[10];
         private String[] stringParam = new string[10];
         private int[] paramForInside = new int[10];

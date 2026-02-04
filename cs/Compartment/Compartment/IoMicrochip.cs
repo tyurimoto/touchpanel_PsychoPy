@@ -46,8 +46,15 @@ namespace Compartment
 
         Stopwatch mainCountSw = new Stopwatch();
 
-        public event EventHandler ConveyorErrorHandler;
+        // Unused event - commented out to remove warning
+        // public event EventHandler ConveyorErrorHandler;
         public event EventHandler RecieveDataHandler;
+
+        /// <summary>
+        /// SaveDIn()にて入力ポートを保存するプロパティ
+        /// </summary>
+        public ushort SaveDInForPort1 { get; set; } = 0x00;
+        public ushort SaveDInForPort3 { get; set; } = 0x00;
 
         //// 互換性用
         //public enum IoBoardPortNo : int

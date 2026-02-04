@@ -26,7 +26,8 @@ namespace Compartment
         }
         private ref OpCollection opCollection => ref mainForm.Parent.opCollection;
 
-        private readonly OpCollection.Sequencer.EState lastState = OpCollection.Sequencer.EState.Init;
+        // Unused field - commented out to remove warning
+        // private readonly OpCollection.Sequencer.EState lastState = OpCollection.Sequencer.EState.Init;
         private ConcurrentQueue<Action> ProcQueue = new ConcurrentQueue<Action>();
         private Action TimeoutProc = () => { };
         /// <summary>

@@ -605,23 +605,7 @@ namespace Compartment.Services
 
                     // TODO: Implement proper trial history in IdControlHelper
                     // Currently IdControlHelper does not have listOfIdDataSingle property
-                    if (false) // Temporarily disabled
-                    {
-                        // Get last 10 trials
-                        var recentTrials = new System.Collections.Generic.List<object>()
-                            .Take(10);
-
-                        foreach (var trial in recentTrials)
-                        {
-                            recentList.Add(new
-                            {
-                                sessionNum = trial.SessionNum,
-                                result = trial.Result.ToString(),
-                                timestamp = trial.TimeOfStartOfOperation.ToString("yyyy-MM-dd HH:mm:ss"),
-                                idCode = trial.IdCode ?? ""
-                            });
-                        }
-                    }
+                    // This functionality is disabled until IdControlHelper exposes trial history
 
                     history = new
                     {

@@ -9,6 +9,12 @@ namespace Compartment
     /// </summary>
     public class IoMicrochipDummyEx : IoBoardBase
     {
+        /// <summary>
+        /// SaveDIn()にて入力ポートを保存するプロパティ
+        /// </summary>
+        public ushort SaveDInForPort1 { get; set; } = 0x00;
+        public ushort SaveDInForPort3 { get; set; } = 0x00;
+
         // センサー状態を保持するDictionary
         private Dictionary<IoBoardDInLogicalName, bool> sensorStates = new Dictionary<IoBoardDInLogicalName, bool>();
         private readonly object sensorStateLock = new object();

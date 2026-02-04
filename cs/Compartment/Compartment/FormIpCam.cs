@@ -26,9 +26,9 @@ namespace Compartment
 {
     public partial class FormIpCam : Form
     {
-
-        private static uint Pitch;
-        private static uint Lines;
+        // Unused fields - commented out to remove warnings
+        // private static uint Pitch;
+        // private static uint Lines;
         private const uint BytePerPixel = 4;
         private const uint width = 1280;
         private const uint height = 720;

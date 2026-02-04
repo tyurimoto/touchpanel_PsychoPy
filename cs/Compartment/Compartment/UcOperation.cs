@@ -736,23 +736,23 @@ namespace Compartment
                     // 画面:黒
                     opImage.DrawBackColor(Color.Black);
 
-                    // 開始を促すメッセージボックス
-                    const bool isShowStartOperationMessageBox = false;
-                    if (isShowStartOperationMessageBox == true)
-                    {
-                        if (MessageBox.Show("Start operation ?", "Infomation", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            setCommand(OpCollection.ECommand.Start);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        // setCommand(OpCollection.ECommand.Start);
-                    }
+                    // 開始を促すメッセージボックス（無効化）
+                    // const bool isShowStartOperationMessageBox = false;
+                    // if (isShowStartOperationMessageBox == true)
+                    // {
+                    //     if (MessageBox.Show("Start operation ?", "Infomation", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    //     {
+                    //         setCommand(OpCollection.ECommand.Start);
+                    //     }
+                    //     else
+                    //     {
+                    //         return;
+                    //     }
+                    // }
+                    // else
+                    // {
+                    //     // setCommand(OpCollection.ECommand.Start);
+                    // }
                     userControlOperationOnFormMain.labelIllegalExitIndicator.Visible = preferencesDatOriginal.OpeEnableReEntry;
 
 

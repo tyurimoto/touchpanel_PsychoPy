@@ -7,7 +7,8 @@ namespace Compartment
 {
     public class FileRelatedActionParam
     {
-        private bool _Updated = false;
+        // Unused field - commented out to remove warning
+        // private bool _Updated = false;
         public string ActionParams
         {
             get => _ActionParams ?? "";
@@ -22,7 +23,7 @@ namespace Compartment
             set
             {
                 _FilePath = value;
-                _Updated = false;
+                // _Updated = false;
             }
         }
 
