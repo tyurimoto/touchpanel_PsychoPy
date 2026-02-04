@@ -309,6 +309,7 @@
     <Compile Include="IoMicrochipDummy.cs" />
     <Compile Include="IoMicrochipDummyEx.cs" />
     <Compile Include="RFIDReaderDummy.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="Services\HardwareService.cs" />
     <Compile Include="Controllers\SensorController.cs" />
     <Compile Include="Controllers\DoorController.cs" />
