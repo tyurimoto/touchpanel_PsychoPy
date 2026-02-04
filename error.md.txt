@@ -1,36 +1,7 @@
-型または名前空間の名前 'Cors' が名前空間 'Microsoft.Owin' に存在しません (アセンブリ参照があることを確認してください)
-'IAppBuilder' に 'UseCors' の定義が含まれておらず、型 'IAppBuilder' の最初の引数を受け付けるアクセス可能な拡張メソッド 'UseCors' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください
-メタデータ ファイル 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Compartment.exe' が見つかりませんでした
-参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。
-参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。
-参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。
-参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。
-"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。
-参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。
-参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。
-参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。
-参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。
-参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。
-参照コンポーネント 'System.Buffers' が見つかりませんでした。
-"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。
-参照コンポーネント 'System.Memory' が見つかりませんでした。
-参照コンポーネント 'Svg' が見つかりませんでした。
-参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。
-参照コンポーネント 'MccDaq' が見つかりませんでした。
-参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。
-参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。
-"System.Runtime.CompilerServices.Unsafe" の異なるバージョン間で、解決できない競合が見つかりました。
-"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" と "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間で競合が発生しました。
-    プライマリであるため、"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" が選択されました。"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" はプライマリではありませんでした。
-    "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" [C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll] に依存する参照です。
-        C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll
-          参照 "C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll" の原因となったプロジェクト ファイルの項目インクルード。
-            System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL
-    "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" [] に依存しているか、統合されている参照。
-        C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll
-          参照 "C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll" の原因となったプロジェクト ファイルの項目インクルード。
-            System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL
-            LibVLCSharp, Version=3.6.8.0, Culture=neutral, processorArchitecture=MSIL
-            Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL
+C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy>  curl -X POST http://localhost:5000/api/debug/sensor/set -H "Content-Type: application/json" -d "{\"sensor\":\"entrance\",\"state\":true}"
+{"success":true,"sensor":"entrance","state":true,"timestamp":"2026-02-04T15:15:25.1386693+09:00"}
+C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy>  curl -X POST http://localhost:5000/api/debug/rfid/set -H "Content-Type: application/json" -d "{\"id\":\"1234567890123456\"}"
+{"roomId":"0","success":true,"id":"1234567890123456","timestamp":"2026-02-04T15:15:37.317917+09:00"}
+C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy>  curl http://localhost:5000/api/debug/sensors/all
+{"roomId":"0","sensors":{"entrance":true,"exit":false,"stay":false,"doorOpen":false,"doorClose":true,"leverIn":true,"leverOut":false,"leverSw":false},"timestamp":"2026-02-04T15:16:09.807363+09:00"}
+C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy>
