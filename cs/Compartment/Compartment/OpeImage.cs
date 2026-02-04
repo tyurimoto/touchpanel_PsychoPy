@@ -951,6 +951,10 @@ namespace Compartment
             {
                 cpTaskArgOut = ECpTask.UnConditionalFeeding;
             }
+            else if (stringCpTaskArg == ECpTask.ExternalControl.ToString())
+            {
+                cpTaskArgOut = ECpTask.ExternalControl;
+            }
             else
             {
                 cpTaskArgOut = ECpTask.Training;

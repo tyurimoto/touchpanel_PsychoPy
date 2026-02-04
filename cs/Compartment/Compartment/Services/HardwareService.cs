@@ -22,7 +22,7 @@ namespace Compartment.Services
         /// </summary>
         public string GetCompartmentNo()
         {
-            return _formMain.preferencesDatOriginal?.CompartmentNo ?? "room1";
+            return _formMain.preferencesDatOriginal?.CompartmentNo.ToString() ?? "0";
         }
 
         /// <summary>
@@ -127,6 +127,25 @@ namespace Compartment.Services
             {
                 try
                 {
+                    // デバッグモード時は実機操作をスキップ
+                    if (_formMain.preferencesDatOriginal.EnableDebugMode)
+                    {
+                        tcs.SetResult(true);
+                        return;
+                    }
+
+                    // 安全チェック：部屋に動物がいる場合はドアを開けない
+                    bool animalInside = false;
+                    _formMain.ioBoardDevice?.GetUpperStateOfSaveDIn(
+                        IoBoardDInLogicalName.RoomStay, out animalInside);
+
+                    if (animalInside)
+                    {
+                        System.Diagnostics.Debug.WriteLine("[OpenDoorAsync] Cannot open door: animal is inside");
+                        tcs.SetResult(false);
+                        return;
+                    }
+
                     var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.DoorOpen };
                     _formMain.concurrentQueueDevCmdPktDoor?.Enqueue(cmdPkt);
                     tcs.SetResult(true);
@@ -149,6 +168,13 @@ namespace Compartment.Services
             {
                 try
                 {
+                    // デバッグモード時は実機操作をスキップ
+                    if (_formMain.preferencesDatOriginal.EnableDebugMode)
+                    {
+                        tcs.SetResult(true);
+                        return;
+                    }
+
                     var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.DoorClose };
                     _formMain.concurrentQueueDevCmdPktDoor?.Enqueue(cmdPkt);
                     tcs.SetResult(true);
@@ -284,7 +310,7 @@ namespace Compartment.Services
                 {
                     if (_formMain.rfidReaderHelper != null)
                     {
-                        _formMain.rfidReaderHelper.RFID = string.Empty;
+                        _formMain.rfidReaderHelper.CurrentIDCode.Value = string.Empty;
                     }
                     tcs.SetResult(true);
                 }
@@ -347,7 +373,7 @@ namespace Compartment.Services
                 {
                     if (_formMain.ioBoardDevice is IoMicrochipDummyEx dummyBoard)
                     {
-                        dummyBoard.SetSensorState(sensor, state);
+                        dummyBoard.SetManualSensorState(sensor, state);
                         success = true;
                     }
                     else if (_formMain.ioBoardDevice is IoHybridBoard hybridBoard)

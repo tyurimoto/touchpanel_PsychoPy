@@ -1084,9 +1084,16 @@ namespace Compartment
                                     System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                             }
 
-                            //eDoor自動開始（デバッグモードでも有効化して、IoMicrochipDummyExとの連携を動かす）
-                            eDoor.Enable = true;
-                            System.Diagnostics.Debug.WriteLine("[Idle] eDoor enabled");
+                            // eDoor自動開始（ExternalControlモードとデバッグモード時は無効化）
+                            if (preferencesDatOriginal.OpeTypeOfTask != ECpTask.ExternalControl.ToString() && !preferencesDatOriginal.EnableDebugMode)
+                            {
+                                eDoor.Enable = true;
+                                System.Diagnostics.Debug.WriteLine("[Idle] eDoor enabled");
+                            }
+                            else
+                            {
+                                System.Diagnostics.Debug.WriteLine("[Idle] eDoor disabled (ExternalControl or DebugMode)");
+                            }
 
                             opCollection.IsBusy.Value = true;
 

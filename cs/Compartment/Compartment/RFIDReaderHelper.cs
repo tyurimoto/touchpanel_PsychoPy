@@ -12,6 +12,9 @@ namespace Compartment
         // ID Code重複排除用にID Codeを保存
         public SyncObject<string> CurrentIDCode = new SyncObject<string>("");
 
+        // API access property wrapper
+        public string RFID => CurrentIDCode.Value;
+
         public Action<string> callbackReceivedDataSub = (str) => { };
 
         public Action<byte[]> GetDosetIDAction()

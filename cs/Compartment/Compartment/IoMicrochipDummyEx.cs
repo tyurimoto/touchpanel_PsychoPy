@@ -264,6 +264,14 @@ namespace Compartment
         }
 
         /// <summary>
+        /// すべての状態をリセット（API用）
+        /// </summary>
+        public void ResetAllStates()
+        {
+            ResetAllSensors();
+        }
+
+        /// <summary>
         /// 現在のセンサー状態を取得（デバッグ表示用）
         /// </summary>
         public Dictionary<IoBoardDInLogicalName, bool> GetAllSensorStates()

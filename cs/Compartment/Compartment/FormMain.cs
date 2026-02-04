@@ -15,9 +15,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Owin.Hosting;
-// TODO: APIサーバー実装時に有効化
-// using Compartment.Services;
-// using Compartment.Controllers;
+using Compartment.Services;
+using Compartment.Controllers;
 
 namespace Compartment
 {
@@ -38,8 +37,7 @@ namespace Compartment
 
         // OWIN Web API server
         private IDisposable _apiServer;
-        // TODO: APIサーバー実装時に有効化
-        // private HardwareService _hardwareService;
+        private HardwareService _hardwareService;
 
         public bool Feeding { get => devFeed.Feeding; }
         public FormMain()
@@ -572,8 +570,8 @@ namespace Compartment
                 rFIDReaderHelper.callbackReceivedDataSub += (x) => { callbackReceivedDataSub(x); };
                 // シリアル受信デリゲートを設定
                 serialHelperPort.callbackReceivedDatagram = rFIDReaderHelper.GetUnivrsalIDAction();
-                // TODO: rfidReaderHelperメンバ変数を定義してから有効化
-                // rfidReaderHelper = rFIDReaderHelper;
+                // rfidReaderHelperメンバ変数への代入
+                rfidReaderHelper = rFIDReaderHelper;
             }
 
             //serialHelperPort.ComPort = "COM4";

@@ -79,6 +79,12 @@ namespace Compartment
         /// </summary>
         public void OnOperationStateMachineProc()
         {
+            // ExternalControlモードでは状態機械を無効化
+            if (PreferencesDatOriginal.OpeTypeOfTask == ECpTask.ExternalControl.ToString())
+            {
+                return;
+            }
+
             // デバッグ：状態とコマンドを定期的にログ出力（大量出力に注意）
             // 1秒に1回だけログを出力
             // 注意：opCollection.Command は読み取ると Nop にリセットされるので、診断ログでは読まない
@@ -862,7 +868,8 @@ namespace Compartment
                 }
                 else
                 {
-                    opCollection.sequencer.State = OpCollection.Sequencer.EState.PreTouchTriggerScreenProc;
+                    // 状態遷移は後で設定（Line 928の後でID/レバーチェックの結果を考慮）
+                    //opCollection.sequencer.State = OpCollection.Sequencer.EState.PreTouchTriggerScreenProc;
                     //opCollection.sequencer.State = OpCollection.Sequencer.EState.RunProcessBlock;
                 }
 
@@ -925,6 +932,14 @@ namespace Compartment
                         opCollection.callbackMessageNormal("ID無し実行無効");
                         opCollection.sequencer.State = OpCollection.Sequencer.EState.PreLeaveCageProc;
                     }
+                }
+
+                // ID/レバーチェック後、PreLeaveCageProc に設定されていない場合は課題実行状態に遷移
+                if (opCollection.sequencer.State != OpCollection.Sequencer.EState.PreLeaveCageProc &&
+                    opCollection.sequencer.State != OpCollection.Sequencer.EState.WaitingForOutLever)
+                {
+                    opCollection.sequencer.State = OpCollection.Sequencer.EState.PreTouchTriggerScreenProc;
+                    System.Diagnostics.Debug.WriteLine("[UcOperationInternal WaitingForEnterCage] 課題実行状態に遷移: PreTouchTriggerScreenProc");
                 }
             }
         }

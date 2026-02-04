@@ -11,6 +11,9 @@ namespace Compartment
         // ID Code重複排除用にID Codeを保存
         public SyncObject<string> CurrentIDCode = new SyncObject<string>("");
 
+        // API access property wrapper
+        public string RFID => CurrentIDCode.Value;
+
         public Action<string> callbackReceivedDataSub = (str) => { };
 
         private bool hasNewID = false;
@@ -49,6 +52,21 @@ namespace Compartment
                 CurrentIDCode.Value = "";
                 hasNewID = false;
             }
+        }
+
+        /// <summary>
+        /// ランダムなRFID値を設定（デバッグ用）
+        /// </summary>
+        public string SetRandomRFID()
+        {
+            var random = new Random();
+            string randomId = "";
+            for (int i = 0; i < 16; i++)
+            {
+                randomId += random.Next(0, 10).ToString();
+            }
+            SetRFID(randomId);
+            return randomId;
         }
 
         /// <summary>

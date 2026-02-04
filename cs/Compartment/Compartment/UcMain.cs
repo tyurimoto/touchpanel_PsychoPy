@@ -46,6 +46,9 @@ namespace Compartment
         // デバッグモード用RFIDリーダー
         public RFIDReaderDummy rfidReaderDummy = null;
 
+        // RFIDリーダーヘルパー（API用）
+        public RFIDReaderHelper rfidReaderHelper = null;
+
         // デバッグコントロールパネル
         private UserControlDebugPanel userControlDebugPanel = null;
 

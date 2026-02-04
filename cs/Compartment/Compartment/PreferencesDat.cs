@@ -66,7 +66,8 @@ namespace Compartment
         DelayMatch = 1,
         None = 2,
         TrainingEasy = 3,
-        UnConditionalFeeding = 4
+        UnConditionalFeeding = 4,
+        ExternalControl = 5
     }
 
     public enum EDebugModeType
