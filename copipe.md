@@ -1,29 +1,55 @@
- 方法1: パッケージマネージャーコンソールで直接インストール
+Phase 1 API検証手順
 
-  Visual Studio 2022のパッケージマネージャーコンソールで実行：
+  ステップ1: アプリケーション起動とAPIサーバー確認
 
-  # Svgパッケージをインストール
-  Install-Package Svg -ProjectName Compartment
+  1. Compartment.exe を起動してください
+  2. APIサーバーが起動したか確認：
+    - Visual StudioのOutput Windowで「[API] Web API server started at http://localhost:5000/」というメッセージを探す
+    - または、アプリ内のメッセージエリアに「API起動: http://localhost:5000/」が表示されているか確認
 
-  # または、特定バージョンを指定
-  Install-Package Svg -Version 3.4.1 -ProjectName Compartment
+  ステップ2: デバッグモードを有効化
 
-  方法2: NuGetパッケージマネージャーGUIを使用
+  1. アプリケーションのメイン画面で**「デバッグモード」チェックボックス**をON
+  2. アプリケーションを再起動
+  3. デバッグコントロールパネルが表示されることを確認
 
-  1. ツール → NuGetパッケージマネージャー → ソリューションのNuGetパッケージの管理
-  2. 参照 タブを選択
-  3. 検索ボックスに「Svg」と入力
-  4. Svg パッケージを選択（作者: svg-net）
-  5. 右側で Compartment プロジェクトにチェック
-  6. インストール ボタンをクリック
+  ステップ3: ブラウザでAPIテスト（簡単）
 
-  方法3: packages.configを確認してパッケージを復元
+  以下のURLをブラウザで開いてください：
 
-  すでにpackages.configにSvgが記載されている場合：
+  http://localhost:5000/api/debug/status
 
-  # ソリューション全体のパッケージを復元
-  dotnet restore
+  期待される結果:
+  {
+    "roomId": "0",
+    "debugModeEnabled": true,
+    "hardwareConnected": false,
+    "timestamp": "2026-02-04T..."
+  }
 
-  # または
-  nuget restore Compartment.sln
+  ステップ4: curlでAPIテスト（詳細）
 
+  WindowsのコマンドプロンプトまたはPowerShellで以下を実行：
+
+  4-1. センサー状態取得
+
+  curl http://localhost:5000/api/sensor/entrance
+
+  4-2. デバッグモードでセンサー設定
+
+  curl -X POST http://localhost:5000/api/debug/sensor/set -H "Content-Type: application/json" -d "{\"sensor\":\"entrance\",\"state\":true}"
+
+  4-3. RFID設定
+
+  curl -X POST http://localhost:5000/api/debug/rfid/set -H "Content-Type: application/json" -d "{\"id\":\"1234567890123456\"}"
+
+  4-4. 全センサー状態取得
+
+  curl http://localhost:5000/api/debug/sensors/all
+
+  ステップ5: エラーがあれば報告
+
+  何かエラーが出たら教えてください。次のステップに進みます。
+
+  ---
+  まずはステップ1から始めて、APIサーバーが起動したか確認してください！
