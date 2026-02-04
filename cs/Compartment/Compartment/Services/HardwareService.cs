@@ -146,7 +146,7 @@ namespace Compartment.Services
                         return;
                     }
 
-                    var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.DoorOpen };
+                    var cmdPkt = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.DoorOpen };
                     _formMain.concurrentQueueDevCmdPktDoor?.Enqueue(cmdPkt);
                     tcs.SetResult(true);
                 }
@@ -175,7 +175,7 @@ namespace Compartment.Services
                         return;
                     }
 
-                    var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.DoorClose };
+                    var cmdPkt = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.DoorClose };
                     _formMain.concurrentQueueDevCmdPktDoor?.Enqueue(cmdPkt);
                     tcs.SetResult(true);
                 }
@@ -197,7 +197,7 @@ namespace Compartment.Services
             {
                 try
                 {
-                    var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverOut };
+                    var cmdPkt = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.LeverOut };
                     _formMain.concurrentQueueDevCmdPktLever?.Enqueue(cmdPkt);
                     tcs.SetResult(true);
                 }
@@ -219,7 +219,7 @@ namespace Compartment.Services
             {
                 try
                 {
-                    var cmdPkt = new DevCmdPkt { DevCmdVal = EDevCmd.LeverIn };
+                    var cmdPkt = new FormMain.DevCmdPkt { DevCmdVal = FormMain.EDevCmd.LeverIn };
                     _formMain.concurrentQueueDevCmdPktLever?.Enqueue(cmdPkt);
                     tcs.SetResult(true);
                 }
@@ -241,9 +241,9 @@ namespace Compartment.Services
             {
                 try
                 {
-                    var cmdPkt = new DevCmdPkt
+                    var cmdPkt = new FormMain.DevCmdPkt
                     {
-                        DevCmdVal = EDevCmd.FeedForward,
+                        DevCmdVal = FormMain.EDevCmd.FeedForward,
                         iParam = new int[] { durationMs }
                     };
                     _formMain.concurrentQueueDevCmdPktFeed?.Enqueue(cmdPkt);
