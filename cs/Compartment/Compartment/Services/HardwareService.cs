@@ -400,9 +400,9 @@ namespace Compartment.Services
             {
                 try
                 {
-                    if (_formMain.rfidReaderHelper is RFIDReaderDummy dummyRfid)
+                    if (_formMain.rfidReaderDummy != null)
                     {
-                        dummyRfid.SetRFID(rfidValue);
+                        _formMain.rfidReaderDummy.SetRFID(rfidValue);
                         success = true;
                     }
                 }
@@ -424,7 +424,7 @@ namespace Compartment.Services
             {
                 try
                 {
-                    bool state;
+                    bool state = false;
                     _formMain.ioBoardDevice?.GetUpperStateOfSaveDIn(IoBoardDInLogicalName.RoomEntrance, out state);
                     states["entrance"] = state;
 
@@ -473,9 +473,9 @@ namespace Compartment.Services
                         success = true;
                     }
 
-                    if (_formMain.rfidReaderHelper is RFIDReaderDummy dummyRfid)
+                    if (_formMain.rfidReaderDummy != null)
                     {
-                        dummyRfid.ClearRFID();
+                        _formMain.rfidReaderDummy.ClearRFID();
                         success = true;
                     }
                 }
@@ -497,9 +497,9 @@ namespace Compartment.Services
             {
                 try
                 {
-                    if (_formMain.rfidReaderHelper is RFIDReaderDummy dummyRfid)
+                    if (_formMain.rfidReaderDummy != null)
                     {
-                        rfid = dummyRfid.SetRandomRFID();
+                        rfid = _formMain.rfidReaderDummy.SetRandomRFID();
                     }
                     else
                     {
@@ -540,10 +540,12 @@ namespace Compartment.Services
                     int incorrectCount = 0;
                     double successRate = 0.0;
 
+                    // TODO: Implement proper session counting in IdControlHelper
+                    // Currently IdControlHelper does not have GetTotalSessionNum() and GetCorrectNum() methods
                     if (idController != null)
                     {
-                        totalTrials = idController.GetTotalSessionNum();
-                        correctCount = idController.GetCorrectNum();
+                        totalTrials = idController.KeyPairsCount;
+                        correctCount = 0; // Placeholder
                         incorrectCount = totalTrials - correctCount;
                         successRate = totalTrials > 0 ? (double)correctCount / totalTrials * 100 : 0;
                     }
@@ -551,10 +553,10 @@ namespace Compartment.Services
                     string currentState = "Unknown";
                     bool isRunning = false;
 
-                    if (opCollection != null && opCollection.Sequencer != null)
+                    if (opCollection != null && opCollection.sequencer != null)
                     {
-                        currentState = opCollection.Sequencer.State.ToString();
-                        isRunning = opCollection.Sequencer.State != OpCollection.EState.Idle;
+                        currentState = opCollection.sequencer.State.ToString();
+                        isRunning = opCollection.sequencer.State != OpCollection.Sequencer.EState.Idle;
                     }
 
                     status = new
@@ -601,11 +603,12 @@ namespace Compartment.Services
                     var idController = _formMain.idControlHelper;
                     var recentList = new System.Collections.Generic.List<object>();
 
-                    if (idController != null && idController.listOfIdDataSingle != null)
+                    // TODO: Implement proper trial history in IdControlHelper
+                    // Currently IdControlHelper does not have listOfIdDataSingle property
+                    if (false) // Temporarily disabled
                     {
                         // Get last 10 trials
-                        var recentTrials = idController.listOfIdDataSingle
-                            .OrderByDescending(x => x.TimeOfStartOfOperation)
+                        var recentTrials = new System.Collections.Generic.List<object>()
                             .Take(10);
 
                         foreach (var trial in recentTrials)

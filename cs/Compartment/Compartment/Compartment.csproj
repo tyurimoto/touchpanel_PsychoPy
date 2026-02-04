@@ -303,6 +303,7 @@
     </Compile>
     <Compile Include="IoBoardBase.cs" />
     <Compile Include="IoBoardDummy.cs" />
+    <Compile Include="IoHybridBoard.cs" />
     <Compile Include="IoMicrochip.cs" />
     <Compile Include="IdControlHelper.cs" />
     <Compile Include="IoMicrochipDummy.cs" />
