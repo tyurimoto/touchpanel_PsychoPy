@@ -1,5 +1,12 @@
 重大度レベル	コード	説明	プロジェクト	ファイル	行	抑制状態
-エラー (アクティブ)	CS0165	未割り当てのローカル変数 'state' が使用されました	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	429	
+エラー (アクティブ)	CS1061	'IoMicrochipDummyEx' に 'SaveDInForPort1' の定義が含まれておらず、型 'IoMicrochipDummyEx' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort1' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoHybridBoard.cs	207	
+エラー (アクティブ)	CS1061	'IoMicrochip' に 'SaveDInForPort1' の定義が含まれておらず、型 'IoMicrochip' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort1' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoHybridBoard.cs	192	
+エラー (アクティブ)	CS1061	'IoMicrochipDummyEx' に 'SaveDInForPort1' の定義が含まれておらず、型 'IoMicrochipDummyEx' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort1' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoHybridBoard.cs	196	
+エラー (アクティブ)	CS1061	'IoMicrochip' に 'SaveDInForPort1' の定義が含まれておらず、型 'IoMicrochip' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort1' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoHybridBoard.cs	203	
+エラー (アクティブ)	CS1061	'IoMicrochip' に 'SaveDInForPort3' の定義が含まれておらず、型 'IoMicrochip' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort3' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoHybridBoard.cs	218	
+エラー (アクティブ)	CS1061	'IoMicrochipDummyEx' に 'SaveDInForPort3' の定義が含まれておらず、型 'IoMicrochipDummyEx' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort3' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoHybridBoard.cs	222	
+エラー (アクティブ)	CS1061	'IoMicrochip' に 'SaveDInForPort3' の定義が含まれておらず、型 'IoMicrochip' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort3' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoHybridBoard.cs	229	
+エラー (アクティブ)	CS1061	'IoMicrochipDummyEx' に 'SaveDInForPort3' の定義が含まれておらず、型 'IoMicrochipDummyEx' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SaveDInForPort3' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoHybridBoard.cs	233	
 エラー (アクティブ)	CS0246	型または名前空間の名前 'DevCmdPkt' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	149	
 エラー (アクティブ)	CS0103	現在のコンテキストに 'EDevCmd' という名前は存在しません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	149	
 エラー (アクティブ)	CS0246	型または名前空間の名前 'DevCmdPkt' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	178	
@@ -10,44 +17,32 @@
 エラー (アクティブ)	CS0103	現在のコンテキストに 'EDevCmd' という名前は存在しません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	222	
 エラー (アクティブ)	CS0246	型または名前空間の名前 'DevCmdPkt' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	244	
 エラー (アクティブ)	CS0103	現在のコンテキストに 'EDevCmd' という名前は存在しません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	246	
-エラー (アクティブ)	CS0246	型または名前空間の名前 'IoHybridBoard' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	348	
-エラー (アクティブ)	CS0246	型または名前空間の名前 'IoHybridBoard' が見つかりませんでした (using ディレクティブまたはアセンブリ参照が指定されていることを確認してください)	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	379	
-エラー (アクティブ)	CS8121	種類 'RFIDReaderHelper' の式は、種類 'RFIDReaderDummy' のパターンで処理することができません。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	403	
-エラー (アクティブ)	CS8121	種類 'RFIDReaderHelper' の式は、種類 'RFIDReaderDummy' のパターンで処理することができません。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	476	
-エラー (アクティブ)	CS8121	種類 'RFIDReaderHelper' の式は、種類 'RFIDReaderDummy' のパターンで処理することができません。	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	500	
-エラー (アクティブ)	CS1061	'IdControlHelper' に 'GetTotalSessionNum' の定義が含まれておらず、型 'IdControlHelper' の最初の引数を受け付けるアクセス可能な拡張メソッド 'GetTotalSessionNum' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	545	
-エラー (アクティブ)	CS1061	'IdControlHelper' に 'GetCorrectNum' の定義が含まれておらず、型 'IdControlHelper' の最初の引数を受け付けるアクセス可能な拡張メソッド 'GetCorrectNum' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	546	
-エラー (アクティブ)	CS0119	'OpCollection.Sequencer' は 種類 です。これは特定のコンテンツでは無効になります	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	554	
-エラー (アクティブ)	CS0572	'Sequencer': 式から型を参照することはできません。'OpCollection.Sequencer' を使用してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	554	
-エラー (アクティブ)	CS0120	静的でないフィールド、メソッド、またはプロパティ 'OpCollection.Sequencer.State' で、オブジェクト参照が必要です	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	556	
-エラー (アクティブ)	CS0572	'Sequencer': 式から型を参照することはできません。'OpCollection.Sequencer' を使用してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	556	
-エラー (アクティブ)	CS0120	静的でないフィールド、メソッド、またはプロパティ 'OpCollection.Sequencer.State' で、オブジェクト参照が必要です	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	557	
-エラー (アクティブ)	CS0572	'Sequencer': 式から型を参照することはできません。'OpCollection.Sequencer' を使用してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	557	
-エラー (アクティブ)	CS0117	'OpCollection' に 'EState' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	557	
-エラー (アクティブ)	CS1061	'IdControlHelper' に 'listOfIdDataSingle' の定義が含まれておらず、型 'IdControlHelper' の最初の引数を受け付けるアクセス可能な拡張メソッド 'listOfIdDataSingle' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	604	
-エラー (アクティブ)	CS1061	'IdControlHelper' に 'listOfIdDataSingle' の定義が含まれておらず、型 'IdControlHelper' の最初の引数を受け付けるアクセス可能な拡張メソッド 'listOfIdDataSingle' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	607	
+エラー (アクティブ)	CS1061	'object' に 'SessionNum' の定義が含まれておらず、型 'object' の最初の引数を受け付けるアクセス可能な拡張メソッド 'SessionNum' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	618	
+エラー (アクティブ)	CS1061	'object' に 'Result' の定義が含まれておらず、型 'object' の最初の引数を受け付けるアクセス可能な拡張メソッド 'Result' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	619	
+エラー (アクティブ)	CS1061	'object' に 'TimeOfStartOfOperation' の定義が含まれておらず、型 'object' の最初の引数を受け付けるアクセス可能な拡張メソッド 'TimeOfStartOfOperation' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	620	
+エラー (アクティブ)	CS1061	'object' に 'IdCode' の定義が含まれておらず、型 'object' の最初の引数を受け付けるアクセス可能な拡張メソッド 'IdCode' が見つかりませんでした。using ディレクティブまたはアセンブリ参照が不足していないことを確認してください	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	621	
 エラー (アクティブ)	CS0006	メタデータ ファイル 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Compartment.exe' が見つかりませんでした	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\CSC	1	
 警告 (アクティブ)	CS0067	イベント 'RelayCommand.CanExecuteChanged' は使用されていません	BlockProgrammingControl	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\BlockProgrammingControl\UserControl1.xaml.cs	341	
-警告		参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Buffers' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Memory' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。	Compartment			
-警告		"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。	Compartment			
 警告		参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。	Compartment			
-警告		"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。	Compartment			
+警告		"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。	Compartment			
 警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Svg' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Buffers' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。	Compartment			
 警告		参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。	Compartment			
 警告		参照コンポーネント 'MccDaq' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Svg' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。	Compartment			
 警告		参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。	Compartment			
+警告		"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。	Compartment			
+警告		参照コンポーネント 'System.Memory' が見つかりませんでした。	Compartment			
 警告 (アクティブ)	CS0169	フィールド 'DevFeedMulti.pulseTimeCount' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\DevFeedMulti.cs	21	
 警告 (アクティブ)	CS0169	フィールド 'DevFeedMulti.timeoutCount' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\DevFeedMulti.cs	22	
 警告 (アクティブ)	CS0414	フィールド 'FileRelatedActionParam._Updated' が割り当てられていますが、値は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FileRelatedActionParam.cs	10	
@@ -55,6 +50,7 @@
 警告 (アクティブ)	CS0169	フィールド 'FormIpCam.Lines' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormIpCam.cs	31	
 警告 (アクティブ)	CS0169	フィールド 'FormMain._hardwareService' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	40	
 警告 (アクティブ)	CS0067	イベント 'IoMicrochip.ConveyorErrorHandler' は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\IoMicrochip.cs	49	
+警告 (アクティブ)	CS0162	到達できないコードが検出されました	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\Services\HardwareService.cs	611	
 警告 (アクティブ)	CS0162	到達できないコードが検出されました	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	743	
 警告 (アクティブ)	CS0414	フィールド 'UcOperationBlock.lastState' が割り当てられていますが、値は使用されていません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperationBlock.cs	29	
 警告		"System.Runtime.CompilerServices.Unsafe" の異なるバージョン間で、解決できない競合が見つかりました。
