@@ -63,20 +63,6 @@ namespace Compartment
         public SyncObject<bool> _OpFlagRoomOut = new SyncObject<bool>(false);
 
         public SyncObject<bool> EpisodeMode = new SyncObject<bool>(true); // 出題時True
-#if false
-		/// <summary>
-		/// フィードON
-		/// 内部で設定時間分Forwardで出力
-		/// ステータス検査用フラグ: true/false
-		/// 
-		/// 実装ステータス: 済
-		/// </summary>
-		/// <param name="iTrialNoArg">
-		/// 試行回数の何回目: 1回目:0
-		/// </param>
-		/// 
-#endif
-
 
         /// <summary>
         /// フィードON
@@ -402,22 +388,6 @@ namespace Compartment
             }
         }
         /// <summary>
-        /// 
-        /// </summary>
-        public void OpPlaySoundOfIncorrectReward()
-        {
-            TraceMessage("不正解給餌音を鳴らす");
-            //PlaySoundLooping(preferencesDatOriginal.SoundFileOfReward, preferencesDatOriginal.TimeToOutputSoundOfReward);
-            if (System.IO.File.Exists(preferencesDatOriginal.SoundFileOfIncorrectReward))
-            {
-                PlaySound(preferencesDatOriginal.SoundFileOfIncorrectReward);
-            }
-            else
-            {
-                TraceMessage("不正解給餌音: " + preferencesDatOriginal.SoundFileOfIncorrectReward + "が見つからない");
-            }
-        }
-        /// <summary>
         /// 正解音を鳴らす
         /// </summary>
         public void OpPlaySoundOfCorrect()
@@ -541,17 +511,6 @@ namespace Compartment
             }
         }
         /// <summary>
-        /// タッチ・パネルへ正解図形を表示する 未使用
-        /// ステータス検査用フラグ: なし
-        /// </summary>
-        /// <remarks>
-        /// 実装ステータス: 済
-        /// </remarks>
-        public void OpDrawCorrectShapeOnTouchPanel(out Point pointCorrectShapeArgOut)
-        {
-            OpSubDrawCorrectShapeOnTouchPanel(out pointCorrectShapeArgOut);
-        }
-        /// <summary>
         /// タッチ・パネルへ訓練図形を表示する ShapeObject
         /// ステータス検査用フラグ: なし
         /// </summary>
@@ -636,29 +595,6 @@ namespace Compartment
             }
 
         }
-        /// <summary>
-        /// タッチ・パネルへ正解図形+不正解図形を表示する
-        /// ステータス検査用フラグ: なし
-        /// </summary>
-        /// <remarks>
-        /// 実装ステータス: 済
-        /// </remarks>
-        public void OpDrawCorrectAndWrongShapeOnTouchPanel(out Point pointWrongShapeArgOut)
-        {
-            try
-            {
-                OpSubDrawCorrectAndWrongShapeOnTouchPanel(out pointWrongShapeArgOut);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-
-            }
-        }
-
         /// <summary>
         /// タッチ・パネルへ正解図形+不正解図形を表示する ShapeObject
         /// ステータス検査用フラグ: なし

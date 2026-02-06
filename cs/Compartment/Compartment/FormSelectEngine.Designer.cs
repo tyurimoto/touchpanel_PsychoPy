@@ -84,7 +84,7 @@ namespace Compartment
             // 
             this.radioButtonBlockEngine.AutoSize = true;
             this.radioButtonBlockEngine.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.radioButtonBlockEngine.Location = new System.Drawing.Point(94, 173);
+            this.radioButtonBlockEngine.Location = new System.Drawing.Point(94, 96);
             this.radioButtonBlockEngine.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonBlockEngine.Name = "radioButtonBlockEngine";
             this.radioButtonBlockEngine.Size = new System.Drawing.Size(303, 31);
@@ -105,12 +105,13 @@ namespace Compartment
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "旧エンジン";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Visible = false;
             //
             // radioButtonPsychoPy
             //
             this.radioButtonPsychoPy.AutoSize = true;
             this.radioButtonPsychoPy.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.radioButtonPsychoPy.Location = new System.Drawing.Point(94, 250);
+            this.radioButtonPsychoPy.Location = new System.Drawing.Point(94, 173);
             this.radioButtonPsychoPy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonPsychoPy.Name = "radioButtonPsychoPy";
             this.radioButtonPsychoPy.Size = new System.Drawing.Size(200, 31);

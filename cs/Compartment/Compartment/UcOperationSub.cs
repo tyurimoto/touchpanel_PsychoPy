@@ -35,55 +35,6 @@ namespace Compartment
         public static bool PlaySoundEnded { private set; get; } = false;
 
         /// <summary>
-        /// 音声ループ再生
-        /// </summary>
-        /// <param name="waveFile">再生ファイル</param>
-        /// <param name="milliseconds">再生時間</param>
-        public static void PlaySoundLooping(string waveFile, int milliseconds)
-        {
-            PlaySoundEnded = false;
-            Stopwatch sw = new Stopwatch();
-            if (!System.IO.File.Exists(waveFile))
-            {
-                return;
-            }
-            //var task = Task.Run(async () =>
-            //{
-            //    await 
-            //Task.Run(() =>
-            // {
-            using (System.Media.SoundPlayer player = new System.Media.SoundPlayer())
-            {
-                try
-                {
-                    sw.Start();
-                    player.SoundLocation = waveFile;
-                    player.Load();
-                    player.PlayLooping();
-                    //player.PlaySync();
-                    while (sw.ElapsedMilliseconds < milliseconds)
-                    {
-                        Thread.Sleep(1);
-                    }
-                }
-                catch
-                {
-                    player.Stop();
-                }
-                finally
-                {
-                    player.Stop();
-                    sw.Stop();
-                }
-
-                player.Stop();
-                PlaySoundEnded = true;
-            }
-            //});
-            //});
-        }
-
-        /// <summary>
         /// 音声再生
         /// </summary>
         /// <param name="waveFile">再生ファイル</param>
@@ -660,31 +611,6 @@ namespace Compartment
             concurrentQueueDevCmdPktTouchPanel.Enqueue(devCmdPktObj);
         }
         /// <summary>
-        /// 訓練正答をタッチパネルに描画
-        /// </summary>
-        /// <param name="pointCorrectShapeArgOut">描画位置</param>
-        /// <returns>bool</returns>
-        public bool OpSubDrawCorrectShapeOnTouchPanel(out Point pointCorrectShapeArgOut)
-        {
-            //Random BgColor用 パラメータ更新
-            opImage.SetBgColor();
-            opImage.SetDelayBgColor();
-            //opImage.MakePointOfCorrectShapeOpeImage();
-            //opImage.MakePathOfCorrectShapeOpeImage();
-            opImage.MakeCorrectShape();
-            opImage.DrawBackColor();
-            _ = opImage.DrawShapeOpeImage(opImage.ShapeOpeImageTrainShape);
-
-            pointCorrectShapeArgOut = opImage.ShapeOpeImageCorrectShape.Point;
-            //			{
-            //				TraceMessage2(String.Format("CorrectShape: Point(X:{0} Y:{1})",
-            //								PointOpeImageCenterOfCorrectShape.X,
-            //								PointOpeImageCenterOfCorrectShape.Y));
-            //			}
-            return true;
-        }
-
-        /// <summary>
         /// MatchDelay訓練正答をタッチパネルに描画
         /// </summary>
         /// <param name="pointCorrectShapeArgOut">描画位置</param>
@@ -973,71 +899,6 @@ namespace Compartment
             }
 
         }
-        /// <summary>
-        /// 正答誤答をタッチパネルに描画
-        /// </summary>
-        /// <param name="pointWrongShapeArgOut">描画位置</param>
-        /// <returns>bool</returns>
-        public bool OpSubDrawCorrectAndWrongShapeOnTouchPanel(out Point pointWrongShapeArgOut)
-        {
-            bool boolRet = true;
-
-            pointWrongShapeArgOut = new Point(0, 0);
-            //opImage.ResetWrongShapePoint();
-            //for (int i = 0; i < preferencesDatOriginal.IncorrectNum; i++)
-            //{
-            //    if (opImage.MakePointOfWrongShapeOpeImage() != true)
-            //    {
-            //        opImage.DeletePathOfCorrectShapeOpeImage();
-            //        boolRet = false;
-            //        //				TraceMessage2("WrongShape: Draw error");
-            //    }
-            //}
-            opImage.DrawBackColor();
-            try
-            {
-
-                opImage.MakeIncorrectShape();
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            if (boolRet == true)
-            {
-                //opImage.DrawShapeOpeImage(opImage.PointOpeImageCenterOfCorrectShape, false);
-                _ = opImage.DrawShapeOpeImage(opImage.ShapeOpeImageCorrectShape);
-
-                foreach (ShapeObject n in opImage.IncorrectShapes)
-                {
-                    _ = opImage.DrawShapeOpeImage(n);
-                    pointWrongShapeArgOut = n.Point;
-                }
-
-                //Point point;
-                //Color color;
-                //ECpShape shape;
-                //for (int j = 0; j < opImage.PointOpeImageCenterOfWrongShapeList.Count; j++)
-                //            {
-                //	point = opImage.PointOpeImageCenterOfWrongShapeList[j];
-                //	color = opImage.ColorOpeImageWrongList[j];
-                //	shape = opImage.ShapeOpeImageWrongList[j];
-
-
-                //	opImage.DrawWrongShapeOpeImage(point, false, shape, color);
-
-                //}
-
-                //				{
-                //					TraceMessage2(String.Format("WrongShape: Point(X:{0} Y:{1})",
-                //									PointOpeImageCenterOfWrongShape.X,
-                //									PointOpeImageCenterOfWrongShape.Y));
-                //				}
-            }
-            return boolRet;
-        }
-
         /// <summary>
         /// 正答誤答をタッチパネルに描画
         /// </summary>

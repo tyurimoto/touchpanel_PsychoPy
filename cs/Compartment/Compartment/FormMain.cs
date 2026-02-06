@@ -163,8 +163,8 @@ namespace Compartment
                     System.Diagnostics.Debug.WriteLine("[PsychoPy] Engine selected - API server mode");
                     break;
 
-                case EEngineType.OldEngine:
                 default:
+                    // 旧エンジン削除済み
                     userControlMainOnFormMain.buttonBlockProgramming.Visible = false;
                     break;
             }
@@ -838,11 +838,9 @@ namespace Compartment
                     System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using PsychoPy engine");
                     break;
 
-                case EEngineType.OldEngine:
                 default:
-                    M_OperationProc = () => { OnOperationStateMachineProc(); };
-                    System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using Old engine");
-                    break;
+                    // 旧エンジン削除済み: デフォルトはBlockを使用
+                    goto case EEngineType.BlockProgramming;
             }
 #if BG_WORKER
             System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] BG_WORKER is DEFINED - using background worker loop");

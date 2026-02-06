@@ -1917,6 +1917,79 @@
        - 中央オーケストレーター
        - 条件付きシーケンス制御
 
+     フェーズ4.5: PsychoPyハイブリッドエンジン調整 — ✅ 実装完了 (2026-02-06)
+
+     目的: PsychoPy状態機械をBlockエンジンと整合させ、ハードウェア制御の品質を統一する
+
+     作業内容:
+     1. ✅ CheckInteruptStop(): CheckStopCommandからリネーム、Block式パターンに統一
+        - EmergencyStopとStopを分離判定
+        - OpCollection.Commandを一度だけ読み取る（read-once特性に対応）
+     2. ✅ CheckIllegalExit(): 新規関数、Block式の給餌中退室区別を実装
+        - mainForm.Parent.Feeding で給餌中か判定
+        - 給餌中退室 → ExitAfterFeedingDetection、通常退室 → IllegalExitDetection
+        - CSV出力(callbackOutputFile)、OpFlagRoomIn/Outリセット、FeedLampOff含む
+        - 4箇所のインライン退室チェックを関数呼び出しに置換
+     3. ✅ ドアエラー処理: Block式に簡略化 (OpResult != Done)
+        - タイムアウト安全機構は改良として維持
+        - エラーメッセージをBlock式に統一（"ドアOPEN異常"等）
+     4. ✅ CSV出力: file.Open/CloseおよびcallbackOutputFile追加
+        - PhaseIdle: opCollection.file.Open(OutputResultFile) + エラーハンドリング
+        - PhaseParseResult: dateTimeCorrectTouch設定、callbackOutputFile(BlockOutput)呼び出し
+        - CheckIllegalExit: dateTimeout設定、callbackOutputFile呼び出し
+        - PhaseStopping: opCollection.file.Close()
+        - PhaseStartPython: dateTimeTriggerTouch/dateTimeCorrectTouch/dateTimeout/flagFeed初期化
+     5. ✅ モニター制御: 夜間スタンバイ + 入室時復帰
+        - PhaseWaitForEntry: MonitorSaveTime分経過でPowerOff、入室検知でPowerOn
+        - PhaseStopping: PowerOn復帰
+        - _monitorStandbyTimerメンバー変数追加
+     6. ✅ RFID管理: PhaseOpenDoorForEntryにOpeClearIdCode()追加
+        - 実機でのRFIDクロス汚染を防止
+
+     変更ファイル:
+     - UcOperationPsychoPy.cs（主要変更: ~20箇所の修正・追加）
+
+     フェーズ4.6: 旧エンジン削除 — ✅ 実装完了 (2026-02-06)
+
+     目的: OldEngine（旧エンジン）をUIおよびバックエンドから段階的に除去する
+
+     作業内容:
+     1. ✅ FormSelectEngine UI: radioButton1を非表示 (Visible=false)
+        - ラジオボタン配置を調整（Block:Y=96, PsychoPy:Y=173）
+     2. ✅ FormSelectEngine.cs: OldEngineのelse句を除去
+     3. ✅ FormMain.cs: OldEngine dispatch → default → BlockProgramming fallback
+        - 2箇所のcase文をdefaultに変更（コメント付き）
+     4. ✅ UcOperation.cs: OnOperationStateMachineProc()完全削除（~1,471行）
+        - ファイルを2,536行 → 1,065行に削減
+        - 共有コード（初期化、CSV出力、ボタンハンドラ、UI、ログ、opCollection）は維持
+     5. ✅ UcOperation.cs: VisibleUcOperation()のcase EEngineType.OldEngine → default
+     6. ✅ UcOperationInternal.cs: 到達不能なOldEngine条件分岐を削除
+     7. Program.cs: EEngineType.OldEngine = 0 のenum定義は維持（int値保持のため）
+
+     ユーザー決定事項（thinking.md 2026-02-06）
+
+     1. タッチパネル・描画
+        - C#側のタッチイベントキュー(concurrentQueueFromTouchPanel)は不要
+        - PsychoPy/Python側が独自にタッチイベントを処理する
+        - 画面描画はPython/PsychoPyの独自ウィンドウ（選択肢a）
+        - C#のFormSubやopImageは使わない
+
+     2. タッチ座標記録
+        - Python側のCSVにタッチ座標を記録する
+        - C#側のCSV（opCollection.TouchPoint）には記録しない
+
+     3. 給餌確率制御
+        - Pythonでrandom値を使って確率制御する
+        - 設定値: 1=必ず給餌、0=必ず不給餌、0〜1の間=確率
+        - stdoutプロトコルの拡張が必要:
+          現在: RESULT:CORRECT（常に給餌）/ RESULT:INCORRECT（給餌なし）
+          拡張案: RESULT:CORRECT:FEED / RESULT:CORRECT:NOFEED / RESULT:INCORRECT
+
+     4. RFID管理
+        - 入退室時にIDコードを確実に初期化・管理する
+        - OpeClearIdCode()による汚染防止は実装済み
+        - 「中に入っている動物のIDが確実にわかる」状態を維持する
+
      次のステップ
 
      ✅ 完了:
@@ -1924,13 +1997,16 @@
      - フェーズ2: Pythonクライアントライブラリ（compartment_hardware.py）
      - フェーズ3: ExternalControlモード追加
      - フェーズ3.5: PsychoPy Python実行メカニズム（C#からPythonスクリプト起動/停止）
+     - フェーズ4.5: PsychoPyハイブリッドエンジン調整（Block式整合）
+     - フェーズ4.6: 旧エンジン削除（UI + バックエンド ~1,471行削減）
 
      次のアクション:
-     1. Windows環境でビルド確認 ← 次はここ
-     2. Postmanで各APIエンドポイントをテスト
-     3. simple_test.py でStartボタンからの自動起動を確認
-     4. フェーズ4: 簡単な課題実装（training_task_example.py）
-     5. フェーズ5: 既存課題の移行
-     6. フェーズ6: 中央オーケストレーター実装
+     1. Windows環境でビルド確認 ← 次はここ（フェーズ4.5/4.6の変更を含む）
+     2. stdoutプロトコル拡張: RESULT:CORRECT:FEED / RESULT:CORRECT:NOFEED 対応
+     3. Postmanで各APIエンドポイントをテスト
+     4. simple_test.py でStartボタンからの自動起動を確認
+     5. フェーズ4: 簡単な課題実装（training_task_example.py）
+     6. フェーズ5: 既存課題の移行
+     7. フェーズ6: 中央オーケストレーター実装
 
 

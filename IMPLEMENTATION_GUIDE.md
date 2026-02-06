@@ -1,6 +1,6 @@
 # PsychoPy統合API実装ガイド（段階的実装版）
 
-**最終更新**: 2026-02-06 (Phase 4追加)
+**最終更新**: 2026-02-06 (Phase 4.5/4.6追加)
 **目的**: 既存C#ハードウェア制御システムにAPIサーバーを統合し、PsychoPyから安全に制御できるようにする
 
 ---
@@ -30,6 +30,25 @@
 - UcOperationPsychoPyにPython起動/停止機能追加 ✅
 - テスト用Pythonスクリプト作成 ✅
 - **ビルド・テストポイント**: Startボタンでスクリプト起動、Stopボタンで停止を確認
+
+### **Phase 4.5: PsychoPyハイブリッドエンジン調整 ← 実装完了**
+- CheckInteruptStop(): Block式Stopパターンに統一 ✅
+- CheckIllegalExit(): 給餌中退室区別を追加 ✅
+- ドアエラー処理: Block式に簡略化 ✅
+- CSV出力: file.Open/Close + callbackOutputFile ✅
+- モニター制御: 夜間PowerOff/入室PowerOn ✅
+- RFID管理: OpeClearIdCode() ✅
+
+### **Phase 4.6: 旧エンジン削除 ← 実装完了**
+- FormSelectEngine UI: OldEngine非表示 ✅
+- FormMain.cs: dispatch → default fallback ✅
+- UcOperation.cs: 状態機械削除 (~1,471行) ✅
+- UcOperationInternal.cs: 到達不能分岐削除 ✅
+
+### **Phase 5: stdoutプロトコル拡張（給餌確率制御） ← 未着手**
+- RESULT:CORRECT:FEED / RESULT:CORRECT:NOFEED パース
+- Python側給餌確率制御テンプレート
+- **ビルド・テストポイント**: 給餌確率0/0.5/1での動作確認
 
 ---
 
@@ -1244,6 +1263,27 @@ Phase 4: PsychoPy Python実行メカニズム — ✅ 実装完了 (2026-02-06)
 [x] タスク30: psychopy/simple_test.py テストスクリプト作成
 [ ] Phase 4 ビルド・テスト完了
 [ ] PsychoPy統合テスト完了（Startボタンからの自動起動確認）
+
+Phase 4.5: PsychoPyハイブリッドエンジン調整 — ✅ 実装完了 (2026-02-06)
+[x] タスク31: CheckInteruptStop() - Block式Stopパターンに統一
+[x] タスク32: CheckIllegalExit() - 給餌中退室区別を追加（4箇所のインライン→関数化）
+[x] タスク33: ドアエラー処理 - Block式に簡略化 (OpResult != Done)
+[x] タスク34: CSV出力 - file.Open/Close + callbackOutputFile追加
+[x] タスク35: モニター制御 - 夜間PowerOff + 入室時PowerOn
+[x] タスク36: RFID管理 - OpeClearIdCode()追加
+
+Phase 4.6: 旧エンジン削除 — ✅ 実装完了 (2026-02-06)
+[x] タスク37: FormSelectEngine UI - OldEngineラジオボタン非表示
+[x] タスク38: FormSelectEngine.cs - OldEngine選択肢を除去
+[x] タスク39: FormMain.cs - OldEngine dispatch → default fallback
+[x] タスク40: UcOperation.cs - OnOperationStateMachineProc()削除 (~1,471行)
+[x] タスク41: UcOperation.cs - VisibleUcOperation() OldEngine case → default
+[x] タスク42: UcOperationInternal.cs - 到達不能OldEngine分岐を削除
+
+Phase 5: stdoutプロトコル拡張（給餌確率制御） — 未着手
+[ ] タスク43: RESULT:CORRECT:FEED / RESULT:CORRECT:NOFEED パース実装
+[ ] タスク44: Python側の給餌確率制御テンプレート作成
+[ ] タスク45: simple_test.pyにプロトコル拡張テスト追加
 ```
 
 **補足: 既存の実装済みコントローラー** (ガイド外で実装済み)
@@ -1340,6 +1380,190 @@ PsychoPy不要の最小テストスクリプト。`compartment_hardware.py`を�
 
 ---
 
+## 🔄 Phase 4.5: PsychoPyハイブリッドエンジン調整 — ✅ 実装完了 (2026-02-06)
+
+PsychoPy状態機械をBlockエンジンのパターンに合わせて品質向上。
+
+### ✅ タスク31: CheckInteruptStop() — Stopパターン統一
+
+**ファイル**: `UcOperationPsychoPy.cs`
+
+**変更内容**: `CheckStopCommand()` → `CheckInteruptStop()` にリネーム・再構成
+
+```csharp
+private bool CheckInteruptStop()
+{
+    OpCollection.ECommand command = opCollection.Command; // read-once
+    if (command == OpCollection.ECommand.EmergencyStop)
+    {
+        opCollection.sequencer.State = OpCollection.Sequencer.EState.EmergencyStop;
+        _phase = EPhase.Stopping;
+        return true;
+    }
+    if (command == OpCollection.ECommand.Stop)
+    {
+        opCollection.sequencer.State = OpCollection.Sequencer.EState.Stop;
+        _phase = EPhase.Stopping;
+        return true;
+    }
+    return false;
+}
+```
+
+---
+
+### ✅ タスク32: CheckIllegalExit() — 給餌中退室区別
+
+**ファイル**: `UcOperationPsychoPy.cs`
+
+**変更内容**: 4箇所のインライン退室チェックを新規関数に集約。Block式の給餌中退室区別を導入。
+
+```csharp
+private bool CheckIllegalExit()
+{
+    if (mainForm.Parent.OpFlagRoomOut)
+    {
+        if (mainForm.Parent.Feeding)
+        {
+            // 給餌中退室 → ExitAfterFeedingDetection
+            opCollection.sequencer.State = OpCollection.Sequencer.EState.ExitAfterFeedingDetection;
+        }
+        else
+        {
+            // 通常退室 → IllegalExitDetection
+            opCollection.sequencer.State = OpCollection.Sequencer.EState.IllegalExitDetection;
+        }
+        opCollection.dateTimeout = DateTime.Now;
+        opCollection.sequencer.callbackOutputFile(opCollection.sequencer.State); // CSV出力
+        mainForm.Parent.OpFlagRoomIn = false;
+        mainForm.Parent.OpFlagRoomOut = false;
+        if (PreferencesDatOriginal.EnableFeedLamp) mainForm.Parent.OpSetFeedLampOff();
+        KillPythonProcess();
+        _phase = EPhase.OpenDoorForEntry;
+        return true;
+    }
+    return false;
+}
+```
+
+---
+
+### ✅ タスク33: ドアエラー処理 — Block式に簡略化
+
+**ファイル**: `UcOperationPsychoPy.cs`
+
+**変更前**: `if (OpResult != EDeviceResult.None && OpResult != EDeviceResult.Done)`
+**変更後**: `if (OpResult != EDeviceResult.Done)`（Block式、よりシンプル）
+
+タイムアウト安全機構はPsychoPyの改良として維持。
+
+---
+
+### ✅ タスク34: CSV出力 — file.Open/Close + callbackOutputFile
+
+**ファイル**: `UcOperationPsychoPy.cs`
+
+**追加箇所**:
+- PhaseIdle: `opCollection.file.Open(PreferencesDatOriginal.OutputResultFile)`
+- PhaseStartPython: タイムスタンプ初期化 (`dateTimeTriggerTouch`, `dateTimeCorrectTouch`, `dateTimeout`, `flagFeed`)
+- PhaseParseResult: 正解時 `dateTimeCorrectTouch = DateTime.Now`、`callbackOutputFile(BlockOutput)`
+- CheckIllegalExit: `dateTimeout = DateTime.Now`、`callbackOutputFile(State)`
+- PhaseStopping: `opCollection.file.Close()`
+
+---
+
+### ✅ タスク35: モニター制御 — 夜間スタンバイ
+
+**ファイル**: `UcOperationPsychoPy.cs`
+
+**追加コード**:
+```csharp
+private DateTime _monitorStandbyTimer = DateTime.Now;
+
+// PhaseWaitForEntry内:
+if ((DateTime.Now - _monitorStandbyTimer).TotalMinutes > PreferencesDatOriginal.MonitorSaveTime
+    && PreferencesDatOriginal.EnableMonitorSave)
+{
+    _monitorStandbyTimer = DateTime.Now;
+    MonitorPower.Monitor.PowerOff();  // 夜間消灯
+}
+// 入室検知時:
+MonitorPower.Monitor.PowerOn();       // 入室で復帰
+
+// PhaseStopping:
+MonitorPower.Monitor.PowerOn();       // 停止時も復帰
+```
+
+---
+
+### ✅ タスク36: RFID管理 — OpeClearIdCode()
+
+**ファイル**: `UcOperationPsychoPy.cs`
+
+PhaseOpenDoorForEntryの先頭に追加:
+```csharp
+mainForm.Parent.OpeClearIdCode();  // 前回のRFIDコードをクリア（実機クロス汚染防止）
+```
+
+---
+
+## 🗑️ Phase 4.6: 旧エンジン削除 — ✅ 実装完了 (2026-02-06)
+
+### ✅ タスク37-38: FormSelectEngine UI/ロジック
+
+- `FormSelectEngine.Designer.cs`: `radioButton1.Visible = false`
+- `FormSelectEngine.cs`: OldEngineのelse句を削除
+
+### ✅ タスク39: FormMain.cs dispatch
+
+OldEngine dispatchを `default: goto case EEngineType.BlockProgramming;` に変更（2箇所）
+
+### ✅ タスク40: UcOperation.cs 状態機械削除
+
+`OnOperationStateMachineProc()` を完全削除（~1,471行）。ファイルは 2,536行 → 1,065行 に削減。
+
+共有コード（初期化、CSV出力フォーマッタ、ボタンハンドラ、UI、ログ、opCollection宣言）は全て維持。
+
+### ✅ タスク41: VisibleUcOperation() OldEngine case
+
+`case EEngineType.OldEngine:` → `default:` に変更
+
+### ✅ タスク42: UcOperationInternal.cs 到達不能分岐
+
+`Program.SelectedEngine == EEngineType.OldEngine` を条件とする到達不能な分岐を削除。
+
+**注意**: `EEngineType.OldEngine = 0` のenum定義（Program.cs）は維持。他の列挙値のint値が変わるのを防ぐため。
+
+---
+
+## 📋 ユーザー設計決定事項 (2026-02-06 thinking.md)
+
+### タッチパネル
+- **C#側のタッチイベント**: 不要。PsychoPy/Python側が独自に処理する
+- **画面描画**: Python/PsychoPyの独自ウィンドウ（C#のFormSub/opImageは使用しない）
+- **タッチ座標記録**: Python側のCSVに記録する
+
+### 給餌確率制御（未実装 — Phase 5）
+- Pythonでrandom値により確率制御
+- 設定値: **1** = 必ず給餌、**0** = 必ず不給餌、**0〜1** = 確率
+- stdoutプロトコル拡張が必要:
+  ```
+  現在:  RESULT:CORRECT          → 常に給餌
+         RESULT:INCORRECT        → 給餌なし
+
+  拡張:  RESULT:CORRECT:FEED     → 正解、給餌する
+         RESULT:CORRECT:NOFEED   → 正解、給餌しない（確率制御）
+         RESULT:INCORRECT        → 不正解、給餌なし（変更なし）
+  ```
+- C#側 `PhaseParseResult` でパース処理を拡張する
+- 後方互換: `RESULT:CORRECT`（:FEEDなし）は従来通り給餌
+
+### RFID管理
+- 入退室時にIDコードを確実に初期化・管理する
+- 「中に入っている動物のIDが確実にわかる」状態を維持する
+
+---
+
 ## 🎯 次のステップ
 
 1. ~~**Phase 1を完了**（タスク4-14）~~ ✅ 完了
@@ -1347,9 +1571,12 @@ PsychoPy不要の最小テストスクリプト。`compartment_hardware.py`を�
 3. ~~**Phase 2実装**~~ ✅ コントローラー・メソッド実装完了
 4. ~~**Phase 3実装**~~ ✅ モデル・csproj・FormMain初期化 実装完了
 5. ~~**Phase 4実装**~~ ✅ PsychoPy Python実行メカニズム実装完了
-6. **Windows環境でビルド確認** ← 次はここ
-7. **Postmanで各APIエンドポイントをテスト**
-8. **PsychoPy統合テスト**（simple_test.py でStartボタンからの自動起動を確認）
+6. ~~**Phase 4.5実装**~~ ✅ PsychoPyハイブリッドエンジン調整（Block式整合）
+7. ~~**Phase 4.6実装**~~ ✅ 旧エンジン削除（UI + バックエンド ~1,471行削減）
+8. **Windows環境でビルド確認** ← 次はここ（Phase 4.5/4.6の変更含む）
+9. **Phase 5: stdoutプロトコル拡張**（RESULT:CORRECT:FEED/NOFEED）
+10. **Postmanで各APIエンドポイントをテスト**
+11. **PsychoPy統合テスト**（simple_test.py でStartボタンからの自動起動を確認）
 
 各Phaseの完了ごとに動作確認を行うことで、問題を早期に発見できます。
 
@@ -1357,6 +1584,8 @@ PsychoPy不要の最小テストスクリプト。`compartment_hardware.py`を�
 
 **作成日**: 2026-02-04
 **更新履歴**:
+- 2026-02-06: Phase 4.5/4.6実装完了（PsychoPyハイブリッドエンジン調整: CheckInteruptStop, CheckIllegalExit, ドアエラー, CSV出力, モニター制御, RFID管理 / 旧エンジン削除: UI + UcOperation.cs ~1,471行削減）
+- 2026-02-06: ユーザー設計決定事項追記（タッチパネル、給餌確率制御、RFID管理）
 - 2026-02-06: Phase 4実装完了（PsychoPy Python実行メカニズム: スクリプト選択UI、Pythonプロセス起動/停止、simple_test.py）
 - 2026-02-06: Phase 2&3実装完了（RoomController/LampController/SoundController、HardwareServiceメソッド追加、モデル追加、csproj更新、FormMain初期化更新）
 - 2026-02-06: Phase 1完了確認、進捗チェックリスト更新、ビルドエラー修正記録

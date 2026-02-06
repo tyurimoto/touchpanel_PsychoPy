@@ -144,10 +144,6 @@ namespace Compartment
             {
                 Program.SelectedEngine = EEngineType.BlockProgramming;
             }
-            else // radioButton1 (Old Engine)
-            {
-                Program.SelectedEngine = EEngineType.OldEngine;
-            }
             Close();
         }
     }

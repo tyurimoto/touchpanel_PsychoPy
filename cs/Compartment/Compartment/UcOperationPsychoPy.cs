@@ -53,10 +53,13 @@ namespace Compartment
         private Process _pythonProcess = null;
         private StringBuilder _stdoutBuffer = new StringBuilder();
         private StringBuilder _stderrBuffer = new StringBuilder();
-        private bool _pythonExited = false;
-        private int _pythonExitCode = 0;
+        private volatile bool _pythonExited = false;
+        private volatile int _pythonExitCode = 0;
         private string _currentRfid = "";
         private Stopwatch _phaseTimer = new Stopwatch();
+        private Stopwatch _doorTimer = new Stopwatch();
+        private const int DOOR_TIMEOUT_MS = 30000; // ドア操作の安全タイムアウト（30秒）
+        private DateTime _monitorStandbyTimer = DateTime.Now;
 
         public UcOperationPsychoPy(FormMain baseForm)
         {
@@ -73,7 +76,7 @@ namespace Compartment
             // 毎tick Stop/EmergencyStop を検査
             if (_phase != EPhase.Idle && _phase != EPhase.Init)
             {
-                if (CheckStopCommand())
+                if (CheckInteruptStop())
                     return;
             }
 
@@ -157,10 +160,30 @@ namespace Compartment
                 _eventLoggerEnabled = true;
                 Debug.WriteLine("[PsychoPy] EventLogger enabled");
 
+                // CSV出力ファイルオープン（Block式に統一）
+                try
+                {
+                    opCollection.file.Open(PreferencesDatOriginal.OutputResultFile);
+                    Debug.WriteLine("[PsychoPy] File opened: " + PreferencesDatOriginal.OutputResultFile);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("[PsychoPy] File open error: " + ex.Message);
+                    if (PreferencesDatOriginal.EnableDebugMode)
+                    {
+                        opCollection.callbackMessageNormal("[デバッグモード] ファイルオープンに失敗しましたが続行します");
+                    }
+                    else
+                    {
+                        opCollection.callbackMessageError("CSVファイルオープン失敗: " + ex.Message);
+                        _phase = EPhase.Stopping;
+                        return;
+                    }
+                }
+
                 // フラグリセット
                 mainForm.Parent.OpFlagRoomIn = false;
                 mainForm.Parent.OpFlagRoomOut = false;
-                mainForm.Parent.OpeClearIdCode();
 
                 _phase = EPhase.OpenDoorForEntry;
             }
@@ -174,10 +197,13 @@ namespace Compartment
             opCollection.sequencer.State = OpCollection.Sequencer.EState.PreEnterCageProc;
             opCollection.callbackMessageNormal("入室準備中...");
 
-            // フラグリセット
+            // RFID・フラグリセット（Block式: PreEnterCageProc でクリア）
+            mainForm.Parent.OpeClearIdCode();
             mainForm.Parent.OpFlagRoomIn = false;
             mainForm.Parent.OpFlagRoomOut = false;
-            mainForm.Parent.OpeClearIdCode();
+
+            // モニタースタンバイタイマー初期化
+            _monitorStandbyTimer = DateTime.Now;
 
             if (PreferencesDatOriginal.DisableDoor)
             {
@@ -190,6 +216,7 @@ namespace Compartment
             else
             {
                 mainForm.Parent.OpOpenDoor();
+                _doorTimer.Restart();
                 _phase = EPhase.WaitDoorOpen;
                 opCollection.callbackMessageNormal("ドアOPEN中...");
             }
@@ -202,22 +229,37 @@ namespace Compartment
         {
             opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForOpenDoor;
 
+            // 安全タイムアウト: DevDoorスレッドが応答しない場合のフォールバック
+            if (!mainForm.Parent.OpFlagOpenDoor && _doorTimer.ElapsedMilliseconds > DOOR_TIMEOUT_MS)
+            {
+                Debug.WriteLine("[PsychoPy] Door open safety timeout exceeded");
+                if (!PreferencesDatOriginal.IgnoreDoorError)
+                {
+                    opCollection.callbackMessageError("ドアOPENタイムアウト（安全制限）");
+                    ShowErrorMessageBox("ドアOPENが" + (DOOR_TIMEOUT_MS / 1000) + "秒以内に完了しませんでした。\nハードウェアを確認してください。");
+                    _phase = EPhase.Stopping;
+                    return;
+                }
+                Debug.WriteLine("[PsychoPy] Door open timeout ignored (IgnoreDoorError=true)");
+                _phase = EPhase.WaitForEntry;
+                opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForEnterCage;
+                opCollection.callbackMessageNormal("入室待ち（ドアタイムアウト無視）...");
+                return;
+            }
+
             if (mainForm.Parent.OpFlagOpenDoor)
             {
-                // エラーチェック
-                if (mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.None
-                    && mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.Done)
+                // ドアOPEN異常（Block式: OpResult != Done でエラー判定）
+                if (mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.Done)
                 {
+                    opCollection.callbackMessageNormal("ドアOPEN異常");
                     if (!PreferencesDatOriginal.IgnoreDoorError)
                     {
-                        opCollection.callbackMessageError("ドアOPENエラー: " + mainForm.Parent.OpResultOpenDoor.ToString());
-                        ShowErrorMessageBox("ドアOPENに失敗しました。\n結果: " + mainForm.Parent.OpResultOpenDoor.ToString());
                         _phase = EPhase.Stopping;
                         return;
                     }
-                    Debug.WriteLine("[PsychoPy] Door open error ignored: " + mainForm.Parent.OpResultOpenDoor.ToString());
                 }
-
+                // ドアOPEN正常
                 Debug.WriteLine("[PsychoPy] Door opened");
                 _phase = EPhase.WaitForEntry;
                 opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForEnterCage;
@@ -230,8 +272,19 @@ namespace Compartment
         /// </summary>
         private void PhaseWaitForEntry()
         {
+            // モニタースタンバイ（Block式: 待機時間経過でモニターOFF）
+            if ((DateTime.Now - _monitorStandbyTimer).TotalMinutes > PreferencesDatOriginal.MonitorSaveTime
+                && PreferencesDatOriginal.EnableMonitorSave)
+            {
+                _monitorStandbyTimer = DateTime.Now;
+                MonitorPower.Monitor.PowerOff();
+            }
+
             if (mainForm.Parent.OpFlagRoomIn)
             {
+                // 入室検知時にモニターON
+                MonitorPower.Monitor.PowerOn();
+
                 Debug.WriteLine("[PsychoPy] Entry detected");
                 opCollection.callbackMessageNormal("入室検知");
                 opCollection.TimeEnterCage = DateTime.Now;
@@ -243,37 +296,63 @@ namespace Compartment
 
         /// <summary>
         /// RFID読取
+        /// デバッグモード: rfidReaderDummyから読取。設定済みならそのID、未設定ならNO_ID。
+        ///                 デバッグパネルで一度設定すれば毎回の入室で再利用される。
+        /// 通常モード: ハードウェアRFIDリーダーからの読取を待つ。
         /// </summary>
         private bool _rfidWaitMessageShown = false;
+
         private void PhaseReadRFID()
         {
+            // イリーガル退室チェック: RFID読取中に動物が逃げた場合
+            if (CheckIllegalExit()) return;
+
             _currentRfid = mainForm.Parent.OpeGetIdCode();
 
-            if (string.IsNullOrEmpty(_currentRfid))
+            // デバッグモード: rfidReaderDummyからも読んでみる
+            if (string.IsNullOrEmpty(_currentRfid) && PreferencesDatOriginal.EnableDebugMode)
             {
-                if (PreferencesDatOriginal.EnableNoIDOperation
-                    || PreferencesDatOriginal.EnableDebugMode)
+                if (mainForm.Parent.rfidReaderDummy != null
+                    && !string.IsNullOrEmpty(mainForm.Parent.rfidReaderDummy.RFID))
                 {
-                    _currentRfid = "NO_ID";
-                    Debug.WriteLine("[PsychoPy] No RFID, using NO_ID");
-                }
-                else
-                {
-                    // RFID待ちメッセージを1回だけ表示
-                    if (!_rfidWaitMessageShown)
-                    {
-                        opCollection.callbackMessageNormal("RFID読取待ち...");
-                        _rfidWaitMessageShown = true;
-                    }
-                    return;
+                    _currentRfid = mainForm.Parent.rfidReaderDummy.RFID;
                 }
             }
-            _rfidWaitMessageShown = false;
+
+            if (!string.IsNullOrEmpty(_currentRfid))
+            {
+                // RFIDが取得できた → そのまま使用
+                _rfidWaitMessageShown = false;
+            }
+            else if (PreferencesDatOriginal.EnableNoIDOperation
+                     || PreferencesDatOriginal.EnableDebugMode)
+            {
+                // ID無し動作許可 or デバッグモード → NO_IDで進む
+                _currentRfid = "NO_ID";
+                _rfidWaitMessageShown = false;
+            }
+            else
+            {
+                // 通常モード: RFID読取を待ち続ける
+                if (!_rfidWaitMessageShown)
+                {
+                    opCollection.callbackMessageNormal("RFID読取待ち...");
+                    _rfidWaitMessageShown = true;
+                }
+                return;
+            }
 
             Debug.WriteLine("[PsychoPy] RFID: " + _currentRfid);
             opCollection.idCode = _currentRfid;
             opCollection.callbackSetUiCurrentIdCode(_currentRfid);
             opCollection.callbackMessageNormal("RFID: " + _currentRfid);
+
+            // 実機モード: 読取後にクリアして次の個体と混同しないようにする
+            // デバッグモード: クリアしない（設定したRFIDを再利用するため）
+            if (!PreferencesDatOriginal.EnableDebugMode)
+            {
+                mainForm.Parent.OpeClearIdCode();
+            }
 
             _phase = EPhase.CloseDoor;
         }
@@ -293,6 +372,7 @@ namespace Compartment
             else
             {
                 mainForm.Parent.OpCloseDoor();
+                _doorTimer.Restart();
                 _phase = EPhase.WaitDoorClose;
                 opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForCloseDoor;
             }
@@ -303,23 +383,40 @@ namespace Compartment
         /// </summary>
         private void PhaseWaitDoorClose()
         {
+            // イリーガル退室チェック: ドアが閉まる前に動物が逃げた場合
+            if (CheckIllegalExit()) return;
+
+            // 安全タイムアウト
+            if (!mainForm.Parent.OpFlagCloseDoor && _doorTimer.ElapsedMilliseconds > DOOR_TIMEOUT_MS)
+            {
+                Debug.WriteLine("[PsychoPy] Door close safety timeout exceeded");
+                if (!PreferencesDatOriginal.IgnoreDoorError)
+                {
+                    opCollection.callbackMessageError("ドアCLOSEタイムアウト（安全制限）");
+                    ShowErrorMessageBox("ドアCLOSEが" + (DOOR_TIMEOUT_MS / 1000) + "秒以内に完了しませんでした。\nハードウェアを確認してください。");
+                    _phase = EPhase.Stopping;
+                    return;
+                }
+                Debug.WriteLine("[PsychoPy] Door close timeout ignored (IgnoreDoorError=true)");
+                _phase = EPhase.StartPython;
+                return;
+            }
+
             if (mainForm.Parent.OpFlagCloseDoor)
             {
-                // エラーチェック
-                if (mainForm.Parent.OpResultCloseDoor != FormMain.EDeviceResult.None
-                    && mainForm.Parent.OpResultCloseDoor != FormMain.EDeviceResult.Done)
+                // ドアCLOSE異常（Block式: OpResult != Done でエラー判定）
+                if (mainForm.Parent.OpResultCloseDoor != FormMain.EDeviceResult.Done)
                 {
+                    opCollection.callbackMessageNormal("ドアCLOSE異常");
                     if (!PreferencesDatOriginal.IgnoreDoorError)
                     {
-                        opCollection.callbackMessageError("ドアCLOSEエラー: " + mainForm.Parent.OpResultCloseDoor.ToString());
-                        ShowErrorMessageBox("ドアCLOSEに失敗しました。\n結果: " + mainForm.Parent.OpResultCloseDoor.ToString());
                         _phase = EPhase.Stopping;
                         return;
                     }
-                    Debug.WriteLine("[PsychoPy] Door close error ignored: " + mainForm.Parent.OpResultCloseDoor.ToString());
                 }
-
+                // ドアCLOSE正常
                 Debug.WriteLine("[PsychoPy] Door closed");
+                opCollection.callbackMessageNormal("ドアCLOSE正常処理");
                 _phase = EPhase.StartPython;
             }
         }
@@ -395,6 +492,12 @@ namespace Compartment
                 opCollection.callbackMessageNormal("Python課題実行中: " + Path.GetFileName(scriptPath));
                 mainForm.Parent.EpisodeMode.Value = true;
 
+                // CSV出力用タイムスタンプ初期化
+                opCollection.dateTimeTriggerTouch = DateTime.Now; // Python開始時刻 = トリガ時刻
+                opCollection.dateTimeCorrectTouch = new DateTime();
+                opCollection.dateTimeout = new DateTime();
+                opCollection.flagFeed = false;
+
                 _phase = EPhase.WaitForPython;
             }
             catch (Exception ex)
@@ -413,22 +516,22 @@ namespace Compartment
         private void PhaseWaitForPython()
         {
             // イリーガル退室チェック
-            if (mainForm.Parent.OpFlagRoomOut)
-            {
-                Debug.WriteLine("[PsychoPy] Illegal exit detected during Python execution");
-                opCollection.callbackMessageError("イリーガル退室検知 - Python中断");
-                opCollection.sequencer.State = OpCollection.Sequencer.EState.IllegalExitDetection;
-
-                KillPythonProcess();
-                mainForm.Parent.OpFlagRoomOut = false;
-
-                // 次の入室待ちへ
-                _phase = EPhase.OpenDoorForEntry;
-                return;
-            }
+            if (CheckIllegalExit()) return;
 
             if (_pythonExited)
             {
+                // 重要: Process.Exited は非同期I/Oコールバック完了前に発火する可能性がある。
+                // WaitForExit() (タイムアウトなし) を呼ぶことで、全ての OutputDataReceived/
+                // ErrorDataReceived コールバックの完了を保証してからstdoutを読む。
+                try
+                {
+                    _pythonProcess?.WaitForExit();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("[PsychoPy] WaitForExit after Exited failed: " + ex.Message);
+                }
+
                 Debug.WriteLine("[PsychoPy] Python finished, moving to parse");
                 mainForm.Parent.EpisodeMode.Value = false;
                 _phase = EPhase.ParseResult;
@@ -499,6 +602,7 @@ namespace Compartment
                 Debug.WriteLine("[PsychoPy] Result: CORRECT");
                 opCollection.callbackMessageNormal("課題結果: 正解 (trial " + opCollection.trialCount + ")");
                 opCollection.taskResultVal = OpCollection.ETaskResult.Ok;
+                opCollection.dateTimeCorrectTouch = DateTime.Now;
                 _phase = EPhase.Feeding;
             }
             else
@@ -506,8 +610,12 @@ namespace Compartment
                 Debug.WriteLine("[PsychoPy] Result: INCORRECT");
                 opCollection.callbackMessageNormal("課題結果: 不正解 (trial " + opCollection.trialCount + ")");
                 opCollection.taskResultVal = OpCollection.ETaskResult.Ng;
+                opCollection.dateTimeout = DateTime.Now;
                 _phase = EPhase.OpenDoorForExit;
             }
+
+            // CSV出力（Block式: callbackOutputFile で記録）
+            opCollection.sequencer.callbackOutputFile(OpCollection.Sequencer.EState.BlockOutput);
         }
 
         /// <summary>
@@ -539,6 +647,9 @@ namespace Compartment
         /// </summary>
         private void PhaseWaitFeedComplete()
         {
+            // イリーガル退室チェック: 給餌中に動物が逃げた場合
+            if (CheckIllegalExit()) return;
+
             if (mainForm.Parent.OpFlagFeedOn)
             {
                 Debug.WriteLine("[PsychoPy] Feeding complete");
@@ -578,6 +689,7 @@ namespace Compartment
             else
             {
                 mainForm.Parent.OpOpenDoor();
+                _doorTimer.Restart();
                 _phase = EPhase.WaitDoorOpenForExit;
             }
         }
@@ -589,20 +701,38 @@ namespace Compartment
         {
             opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForOpenDoor;
 
+            // 安全タイムアウト
+            if (!mainForm.Parent.OpFlagOpenDoor && _doorTimer.ElapsedMilliseconds > DOOR_TIMEOUT_MS)
+            {
+                Debug.WriteLine("[PsychoPy] Exit door open safety timeout exceeded");
+                if (!PreferencesDatOriginal.IgnoreDoorError)
+                {
+                    opCollection.callbackMessageError("退室ドアOPENタイムアウト（安全制限）");
+                    ShowErrorMessageBox("退室用ドアOPENが" + (DOOR_TIMEOUT_MS / 1000) + "秒以内に完了しませんでした。");
+                    _phase = EPhase.Stopping;
+                    return;
+                }
+                Debug.WriteLine("[PsychoPy] Exit door open timeout ignored");
+                _phase = EPhase.WaitForExit;
+                opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForLeaveCage;
+                opCollection.callbackMessageNormal("退室待ち（ドアタイムアウト無視）...");
+                _phaseTimer.Restart();
+                return;
+            }
+
             if (mainForm.Parent.OpFlagOpenDoor)
             {
-                if (mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.None
-                    && mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.Done)
+                // ドアOPEN異常（Block式: OpResult != Done でエラー判定）
+                if (mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.Done)
                 {
+                    opCollection.callbackMessageNormal("退室ドアOPEN異常");
                     if (!PreferencesDatOriginal.IgnoreDoorError)
                     {
-                        opCollection.callbackMessageError("退室ドアOPENエラー: " + mainForm.Parent.OpResultOpenDoor.ToString());
-                        ShowErrorMessageBox("退室用ドアOPENに失敗しました。\n結果: " + mainForm.Parent.OpResultOpenDoor.ToString());
                         _phase = EPhase.Stopping;
                         return;
                     }
                 }
-
+                // ドアOPEN正常
                 Debug.WriteLine("[PsychoPy] Door opened for exit");
                 _phase = EPhase.WaitForExit;
                 opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForLeaveCage;
@@ -667,6 +797,12 @@ namespace Compartment
                 mainForm.Parent.OpSetFeedLampOff();
             }
 
+            // モニターON復帰
+            MonitorPower.Monitor.PowerOn();
+
+            // CSV出力ファイルクローズ（Block式に統一）
+            opCollection.file.Close();
+
             opCollection.IsBusy.Value = false;
             opCollection.callbackMessageNormal("PsychoPyエンジン停止完了");
 
@@ -675,33 +811,69 @@ namespace Compartment
 
         #endregion
 
-        #region Stop/Emergency処理
+        #region Stop/IllegalExit チェック
 
         /// <summary>
-        /// 毎tick呼ばれ、Stop/EmergencyStop コマンドを検査
+        /// 非常停止 停止チェック（Block式に統一）
         /// </summary>
-        /// <returns>Stopが検出された場合 true</returns>
-        private bool CheckStopCommand()
+        /// <returns>Stop/EmergencyStopが検出された場合 true</returns>
+        private bool CheckInteruptStop()
         {
+            // 一回読むとNopになるのでステートマシン内のみ参照
             OpCollection.ECommand command = opCollection.Command;
-
-            if (command == OpCollection.ECommand.Stop || command == OpCollection.ECommand.EmergencyStop)
+            if (command == OpCollection.ECommand.EmergencyStop)
             {
-                Debug.WriteLine("[PsychoPy] Stop command received: " + command.ToString());
+                opCollection.sequencer.State = OpCollection.Sequencer.EState.EmergencyStop;
+                _phase = EPhase.Stopping;
+                return true;
+            } // 緊急停止
+            if (command == OpCollection.ECommand.Stop)
+            {
+                opCollection.sequencer.State = OpCollection.Sequencer.EState.Stop;
+                _phase = EPhase.Stopping;
+                return true;
+            } // 中止
+            else
+                return false;
+        }
 
-                if (command == OpCollection.ECommand.EmergencyStop)
+        /// <summary>
+        /// イリーガル退出および停止検査（Block式に統一）
+        /// 給餌中退室も区別して検出
+        /// </summary>
+        /// <returns>イリーガル退室が検出された場合 true</returns>
+        private bool CheckIllegalExit()
+        {
+            if (mainForm.Parent.OpFlagRoomOut)
+            {
+                if (mainForm.Parent.Feeding)
                 {
-                    opCollection.sequencer.State = OpCollection.Sequencer.EState.EmergencyStop;
+                    // 給餌中退室
+                    Debug.WriteLine("[PsychoPy] Exit after feeding detected");
+                    opCollection.callbackMessageError("フィード中退室検知");
+                    opCollection.flagFeed = true;
+                    opCollection.sequencer.State = OpCollection.Sequencer.EState.ExitAfterFeedingDetection;
                 }
                 else
                 {
-                    opCollection.sequencer.State = OpCollection.Sequencer.EState.Stop;
+                    // イリーガル退室
+                    Debug.WriteLine("[PsychoPy] Illegal exit detected");
+                    opCollection.callbackMessageError("イリーガル退室検知");
+                    opCollection.flagFeed = false;
+                    opCollection.sequencer.State = OpCollection.Sequencer.EState.IllegalExitDetection;
                 }
 
-                _phase = EPhase.Stopping;
+                // CSV出力（イリーガル退室記録）
+                opCollection.dateTimeout = DateTime.Now;
+                opCollection.sequencer.callbackOutputFile(opCollection.sequencer.State);
+
+                mainForm.Parent.OpFlagRoomIn = false;
+                mainForm.Parent.OpFlagRoomOut = false;
+                if (PreferencesDatOriginal.EnableFeedLamp) mainForm.Parent.OpSetFeedLampOff();
+                KillPythonProcess();
+                _phase = EPhase.OpenDoorForEntry;
                 return true;
             }
-
             return false;
         }
 
