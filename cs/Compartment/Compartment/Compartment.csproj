@@ -319,11 +319,16 @@
     <Compile Include="Controllers\RFIDController.cs" />
     <Compile Include="Controllers\DebugController.cs" />
     <Compile Include="Controllers\EmergencyController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\LampController.cs" />
+    <Compile Include="Controllers\SoundController.cs" />
     <Compile Include="Models\ApiResponseBase.cs" />
     <Compile Include="Models\DeviceCommandResponse.cs" />
     <Compile Include="Models\FeedRequest.cs" />
     <Compile Include="Models\RFIDResponse.cs" />
     <Compile Include="Models\SensorStatusResponse.cs" />
+    <Compile Include="Models\LampRequest.cs" />
+    <Compile Include="Models\SoundRequest.cs" />
     <Compile Include="OperationHelper.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="IoBoard.cs" />

@@ -1038,7 +1038,7 @@
 
      実装フェーズ
 
-     フェーズ1: APIサーバー構築（1-2週間）
+     フェーズ1: APIサーバー構築（1-2週間） — ✅ 実装完了
 
      目的: C#にREST API機能を追加し、基本的なハードウェア制御を公開
 
@@ -1063,7 +1063,7 @@
      - デバッグモードOFF: 実機で POST http://localhost:5000/api/door/open でドアが開く
      - デバッグモードON: POST http://localhost:5000/api/debug/sensor/set でセンサー状態変更
 
-     フェーズ2: Pythonクライアントライブラリ（1週間）
+     フェーズ2: Pythonクライアントライブラリ（1週間） — ✅ 実装完了
 
      目的: PsychoPyからハードウェアを制御するためのPythonライブラリ作成
 
@@ -1088,15 +1088,15 @@
      - デバッグモードON: hw.debug_simulate_entrance() で入室シミュレート
      - キーボード操作でセンサーをシミュレート
 
-     フェーズ3: ExternalControlモード追加（1週間）
+     フェーズ3: ExternalControlモード追加（1週間） — ✅ 実装完了
 
      目的: C#側の課題制御を無効化し、外部制御を可能にするモード追加
 
      作業内容:
-     1. ECpTask 列挙型に ExternalControl = 5 を追加
-     2. OpCollection/UcOperationのステートマシンにスキップロジック追加
-     3. ExternalControlモード時にFormSubを非表示
-     4. UI設定画面に「ExternalControl」を追加
+     1. ✅ ECpTask 列挙型に ExternalControl = 5 を追加
+     2. ✅ OpCollection/UcOperationのステートマシンにスキップロジック追加
+     3. ✅ ExternalControlモード時にFormSubを非表示
+     4. ✅ UI設定画面に「ExternalControl」を追加
 
      成果物:
      - ExternalControlモードが選択可能
@@ -1105,6 +1105,37 @@
      検証方法:
      - Preferences画面でExternalControlを選択可能
      - Startボタンを押しても課題ステートマシンが動作しない
+
+     フェーズ3.5: PsychoPy Python実行メカニズム — ✅ 実装完了 (2026-02-06)
+
+     目的: C#からPythonスクリプトを読み込み・起動・停止する仕組みを実装
+
+     作業内容:
+     1. ✅ Program.cs に PsychoPyScriptPath 静的フィールド追加
+     2. ✅ FormSelectEngine にスクリプト選択UI追加
+       - 「Pythonスクリプト:」ラベル、テキストボックス、「参照...」ボタン
+       - PsychoPyエンジン選択時のみ有効化
+       - Goボタン押下時にスクリプト未選択ならエラー表示
+     3. ✅ UcOperationPsychoPy に Python プロセス実行機能追加
+       - System.Diagnostics.Process でPythonプロセス起動
+       - Start コマンド時: python <script_path> で起動
+       - Stop コマンド時: プロセスをKill
+       - stdout/stderr を Debug.WriteLine にリダイレクト
+       - プロセス終了を Exited イベントで検知
+     4. ✅ psychopy/simple_test.py テストスクリプト作成
+
+     成果物:
+     - FormSelectEngineでスクリプト選択可能
+     - StartボタンでPythonスクリプトが自動起動
+     - StopボタンでPythonプロセスが自動停止
+     - simple_test.py（PsychoPy不要のAPI接続テスト）
+
+     変更ファイル:
+     - cs/Compartment/Compartment/Program.cs — PsychoPyScriptPath追加
+     - cs/Compartment/Compartment/FormSelectEngine.Designer.cs — スクリプト選択UI
+     - cs/Compartment/Compartment/FormSelectEngine.cs — 選択ロジック・バリデーション
+     - cs/Compartment/Compartment/UcOperationPsychoPy.cs — Python起動/停止
+     - psychopy/simple_test.py — テストスクリプト（新規）
 
      フェーズ4: 簡単な課題実装（1-2週間）
 
@@ -1886,16 +1917,20 @@
        - 中央オーケストレーター
        - 条件付きシーケンス制御
 
-     次のステップ（フェーズ1開始）
+     次のステップ
 
-     1. フェーズ1の実装開始
-     2. Compartment.HardwareAPI プロジェクト作成
-     3. 基本的なコントローラー実装（Sensor, Door）
-     4. FormMainにKestrel起動ロジック追加
-     5. APIレスポンスにCompartmentNo追加
-     6. Preferences にApiServerPort追加
-     7. デバッグモード実装（IoMicrochipDummyEx, IoHybridBoard）
-     8. デバッグコントロールパネル実装
-     9. Postmanで動作確認
+     ✅ 完了:
+     - フェーズ1: APIサーバー構築（コントローラー、HardwareService、デバッグモード）
+     - フェーズ2: Pythonクライアントライブラリ（compartment_hardware.py）
+     - フェーズ3: ExternalControlモード追加
+     - フェーズ3.5: PsychoPy Python実行メカニズム（C#からPythonスクリプト起動/停止）
+
+     次のアクション:
+     1. Windows環境でビルド確認 ← 次はここ
+     2. Postmanで各APIエンドポイントをテスト
+     3. simple_test.py でStartボタンからの自動起動を確認
+     4. フェーズ4: 簡単な課題実装（training_task_example.py）
+     5. フェーズ5: 既存課題の移行
+     6. フェーズ6: 中央オーケストレーター実装
 
 

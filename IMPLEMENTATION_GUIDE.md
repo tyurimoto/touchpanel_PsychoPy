@@ -1,41 +1,48 @@
 # PsychoPy統合API実装ガイド（段階的実装版）
 
-**最終更新**: 2026-02-04
+**最終更新**: 2026-02-06 (Phase 4追加)
 **目的**: 既存C#ハードウェア制御システムにAPIサーバーを統合し、PsychoPyから安全に制御できるようにする
 
 ---
 
 ## 📋 実装の全体フロー
 
-### **Phase 1: 基盤修正（Critical） ← まずここから**
-- 既存コードの矛盾修正（9個）
-- ExternalControlモード実装（3個）
-- API安全チェック追加（2個）
-- **ビルド・テストポイント**: Phase 1完了後、APIサーバーが起動することを確認
+### **Phase 1: 基盤修正（Critical） ← ほぼ完了**
+- 既存コードの矛盾修正（9個） ✅
+- ExternalControlモード実装（3個） ✅ (タスク11は不要と判断)
+- API安全チェック追加（2個） ✅ (タスク14は軽微な差異のみ)
+- **ビルド・テストポイント**: ビルド成功確認済み (2026-02-06)
 
-### **Phase 2: コア機能実装（High）**
-- 新規コントローラー作成（3個）
-- HardwareServiceメソッド追加（5個）
+### **Phase 2: コア機能実装（High） ← 実装完了、ビルド確認待ち**
+- 新規コントローラー作成（3個） ✅
+- HardwareServiceメソッド追加（5個） ✅
 - **ビルド・テストポイント**: Phase 2完了後、Postmanで各APIをテスト
 
-### **Phase 3: 統合・完成（Medium）**
-- モデルクラス作成（2個）
-- FormMain統合（1個）
-- csproj登録（1個）
+### **Phase 3: 統合・完成（Medium） ← 実装完了、ビルド確認待ち**
+- モデルクラス作成（2個） ✅
+- FormMain統合（1個） ✅
+- csproj登録（1個） ✅
 - **ビルド・テストポイント**: Phase 3完了後、PsychoPyから実際に制御テスト
+
+### **Phase 4: PsychoPy Python実行メカニズム ← 実装完了、ビルド確認待ち**
+- Program.csにスクリプトパス保存 ✅
+- FormSelectEngineにスクリプト選択UI追加 ✅
+- UcOperationPsychoPyにPython起動/停止機能追加 ✅
+- テスト用Pythonスクリプト作成 ✅
+- **ビルド・テストポイント**: Startボタンでスクリプト起動、Stopボタンで停止を確認
 
 ---
 
-## 🔧 Phase 1: 基盤修正（Critical）
+## 🔧 Phase 1: 基盤修正（Critical） — ✅ ほぼ完了
 
-### ✅ 完了済み（3個）
+### ✅ 完了済み（14個中13個完了）
 1. ✅ FormMain.csのusingディレクティブ解除
-2. ✅ _hardwareServiceフィールド解除
+2. ✅ _hardwareServiceフィールド解除（private → internal変更済み）
 3. ✅ UcMain.csにrfidReaderHelperフィールド追加
 
 ---
 
-### 📝 タスク4: RFIDReaderHelper.csにRFIDプロパティ追加
+### ✅ タスク4: RFIDReaderHelper.csにRFIDプロパティ追加 — 完了
 
 **ファイル**: `/Users/terumi/Downloads/compartment/cs/Compartment/Compartment/RFIDReaderHelper.cs`
 
@@ -67,7 +74,7 @@ public SyncObject<string> CurrentIDCode;
 
 ---
 
-### 📝 タスク5: RFIDReaderDummy.csにRFIDプロパティ追加
+### ✅ タスク5: RFIDReaderDummy.csにRFIDプロパティ追加 — 完了
 
 **ファイル**: `/Users/terumi/Downloads/compartment/cs/Compartment/Compartment/RFIDReaderDummy.cs`
 
@@ -91,7 +98,7 @@ public string RFID
 
 ---
 
-### 📝 タスク6: HardwareService.csのSetSensorState()修正
+### ✅ タスク6: HardwareService.csのSetSensorState()修正 — 完了
 
 **ファイル**: `/Users/terumi/Downloads/compartment/cs/Compartment/Compartment/Services/HardwareService.cs`
 
@@ -109,7 +116,7 @@ dummyBoard.SetManualSensorState(sensor, state);
 
 ---
 
-### 📝 タスク7: HardwareService.csのCompartmentNo型変換修正
+### ✅ タスク7: HardwareService.csのCompartmentNo型変換修正 — 完了
 
 **ファイル**: `Services/HardwareService.cs`
 
@@ -127,7 +134,7 @@ return _formMain.preferencesDatOriginal?.CompartmentNo.ToString() ?? "0";
 
 ---
 
-### 📝 タスク8: IoMicrochipDummyEx.csにResetAllStates()追加
+### ✅ タスク8: IoMicrochipDummyEx.csにResetAllStates()追加 — 完了
 
 **ファイル**: `/Users/terumi/Downloads/compartment/cs/Compartment/Compartment/IoMicrochipDummyEx.cs`
 
@@ -158,7 +165,7 @@ public void ResetAllStates()
 
 ---
 
-### 📝 タスク9: RFIDReaderDummy.csにSetRandomRFID()追加
+### ✅ タスク9: RFIDReaderDummy.csにSetRandomRFID()追加 — 完了
 
 **ファイル**: `/Users/terumi/Downloads/compartment/cs/Compartment/Compartment/RFIDReaderDummy.cs`
 
@@ -185,7 +192,7 @@ public string SetRandomRFID()
 
 ---
 
-### 📝 タスク10: PreferencesDat.csにExternalControl列挙型追加
+### ✅ タスク10: PreferencesDat.csにExternalControl列挙型追加 — 完了
 
 **ファイル**: `/Users/terumi/Downloads/compartment/cs/Compartment/Compartment/PreferencesDat.cs`
 
@@ -218,39 +225,18 @@ public enum ECpTask : int
 
 ---
 
-### 📝 タスク11: UcOperationInternal.csでステートマシン無効化
+### ⏭️ タスク11: UcOperationInternal.csでステートマシン無効化 — 不要（スキップ）
 
-**ファイル**: `/Users/terumi/Downloads/compartment/cs/Compartment/Compartment/UcOperationInternal.cs`
-
-**変更箇所**: `OnOperationStateMachineProc()` メソッドの先頭
-
-**探し方**:
-```csharp
-// この関数を探す
-private void OnOperationStateMachineProc()
-{
-    // ここに追加
-}
-```
-
-**追加コード**:
-```csharp
-private void OnOperationStateMachineProc()
-{
-    // ExternalControlモード時はステートマシンを停止
-    if (PreferencesDatOriginal.OpeTypeOfTask == ECpTask.ExternalControl)
-    {
-        return;
-    }
-
-    // 既存のステートマシン処理
-    // ...（元のコードはそのまま）
-}
-```
+**理由**: PsychoPyエンジン選択時は`UcOperationPsychoPy.OnOperationStateMachineProc()`が呼ばれるため、
+`UcOperationInternal`にExternalControlチェックを追加する必要はない。
+`FormMain.backgroundWorker1_DoWork()`でエンジン別に分岐済み:
+- `EEngineType.BlockProgramming` → `UcOperationInternal`
+- `EEngineType.PsychoPy` → `UcOperationPsychoPy`
+- `EEngineType.OldEngine` → `FormMain.OnOperationStateMachineProc()`
 
 ---
 
-### 📝 タスク12: UcOperation.csでeDoor無効化
+### ✅ タスク12: UcOperation.csでeDoor無効化 — 完了
 
 **ファイル**: `/Users/terumi/Downloads/compartment/cs/Compartment/Compartment/UcOperation.cs`
 
@@ -288,7 +274,7 @@ if (eDoor != null)
 
 ---
 
-### 📝 タスク13: HardwareService.OpenDoorAsync()に安全チェック追加
+### ✅ タスク13: HardwareService.OpenDoorAsync()に安全チェック追加 — 完了
 
 **ファイル**: `Services/HardwareService.cs`
 
@@ -353,7 +339,7 @@ public Task<bool> OpenDoorAsync()
 
 ---
 
-### 📝 タスク14: HardwareService.CloseDoorAsync()に安全チェック追加
+### ✅ タスク14: HardwareService.CloseDoorAsync()に安全チェック追加 — 完了（軽微差異あり）
 
 **ファイル**: `Services/HardwareService.cs`
 
@@ -399,25 +385,25 @@ public Task<bool> CloseDoorAsync()
 
 ---
 
-## 🧪 Phase 1 完了後のビルド・テスト手順
+## 🧪 Phase 1 完了後のビルド・テスト手順 — ✅ ビルド成功 (2026-02-06)
 
 ### ビルド手順
 1. Visual Studio でソリューションを開く
 2. `ビルド` → `ソリューションのリビルド`
 3. エラーがないことを確認
 
-### エラーが出た場合の確認項目
-- [ ] using Compartment.Services; が追加されているか
-- [ ] using Compartment.Controllers; が追加されているか
-- [ ] ECpTask.ExternalControl が定義されているか
-- [ ] RFIDプロパティが正しく追加されているか
+### 2026-02-06 修正内容
+- `Program.EEngineType` → `EEngineType` (名前空間レベル定義への修正、FormMain/FormSelectEngine/UcOperation)
+- `ECpTask.ExternalControl` 追加 (PreferencesDat.cs)
+- `Program.EnableNewEngine` → `Program.SelectedEngine == EEngineType.OldEngine` (UcOperationInternal.cs)
+- `FormMain._hardwareService` を `private` → `internal` に変更
 
 ### 動作確認
 1. アプリケーションを起動
 2. Preferences画面で `OpeTypeOfTask` に `ExternalControl` が選択肢に表示されるか確認
 3. デバッグモードチェックボックスが動作するか確認
 
-**Phase 1完了の目安**: コンパイルエラーなし、アプリケーション起動可能
+**Phase 1完了**: ビルドエラーなし確認済み
 
 ---
 
@@ -1219,46 +1205,151 @@ print(response.json())
 コピーして使用してください：
 
 ```
-Phase 1: 基盤修正（Critical）
-[ ] タスク1-3: FormMain/UcMain修正（完了済み）
-[ ] タスク4: RFIDReaderHelper.csにRFIDプロパティ追加
-[ ] タスク5: RFIDReaderDummy.csにRFIDプロパティ追加
-[ ] タスク6: HardwareService.csのSetSensorState()修正
-[ ] タスク7: HardwareService.csのCompartmentNo型変換修正
-[ ] タスク8: IoMicrochipDummyEx.csにResetAllStates()追加
-[ ] タスク9: RFIDReaderDummy.csにSetRandomRFID()追加
-[ ] タスク10: PreferencesDat.csにExternalControl追加
-[ ] タスク11: UcOperationInternal.csでステートマシン無効化
-[ ] タスク12: UcOperation.csでeDoor無効化
-[ ] タスク13: OpenDoorAsync()安全チェック
-[ ] タスク14: CloseDoorAsync()安全チェック
-[ ] Phase 1 ビルド・テスト完了
+Phase 1: 基盤修正（Critical） — ✅ 完了 (2026-02-06 ビルド成功)
+[x] タスク1-3: FormMain/UcMain修正
+[x] タスク4: RFIDReaderHelper.csにRFIDプロパティ追加
+[x] タスク5: RFIDReaderDummy.csにRFIDプロパティ追加
+[x] タスク6: HardwareService.csのSetSensorState()修正
+[x] タスク7: HardwareService.csのCompartmentNo型変換修正
+[x] タスク8: IoMicrochipDummyEx.csにResetAllStates()追加
+[x] タスク9: RFIDReaderDummy.csにSetRandomRFID()追加
+[x] タスク10: PreferencesDat.csにExternalControl追加
+[--] タスク11: UcOperationInternal.csでステートマシン無効化（不要：PsychoPyは別エンジンクラス）
+[x] タスク12: UcOperation.csでeDoor無効化
+[x] タスク13: OpenDoorAsync()安全チェック
+[x] タスク14: CloseDoorAsync()安全チェック（デバッグモードチェック実装済み）
+[x] Phase 1 ビルド・テスト完了
 
-Phase 2: コア機能実装（High）
-[ ] タスク15: RoomController.cs作成
-[ ] タスク16: LampController.cs作成
-[ ] タスク17: SoundController.cs作成
-[ ] タスク18-22: HardwareServiceメソッド追加
+Phase 2: コア機能実装（High） — ✅ 実装完了 (2026-02-06)、ビルド確認待ち
+[x] タスク15: RoomController.cs作成
+[x] タスク16: LampController.cs作成
+[x] タスク17: SoundController.cs作成
+[x] タスク18-22: HardwareServiceメソッド追加
+    （WaitForEntryAsync, WaitForExitAsync, WaitForRFIDAsync,
+     GetRoomStatus, SetRoomLampAsync, SetLeverLampAsync,
+     SetFeedLampAsync, PlaySoundAsync — 全て実装済み）
 [ ] Phase 2 ビルド・テスト完了
 
-Phase 3: 統合・完成（Medium）
-[ ] タスク23: LampRequest.cs作成
-[ ] タスク24: SoundRequest.cs作成
-[ ] タスク25: StartApiServer()修正
-[ ] タスク26: Compartment.csproj登録
+Phase 3: 統合・完成（Medium） — ✅ 実装完了 (2026-02-06)、ビルド確認待ち
+[x] タスク23: LampRequest.cs作成
+[x] タスク24: SoundRequest.cs作成
+[x] タスク25: StartApiServer()修正（RoomController/LampController/SoundController初期化追加）
+[x] タスク26: Compartment.csproj登録（新規ファイル分追加済み）
 [ ] Phase 3 ビルド・テスト完了
-[ ] PsychoPy統合テスト完了
+
+Phase 4: PsychoPy Python実行メカニズム — ✅ 実装完了 (2026-02-06)
+[x] タスク27: Program.csにPsychoPyScriptPath追加
+[x] タスク28: FormSelectEngineにスクリプト選択UI追加（Designer.cs + cs）
+[x] タスク29: UcOperationPsychoPy.csにPython実行機能追加（Start/Stop連動）
+[x] タスク30: psychopy/simple_test.py テストスクリプト作成
+[ ] Phase 4 ビルド・テスト完了
+[ ] PsychoPy統合テスト完了（Startボタンからの自動起動確認）
+```
+
+**補足: 既存の実装済みコントローラー** (ガイド外で実装済み)
+- EmergencyController.cs — 緊急停止API
+- UcOperationPsychoPy.cs — PsychoPyエンジン状態機械（Python実行機能追加済み）
+
+---
+
+## 🐍 Phase 4: PsychoPy Python実行メカニズム — ✅ 実装完了 (2026-02-06)
+
+C#からPythonスクリプトを読み込み・起動・停止する仕組みを実装。
+
+### ✅ タスク27: Program.csにPsychoPyScriptPath追加
+
+**ファイル**: `Program.cs`
+
+**追加コード**:
+```csharp
+// PsychoPyスクリプトのパス
+public static string PsychoPyScriptPath = "";
+```
+
+---
+
+### ✅ タスク28: FormSelectEngine にスクリプト選択UI追加
+
+**ファイル**: `FormSelectEngine.Designer.cs`, `FormSelectEngine.cs`
+
+**Designer.cs 追加コントロール**:
+- `labelScriptPath` — 「Pythonスクリプト:」ラベル (Y=290)
+- `textBoxScriptPath` — ReadOnlyテキストボックス (Y=313, 幅310)
+- `buttonBrowseScript` — 「参照...」ボタン (Y=311)
+- `radioButtonPsychoPy.CheckedChanged` イベント接続
+
+**FormSelectEngine.cs 追加ロジック**:
+- `UpdateScriptSelectionUI()` — PsychoPy選択時のみスクリプトUI有効化
+- `buttonBrowseScript_Click()` — OpenFileDialogで `.py` ファイル選択
+- Goボタン — PsychoPy選択時にスクリプト未選択ならエラー表示、選択済みなら `Program.PsychoPyScriptPath` に保存
+
+---
+
+### ✅ タスク29: UcOperationPsychoPy.csにPython実行機能追加
+
+**ファイル**: `UcOperationPsychoPy.cs`
+
+**追加コード**:
+```csharp
+private Process _pythonProcess = null;
+
+// Startコマンド時: python <script_path> でプロセス起動
+private void StartPythonScript()
+{
+    // Process.Start で python を起動
+    // stdout/stderr を Debug.WriteLine にリダイレクト
+    // プロセス終了を Exited イベントで検知
+}
+
+// Stopコマンド時: プロセスをKill
+private void StopPythonScript()
+{
+    // _pythonProcess.Kill() + WaitForExit(3000)
+}
+```
+
+**動作フロー**:
+1. Start コマンド → EventLogger有効化 → `StartPythonScript()`
+2. Stop コマンド → `StopPythonScript()` → EventLogger無効化
+
+---
+
+### ✅ タスク30: テスト用Pythonスクリプト作成
+
+**新規ファイル**: `psychopy/simple_test.py`
+
+PsychoPy不要の最小テストスクリプト。`compartment_hardware.py`を使用:
+1. API接続確認
+2. センサー読み取り（入室/退室/在室/レバー）
+3. RFID読み取り
+4. ドア開閉操作
+5. 給餌テスト
+
+---
+
+### Phase 4 検証手順
+
+```
+1. C#プロジェクトをビルド
+2. FormSelectEngineでPsychoPyエンジンを選択
+3. 「参照...」ボタンで psychopy/simple_test.py を指定
+4. 「Go」ボタンでメインフォームへ進む
+5. Startボタン → Pythonスクリプトが起動されることを確認（Debug出力）
+6. Stopボタン → Pythonプロセスが停止されることを確認（Debug出力）
 ```
 
 ---
 
 ## 🎯 次のステップ
 
-1. **Phase 1を完了**（タスク4-14）
-2. **Windows環境でビルド・テスト**
-3. **問題なければPhase 2へ進む**
-4. **Phase 2完了後、Postmanでテスト**
-5. **Phase 3完了後、PsychoPy統合テスト**
+1. ~~**Phase 1を完了**（タスク4-14）~~ ✅ 完了
+2. ~~**Windows環境でビルド・テスト**~~ ✅ Phase 1 ビルド成功確認済み
+3. ~~**Phase 2実装**~~ ✅ コントローラー・メソッド実装完了
+4. ~~**Phase 3実装**~~ ✅ モデル・csproj・FormMain初期化 実装完了
+5. ~~**Phase 4実装**~~ ✅ PsychoPy Python実行メカニズム実装完了
+6. **Windows環境でビルド確認** ← 次はここ
+7. **Postmanで各APIエンドポイントをテスト**
+8. **PsychoPy統合テスト**（simple_test.py でStartボタンからの自動起動を確認）
 
 各Phaseの完了ごとに動作確認を行うことで、問題を早期に発見できます。
 
@@ -1266,4 +1357,7 @@ Phase 3: 統合・完成（Medium）
 
 **作成日**: 2026-02-04
 **更新履歴**:
+- 2026-02-06: Phase 4実装完了（PsychoPy Python実行メカニズム: スクリプト選択UI、Pythonプロセス起動/停止、simple_test.py）
+- 2026-02-06: Phase 2&3実装完了（RoomController/LampController/SoundController、HardwareServiceメソッド追加、モデル追加、csproj更新、FormMain初期化更新）
+- 2026-02-06: Phase 1完了確認、進捗チェックリスト更新、ビルドエラー修正記録
 - 2026-02-04: 初版作成（タスク1-26の詳細手順）

@@ -14,6 +14,8 @@ namespace Compartment
     {
         // デフォルトをPsychoPyに設定（ユーザー要望）
         public static EEngineType SelectedEngine = EEngineType.PsychoPy;
+        // PsychoPyスクリプトのパス
+        public static string PsychoPyScriptPath = "";
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>

@@ -763,5 +763,240 @@ namespace Compartment.Services
             }));
             return success;
         }
+
+        // ===== Room/Entry/Exit Methods =====
+
+        /// <summary>
+        /// Get room/cage status
+        /// </summary>
+        public object GetRoomStatus()
+        {
+            object status = null;
+            _formMain.Invoke((MethodInvoker)(() =>
+            {
+                try
+                {
+                    bool isInside = false;
+                    _formMain.ioBoardDevice?.GetUpperStateOfSaveDIn(
+                        IoBoardDInLogicalName.RoomStay, out isInside);
+
+                    status = new
+                    {
+                        roomId = _formMain.preferencesDatOriginal?.CompartmentNo ?? 0,
+                        animalInside = isInside,
+                        timestamp = DateTime.Now
+                    };
+                }
+                catch (Exception ex)
+                {
+                    status = new { error = ex.Message };
+                }
+            }));
+            return status;
+        }
+
+        /// <summary>
+        /// Wait for animal entry (monitors OpFlagRoomIn)
+        /// </summary>
+        public Task<bool> WaitForEntryAsync(int timeoutMs)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            Task.Run(() =>
+            {
+                var sw = System.Diagnostics.Stopwatch.StartNew();
+                while (sw.ElapsedMilliseconds < timeoutMs)
+                {
+                    bool entered = false;
+                    _formMain.Invoke((MethodInvoker)(() =>
+                    {
+                        entered = _formMain.OpFlagRoomIn;
+                        if (entered)
+                        {
+                            _formMain.OpFlagRoomIn = false;
+                        }
+                    }));
+
+                    if (entered)
+                    {
+                        tcs.SetResult(true);
+                        return;
+                    }
+
+                    System.Threading.Thread.Sleep(10);
+                }
+                tcs.SetResult(false);
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Wait for animal exit (monitors OpFlagRoomOut)
+        /// </summary>
+        public Task<bool> WaitForExitAsync(int timeoutMs)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            Task.Run(() =>
+            {
+                var sw = System.Diagnostics.Stopwatch.StartNew();
+                while (sw.ElapsedMilliseconds < timeoutMs)
+                {
+                    bool exited = false;
+                    _formMain.Invoke((MethodInvoker)(() =>
+                    {
+                        exited = _formMain.OpFlagRoomOut;
+                        if (exited)
+                        {
+                            _formMain.OpFlagRoomOut = false;
+                        }
+                    }));
+
+                    if (exited)
+                    {
+                        tcs.SetResult(true);
+                        return;
+                    }
+
+                    System.Threading.Thread.Sleep(10);
+                }
+                tcs.SetResult(false);
+            });
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Wait for RFID read
+        /// </summary>
+        public Task<string> WaitForRFIDAsync(int timeoutMs)
+        {
+            var tcs = new TaskCompletionSource<string>();
+            Task.Run(() =>
+            {
+                var sw = System.Diagnostics.Stopwatch.StartNew();
+                while (sw.ElapsedMilliseconds < timeoutMs)
+                {
+                    string rfid = "";
+                    _formMain.Invoke((MethodInvoker)(() =>
+                    {
+                        rfid = _formMain.rfidReaderHelper?.RFID ?? string.Empty;
+                    }));
+
+                    if (!string.IsNullOrEmpty(rfid))
+                    {
+                        tcs.SetResult(rfid);
+                        return;
+                    }
+
+                    System.Threading.Thread.Sleep(10);
+                }
+                tcs.SetResult(string.Empty);
+            });
+            return tcs.Task;
+        }
+
+        // ===== Lamp Control Methods =====
+
+        /// <summary>
+        /// Room lamp ON/OFF
+        /// </summary>
+        public Task<bool> SetRoomLampAsync(bool on)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            _formMain.Invoke((MethodInvoker)(() =>
+            {
+                try
+                {
+                    var logicalName = on
+                        ? IoBoardDOutLogicalName.RoomLampOn
+                        : IoBoardDOutLogicalName.RoomLampOff;
+                    bool result = _formMain.ioBoardDevice?.SetUpperStateOfDOut(logicalName) ?? false;
+                    tcs.SetResult(result);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            }));
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Lever lamp ON/OFF
+        /// </summary>
+        public Task<bool> SetLeverLampAsync(bool on)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            _formMain.Invoke((MethodInvoker)(() =>
+            {
+                try
+                {
+                    var logicalName = on
+                        ? IoBoardDOutLogicalName.LeverLampOn
+                        : IoBoardDOutLogicalName.LeverLampOff;
+                    bool result = _formMain.ioBoardDevice?.SetUpperStateOfDOut(logicalName) ?? false;
+                    tcs.SetResult(result);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            }));
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Feed lamp ON/OFF
+        /// </summary>
+        public Task<bool> SetFeedLampAsync(bool on)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            _formMain.Invoke((MethodInvoker)(() =>
+            {
+                try
+                {
+                    var logicalName = on
+                        ? IoBoardDOutLogicalName.FeedLampOn
+                        : IoBoardDOutLogicalName.FeedLampOff;
+                    bool result = _formMain.ioBoardDevice?.SetUpperStateOfDOut(logicalName) ?? false;
+                    tcs.SetResult(result);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            }));
+            return tcs.Task;
+        }
+
+        // ===== Sound Methods =====
+
+        /// <summary>
+        /// Play sound file
+        /// </summary>
+        public Task<bool> PlaySoundAsync(string filePath, int durationMs)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+            _formMain.Invoke((MethodInvoker)(() =>
+            {
+                try
+                {
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        var player = new System.Media.SoundPlayer(filePath);
+                        player.Play();
+                        tcs.SetResult(true);
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine($"[Sound] File not found: {filePath}");
+                        tcs.SetResult(false);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            }));
+            return tcs.Task;
+        }
     }
 }

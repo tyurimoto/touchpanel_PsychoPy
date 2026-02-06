@@ -529,6 +529,9 @@ namespace Compartment
                 RFIDController.Initialize(_hardwareService);
                 DebugController.Initialize(_hardwareService);
                 EmergencyController.Initialize(_hardwareService);
+                RoomController.Initialize(_hardwareService);
+                LampController.Initialize(_hardwareService);
+                SoundController.Initialize(_hardwareService);
 
                 // Start OWIN server
                 _apiServer = WebApp.Start<Startup>(baseAddress);
