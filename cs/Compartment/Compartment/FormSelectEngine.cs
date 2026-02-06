@@ -23,35 +23,6 @@ namespace Compartment
 
             labelAssemblyVersion.Text = "V" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + subVersion;
 
-            // スクリプト選択UIの初期状態
-            UpdateScriptSelectionUI();
-        }
-
-        private void radioButtonPsychoPy_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateScriptSelectionUI();
-        }
-
-        private void UpdateScriptSelectionUI()
-        {
-            bool enabled = radioButtonPsychoPy.Checked;
-            labelScriptPath.Enabled = enabled;
-            textBoxScriptPath.Enabled = enabled;
-            buttonBrowseScript.Enabled = enabled;
-        }
-
-        private void buttonBrowseScript_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Title = "Pythonスクリプトを選択";
-                ofd.Filter = "Pythonファイル (*.py)|*.py|すべてのファイル (*.*)|*.*";
-                ofd.FilterIndex = 1;
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    textBoxScriptPath.Text = ofd.FileName;
-                }
-            }
         }
 
         /// <summary>
@@ -159,14 +130,6 @@ namespace Compartment
         {
             if (radioButtonPsychoPy.Checked)
             {
-                // PsychoPy選択時はスクリプトパスが必須
-                if (string.IsNullOrWhiteSpace(textBoxScriptPath.Text))
-                {
-                    MessageBox.Show("Pythonスクリプトを選択してください。",
-                        "エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 // Python環境チェック
                 if (!CheckPythonEnvironment(out string envError))
                 {
@@ -176,7 +139,6 @@ namespace Compartment
                 }
 
                 Program.SelectedEngine = EEngineType.PsychoPy;
-                Program.PsychoPyScriptPath = textBoxScriptPath.Text;
             }
             else if (radioButtonBlockEngine.Checked)
             {

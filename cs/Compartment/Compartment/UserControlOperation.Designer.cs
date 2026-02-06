@@ -56,6 +56,7 @@ namespace Compartment
             this.buttonDebugLeave = new System.Windows.Forms.Button();
             this.textBoxDebugID = new System.Windows.Forms.TextBox();
             this.buttonDebugSetID = new System.Windows.Forms.Button();
+            this.buttonSelectScript = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -340,6 +341,7 @@ namespace Compartment
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.buttonEmergencyStop, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.buttonBack, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSelectScript, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonStart, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.buttonStop, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.buttonDebugEnter, 0, 6);
@@ -405,7 +407,17 @@ namespace Compartment
             this.buttonDebugSetID.Text = "DebugSetID";
             this.buttonDebugSetID.UseVisualStyleBackColor = true;
             this.buttonDebugSetID.Visible = false;
-            // 
+            //
+            // buttonSelectScript
+            //
+            this.buttonSelectScript.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSelectScript.Location = new System.Drawing.Point(3, 53);
+            this.buttonSelectScript.Name = "buttonSelectScript";
+            this.buttonSelectScript.Size = new System.Drawing.Size(114, 44);
+            this.buttonSelectScript.TabIndex = 14;
+            this.buttonSelectScript.Text = "Script...";
+            this.buttonSelectScript.UseVisualStyleBackColor = true;
+            //
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -602,5 +614,6 @@ namespace Compartment
         public System.Windows.Forms.Button buttonDebugLeave;
         public System.Windows.Forms.TextBox textBoxDebugID;
         public System.Windows.Forms.Button buttonDebugSetID;
+        public System.Windows.Forms.Button buttonSelectScript;
     }
 }

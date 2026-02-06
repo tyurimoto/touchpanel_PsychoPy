@@ -36,9 +36,6 @@ namespace Compartment
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButtonPsychoPy = new System.Windows.Forms.RadioButton();
             this.labelAssemblyVersion = new System.Windows.Forms.Label();
-            this.labelScriptPath = new System.Windows.Forms.Label();
-            this.textBoxScriptPath = new System.Windows.Forms.TextBox();
-            this.buttonBrowseScript = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,9 +44,6 @@ namespace Compartment
             this.groupBox1.Controls.Add(this.labelAssemblyVersion);
             this.groupBox1.Controls.Add(this.labelVersion);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.buttonBrowseScript);
-            this.groupBox1.Controls.Add(this.textBoxScriptPath);
-            this.groupBox1.Controls.Add(this.labelScriptPath);
             this.groupBox1.Controls.Add(this.radioButtonPsychoPy);
             this.groupBox1.Controls.Add(this.radioButtonBlockEngine);
             this.groupBox1.Controls.Add(this.radioButton1);
@@ -124,37 +118,6 @@ namespace Compartment
             this.radioButtonPsychoPy.TabStop = true;
             this.radioButtonPsychoPy.Text = "PsychoPyエンジン";
             this.radioButtonPsychoPy.UseVisualStyleBackColor = true;
-            this.radioButtonPsychoPy.CheckedChanged += new System.EventHandler(this.radioButtonPsychoPy_CheckedChanged);
-            //
-            // labelScriptPath
-            //
-            this.labelScriptPath.AutoSize = true;
-            this.labelScriptPath.Font = new System.Drawing.Font("游ゴシック", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelScriptPath.Location = new System.Drawing.Point(120, 290);
-            this.labelScriptPath.Name = "labelScriptPath";
-            this.labelScriptPath.Size = new System.Drawing.Size(120, 19);
-            this.labelScriptPath.TabIndex = 5;
-            this.labelScriptPath.Text = "Pythonスクリプト:";
-            //
-            // textBoxScriptPath
-            //
-            this.textBoxScriptPath.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxScriptPath.Location = new System.Drawing.Point(120, 313);
-            this.textBoxScriptPath.Name = "textBoxScriptPath";
-            this.textBoxScriptPath.ReadOnly = true;
-            this.textBoxScriptPath.Size = new System.Drawing.Size(310, 24);
-            this.textBoxScriptPath.TabIndex = 6;
-            //
-            // buttonBrowseScript
-            //
-            this.buttonBrowseScript.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonBrowseScript.Location = new System.Drawing.Point(436, 311);
-            this.buttonBrowseScript.Name = "buttonBrowseScript";
-            this.buttonBrowseScript.Size = new System.Drawing.Size(75, 28);
-            this.buttonBrowseScript.TabIndex = 7;
-            this.buttonBrowseScript.Text = "参照...";
-            this.buttonBrowseScript.UseVisualStyleBackColor = true;
-            this.buttonBrowseScript.Click += new System.EventHandler(this.buttonBrowseScript_Click);
             //
             // labelAssemblyVersion
             // 
@@ -195,8 +158,5 @@ namespace Compartment
         private System.Windows.Forms.RadioButton radioButtonPsychoPy;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Label labelAssemblyVersion;
-        private System.Windows.Forms.Label labelScriptPath;
-        private System.Windows.Forms.TextBox textBoxScriptPath;
-        private System.Windows.Forms.Button buttonBrowseScript;
     }
 }
