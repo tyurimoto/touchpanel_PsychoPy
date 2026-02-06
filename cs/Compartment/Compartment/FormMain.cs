@@ -103,61 +103,70 @@ namespace Compartment
             this.Enabled = false;
             this.Refresh();
 
-            if (Program.EnableNewEngine)
+            switch (Program.SelectedEngine)
             {
-                try
-                {
-                    formScript = new FormScript();
-                    formScript.formParent = this;
-                    userControlMainOnFormMain.buttonBlockProgramming.Visible = true;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                //formScript.Show();
-
-                //以前の状態復帰
-                try
-                {
-                    //** ↓2025/01 多層化対応↓ **//
-                    //ucOperationDataStore = new UcOperationDataStore();
-
-                    // データの読み込み
-                    List<string> ids = ucOperationDataStore.GetIDs();
-                    foreach (string id in ids)
+                case Program.EEngineType.BlockProgramming:
+                    try
                     {
-                        FileRelatedActionParam fileRelatedActionParams = ucOperationDataStore.GetEntry(id);
-                        fileRelatedActionParams.UpdateActionParam();
-                        if (fileRelatedActionParams != null)
+                        formScript = new FormScript();
+                        formScript.formParent = this;
+                        userControlMainOnFormMain.buttonBlockProgramming.Visible = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    //formScript.Show();
+
+                    //以前の状態復帰
+                    try
+                    {
+                        //** ↓2025/01 多層化対応↓ **//
+                        //ucOperationDataStore = new UcOperationDataStore();
+
+                        // データの読み込み
+                        List<string> ids = ucOperationDataStore.GetIDs();
+                        foreach (string id in ids)
                         {
-                            uob.JsonToOperationProc(id, fileRelatedActionParams.ActionParams);
-                            uob.OperationProcToJson(id, fileRelatedActionParams.FilePath);
+                            FileRelatedActionParam fileRelatedActionParams = ucOperationDataStore.GetEntry(id);
+                            fileRelatedActionParams.UpdateActionParam();
+                            if (fileRelatedActionParams != null)
+                            {
+                                uob.JsonToOperationProc(id, fileRelatedActionParams.ActionParams);
+                                uob.OperationProcToJson(id, fileRelatedActionParams.FilePath);
+                            }
                         }
+
+                        //if (File.Exists("latestOperationProc.json"))
+                        //{
+                        //    string latestJsonFilePath = "latestOperationProc.json";
+                        //    var json = File.ReadAllText(latestJsonFilePath);
+                        //    if (json != "")
+                        //    {
+                        //        uob.JsonToOperationProc(json);
+                        //    }
+
+                        //}
+                        //** ↑2025/01 多層化対応↑ **//
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
 
-                    //if (File.Exists("latestOperationProc.json"))
-                    //{
-                    //    string latestJsonFilePath = "latestOperationProc.json";
-                    //    var json = File.ReadAllText(latestJsonFilePath);
-                    //    if (json != "")
-                    //    {
-                    //        uob.JsonToOperationProc(json);
-                    //    }
+                    HighlightScriptSetting(true);
+                    break;
 
-                    //}
-                    //** ↑2025/01 多層化対応↑ **//
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                case Program.EEngineType.PsychoPy:
+                    // PsychoPyエンジンはFormScriptやBlock Programmingボタン不要
+                    userControlMainOnFormMain.buttonBlockProgramming.Visible = false;
+                    System.Diagnostics.Debug.WriteLine("[PsychoPy] Engine selected - API server mode");
+                    break;
 
-                HighlightScriptSetting(true);
-            }
-            else
-            {
-                userControlMainOnFormMain.buttonBlockProgramming.Visible = false;
+                case Program.EEngineType.OldEngine:
+                default:
+                    userControlMainOnFormMain.buttonBlockProgramming.Visible = false;
+                    break;
             }
 
             foreach (var screen in System.Windows.Forms.Screen.AllScreens)
@@ -766,9 +775,8 @@ namespace Compartment
 
             opCollection.callbackMessageDebug("アプリ終了");
 
-            if (Program.EnableNewEngine)
+            if (Program.SelectedEngine == Program.EEngineType.BlockProgramming)
             {
-
                 try
                 {
                     formScript?.Close();
@@ -813,16 +821,25 @@ namespace Compartment
 
             Action M_OperationProc = () => { };
 
-            UcOperationInternal ucOperationInternal = new UcOperationInternal(this);
-            if (Program.EnableNewEngine)
+            switch (Program.SelectedEngine)
             {
-                System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using NEW engine (UcOperationInternal)");
-                M_OperationProc = () => { ucOperationInternal.OnOperationStateMachineProc(); };
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using OLD engine (UcOperation)");
-                M_OperationProc = () => { OnOperationStateMachineProc(); };
+                case Program.EEngineType.BlockProgramming:
+                    UcOperationInternal ucOperationInternal = new UcOperationInternal(this);
+                    M_OperationProc = () => { ucOperationInternal.OnOperationStateMachineProc(); };
+                    System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using Block Programming engine");
+                    break;
+
+                case Program.EEngineType.PsychoPy:
+                    UcOperationPsychoPy ucOperationPsychoPy = new UcOperationPsychoPy(this);
+                    M_OperationProc = () => { ucOperationPsychoPy.OnOperationStateMachineProc(); };
+                    System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using PsychoPy engine");
+                    break;
+
+                case Program.EEngineType.OldEngine:
+                default:
+                    M_OperationProc = () => { OnOperationStateMachineProc(); };
+                    System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using Old engine");
+                    break;
             }
 #if BG_WORKER
             System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] BG_WORKER is DEFINED - using background worker loop");

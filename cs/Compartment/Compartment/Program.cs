@@ -3,10 +3,17 @@ using System.Windows.Forms;
 
 namespace Compartment
 {
+    public enum EEngineType
+    {
+        OldEngine = 0,           // 旧エンジン
+        BlockProgramming = 1,    // ブロックプログラムエンジン
+        PsychoPy = 2            // PsychoPyエンジン
+    }
+
     static class Program
     {
-
-        public static bool EnableNewEngine = false;
+        // デフォルトをPsychoPyに設定（ユーザー要望）
+        public static EEngineType SelectedEngine = EEngineType.PsychoPy;
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>

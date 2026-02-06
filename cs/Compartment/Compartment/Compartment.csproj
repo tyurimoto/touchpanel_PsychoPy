@@ -350,6 +350,7 @@
     <Compile Include="UcOperationBlock.cs" />
     <Compile Include="UcOperationIf.cs" />
     <Compile Include="UcOperationInternal.cs" />
+    <Compile Include="UcOperationPsychoPy.cs" />
     <Compile Include="UcOperationSub.cs" />
     <Compile Include="UcPreferencesTab.cs" />
     <Compile Include="SelectFileList.cs">

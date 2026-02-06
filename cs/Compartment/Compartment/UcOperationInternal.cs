@@ -79,12 +79,6 @@ namespace Compartment
         /// </summary>
         public void OnOperationStateMachineProc()
         {
-            // ExternalControlモードでは状態機械を無効化
-            if (PreferencesDatOriginal.OpeTypeOfTask == ECpTask.ExternalControl.ToString())
-            {
-                return;
-            }
-
             // デバッグ：状態とコマンドを定期的にログ出力（大量出力に注意）
             // 1秒に1回だけログを出力
             // 注意：opCollection.Command は読み取ると Nop にリセットされるので、診断ログでは読まない

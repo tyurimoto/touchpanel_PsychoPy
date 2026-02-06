@@ -34,6 +34,7 @@ namespace Compartment
             this.button1 = new System.Windows.Forms.Button();
             this.radioButtonBlockEngine = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButtonPsychoPy = new System.Windows.Forms.RadioButton();
             this.labelAssemblyVersion = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +44,7 @@ namespace Compartment
             this.groupBox1.Controls.Add(this.labelAssemblyVersion);
             this.groupBox1.Controls.Add(this.labelVersion);
             this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.radioButtonPsychoPy);
             this.groupBox1.Controls.Add(this.radioButtonBlockEngine);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -50,7 +52,7 @@ namespace Compartment
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(533, 363);
+            this.groupBox1.Size = new System.Drawing.Size(533, 450);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "エンジン選択";
@@ -67,9 +69,9 @@ namespace Compartment
             this.labelVersion.Text = "Base Version";
             // 
             // button1
-            // 
+            //
             this.button1.Font = new System.Drawing.Font("游ゴシック", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button1.Location = new System.Drawing.Point(325, 252);
+            this.button1.Location = new System.Drawing.Point(325, 350);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 71);
@@ -92,7 +94,7 @@ namespace Compartment
             this.radioButtonBlockEngine.UseVisualStyleBackColor = true;
             // 
             // radioButton1
-            // 
+            //
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.radioButton1.Location = new System.Drawing.Point(94, 96);
@@ -103,7 +105,20 @@ namespace Compartment
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "旧エンジン";
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
+            //
+            // radioButtonPsychoPy
+            //
+            this.radioButtonPsychoPy.AutoSize = true;
+            this.radioButtonPsychoPy.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.radioButtonPsychoPy.Location = new System.Drawing.Point(94, 250);
+            this.radioButtonPsychoPy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radioButtonPsychoPy.Name = "radioButtonPsychoPy";
+            this.radioButtonPsychoPy.Size = new System.Drawing.Size(200, 31);
+            this.radioButtonPsychoPy.TabIndex = 2;
+            this.radioButtonPsychoPy.TabStop = true;
+            this.radioButtonPsychoPy.Text = "PsychoPyエンジン";
+            this.radioButtonPsychoPy.UseVisualStyleBackColor = true;
+            //
             // labelAssemblyVersion
             // 
             this.labelAssemblyVersion.AutoSize = true;
@@ -116,10 +131,10 @@ namespace Compartment
             this.labelAssemblyVersion.Text = "Ver.0.0.0.0";
             // 
             // FormSelectEngine
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 393);
+            this.ClientSize = new System.Drawing.Size(561, 480);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -140,6 +155,7 @@ namespace Compartment
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton radioButtonBlockEngine;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButtonPsychoPy;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Label labelAssemblyVersion;
     }

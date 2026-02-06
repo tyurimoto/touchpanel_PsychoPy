@@ -2130,7 +2130,6 @@ namespace Compartment
                         userControlPreferencesTabOnFormMain.comboBoxTypeOfTask.Items.Add(ECpTask.DelayMatch.ToString());
                         userControlPreferencesTabOnFormMain.comboBoxTypeOfTask.Items.Add(ECpTask.TrainingEasy.ToString());
                         userControlPreferencesTabOnFormMain.comboBoxTypeOfTask.Items.Add(ECpTask.UnConditionalFeeding.ToString());
-                        userControlPreferencesTabOnFormMain.comboBoxTypeOfTask.Items.Add(ECpTask.ExternalControl.ToString());
                         // 設定が異常の時、Trainingとする
                         if (opImage.ConvertStringToCpTask(preferencesDatTemp.OpeTypeOfTask, out eCpTaskTypeOfTask) != true)
                         {

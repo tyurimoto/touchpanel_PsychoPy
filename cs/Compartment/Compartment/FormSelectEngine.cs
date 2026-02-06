@@ -13,7 +13,7 @@ namespace Compartment
             string subVersion = "c";
 
             InitializeComponent();
-            radioButtonBlockEngine.Checked = true;
+            radioButtonPsychoPy.Checked = true;  // デフォルトをPsychoPyに変更
 
             // 対応ケージ判別表示
             labelVersion.Text = "A-Cage Version with eDoor&&CAM Multi ID";
@@ -26,13 +26,17 @@ namespace Compartment
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (radioButtonBlockEngine.Checked)
+            if (radioButtonPsychoPy.Checked)
             {
-                Program.EnableNewEngine = true;
+                Program.SelectedEngine = Program.EEngineType.PsychoPy;
             }
-            else
+            else if (radioButtonBlockEngine.Checked)
             {
-                Program.EnableNewEngine = false;
+                Program.SelectedEngine = Program.EEngineType.BlockProgramming;
+            }
+            else // radioButton1 (Old Engine)
+            {
+                Program.SelectedEngine = Program.EEngineType.OldEngine;
             }
             Close();
         }

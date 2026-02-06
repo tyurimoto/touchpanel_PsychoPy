@@ -593,13 +593,6 @@ namespace Compartment
                 System.Diagnostics.Debug.WriteLine($"EnableDebugMode: {preferencesDatOriginal.EnableDebugMode}");
                 System.Diagnostics.Debug.WriteLine($"backgroundWorker1.IsBusy: {backgroundWorker1.IsBusy}");
 
-                // ExternalControlモード時、EventLoggerを有効化
-                if (preferencesDatOriginal.OpeTypeOfTask == ECpTask.ExternalControl.ToString())
-                {
-                    _hardwareService?.EventLogger.Enable();
-                    System.Diagnostics.Debug.WriteLine("[ExternalControl] EventLogger enabled");
-                }
-
                 if (!backgroundWorker1.IsBusy)
                 {
                     System.Diagnostics.Debug.WriteLine("Starting backgroundWorker1...");
@@ -620,13 +613,6 @@ namespace Compartment
             userControlOperationOnFormMain.buttonStop.Click += (sender, e) =>
             {
                 setCommand(OpCollection.ECommand.Stop);
-
-                // ExternalControlモード時、EventLoggerを無効化
-                if (preferencesDatOriginal.OpeTypeOfTask == ECpTask.ExternalControl.ToString())
-                {
-                    _hardwareService?.EventLogger.Disable();
-                    System.Diagnostics.Debug.WriteLine("[ExternalControl] EventLogger disabled");
-                }
             };
 
             // 緊急停止ボタン
@@ -836,14 +822,19 @@ namespace Compartment
                 userControlOperationOnFormMain.textBoxStatusOnUcOperation.ResetText();
 
                 userControlOperationOnFormMain.textBoxSettingCompartmentNoOnUcOperation.Text = preferencesDatOriginal.CompartmentNo.ToString();
-                //Blockモードの時はそのように表示
-                if (Program.EnableNewEngine)
+                //エンジンモードに応じて表示
+                switch (Program.SelectedEngine)
                 {
-                    userControlOperationOnFormMain.textBoxSettingTypeOfTaskOnUcOperation.Text = "Block Programming";
-                }
-                else
-                {
-                    userControlOperationOnFormMain.textBoxSettingTypeOfTaskOnUcOperation.Text = preferencesDatOriginal.OpeTypeOfTask;
+                    case Program.EEngineType.BlockProgramming:
+                        userControlOperationOnFormMain.textBoxSettingTypeOfTaskOnUcOperation.Text = "Block Programming";
+                        break;
+                    case Program.EEngineType.PsychoPy:
+                        userControlOperationOnFormMain.textBoxSettingTypeOfTaskOnUcOperation.Text = "PsychoPy";
+                        break;
+                    case Program.EEngineType.OldEngine:
+                    default:
+                        userControlOperationOnFormMain.textBoxSettingTypeOfTaskOnUcOperation.Text = preferencesDatOriginal.OpeTypeOfTask;
+                        break;
                 }
                 userControlOperationOnFormMain.textBoxSettingNumberOfTrialOnUcOperation.Text = preferencesDatOriginal.OpeNumberOfTrial.ToString();
 
