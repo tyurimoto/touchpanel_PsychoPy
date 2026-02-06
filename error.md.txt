@@ -1,7 +1,53 @@
-C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy>  curl -X POST http://localhost:5000/api/debug/sensor/set -H "Content-Type: application/json" -d "{\"sensor\":\"entrance\",\"state\":true}"
-{"success":true,"sensor":"entrance","state":true,"timestamp":"2026-02-04T15:15:25.1386693+09:00"}
-C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy>  curl -X POST http://localhost:5000/api/debug/rfid/set -H "Content-Type: application/json" -d "{\"id\":\"1234567890123456\"}"
-{"roomId":"0","success":true,"id":"1234567890123456","timestamp":"2026-02-04T15:15:37.317917+09:00"}
-C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy>  curl http://localhost:5000/api/debug/sensors/all
-{"roomId":"0","sensors":{"entrance":true,"exit":false,"stay":false,"doorOpen":false,"doorClose":true,"leverIn":true,"leverOut":false,"leverSw":false},"timestamp":"2026-02-04T15:16:09.807363+09:00"}
-C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy>
+重大度レベル	コード	説明	プロジェクト	ファイル	行	抑制状態
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormSelectEngine.cs	39	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	108	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	160	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	166	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	778	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	826	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	832	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	838	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormSelectEngine.cs	31	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormSelectEngine.cs	35	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	828	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	831	
+エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	834	
+エラー (アクティブ)	CS0117	'ECpTask' に 'ExternalControl' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	1093	
+エラー (アクティブ)	CS0117	'Program' に 'EnableNewEngine' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperationInternal.cs	310	
+エラー (アクティブ)	CS0122	'FormMain._hardwareService' はアクセスできない保護レベルになっています	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperationPsychoPy.cs	40	
+エラー (アクティブ)	CS0122	'FormMain._hardwareService' はアクセスできない保護レベルになっています	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperationPsychoPy.cs	48	
+エラー (アクティブ)	CS0006	メタデータ ファイル 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Compartment.exe' が見つかりませんでした	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\CSC	1	
+警告		参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。	Compartment			
+警告		"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。	Compartment			
+警告		参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Svg' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Memory' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Fizzler' が見つかりませんでした。	Compartment			
+警告		"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。	Compartment			
+警告		参照コンポーネント 'System.Buffers' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。	Compartment			
+警告		参照コンポーネント 'MccDaq' が見つかりませんでした。	Compartment			
+警告		"System.Runtime.CompilerServices.Unsafe" の異なるバージョン間で、解決できない競合が見つかりました。
+"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" と "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間で競合が発生しました。
+    プライマリであるため、"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" が選択されました。"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" はプライマリではありませんでした。
+    "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" [C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll] に依存する参照です。
+        C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll
+          参照 "C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll" の原因となったプロジェクト ファイルの項目インクルード。
+            System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL
+    "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" [] に依存しているか、統合されている参照。
+        C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll
+          参照 "C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll" の原因となったプロジェクト ファイルの項目インクルード。
+            System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL
+            LibVLCSharp, Version=3.6.8.0, Culture=neutral, processorArchitecture=MSIL
+            Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL	CompartmentTests			
