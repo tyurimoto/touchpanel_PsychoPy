@@ -1,146 +1,46 @@
 """
-Compartment Hardware API 簡易テストスクリプト
-PsychoPyなしで動作する最小限のテスト
+Compartment PsychoPy ハイブリッドエンジン 簡易テストスクリプト
 
-C#アプリケーションからStartボタンで起動され、
-compartment_hardware.pyを使ってAPI接続確認と基本操作テストを行う
+新プロトコル:
+  起動: python simple_test.py <rfid_value>
+  結果: stdout に RESULT:CORRECT または RESULT:INCORRECT を出力
+  終了: exit code 0 = 正常
+
+C#が入室/退室/給餌を制御し、このスクリプトは課題のみを実行する
 """
 
 import sys
-import os
 import time
-
-# 同じディレクトリのcompartment_hardware.pyをインポート
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from compartment_hardware import CompartmentHardware
-
-
-def test_connection(hw):
-    """API接続テスト"""
-    print("[テスト1] API接続確認...")
-    try:
-        result = hw.check_entrance()
-        print(f"  入室センサー読み取り: {result} -> OK")
-        return True
-    except Exception as e:
-        print(f"  接続失敗: {e}")
-        return False
-
-
-def test_sensors(hw):
-    """センサー読み取りテスト"""
-    print("[テスト2] センサー読み取り...")
-    try:
-        entrance = hw.check_entrance()
-        print(f"  入室センサー: {entrance}")
-
-        exit_sensor = hw.check_exit()
-        print(f"  退室センサー: {exit_sensor}")
-
-        stay = hw.check_stay()
-        print(f"  在室センサー: {stay}")
-
-        lever = hw.check_lever_switch()
-        print(f"  レバースイッチ: {lever}")
-
-        print("  -> OK")
-        return True
-    except Exception as e:
-        print(f"  センサー読み取り失敗: {e}")
-        return False
-
-
-def test_rfid(hw):
-    """RFID読み取りテスト"""
-    print("[テスト3] RFID読み取り...")
-    try:
-        rfid = hw.read_rfid()
-        print(f"  RFID値: {rfid}")
-        print("  -> OK")
-        return True
-    except Exception as e:
-        print(f"  RFID読み取り失敗: {e}")
-        return False
-
-
-def test_door(hw):
-    """ドア状態確認テスト"""
-    print("[テスト4] ドア状態確認...")
-    try:
-        status = hw.get_door_status()
-        print(f"  ドア状態: {status}")
-
-        print("  ドアを開く...")
-        hw.open_door()
-        time.sleep(0.5)
-
-        print("  ドアを閉じる...")
-        hw.close_door()
-        time.sleep(0.5)
-
-        print("  -> OK")
-        return True
-    except Exception as e:
-        print(f"  ドア操作失敗: {e}")
-        return False
-
-
-def test_feed(hw):
-    """給餌テスト"""
-    print("[テスト5] 給餌テスト...")
-    try:
-        feeding = hw.is_feeding()
-        print(f"  給餌状態: {feeding}")
-
-        print("  給餌実行 (500ms)...")
-        result = hw.dispense_feed(duration_ms=500)
-        print(f"  給餌結果: {result}")
-
-        print("  -> OK")
-        return True
-    except Exception as e:
-        print(f"  給餌失敗: {e}")
-        return False
+import random
 
 
 def main():
-    print("=" * 50)
-    print("Compartment Hardware API 簡易テスト")
-    print("=" * 50)
-    print()
+    # RFID引数を受け取り
+    if len(sys.argv) >= 2:
+        rfid = sys.argv[1]
+    else:
+        rfid = "UNKNOWN"
 
-    hw = CompartmentHardware(base_url="http://localhost:5000/api")
+    print(f"=== Compartment Simple Test ===")
+    print(f"RFID: {rfid}")
+    print(f"課題を開始します...")
 
-    tests = [
-        ("API接続", test_connection),
-        ("センサー読み取り", test_sensors),
-        ("RFID読み取り", test_rfid),
-        ("ドア操作", test_door),
-        ("給餌", test_feed),
-    ]
+    # 簡易タスクシミュレーション（3秒待機）
+    print("3秒間の課題シミュレーション中...")
+    time.sleep(3)
 
-    passed = 0
-    failed = 0
+    # ランダムに正解/不正解を決定（テスト用）
+    is_correct = random.random() > 0.3  # 70%の確率で正解
 
-    for name, test_func in tests:
-        try:
-            if test_func(hw):
-                passed += 1
-            else:
-                failed += 1
-        except Exception as e:
-            print(f"  予期しないエラー: {e}")
-            failed += 1
-        print()
+    if is_correct:
+        print("課題結果: 正解")
+        print("RESULT:CORRECT")
+    else:
+        print("課題結果: 不正解")
+        print("RESULT:INCORRECT")
 
-    print("=" * 50)
-    print(f"結果: {passed} 成功 / {failed} 失敗 (全{passed + failed}テスト)")
-    print("=" * 50)
-
-    # テスト完了後、少し待機してからスクリプト終了
-    print("\nテスト完了。5秒後に終了します...")
-    time.sleep(5)
+    print("=== テスト完了 ===")
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main() or 0)

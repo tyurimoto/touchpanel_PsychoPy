@@ -328,6 +328,24 @@ class CompartmentHardware:
             print(f"Error getting task history: {e}")
             return []
 
+    # ===== 結果報告 =====
+
+    @staticmethod
+    def report_result(correct: bool):
+        """
+        課題の結果をC#エンジンに報告する
+
+        ハイブリッドモード用: stdoutに RESULT:CORRECT または RESULT:INCORRECT を出力する
+        C#側がこの出力をパースして給餌判定を行う
+
+        Args:
+            correct: 正解の場合True、不正解の場合False
+        """
+        if correct:
+            print("RESULT:CORRECT")
+        else:
+            print("RESULT:INCORRECT")
+
     # ===== ヘルパーメソッド =====
 
     def debug_simulate_entrance(self) -> bool:
