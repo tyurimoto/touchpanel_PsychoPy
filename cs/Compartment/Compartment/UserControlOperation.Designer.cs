@@ -54,8 +54,6 @@ namespace Compartment
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonDebugEnter = new System.Windows.Forms.Button();
             this.buttonDebugLeave = new System.Windows.Forms.Button();
-            this.textBoxDebugID = new System.Windows.Forms.TextBox();
-            this.buttonDebugSetID = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -344,8 +342,6 @@ namespace Compartment
             this.tableLayoutPanel1.Controls.Add(this.buttonStop, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.buttonDebugEnter, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.buttonDebugLeave, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxDebugID, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.buttonDebugSetID, 0, 9);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1012, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -385,26 +381,6 @@ namespace Compartment
             this.buttonDebugLeave.Text = "Debug退室";
             this.buttonDebugLeave.UseVisualStyleBackColor = true;
             this.buttonDebugLeave.Visible = false;
-            // 
-            // textBoxDebugID
-            // 
-            this.textBoxDebugID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDebugID.Location = new System.Drawing.Point(3, 403);
-            this.textBoxDebugID.Name = "textBoxDebugID";
-            this.textBoxDebugID.Size = new System.Drawing.Size(114, 19);
-            this.textBoxDebugID.TabIndex = 12;
-            this.textBoxDebugID.Visible = false;
-            // 
-            // buttonDebugSetID
-            // 
-            this.buttonDebugSetID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDebugSetID.Location = new System.Drawing.Point(3, 453);
-            this.buttonDebugSetID.Name = "buttonDebugSetID";
-            this.buttonDebugSetID.Size = new System.Drawing.Size(114, 44);
-            this.buttonDebugSetID.TabIndex = 13;
-            this.buttonDebugSetID.Text = "DebugSetID";
-            this.buttonDebugSetID.UseVisualStyleBackColor = true;
-            this.buttonDebugSetID.Visible = false;
             //
             // splitContainer1
             // 
@@ -600,7 +576,5 @@ namespace Compartment
         public System.Windows.Forms.Label labelEpisodeStatus;
         public System.Windows.Forms.Button buttonDebugEnter;
         public System.Windows.Forms.Button buttonDebugLeave;
-        public System.Windows.Forms.TextBox textBoxDebugID;
-        public System.Windows.Forms.Button buttonDebugSetID;
     }
 }

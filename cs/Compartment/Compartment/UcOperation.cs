@@ -641,12 +641,6 @@ namespace Compartment
                 OpFlagRoomOut = true;
             };
 
-            userControlOperationOnFormMain.buttonDebugSetID.Click += (sender, e) =>
-            {
-                opCollection.idCode = userControlOperationOnFormMain.textBoxDebugID.Text;
-                IdCodeInOperation.Value = opCollection.idCode;
-            };
-
             // 戻るボタン
             userControlOperationOnFormMain.buttonBack.Click += (sender, e) =>
             {

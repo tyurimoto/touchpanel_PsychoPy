@@ -57,8 +57,6 @@ namespace Compartment
 #if DEBUG
             userControlOperationOnFormMain.buttonDebugEnter.Visible = true;
             userControlOperationOnFormMain.buttonDebugLeave.Visible = true;
-            userControlOperationOnFormMain.textBoxDebugID.Visible = true;
-            userControlOperationOnFormMain.buttonDebugSetID.Visible = true;
 #endif
 
             //SettingSearcher.SearchSetting();

@@ -296,9 +296,9 @@ namespace Compartment
 
         /// <summary>
         /// RFID読取
-        /// デバッグモード: rfidReaderDummyから読取。設定済みならそのID、未設定ならNO_ID。
-        ///                 デバッグパネルで一度設定すれば毎回の入室で再利用される。
-        /// 通常モード: ハードウェアRFIDリーダーからの読取を待つ。
+        /// デバッグモード: rfidReaderDummyから読取（デバッグパネルで設定）。
+        ///                 一度設定すれば毎回の入室で再利用される。未設定ならNO_ID。
+        /// 通常モード: ハードウェアRFIDリーダーからコールバック経由で読取を待つ。
         /// </summary>
         private bool _rfidWaitMessageShown = false;
 
@@ -307,9 +307,10 @@ namespace Compartment
             // イリーガル退室チェック: RFID読取中に動物が逃げた場合
             if (CheckIllegalExit()) return;
 
+            // コールバック経由で設定されたID（実機: シリアル受信, デバッグ: rfidReaderDummy.SetRFID()）
             _currentRfid = mainForm.Parent.OpeGetIdCode();
 
-            // デバッグモード: rfidReaderDummyからも読んでみる
+            // デバッグモード: コールバック未着の場合、rfidReaderDummyの保持値も確認
             if (string.IsNullOrEmpty(_currentRfid) && PreferencesDatOriginal.EnableDebugMode)
             {
                 if (mainForm.Parent.rfidReaderDummy != null
