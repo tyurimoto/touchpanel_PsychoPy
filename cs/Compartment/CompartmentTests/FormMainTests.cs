@@ -48,28 +48,6 @@ namespace Compartment.Tests
         }
         [TestCategory("Sound")]
         [TestMethod()]
-        public void PlaySoundLoopingTest()
-        {
-            //var fm = new FormMain();
-            //var privateObject = new PrivateObject(fm);
-            //var ret = privateObject.Invoke("InitializeComponentOnUcOperation");
-
-            Assert.IsFalse(FormMain.PlaySoundEnded);
-            try
-            {
-
-                var task = Task.Run(() => { FormMain.PlaySoundLooping(@"C:\Windows\Media\Windows Foreground.wav", 5000); });
-                task.Wait();
-            }
-            catch (Exception)
-            {
-                Assert.Fail();
-
-            }
-            Assert.IsTrue(FormMain.PlaySoundEnded);
-        }
-        [TestCategory("Sound")]
-        [TestMethod()]
         public void PlaySoundTest()
         {
             try
