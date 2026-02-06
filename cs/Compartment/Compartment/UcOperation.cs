@@ -825,13 +825,13 @@ namespace Compartment
                 //エンジンモードに応じて表示
                 switch (Program.SelectedEngine)
                 {
-                    case Program.EEngineType.BlockProgramming:
+                    case EEngineType.BlockProgramming:
                         userControlOperationOnFormMain.textBoxSettingTypeOfTaskOnUcOperation.Text = "Block Programming";
                         break;
-                    case Program.EEngineType.PsychoPy:
+                    case EEngineType.PsychoPy:
                         userControlOperationOnFormMain.textBoxSettingTypeOfTaskOnUcOperation.Text = "PsychoPy";
                         break;
-                    case Program.EEngineType.OldEngine:
+                    case EEngineType.OldEngine:
                     default:
                         userControlOperationOnFormMain.textBoxSettingTypeOfTaskOnUcOperation.Text = preferencesDatOriginal.OpeTypeOfTask;
                         break;

@@ -37,7 +37,7 @@ namespace Compartment
 
         // OWIN Web API server
         private IDisposable _apiServer;
-        private HardwareService _hardwareService;
+        internal HardwareService _hardwareService;
 
         public bool Feeding { get => devFeed.Feeding; }
         public FormMain()
@@ -105,7 +105,7 @@ namespace Compartment
 
             switch (Program.SelectedEngine)
             {
-                case Program.EEngineType.BlockProgramming:
+                case EEngineType.BlockProgramming:
                     try
                     {
                         formScript = new FormScript();
@@ -157,13 +157,13 @@ namespace Compartment
                     HighlightScriptSetting(true);
                     break;
 
-                case Program.EEngineType.PsychoPy:
+                case EEngineType.PsychoPy:
                     // PsychoPyエンジンはFormScriptやBlock Programmingボタン不要
                     userControlMainOnFormMain.buttonBlockProgramming.Visible = false;
                     System.Diagnostics.Debug.WriteLine("[PsychoPy] Engine selected - API server mode");
                     break;
 
-                case Program.EEngineType.OldEngine:
+                case EEngineType.OldEngine:
                 default:
                     userControlMainOnFormMain.buttonBlockProgramming.Visible = false;
                     break;
@@ -775,7 +775,7 @@ namespace Compartment
 
             opCollection.callbackMessageDebug("アプリ終了");
 
-            if (Program.SelectedEngine == Program.EEngineType.BlockProgramming)
+            if (Program.SelectedEngine == EEngineType.BlockProgramming)
             {
                 try
                 {
@@ -823,19 +823,19 @@ namespace Compartment
 
             switch (Program.SelectedEngine)
             {
-                case Program.EEngineType.BlockProgramming:
+                case EEngineType.BlockProgramming:
                     UcOperationInternal ucOperationInternal = new UcOperationInternal(this);
                     M_OperationProc = () => { ucOperationInternal.OnOperationStateMachineProc(); };
                     System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using Block Programming engine");
                     break;
 
-                case Program.EEngineType.PsychoPy:
+                case EEngineType.PsychoPy:
                     UcOperationPsychoPy ucOperationPsychoPy = new UcOperationPsychoPy(this);
                     M_OperationProc = () => { ucOperationPsychoPy.OnOperationStateMachineProc(); };
                     System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using PsychoPy engine");
                     break;
 
-                case Program.EEngineType.OldEngine:
+                case EEngineType.OldEngine:
                 default:
                     M_OperationProc = () => { OnOperationStateMachineProc(); };
                     System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using Old engine");

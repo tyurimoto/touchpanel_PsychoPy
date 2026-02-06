@@ -307,7 +307,7 @@ namespace Compartment
                         opCollection.sequencer.State = OpCollection.Sequencer.EState.PreLeaveCageProc;
                     }
                     // 入室報酬用
-                    else if (mainForm.Parent.OpeGetTypeOfTask() == ECpTask.UnConditionalFeeding && !Program.EnableNewEngine)
+                    else if (mainForm.Parent.OpeGetTypeOfTask() == ECpTask.UnConditionalFeeding && Program.SelectedEngine == EEngineType.OldEngine)
                     {
                         opCollection.callbackMessageNormal(string.Format("入室給餌終了"));
                         opCollection.sequencer.callbackOutputFile(opCollection.sequencer.State); // ファイル出力

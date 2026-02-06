@@ -28,15 +28,15 @@ namespace Compartment
         {
             if (radioButtonPsychoPy.Checked)
             {
-                Program.SelectedEngine = Program.EEngineType.PsychoPy;
+                Program.SelectedEngine = EEngineType.PsychoPy;
             }
             else if (radioButtonBlockEngine.Checked)
             {
-                Program.SelectedEngine = Program.EEngineType.BlockProgramming;
+                Program.SelectedEngine = EEngineType.BlockProgramming;
             }
             else // radioButton1 (Old Engine)
             {
-                Program.SelectedEngine = Program.EEngineType.OldEngine;
+                Program.SelectedEngine = EEngineType.OldEngine;
             }
             Close();
         }
