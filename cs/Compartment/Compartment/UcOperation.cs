@@ -584,29 +584,6 @@ namespace Compartment
                 opCollection.Command = cmd;
             }
 
-            // スクリプト選択ボタン（PsychoPyエンジン時のみ表示）
-            userControlOperationOnFormMain.buttonSelectScript.Visible =
-                (Program.SelectedEngine == EEngineType.PsychoPy);
-            userControlOperationOnFormMain.buttonSelectScript.Click += (sender, e) =>
-            {
-                using (var ofd = new System.Windows.Forms.OpenFileDialog())
-                {
-                    ofd.Title = "Pythonスクリプトを選択";
-                    ofd.Filter = "Pythonファイル (*.py)|*.py|すべてのファイル (*.*)|*.*";
-                    ofd.FilterIndex = 1;
-                    if (!string.IsNullOrEmpty(Program.PsychoPyScriptPath))
-                    {
-                        ofd.InitialDirectory = System.IO.Path.GetDirectoryName(Program.PsychoPyScriptPath);
-                    }
-                    if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        Program.PsychoPyScriptPath = ofd.FileName;
-                        userControlOperationOnFormMain.buttonSelectScript.Text =
-                            System.IO.Path.GetFileName(ofd.FileName);
-                    }
-                }
-            };
-
             // 開始ボタン
             userControlOperationOnFormMain.buttonStart.Click += (sender, e) =>
             {

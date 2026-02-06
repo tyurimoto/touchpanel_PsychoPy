@@ -99,6 +99,34 @@ namespace Compartment
 
             };
 
+            // エンジン別ボタン表示制御
+            // PsychoPy: Script...あり, Block Programmingなし
+            // Block:    Script...なし, Block Programmingあり
+            // 旧:       両方なし
+            userControlMainOnFormMain.buttonSelectScript.Visible =
+                (Program.SelectedEngine == EEngineType.PsychoPy);
+            userControlMainOnFormMain.buttonBlockProgramming.Visible =
+                (Program.SelectedEngine == EEngineType.BlockProgramming);
+            userControlMainOnFormMain.buttonSelectScript.Click += (object sender, EventArgs e) =>
+            {
+                using (var ofd = new System.Windows.Forms.OpenFileDialog())
+                {
+                    ofd.Title = "Pythonスクリプトを選択";
+                    ofd.Filter = "Pythonファイル (*.py)|*.py|すべてのファイル (*.*)|*.*";
+                    ofd.FilterIndex = 1;
+                    if (!string.IsNullOrEmpty(Program.PsychoPyScriptPath))
+                    {
+                        ofd.InitialDirectory = System.IO.Path.GetDirectoryName(Program.PsychoPyScriptPath);
+                    }
+                    if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        Program.PsychoPyScriptPath = ofd.FileName;
+                        userControlMainOnFormMain.buttonSelectScript.Text =
+                            "Script: " + System.IO.Path.GetFileName(ofd.FileName);
+                    }
+                }
+            };
+
             // デバッグモードチェックボックスのイベントハンドラ
             userControlMainOnFormMain.checkBoxEnableDebugMode.CheckedChanged += (object sender, EventArgs e) =>
             {
