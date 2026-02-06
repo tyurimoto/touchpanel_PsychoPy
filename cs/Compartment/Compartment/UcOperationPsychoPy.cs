@@ -205,8 +205,8 @@ namespace Compartment
             if (mainForm.Parent.OpFlagOpenDoor)
             {
                 // エラーチェック
-                if (mainForm.Parent.OpResultOpenDoor != EDeviceResult.None
-                    && mainForm.Parent.OpResultOpenDoor != EDeviceResult.Ok)
+                if (mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.None
+                    && mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.Done)
                 {
                     if (!PreferencesDatOriginal.IgnoreDoorError)
                     {
@@ -298,8 +298,8 @@ namespace Compartment
             if (mainForm.Parent.OpFlagCloseDoor)
             {
                 // エラーチェック
-                if (mainForm.Parent.OpResultCloseDoor != EDeviceResult.None
-                    && mainForm.Parent.OpResultCloseDoor != EDeviceResult.Ok)
+                if (mainForm.Parent.OpResultCloseDoor != FormMain.EDeviceResult.None
+                    && mainForm.Parent.OpResultCloseDoor != FormMain.EDeviceResult.Done)
                 {
                     if (!PreferencesDatOriginal.IgnoreDoorError)
                     {
@@ -583,8 +583,8 @@ namespace Compartment
 
             if (mainForm.Parent.OpFlagOpenDoor)
             {
-                if (mainForm.Parent.OpResultOpenDoor != EDeviceResult.None
-                    && mainForm.Parent.OpResultOpenDoor != EDeviceResult.Ok)
+                if (mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.None
+                    && mainForm.Parent.OpResultOpenDoor != FormMain.EDeviceResult.Done)
                 {
                     if (!PreferencesDatOriginal.IgnoreDoorError)
                     {
