@@ -244,23 +244,31 @@ namespace Compartment
         /// <summary>
         /// RFID読取
         /// </summary>
+        private bool _rfidWaitMessageShown = false;
         private void PhaseReadRFID()
         {
             _currentRfid = mainForm.Parent.OpeGetIdCode();
 
             if (string.IsNullOrEmpty(_currentRfid))
             {
-                if (PreferencesDatOriginal.EnableNoIDOperation)
+                if (PreferencesDatOriginal.EnableNoIDOperation
+                    || PreferencesDatOriginal.EnableDebugMode)
                 {
                     _currentRfid = "NO_ID";
-                    Debug.WriteLine("[PsychoPy] No RFID, EnableNoIDOperation=true, using NO_ID");
+                    Debug.WriteLine("[PsychoPy] No RFID, using NO_ID");
                 }
                 else
                 {
-                    // RFIDが読めない場合は繰り返しチェック（次のtickで再度チェック）
+                    // RFID待ちメッセージを1回だけ表示
+                    if (!_rfidWaitMessageShown)
+                    {
+                        opCollection.callbackMessageNormal("RFID読取待ち...");
+                        _rfidWaitMessageShown = true;
+                    }
                     return;
                 }
             }
+            _rfidWaitMessageShown = false;
 
             Debug.WriteLine("[PsychoPy] RFID: " + _currentRfid);
             opCollection.idCode = _currentRfid;
