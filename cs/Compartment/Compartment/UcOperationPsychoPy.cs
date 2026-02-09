@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -12,8 +13,8 @@ namespace Compartment
     /// C#が入室/退室/給餌のフレームワークを制御し、Pythonは課題のみ実行する
     ///
     /// フロー:
-    /// C#:     入室検知 → RFID読取 → ドア閉 → Python起動 → 結果受取 → 給餌判定 → ドア開 → 退室検知 → ループ
-    /// Python: 課題だけ実行 → stdout に RESULT:CORRECT or RESULT:INCORRECT を出力 → 終了
+    /// C#:     入室検知 → RFID読取 → ドア閉 → Python起動 → [trial毎: 結果受取 → 給餌 → CONTINUE送信] → SESSION_END → ドア開 → 退室検知 → ループ
+    /// Python: 各trial毎に TRIAL_RESULT:CORRECT/INCORRECT/TIMEOUT を出力 → stdin で CONTINUE 待ち → 全trial完了で SESSION_END → 終了
     /// </summary>
     class UcOperationPsychoPy
     {
@@ -30,6 +31,8 @@ namespace Compartment
             WaitDoorClose,
             StartPython,
             WaitForPython,
+            TrialFeeding,
+            WaitTrialFeedComplete,
             ParseResult,
             Feeding,
             WaitFeedComplete,
@@ -56,6 +59,7 @@ namespace Compartment
         private volatile bool _pythonExited = false;
         private volatile int _pythonExitCode = 0;
         private string _currentRfid = "";
+        private ConcurrentQueue<string> _trialResultQueue = new ConcurrentQueue<string>();
         private Stopwatch _phaseTimer = new Stopwatch();
         private Stopwatch _doorTimer = new Stopwatch();
         private const int DOOR_TIMEOUT_MS = 30000; // ドア操作の安全タイムアウト（30秒）
@@ -111,6 +115,12 @@ namespace Compartment
                     break;
                 case EPhase.WaitForPython:
                     PhaseWaitForPython();
+                    break;
+                case EPhase.TrialFeeding:
+                    PhaseTrialFeeding();
+                    break;
+                case EPhase.WaitTrialFeedComplete:
+                    PhaseWaitTrialFeedComplete();
                     break;
                 case EPhase.ParseResult:
                     PhaseParseResult();
@@ -444,13 +454,17 @@ namespace Compartment
                 _pythonExited = false;
                 _pythonExitCode = 0;
 
+                // キューをリセット
+                while (_trialResultQueue.TryDequeue(out _)) { }
+
                 _pythonProcess = new Process();
                 _pythonProcess.StartInfo.FileName = "python";
-                _pythonProcess.StartInfo.Arguments = "\"" + scriptPath + "\" " + _currentRfid;
+                _pythonProcess.StartInfo.Arguments = "-u \"" + scriptPath + "\" " + _currentRfid;
                 _pythonProcess.StartInfo.WorkingDirectory = Path.GetDirectoryName(scriptPath);
                 _pythonProcess.StartInfo.UseShellExecute = false;
                 _pythonProcess.StartInfo.RedirectStandardOutput = true;
                 _pythonProcess.StartInfo.RedirectStandardError = true;
+                _pythonProcess.StartInfo.RedirectStandardInput = true;
                 _pythonProcess.StartInfo.CreateNoWindow = true;
 
                 _pythonProcess.OutputDataReceived += (sender, e) =>
@@ -461,6 +475,12 @@ namespace Compartment
                         lock (_stdoutBuffer)
                         {
                             _stdoutBuffer.AppendLine(e.Data);
+                        }
+
+                        // per-trial結果またはセッション終了をキューに追加
+                        if (e.Data.StartsWith("TRIAL_RESULT:") || e.Data == "SESSION_END")
+                        {
+                            _trialResultQueue.Enqueue(e.Data);
                         }
                     }
                 };
@@ -512,35 +532,84 @@ namespace Compartment
         }
 
         /// <summary>
-        /// Pythonプロセスの終了を待つ + イリーガル退室チェック
+        /// Python実行中: per-trial結果を受信 → 給餌判定 → CONTINUE送信 のループ
+        /// SESSION_END受信で全trial完了 → ParseResultへ
         /// </summary>
         private void PhaseWaitForPython()
         {
             // イリーガル退室チェック
             if (CheckIllegalExit()) return;
 
-            if (_pythonExited)
+            // trial結果キューをチェック
+            if (_trialResultQueue.TryDequeue(out string trialResult))
             {
-                // 重要: Process.Exited は非同期I/Oコールバック完了前に発火する可能性がある。
-                // WaitForExit() (タイムアウトなし) を呼ぶことで、全ての OutputDataReceived/
-                // ErrorDataReceived コールバックの完了を保証してからstdoutを読む。
-                try
+                if (trialResult == "SESSION_END")
                 {
-                    _pythonProcess?.WaitForExit();
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("[PsychoPy] WaitForExit after Exited failed: " + ex.Message);
+                    // 全trial完了 → Python終了を待ってからParseResultへ
+                    Debug.WriteLine("[PsychoPy] SESSION_END received, waiting for Python exit");
+                    // PythonはSESSION_END出力後すぐに終了するので少し待つ
+                    if (_pythonExited)
+                    {
+                        try { _pythonProcess?.WaitForExit(); } catch { }
+                        mainForm.Parent.EpisodeMode.Value = false;
+                        _phase = EPhase.ParseResult;
+                    }
+                    else
+                    {
+                        // まだ終了していない場合はキューに戻して次のtickで再試行
+                        _trialResultQueue.Enqueue(trialResult);
+                    }
+                    return;
                 }
 
-                Debug.WriteLine("[PsychoPy] Python finished, moving to parse");
+                // per-trial結果処理
+                opCollection.trialCount++;
+                opCollection.callbackSetUiCurentNumberOfTrial(opCollection.trialCount);
+
+                if (trialResult == "TRIAL_RESULT:CORRECT")
+                {
+                    Debug.WriteLine("[PsychoPy] Trial " + opCollection.trialCount + ": CORRECT → feeding");
+                    opCollection.callbackMessageNormal("Trial " + opCollection.trialCount + ": 正解 → 給餌");
+                    opCollection.taskResultVal = OpCollection.ETaskResult.Ok;
+                    opCollection.dateTimeCorrectTouch = DateTime.Now;
+                    opCollection.flagFeed = false;
+
+                    // CSV出力
+                    opCollection.sequencer.callbackOutputFile(OpCollection.Sequencer.EState.BlockOutput);
+
+                    _phase = EPhase.TrialFeeding;
+                }
+                else
+                {
+                    // INCORRECT or TIMEOUT
+                    Debug.WriteLine("[PsychoPy] Trial " + opCollection.trialCount + ": " + trialResult);
+                    opCollection.callbackMessageNormal("Trial " + opCollection.trialCount + ": 不正解");
+                    opCollection.taskResultVal = OpCollection.ETaskResult.Ng;
+                    opCollection.dateTimeout = DateTime.Now;
+                    opCollection.flagFeed = false;
+
+                    // CSV出力
+                    opCollection.sequencer.callbackOutputFile(OpCollection.Sequencer.EState.BlockOutput);
+
+                    // 給餌なし → 即CONTINUE
+                    SendContinueToPython();
+                }
+                return;
+            }
+
+            // Python異常終了チェック（TRIAL_RESULTもSESSION_ENDも来ずに終了した場合）
+            if (_pythonExited)
+            {
+                try { _pythonProcess?.WaitForExit(); } catch { }
+                Debug.WriteLine("[PsychoPy] Python exited unexpectedly, moving to parse");
                 mainForm.Parent.EpisodeMode.Value = false;
                 _phase = EPhase.ParseResult;
             }
         }
 
         /// <summary>
-        /// Pythonの結果をパース
+        /// Python終了後の処理
+        /// per-trial結果は WaitForPython で処理済み。ここではPython正常終了確認のみ。
         /// </summary>
         private void PhaseParseResult()
         {
@@ -552,71 +621,15 @@ namespace Compartment
                 lock (_stderrBuffer) { stderr = _stderrBuffer.ToString().Trim(); }
                 string userMessage = BuildErrorMessage(_pythonExitCode, stderr);
                 ShowErrorMessageBox(userMessage);
-
-                _pythonProcess = null;
-                // エラーでも次の入室待ちへ続行
-                _phase = EPhase.OpenDoorForExit;
-                return;
             }
-
-            // stdoutからRESULTをパース
-            string stdout;
-            lock (_stdoutBuffer) { stdout = _stdoutBuffer.ToString(); }
-
-            bool isCorrect = false;
-            bool resultFound = false;
-
-            // 最後に出現した RESULT: 行を採用
-            string[] lines = stdout.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-            for (int i = lines.Length - 1; i >= 0; i--)
-            {
-                string line = lines[i].Trim();
-                if (line == "RESULT:CORRECT")
-                {
-                    isCorrect = true;
-                    resultFound = true;
-                    break;
-                }
-                else if (line == "RESULT:INCORRECT")
-                {
-                    isCorrect = false;
-                    resultFound = true;
-                    break;
-                }
-            }
-
-            if (!resultFound)
-            {
-                Debug.WriteLine("[PsychoPy] No RESULT line found in stdout");
-                opCollection.callbackMessageError("Python出力にRESULT行がありません");
-                // RESULT行がない場合はINCORRECTとして扱う
-                isCorrect = false;
-            }
-
-            opCollection.trialCount++;
-            opCollection.callbackSetUiCurentNumberOfTrial(opCollection.trialCount);
 
             _pythonProcess = null;
 
-            if (isCorrect)
-            {
-                Debug.WriteLine("[PsychoPy] Result: CORRECT");
-                opCollection.callbackMessageNormal("課題結果: 正解 (trial " + opCollection.trialCount + ")");
-                opCollection.taskResultVal = OpCollection.ETaskResult.Ok;
-                opCollection.dateTimeCorrectTouch = DateTime.Now;
-                _phase = EPhase.Feeding;
-            }
-            else
-            {
-                Debug.WriteLine("[PsychoPy] Result: INCORRECT");
-                opCollection.callbackMessageNormal("課題結果: 不正解 (trial " + opCollection.trialCount + ")");
-                opCollection.taskResultVal = OpCollection.ETaskResult.Ng;
-                opCollection.dateTimeout = DateTime.Now;
-                _phase = EPhase.OpenDoorForExit;
-            }
+            Debug.WriteLine("[PsychoPy] Session complete, total trials: " + opCollection.trialCount);
+            opCollection.callbackMessageNormal("セッション完了 (全" + opCollection.trialCount + "試行)");
 
-            // CSV出力（Block式: callbackOutputFile で記録）
-            opCollection.sequencer.callbackOutputFile(OpCollection.Sequencer.EState.BlockOutput);
+            // 全trial完了 → 退室ドアへ
+            _phase = EPhase.OpenDoorForExit;
         }
 
         /// <summary>
@@ -662,6 +675,73 @@ namespace Compartment
                 }
 
                 _phase = EPhase.OpenDoorForExit;
+            }
+        }
+
+        /// <summary>
+        /// per-trial給餌（正解時のみ）: PythonにCONTINUEを送信して次のtrialへ
+        /// </summary>
+        private void PhaseTrialFeeding()
+        {
+            opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForReward;
+            opCollection.callbackMessageNormal("給餌中 (trial " + opCollection.trialCount + ")...");
+
+            // FeedLamp ON
+            if (PreferencesDatOriginal.EnableFeedLamp)
+            {
+                mainForm.Parent.OpSetFeedLampOn();
+            }
+
+            // 給餌実行
+            int feedTime = PreferencesDatOriginal.OpeTimeToFeed;
+            mainForm.Parent.OpSetFeedOn(feedTime);
+            opCollection.flagFeed = true;
+
+            Debug.WriteLine("[PsychoPy] Trial feeding started: " + feedTime + "ms");
+            _phase = EPhase.WaitTrialFeedComplete;
+        }
+
+        /// <summary>
+        /// per-trial給餌完了を待つ → CONTINUE送信 → 次のtrial待ちへ
+        /// </summary>
+        private void PhaseWaitTrialFeedComplete()
+        {
+            // イリーガル退室チェック: 給餌中に動物が逃げた場合
+            if (CheckIllegalExit()) return;
+
+            if (mainForm.Parent.OpFlagFeedOn)
+            {
+                Debug.WriteLine("[PsychoPy] Trial feeding complete");
+
+                // FeedLamp OFF
+                if (PreferencesDatOriginal.EnableFeedLamp)
+                {
+                    mainForm.Parent.OpSetFeedLampOff();
+                }
+
+                // 給餌完了 → PythonにCONTINUE送信して次のtrialへ
+                SendContinueToPython();
+                _phase = EPhase.WaitForPython;
+            }
+        }
+
+        /// <summary>
+        /// Pythonの stdin に CONTINUE を送信して次のtrialを開始させる
+        /// </summary>
+        private void SendContinueToPython()
+        {
+            try
+            {
+                if (_pythonProcess != null && !_pythonProcess.HasExited)
+                {
+                    _pythonProcess.StandardInput.WriteLine("CONTINUE");
+                    _pythonProcess.StandardInput.Flush();
+                    Debug.WriteLine("[PsychoPy] Sent CONTINUE to Python");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[PsychoPy] SendContinue failed: " + ex.Message);
             }
         }
 

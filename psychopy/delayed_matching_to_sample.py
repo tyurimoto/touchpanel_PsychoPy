@@ -8,7 +8,9 @@ Delayed Matching to Sample (DMTS) Task for PsychoPy Hybrid Engine
   4. 被験体がサンプルと同じ刺激をタッチすれば正解
 
 C#ハイブリッドエンジン用: 入退室・ドア・給餌はC#が制御。
-本スクリプトは課題のみ実行し、stdout に RESULT:CORRECT / RESULT:INCORRECT を出力して終了する。
+本スクリプトは各trial毎に TRIAL_RESULT:CORRECT/INCORRECT/TIMEOUT を出力し、
+C#からの CONTINUE シグナル（stdin）を待ってから次のtrialへ進む。
+全trial完了後に SESSION_END を出力して終了する。
 """
 
 from psychopy import visual, core, event
@@ -47,8 +49,8 @@ class DMTSTask:
         self.choice_timeout = 10.0       # 選択タイムアウト（秒）
         self.num_choices = 3             # 選択肢の数（サンプル含む）
         self.stimulus_size = 150         # 刺激サイズ（ピクセル）
-        self.feedback_duration = 1.0     # フィードバック表示時間（秒）
-        self.iti_duration = 1.5          # 試行間インターバル（秒）
+        self.feedback_duration = 0.3     # フィードバック表示時間（秒）
+        self.iti_duration = 0.0          # 試行間インターバル（秒）（都度給餌の待ち時間で代替）
 
         # 結果カウンター
         self.trial_count = 0
@@ -213,7 +215,7 @@ class DMTSTask:
         while core.getTime() - start < self.choice_timeout:
             if self.mouse.getPressed()[0]:
                 mouse_pos = self.mouse.getPos()
-                hit_radius = self.stimulus_size / 2 + 30  # 少し余裕を持たせる
+                hit_radius = self.stimulus_size / 2 + 80  # タッチ判定を広めに
 
                 for i, pos in enumerate(positions):
                     if self._check_touch(mouse_pos, pos, hit_radius):
@@ -257,10 +259,16 @@ class DMTSTask:
         self.win.flip()
         core.wait(self.feedback_duration)
 
-        # 試行間インターバル
-        self.background.draw()
-        self.win.flip()
-        core.wait(self.iti_duration)
+        # trial結果をC#に送信
+        if correct:
+            print("TRIAL_RESULT:CORRECT", flush=True)
+        elif responded:
+            print("TRIAL_RESULT:INCORRECT", flush=True)
+        else:
+            print("TRIAL_RESULT:TIMEOUT", flush=True)
+
+        # C#の給餌完了シグナルを待つ（ITIの代わり）
+        sys.stdin.readline()  # "CONTINUE\n" を受信するまでブロック
 
         return correct
 
@@ -300,18 +308,14 @@ class DMTSTask:
             self.feedback_text.height = 60
             self.feedback_text.draw()
             self.win.flip()
-            core.wait(3.0)
+            core.wait(1.0)
 
-            # C#エンジンへの結果報告
-            # 全体の正解率が50%以上ならCORRECT
-            if self.correct_count > 0 and rate >= 50.0:
-                print("RESULT:CORRECT")
-            else:
-                print("RESULT:INCORRECT")
+            # 全trial完了をC#に通知
+            print("SESSION_END", flush=True)
 
         except KeyboardInterrupt:
-            print("\nTask interrupted")
-            print("RESULT:INCORRECT")
+            print("\nTask interrupted", flush=True)
+            print("SESSION_END", flush=True)
 
         finally:
             self.win.close()
