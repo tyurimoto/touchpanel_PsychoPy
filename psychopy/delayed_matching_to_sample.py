@@ -64,6 +64,11 @@ class DMTSTask:
         self._touch_markers = []
         self._scene_drawables = []
 
+        # 入力監視用（タッチパネル診断）
+        self._mon_pos = (0, 0)
+        self._mon_pressed = False
+        self._mon_move_threshold = 5  # ピクセル（これ以上動いたらログ出力）
+
         # PsychoPyウィンドウ
         self.win = visual.Window(
             size=[1920, 1080],
@@ -144,6 +149,27 @@ class DMTSTask:
         if not pressed:
             self._was_pressed = False
         return False, None
+
+    def _monitor_input(self, phase):
+        """マウス/タッチパネルの生入力を常時監視してログ出力。
+        位置変化とボタン状態変化を検出する。"""
+        t = time.perf_counter()
+        pos = self.mouse.getPos()
+        buttons = self.mouse.getPressed()  # [left, middle, right]
+        pressed = bool(buttons[0])
+
+        # ボタン状態変化
+        if pressed != self._mon_pressed:
+            state = "DOWN" if pressed else "UP"
+            print(f"[INPUT] t={t:.3f} phase={phase} button={state} pos=({pos[0]:.0f},{pos[1]:.0f}) buttons={list(buttons)}", flush=True)
+            self._mon_pressed = pressed
+            self._mon_pos = pos
+
+        # 位置変化（ボタン状態変化がなかった場合のみ、移動をチェック）
+        elif abs(pos[0] - self._mon_pos[0]) > self._mon_move_threshold or \
+             abs(pos[1] - self._mon_pos[1]) > self._mon_move_threshold:
+            print(f"[INPUT] t={t:.3f} phase={phase} MOVE pos=({pos[0]:.0f},{pos[1]:.0f}) pressed={pressed}", flush=True)
+            self._mon_pos = pos
 
     def _dist(self, pos1, pos2):
         """2点間距離"""
@@ -252,11 +278,13 @@ class DMTSTask:
 
         # 既にボタンが押されている場合はリリースを待つ
         while self.mouse.getPressed()[0]:
+            self._monitor_input("ready_wait_release")
             core.wait(0.01)
         self._was_pressed = False
 
         # タッチ待ち（画面のどこでもOK）
         while True:
+            self._monitor_input("ready")
             new_press, pos = self._detect_new_press()
             if new_press:
                 self._log_touch("ready", pos, "valid")
@@ -309,6 +337,7 @@ class DMTSTask:
         self._was_pressed = self.mouse.getPressed()[0]
         start = core.getTime()
         while core.getTime() - start < self.sample_duration:
+            self._monitor_input("sample")
             new_press, pos = self._detect_new_press()
             if new_press:
                 self._log_touch("sample", pos, "ignored")
@@ -330,6 +359,7 @@ class DMTSTask:
         self._was_pressed = self.mouse.getPressed()[0]
         start = core.getTime()
         while core.getTime() - start < self.delay_duration:
+            self._monitor_input("delay")
             new_press, pos = self._detect_new_press()
             if new_press:
                 self._log_touch("delay", pos, "ignored")
@@ -370,6 +400,7 @@ class DMTSTask:
         start = core.getTime()
 
         while core.getTime() - start < self.choice_timeout:
+            self._monitor_input("choice")
             new_press, mouse_pos = self._detect_new_press()
 
             if new_press:
@@ -438,6 +469,7 @@ class DMTSTask:
         self._was_pressed = self.mouse.getPressed()[0]
         fb_start = core.getTime()
         while core.getTime() - fb_start < self.feedback_duration:
+            self._monitor_input("feedback")
             new_press, pos = self._detect_new_press()
             if new_press:
                 self._log_touch("feedback", pos, "ignored")

@@ -52,6 +52,7 @@ namespace Compartment
         }
 
         private EPhase _phase = EPhase.Init;
+        private EPhase _lastLoggedPhase = EPhase.Init; // フェーズ遷移ログ用
         private bool _eventLoggerEnabled = false;
         private Process _pythonProcess = null;
         private StringBuilder _stdoutBuffer = new StringBuilder();
@@ -65,6 +66,8 @@ namespace Compartment
         private Stopwatch _timingWatch = new Stopwatch(); // タイミング計測用（Python起動時にリセット）
         private const int DOOR_TIMEOUT_MS = 30000; // ドア操作の安全タイムアウト（30秒）
         private DateTime _monitorStandbyTimer = DateTime.Now;
+        private Stopwatch _rfidTimer = new Stopwatch(); // RFID読取待ち時間計測
+        private long _rfidLastLogMs = 0; // RFID定期ログ用
 
         public UcOperationPsychoPy(FormMain baseForm)
         {
@@ -83,6 +86,13 @@ namespace Compartment
             {
                 if (CheckInteruptStop())
                     return;
+            }
+
+            // フェーズ遷移ログ
+            if (_phase != _lastLoggedPhase)
+            {
+                Debug.WriteLine("[PsychoPy:PHASE] " + _lastLoggedPhase + " -> " + _phase);
+                _lastLoggedPhase = _phase;
             }
 
             switch (_phase)
@@ -271,7 +281,7 @@ namespace Compartment
                     }
                 }
                 // ドアOPEN正常
-                Debug.WriteLine("[PsychoPy] Door opened");
+                Debug.WriteLine("[PsychoPy] Door opened (elapsed: " + _doorTimer.ElapsedMilliseconds + "ms, result: " + mainForm.Parent.OpResultOpenDoor + ")");
                 _phase = EPhase.WaitForEntry;
                 opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForEnterCage;
                 opCollection.callbackMessageNormal("入室待ち...");
@@ -288,12 +298,14 @@ namespace Compartment
                 && PreferencesDatOriginal.EnableMonitorSave)
             {
                 _monitorStandbyTimer = DateTime.Now;
+                Debug.WriteLine("[PsychoPy:MONITOR] PowerOff (standby timeout)");
                 MonitorPower.Monitor.PowerOff();
             }
 
             if (mainForm.Parent.OpFlagRoomIn)
             {
                 // 入室検知時にモニターON
+                Debug.WriteLine("[PsychoPy:MONITOR] PowerOn (entry detected)");
                 MonitorPower.Monitor.PowerOn();
 
                 Debug.WriteLine("[PsychoPy] Entry detected");
@@ -301,6 +313,8 @@ namespace Compartment
                 opCollection.TimeEnterCage = DateTime.Now;
 
                 mainForm.Parent.OpFlagRoomIn = false;
+                _rfidTimer.Restart();
+                _rfidLastLogMs = 0;
                 _phase = EPhase.ReadRFID;
             }
         }
@@ -349,12 +363,19 @@ namespace Compartment
                 if (!_rfidWaitMessageShown)
                 {
                     opCollection.callbackMessageNormal("RFID読取待ち...");
+                    Debug.WriteLine("[PsychoPy:RFID] Waiting for RFID... (IdCode=" + mainForm.Parent.OpeGetIdCode() + ")");
                     _rfidWaitMessageShown = true;
+                }
+                // 5秒ごとに生存ログ
+                if (_rfidTimer.ElapsedMilliseconds - _rfidLastLogMs >= 5000)
+                {
+                    _rfidLastLogMs = _rfidTimer.ElapsedMilliseconds;
+                    Debug.WriteLine("[PsychoPy:RFID] Still waiting... elapsed=" + _rfidTimer.ElapsedMilliseconds + "ms IdCode=" + mainForm.Parent.OpeGetIdCode());
                 }
                 return;
             }
 
-            Debug.WriteLine("[PsychoPy] RFID: " + _currentRfid);
+            Debug.WriteLine("[PsychoPy:RFID] Read: " + _currentRfid + " (elapsed: " + _rfidTimer.ElapsedMilliseconds + "ms)");
             opCollection.idCode = _currentRfid;
             opCollection.callbackSetUiCurrentIdCode(_currentRfid);
             opCollection.callbackMessageNormal("RFID: " + _currentRfid);
@@ -427,7 +448,7 @@ namespace Compartment
                     }
                 }
                 // ドアCLOSE正常
-                Debug.WriteLine("[PsychoPy] Door closed");
+                Debug.WriteLine("[PsychoPy] Door closed (elapsed: " + _doorTimer.ElapsedMilliseconds + "ms, result: " + mainForm.Parent.OpResultCloseDoor + ")");
                 opCollection.callbackMessageNormal("ドアCLOSE正常処理");
                 _phase = EPhase.StartPython;
             }
@@ -826,7 +847,7 @@ namespace Compartment
                     }
                 }
                 // ドアOPEN正常
-                Debug.WriteLine("[PsychoPy] Door opened for exit");
+                Debug.WriteLine("[PsychoPy] Door opened for exit (elapsed: " + _doorTimer.ElapsedMilliseconds + "ms, result: " + mainForm.Parent.OpResultOpenDoor + ")");
                 _phase = EPhase.WaitForExit;
                 opCollection.sequencer.State = OpCollection.Sequencer.EState.WaitingForLeaveCage;
                 opCollection.callbackMessageNormal("退室待ち...");
@@ -891,6 +912,7 @@ namespace Compartment
             }
 
             // モニターON復帰
+            Debug.WriteLine("[PsychoPy:MONITOR] PowerOn (stopping)");
             MonitorPower.Monitor.PowerOn();
 
             // CSV出力ファイルクローズ（Block式に統一）
@@ -916,12 +938,14 @@ namespace Compartment
             OpCollection.ECommand command = opCollection.Command;
             if (command == OpCollection.ECommand.EmergencyStop)
             {
+                Debug.WriteLine("[PsychoPy] EmergencyStop detected in phase: " + _phase);
                 opCollection.sequencer.State = OpCollection.Sequencer.EState.EmergencyStop;
                 _phase = EPhase.Stopping;
                 return true;
             } // 緊急停止
             if (command == OpCollection.ECommand.Stop)
             {
+                Debug.WriteLine("[PsychoPy] Stop detected in phase: " + _phase);
                 opCollection.sequencer.State = OpCollection.Sequencer.EState.Stop;
                 _phase = EPhase.Stopping;
                 return true;
