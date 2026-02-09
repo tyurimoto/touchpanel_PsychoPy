@@ -767,7 +767,8 @@ namespace Compartment
             }
 
             // eDoorの停止（BackgroundWorker停止後、他のDispose前に呼ぶ）
-            eDoor?.Dispose();
+            // EDoor.Dispose()は明示的インターフェース実装のためキャストが必要
+            (eDoor as IDisposable)?.Dispose();
 
             ucOperationDataStore?.Dispose();
             camImage?.Dispose();
