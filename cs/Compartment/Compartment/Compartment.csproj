@@ -242,7 +242,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="DevActuator.cs" />
+    <Compile Include="DevActuator.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DevAirPuff.cs" />
     <Compile Include="DevDoor.cs" />
     <Compile Include="DevExt.cs" />

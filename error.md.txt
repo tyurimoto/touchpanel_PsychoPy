@@ -1,53 +1,2768 @@
-重大度レベル	コード	説明	プロジェクト	ファイル	行	抑制状態
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormSelectEngine.cs	39	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	108	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	160	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	166	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	778	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	826	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	832	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormMain.cs	838	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormSelectEngine.cs	31	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\FormSelectEngine.cs	35	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	828	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	831	
-エラー (アクティブ)	CS0117	'Program' に 'EEngineType' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	834	
-エラー (アクティブ)	CS0117	'ECpTask' に 'ExternalControl' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperation.cs	1093	
-エラー (アクティブ)	CS0117	'Program' に 'EnableNewEngine' の定義がありません	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperationInternal.cs	310	
-エラー (アクティブ)	CS0122	'FormMain._hardwareService' はアクセスできない保護レベルになっています	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperationPsychoPy.cs	40	
-エラー (アクティブ)	CS0122	'FormMain._hardwareService' はアクセスできない保護レベルになっています	Compartment	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\UcOperationPsychoPy.cs	48	
-エラー (アクティブ)	CS0006	メタデータ ファイル 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Compartment.exe' が見つかりませんでした	CompartmentTests	C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\CompartmentTests\CSC	1	
-警告		参照コンポーネント 'System.Text.Encoding.CodePages' が見つかりませんでした。	Compartment			
-警告		"System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 上の明示的なバインド リダイレクトが、自動生成されたバインド リダイレクトと競合します。それをアプリケーション構成ファイルから削除するか、自動生成されたバインド リダイレクトを無効にすることを考慮してください。ビルドはそれを "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />" で置き換えます。	Compartment			
-警告		参照コンポーネント 'GongSolutions.WPF.DragDrop' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Collections.Immutable' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Threading.Tasks.Extensions' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.Scripting' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Reflection.Metadata' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Svg' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Numerics.Vectors' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp.Scripting' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Memory' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.Xaml.Behaviors' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Newtonsoft.Json' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Runtime.CompilerServices.Unsafe' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Fizzler' が見つかりませんでした。	Compartment			
-警告		"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" と "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間の競合を解決する方法がありません。一時的に、"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" を選択します。	Compartment			
-警告		参照コンポーネント 'System.Buffers' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis.CSharp' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'System.Drawing.Common' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'Microsoft.CodeAnalysis' が見つかりませんでした。	Compartment			
-警告		参照コンポーネント 'MccDaq' が見つかりませんでした。	Compartment			
-警告		"System.Runtime.CompilerServices.Unsafe" の異なるバージョン間で、解決できない競合が見つかりました。
-"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" と "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" の間で競合が発生しました。
-    プライマリであるため、"System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" が選択されました。"System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" はプライマリではありませんでした。
-    "System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" [C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll] に依存する参照です。
-        C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll
-          参照 "C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll" の原因となったプロジェクト ファイルの項目インクルード。
-            System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL
-    "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" [] に依存しているか、統合されている参照。
-        C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll
-          参照 "C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll" の原因となったプロジェクト ファイルの項目インクルード。
-            System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL
-            LibVLCSharp, Version=3.6.8.0, Culture=neutral, processorArchitecture=MSIL
-            Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL	CompartmentTests			
+'Compartment.exe' (CLR v4.0.30319: DefaultDomain): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: DefaultDomain): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Compartment.exe' が読み込まれました。シンボルが読み込まれました。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Accessibility\v4.0_4.0.0.0__b03f5f7f11d50a3a\Accessibility.dll' が読み込まれました。含める/除外するの設定でシンボルの読み込みが無効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\mscorlib.resources\v4.0_4.0.0.0_ja_b77a5c561934e089\mscorlib.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Deployment\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Deployment.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Deployment.resources\v4.0_4.0.0.0_ja_b03f5f7f11d50a3a\System.Deployment.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Newtonsoft.Json.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Numerics\v4.0_4.0.0.0__b77a5c561934e089\System.Numerics.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+=================================================
+[BUILD VERIFICATION] FormMain_Load - ビルド日時: 2026-02-09 11:32:11
+=================================================
+[PsychoPy] Engine selected - API server mode
+\\.\DISPLAY1: Device Name: {0}
+Bounds: {X=0,Y=0,Width=1920,Height=1080}
+Type: System.Windows.Forms.Screen
+Working Area: {X=0,Y=0,Width=1920,Height=1080}
+Primary Screen: True
+
+\\.\DISPLAY2: Device Name: {0}
+Bounds: {X=1920,Y=0,Width=1366,Height=768}
+Type: System.Windows.Forms.Screen
+Working Area: {X=1920,Y=0,Width=1366,Height=768}
+Primary Screen: False
+
+Before: formSub.Left:1920 formSub.Top:0 screen.Bounds.Left:1920 Top:0
+After: formFormSub.Left:1920 formFormSub.Top:0 screen.Bounds.Left:1920 Top:0
+formsubFormSub.pictureBoxOnFormSub.Width:1366 formsubFormSub.pictureBoxOnFormSub.Height:768
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'Microsoft.GeneratedCode' が読み込まれました。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_64\PresentationCore\v4.0_4.0.0.0__31bf3856ad364e35\PresentationCore.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\WindowsBase\v4.0_4.0.0.0__31bf3856ad364e35\WindowsBase.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'c:\program files\microsoft visual studio\2022\community\common7\ide\commonextensions\microsoft\xamldiagnostics\Framework\x64\Microsoft.VisualStudio.DesignTools.WpfTap.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Xaml.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\LibVLCSharp.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+スレッド 14216 はコード 0 (0x0) で終了しました。
+Loading C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\libvlc\win-x64\libvlccore.dll
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.resources\v4.0_4.0.0.0_ja_b77a5c561934e089\System.Runtime.Serialization.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+Loading C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\libvlc\win-x64\libvlc.dll
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Discovery\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Discovery.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+   layer   filters  size/strd(dil)      input                output
+   0 conv     32       3 x 3/ 2    416 x 416 x   3 ->  208 x 208 x  32 0.075 BF
+   1 conv     64       3 x 3/ 2    208 x 208 x  32 ->  104 x 104 x  64 0.399 BF
+   2 conv     32       1 x 1/ 1    104 x 104 x  64 ->  104 x 104 x  32 0.044 BF
+   3 route  1 		                           ->  104 x 104 x  64 
+   4 conv     32       1 x 1/ 1    104 x 104 x  64 ->  104 x 104 x  32 0.044 BF
+   5 conv     32       3 x 3/ 1    104 x 104 x  32 ->  104 x 104 x  32 0.199 BF
+   6 conv     32       3 x 3/ 1    104 x 104 x  32 ->  104 x 104 x  32 0.199 BF
+   7 route  2 4 5 6 	                   ->  104 x 104 x 128 
+   8 conv     64       1 x 1/ 1    104 x 104 x 128 ->  104 x 104 x  64 0.177 BF
+   9 max                2x 2/ 2    104 x 104 x  64 ->   52 x  52 x  64 0.001 BF
+  10 conv     64       1 x 1/ 1     52 x  52 x  64 ->   52 x  52 x  64 0.022 BF
+  11 route  9 		                           ->   52 x  52 x  64 
+  12 conv     64       1 x 1/ 1     52 x  52 x  64 ->   52 x  52 x  64 0.022 BF
+  13 conv     64       3 x 3/ 1     52 x  52 x  64 ->   52 x  52 x  64 0.199 BF
+  14 conv     64       3 x 3/ 1     52 x  52 x  64 ->   52 x  52 x  64 0.199 BF
+  15 route  10 12 13 14 	                   ->   52 x  52 x 256 
+  16 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  17 max                2x 2/ 2     52 x  52 x 128 ->   26 x  26 x 128 0.000 BF
+  18 conv    128       1 x 1/ 1     26 x  26 x 128 ->   26 x  26 x 128 0.022 BF
+  19 route  17 		                           ->   26 x  26 x 128 
+  20 conv    128       1 x 1/ 1     26 x  26 x 128 ->   26 x  26 x 128 0.022 BF
+  21 conv    128       3 x 3/ 1     26 x  26 x 128 ->   26 x  26 x 128 0.199 BF
+  22 conv    128       3 x 3/ 1     26 x  26 x 128 ->   26 x  26 x 128 0.199 BF
+  23 route  18 20 21 22 	                   ->   26 x  26 x 512 
+  24 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  25 max                2x 2/ 2     26 x  26 x 256 ->   13 x  13 x 256 0.000 BF
+  26 conv    256       1 x 1/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.022 BF
+  27 route  25 		                           ->   13 x  13 x 256 
+  28 conv    256       1 x 1/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.022 BF
+  29 conv    256       3 x 3/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.199 BF
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Channels\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Channels.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+  30 conv    256       3 x 3/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.199 BF
+  31 route  26 28 29 30 	                   ->   13 x  13 x1024 
+  32 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  33 conv    256       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 256 0.044 BF
+  34 route  32 		                           ->   13 x  13 x 512 
+  35 conv    256       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 256 0.044 BF
+  36 max                5x 5/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.001 BF
+  37 route  35 		                           ->   13 x  13 x 256 
+  38 max                9x 9/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.004 BF
+  39 route  35 		                           ->   13 x  13 x 256 
+  40 max               13x13/ 1     13 x  13 x 256 ->   13 x  13 x 256 0.007 BF
+  41 route  40 38 36 35 	                   ->   13 x  13 x1024 
+  42 conv    256       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 256 0.089 BF
+  43 route  33 42 	                           ->   13 x  13 x 512 
+  44 conv    256       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 256 0.044 BF
+  45 conv    128       1 x 1/ 1     13 x  13 x 256 ->   13 x  13 x 128 0.011 BF
+  46 upsample                 2x    13 x  13 x 128 ->   26 x  26 x 128
+  47 route  24 		                           ->   26 x  26 x 256 
+  48 conv    128       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x 128 0.044 BF
+  49 route  48 46 	                           ->   26 x  26 x 256 
+  50 conv     64       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x  64 0.022 BF
+  51 route  49 		                           ->   26 x  26 x 256 
+  52 conv     64       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x  64 0.022 BF
+  53 conv     64       3 x 3/ 1     26 x  26 x  64 ->   26 x  26 x  64 0.050 BF
+  54 conv     64       3 x 3/ 1     26 x  26 x  64 ->   26 x  26 x  64 0.050 BF
+  55 route  50 52 53 54 	                   ->   26 x  26 x 256 
+  56 conv    128       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x 128 0.044 BF
+  57 conv     64       1 x 1/ 1     26 x  26 x 128 ->   26 x  26 x  64 0.011 BF
+  58 upsample                 2x    26 x  26 x  64 ->   52 x  52 x  64
+  59 route  16 		                           ->   52 x  52 x 128 
+  60 conv     64       1 x 1/ 1     52 x  52 x 128 ->   52 x  52 x  64 0.044 BF
+  61 route  60 58 	                           ->   52 x  52 x 128 
+  62 conv     32       1 x 1/ 1     52 x  52 x 128 ->   52 x  52 x  32 0.022 BF
+  63 route  61 		                           ->   52 x  52 x 128 
+  64 conv     32       1 x 1/ 1     52 x  52 x 128 ->   52 x  52 x  32 0.022 BF
+  65 conv     32       3 x 3/ 1     52 x  52 x  32 ->   52 x  52 x  32 0.050 BF
+  66 conv     32       3 x 3/ 1     52 x  52 x  32 ->   52 x  52 x  32 0.050 BF
+  67 route  62 64 65 66 	                   ->   52 x  52 x 128 
+  68 conv     64       1 x 1/ 1     52 x  52 x 128 ->   52 x  52 x  64 0.044 BF
+  69 conv    128       3 x 3/ 2     52 x  52 x  64 ->   26 x  26 x 128 0.100 BF
+  70 route  69 56 	                           ->   26 x  26 x 256 
+  71 conv     64       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x  64 0.022 BF
+  72 route  70 		                           ->   26 x  26 x 256 
+  73 conv     64       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x  64 0.022 BF
+  74 conv     64       3 x 3/ 1     26 x  26 x  64 ->   26 x  26 x  64 0.050 BF
+  75 conv     64       3 x 3/ 1     26 x  26 x  64 ->   26 x  26 x  64 0.050 BF
+  76 route  71 73 74 75 	                   ->   26 x  26 x 256 
+  77 conv    128       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x 128 0.044 BF
+  78 conv    256       3 x 3/ 2     26 x  26 x 128 ->   13 x  13 x 256 0.100 BF
+  79 route  78 44 	                           ->   13 x  13 x 512 
+  80 conv    128       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 128 0.022 BF
+  81 route  79 		                           ->   13 x  13 x 512 
+  82 conv    128       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 128 0.022 BF
+  83 conv    128       3 x 3/ 1     13 x  13 x 128 ->   13 x  13 x 128 0.050 BF
+  84 conv    128       3 x 3/ 1     13 x  13 x 128 ->   13 x  13 x 128 0.050 BF
+  85 route  80 82 83 84 	                   ->   13 x  13 x 512 
+  86 conv    256       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 256 0.044 BF
+  87 route  68 		                           ->   52 x  52 x  64 
+  88 conv    128       3 x 3/ 1     52 x  52 x  64 ->   52 x  52 x 128 0.399 BF
+  89 conv     18       1 x 1/ 1     52 x  52 x 128 ->   52 x  52 x  18 0.012 BF
+  90 yolo
+[yolo] params: iou loss: ciou (4), iou_norm: 0.05, obj_norm: 1.00, cls_norm: 0.50, delta_norm: 1.00, scale_x_y: 2.00
+  91 route  77 		                           ->   26 x  26 x 128 
+  92 conv    256       3 x 3/ 1     26 x  26 x 128 ->   26 x  26 x 256 0.399 BF
+  93 conv     18       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x  18 0.006 BF
+  94 yolo
+[yolo] params: iou loss: ciou (4), iou_norm: 0.05, obj_norm: 1.00, cls_norm: 0.50, delta_norm: 1.00, scale_x_y: 2.00
+  95 route  86 		                           ->   13 x  13 x 256 
+  96 conv    512       3 x 3/ 1     13 x  13 x 256 ->   13 x  13 x 512 0.399 BF
+  97 conv     18       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x  18 0.003 BF
+  98 yolo
+[yolo] params: iou loss: ciou (4), iou_norm: 0.05, obj_norm: 1.00, cls_norm: 0.50, delta_norm: 1.00, scale_x_y: 2.00
+Total BFLOPS 5.515 
+avg_outputs = 165387 
+Loading weights from C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\darknet\yolov7-tiny_marmo_training_1400000.weights...mini_batch = 1, batch = 1, time_steps = 1, train = 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+Done! Loaded 99 layers from weights-file 
+caminitilize :3845
+0ms
+デバッグモード（完全ダミー）で起動しました
+デバッグモード用RFIDリーダーを初期化しました
+[backgroundWorker1_DoWork] Started!
+[PsychoPy] Hybrid engine initialized
+[backgroundWorker1_DoWork] Using PsychoPy engine
+[backgroundWorker1_DoWork] BG_WORKER is DEFINED - using background worker loop
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\System.Web.Http.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+RoomState:RoomInOutInit
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Microsoft.Owin.Hosting.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+RoomState:RoomInOutIdle
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Owin.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Discovery.resources\v4.0_4.0.0.0_ja_31bf3856ad364e35\System.ServiceModel.Discovery.resources.dll' が読み込まれました。モジュールがシンボルなしでビルドされました。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Microsoft.Owin.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+http://mribackup:5357/98852df9-7463-4fd4-8add-3fcffa875815
+http://mribackup:5357/98852df9-7463-4fd4-8add-3fcffa875815
+http://mribackup:5357/98852df9-7463-4fd4-8add-3fcffa875815
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\Microsoft.Owin.Host.HttpListener.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+http://mribackup:5357/98852df9-7463-4fd4-8add-3fcffa875815
+http://mribackup:5357/98852df9-7463-4fd4-8add-3fcffa875815
+http://mribackup:5357/98852df9-7463-4fd4-8add-3fcffa875815
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'Anonymously Hosted DynamicMethods Assembly' が読み込まれました。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\System.Net.Http.Formatting.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\System.Web.Http.Owin.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Net.Http\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Net.Http.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+http://mribackup:5357/98852df9-7463-4fd4-8add-3fcffa875815
+http://mribackup:5357/98852df9-7463-4fd4-8add-3fcffa875815
+http://mribackup:5357/98852df9-7463-4fd4-8add-3fcffa875815
+[API] Web API server started at http://localhost:5000/
+[API] Web API server started at http://localhost:5000/
+[API] Web API server started at http://localhost:5000/
+[Debug] Check device/Check IO ボタンを無効化しました（デバッグモード）
+[Debug] Check device/Check IO ボタンを無効化しました（デバッグモード）
+[Debug] Check device/Check IO ボタンを無効化しました（デバッグモード）
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\System32\DriverStore\FileRepository\iastorpinningcomponent.inf_amd64_d51acc8493d6b911\OptaneShellExt.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\System32\DriverStore\FileRepository\iastorpinningcomponent.inf_amd64_d51acc8493d6b911\SharpShell.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\System32\DriverStore\FileRepository\iastorpinningcomponent.inf_amd64_d51acc8493d6b911\PinningServiceApi.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.Composition\v4.0_4.0.0.0__b77a5c561934e089\System.ComponentModel.Composition.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+InitOpeImage().Start:----------
+InitOpeImage().Start:----------
+InitOpeImage().Start:----------
+RoomState:RoomInOutInit
+RoomState:RoomInOutInit
+RoomState:RoomInOutInit
+  WholeArea:[X:0 Y:0 Width:1366 Height:768]
+  WholeArea:[X:0 Y:0 Width:1366 Height:768]
+  WholeArea:[X:0 Y:0 Width:1366 Height:768]
+RoomState:RoomInOutIdle
+RoomState:RoomInOutIdle
+RoomState:RoomInOutIdle
+  ValidArea:[X:20 Y:20 Width:1326 Height:728]
+  ValidArea:[X:20 Y:20 Width:1326 Height:728]
+  ValidArea:[X:20 Y:20 Width:1326 Height:728]
+InitOpeImage().End:----------
+InitOpeImage().End:----------
+InitOpeImage().End:----------
+SetParamOfShapeOpeImage().Start:----------
+SetParamOfShapeOpeImage().Start:----------
+SetParamOfShapeOpeImage().Start:----------
+  WholeArea:[X:60 Y:60 Width:1246 Height:648]
+  WholeArea:[X:60 Y:60 Width:1246 Height:648]
+  WholeArea:[X:60 Y:60 Width:1246 Height:648]
+SetParamOfShapeOpeImage().End:----------
+SetParamOfShapeOpeImage().End:----------
+SetParamOfShapeOpeImage().End:----------
+=== START BUTTON CLICKED ===
+=== START BUTTON CLICKED ===
+=== START BUTTON CLICKED ===
+Current State: Init
+Current State: Init
+Current State: Init
+Current IsBusy: False
+Current IsBusy: False
+Current IsBusy: False
+EnableDebugMode: True
+EnableDebugMode: True
+EnableDebugMode: True
+backgroundWorker1.IsBusy: True
+backgroundWorker1.IsBusy: True
+backgroundWorker1.IsBusy: True
+backgroundWorker1 is already running!
+backgroundWorker1 is already running!
+backgroundWorker1 is already running!
+IsBusy after setCommand: False
+IsBusy after setCommand: False
+IsBusy after setCommand: False
+[EventLogger] Enabled: C:\Users\marmoset\AppData\Roaming\Company\Compartment\2.1.1.1\ExternalControl_Room0_20260209.csv
+[EventLogger] Enabled: C:\Users\marmoset\AppData\Roaming\Company\Compartment\2.1.1.1\ExternalControl_Room0_20260209.csv
+[EventLogger] Enabled: C:\Users\marmoset\AppData\Roaming\Company\Compartment\2.1.1.1\ExternalControl_Room0_20260209.csv
+[PsychoPy] EventLogger enabled
+[PsychoPy] EventLogger enabled
+[PsychoPy] EventLogger enabled
+[PsychoPy] File opened: C:\Users\marmoset\AppData\Roaming\Company\Compartment\2.1.1.1\result.csv
+[PsychoPy] File opened: C:\Users\marmoset\AppData\Roaming\Company\Compartment\2.1.1.1\result.csv
+[PsychoPy] File opened: C:\Users\marmoset\AppData\Roaming\Company\Compartment\2.1.1.1\result.csv
+[PsychoPy] Door disabled, skipping open
+[PsychoPy] Door disabled, skipping open
+[PsychoPy] Door disabled, skipping open
+[PsychoPy] Entry detected
+[PsychoPy] Entry detected
+[PsychoPy] Entry detected
+[PsychoPy] RFID: NO_ID
+[PsychoPy] RFID: NO_ID
+[PsychoPy] RFID: NO_ID
+[PsychoPy] Door disabled, skipping close
+[PsychoPy] Door disabled, skipping close
+[PsychoPy] Door disabled, skipping close
+[PsychoPy] Python started: C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\psychopy\delayed_matching_to_sample.py NO_ID
+[PsychoPy] Python started: C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\psychopy\delayed_matching_to_sample.py NO_ID
+[PsychoPy] Python started: C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\psychopy\delayed_matching_to_sample.py NO_ID
+[C#:TIMING] python_process_started: 0ms
+[C#:TIMING] python_process_started: 0ms
+[C#:TIMING] python_process_started: 0ms
+スレッド 15332 はコード 0 (0x0) で終了しました。
+スレッド 7320 はコード 0 (0x0) で終了しました。
+スレッド 18808 はコード 0 (0x0) で終了しました。
+スレッド 4304 はコード 0 (0x0) で終了しました。
+[PsychoPy:stdout] [TIMING] python_start: 234554.265
+[PsychoPy:stdout] [TIMING] python_start: 234554.265
+[PsychoPy:stdout] [TIMING] python_start: 234554.265
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] Debug: False, Windowed: False
+[PsychoPy:stdout] Debug: False, Windowed: False
+[PsychoPy:stdout] Debug: False, Windowed: False
+[PsychoPy:stdout] [TIMING] init_complete: 234556.724 (init_time=2.460s)
+[PsychoPy:stdout] [TIMING] init_complete: 234556.724 (init_time=2.460s)
+[PsychoPy:stdout] [TIMING] init_complete: 234556.724 (init_time=2.460s)
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] Delayed Matching to Sample (DMTS)
+[PsychoPy:stdout] Delayed Matching to Sample (DMTS)
+[PsychoPy:stdout] Delayed Matching to Sample (DMTS)
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] Trials: 5
+[PsychoPy:stdout] Trials: 5
+[PsychoPy:stdout] Trials: 5
+[PsychoPy:stdout] Sample duration: 3.0s
+[PsychoPy:stdout] Sample duration: 3.0s
+[PsychoPy:stdout] Sample duration: 3.0s
+[PsychoPy:stdout] Delay duration: 2.0s
+[PsychoPy:stdout] Delay duration: 2.0s
+[PsychoPy:stdout] Delay duration: 2.0s
+[PsychoPy:stdout] Choices: 3
+[PsychoPy:stdout] Choices: 3
+[PsychoPy:stdout] Choices: 3
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234556.725
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234556.725
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234556.725
+[PsychoPy:stdout] [TIMING] ready_flip: 234556.820 (draw+flip=0.095s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234556.820 (draw+flip=0.095s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234556.820 (draw+flip=0.095s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234570.891 (waited 14.166s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234570.891 (waited 14.166s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234570.891 (waited 14.166s)
+[PsychoPy:stdout] === Trial 1/5 ===
+[PsychoPy:stdout] === Trial 1/5 ===
+[PsychoPy:stdout] === Trial 1/5 ===
+[PsychoPy:stdout] Sample: square (blue)
+[PsychoPy:stdout] Sample: square (blue)
+[PsychoPy:stdout] Sample: square (blue)
+[PsychoPy:stdout] [TIMING] sample_flip: 234570.924
+[PsychoPy:stdout] [TIMING] sample_flip: 234570.924
+[PsychoPy:stdout] [TIMING] sample_flip: 234570.924
+[PsychoPy:stdout] [TIMING] delay_flip: 234573.941
+[PsychoPy:stdout] [TIMING] delay_flip: 234573.941
+[PsychoPy:stdout] [TIMING] delay_flip: 234573.941
+[PsychoPy:stdout] [TIMING] choice_flip: 234575.976
+[PsychoPy:stdout] [TIMING] choice_flip: 234575.976
+[PsychoPy:stdout] [TIMING] choice_flip: 234575.976
+[PsychoPy] Illegal exit detected
+[PsychoPy] Illegal exit detected
+[PsychoPy] Illegal exit detected
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[PsychoPy] Python exited with code: -1
+[PsychoPy] Python exited with code: -1
+[PsychoPy] Python exited with code: -1
+[PsychoPy] Python process killed
+[PsychoPy] Python process killed
+[PsychoPy] Python process killed
+[PsychoPy] Door disabled, skipping open
+[PsychoPy] Door disabled, skipping open
+[PsychoPy] Door disabled, skipping open
+[PsychoPy] Entry detected
+[PsychoPy] Entry detected
+[PsychoPy] Entry detected
+[PsychoPy] RFID: NO_ID
+[PsychoPy] RFID: NO_ID
+[PsychoPy] RFID: NO_ID
+[PsychoPy] Door disabled, skipping close
+[PsychoPy] Door disabled, skipping close
+[PsychoPy] Door disabled, skipping close
+[PsychoPy] Python started: C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\psychopy\delayed_matching_to_sample.py NO_ID
+[PsychoPy] Python started: C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\psychopy\delayed_matching_to_sample.py NO_ID
+[PsychoPy] Python started: C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\psychopy\delayed_matching_to_sample.py NO_ID
+[C#:TIMING] python_process_started: 0ms
+[C#:TIMING] python_process_started: 0ms
+[C#:TIMING] python_process_started: 0ms
+[PsychoPy:stdout] [TIMING] python_start: 234581.445
+[PsychoPy:stdout] [TIMING] python_start: 234581.445
+[PsychoPy:stdout] [TIMING] python_start: 234581.445
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] Debug: False, Windowed: False
+[PsychoPy:stdout] Debug: False, Windowed: False
+[PsychoPy:stdout] Debug: False, Windowed: False
+[PsychoPy:stdout] [TIMING] init_complete: 234583.288 (init_time=1.843s)
+[PsychoPy:stdout] [TIMING] init_complete: 234583.288 (init_time=1.843s)
+[PsychoPy:stdout] [TIMING] init_complete: 234583.288 (init_time=1.843s)
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] Delayed Matching to Sample (DMTS)
+[PsychoPy:stdout] Delayed Matching to Sample (DMTS)
+[PsychoPy:stdout] Delayed Matching to Sample (DMTS)
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] RFID: NO_ID
+[PsychoPy:stdout] Trials: 5
+[PsychoPy:stdout] Trials: 5
+[PsychoPy:stdout] Trials: 5
+[PsychoPy:stdout] Sample duration: 3.0s
+[PsychoPy:stdout] Sample duration: 3.0s
+[PsychoPy:stdout] Sample duration: 3.0s
+[PsychoPy:stdout] Delay duration: 2.0s
+[PsychoPy:stdout] Delay duration: 2.0s
+[PsychoPy:stdout] Delay duration: 2.0s
+[PsychoPy:stdout] Choices: 3
+[PsychoPy:stdout] Choices: 3
+[PsychoPy:stdout] Choices: 3
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234583.289
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234583.289
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234583.289
+[PsychoPy:stdout] [TIMING] ready_flip: 234583.353 (draw+flip=0.064s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234583.353 (draw+flip=0.064s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234583.353 (draw+flip=0.064s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234594.912 (waited 11.624s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234594.912 (waited 11.624s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234594.912 (waited 11.624s)
+[PsychoPy:stdout] === Trial 1/5 ===
+[PsychoPy:stdout] === Trial 1/5 ===
+[PsychoPy:stdout] === Trial 1/5 ===
+[PsychoPy:stdout] Sample: square (yellow)
+[PsychoPy:stdout] Sample: square (yellow)
+[PsychoPy:stdout] Sample: square (yellow)
+[PsychoPy:stdout] [TIMING] sample_flip: 234594.938
+[PsychoPy:stdout] [TIMING] sample_flip: 234594.938
+[PsychoPy:stdout] [TIMING] sample_flip: 234594.938
+[PsychoPy:stdout] [TIMING] delay_flip: 234597.955
+[PsychoPy:stdout] [TIMING] delay_flip: 234597.955
+[PsychoPy:stdout] [TIMING] delay_flip: 234597.955
+[PsychoPy:stdout] [TIMING] choice_flip: 234599.980
+[PsychoPy:stdout] [TIMING] choice_flip: 234599.980
+[PsychoPy:stdout] [TIMING] choice_flip: 234599.980
+[PsychoPy:stdout] Correct! Touched square (yellow)
+[PsychoPy:stdout] Correct! Touched square (yellow)
+[PsychoPy:stdout] Correct! Touched square (yellow)
+[PsychoPy:stdout] [TIMING] touch_detected: 234602.810 (response_time=2.830s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234602.810 (response_time=2.830s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234602.810 (response_time=2.830s)
+[PsychoPy:stdout] [TIMING] feedback_flip: 234602.829
+[PsychoPy:stdout] [TIMING] feedback_flip: 234602.829
+[PsychoPy:stdout] [TIMING] feedback_flip: 234602.829
+[PsychoPy:stdout] TRIAL_RESULT:CORRECT
+[PsychoPy:stdout] TRIAL_RESULT:CORRECT
+[PsychoPy:stdout] TRIAL_RESULT:CORRECT
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:CORRECT at 24350ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:CORRECT at 24350ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:CORRECT at 24350ms
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234603.130
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234603.130
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234603.130
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234603.130
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234603.130
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234603.130
+[C#:TIMING] dequeued: TRIAL_RESULT:CORRECT at 24360ms
+[C#:TIMING] dequeued: TRIAL_RESULT:CORRECT at 24360ms
+[C#:TIMING] dequeued: TRIAL_RESULT:CORRECT at 24360ms
+[PsychoPy] Trial 1: CORRECT → feeding
+[PsychoPy] Trial 1: CORRECT → feeding
+[PsychoPy] Trial 1: CORRECT → feeding
+[C#:TIMING] trial_correct_processing: 24399ms
+[C#:TIMING] trial_correct_processing: 24399ms
+[C#:TIMING] trial_correct_processing: 24399ms
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOn
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOn
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOn
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOn
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOn
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOn
+[PsychoPy] Trial feeding started: 2000ms
+[PsychoPy] Trial feeding started: 2000ms
+[PsychoPy] Trial feeding started: 2000ms
+[C#:TIMING] trial_feeding_start: 24475ms
+[C#:TIMING] trial_feeding_start: 24475ms
+[C#:TIMING] trial_feeding_start: 24475ms
+[PsychoPy] Trial feeding complete
+[PsychoPy] Trial feeding complete
+[PsychoPy] Trial feeding complete
+[C#:TIMING] trial_feeding_complete: 24803ms
+[C#:TIMING] trial_feeding_complete: 24803ms
+[C#:TIMING] trial_feeding_complete: 24803ms
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[C#:TIMING] sending_continue: 24831ms
+[C#:TIMING] sending_continue: 24831ms
+[C#:TIMING] sending_continue: 24831ms
+[C#:TIMING] continue_sent: 24836ms
+[C#:TIMING] continue_sent: 24836ms
+[C#:TIMING] continue_sent: 24836ms
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy:stdout] [TIMING] continue_received: 234603.620 (waited 0.490s)
+[PsychoPy:stdout] [TIMING] continue_received: 234603.620 (waited 0.490s)
+[PsychoPy:stdout] [TIMING] continue_received: 234603.620 (waited 0.490s)
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234603.620
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234603.620
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234603.620
+[PsychoPy:stdout] [TIMING] ready_flip: 234603.666 (draw+flip=0.047s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234603.666 (draw+flip=0.047s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234603.666 (draw+flip=0.047s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234607.249 (waited 3.629s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234607.249 (waited 3.629s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234607.249 (waited 3.629s)
+[PsychoPy:stdout] === Trial 2/5 ===
+[PsychoPy:stdout] === Trial 2/5 ===
+[PsychoPy:stdout] === Trial 2/5 ===
+[PsychoPy:stdout] Sample: square (blue)
+[PsychoPy:stdout] Sample: square (blue)
+[PsychoPy:stdout] Sample: square (blue)
+[PsychoPy:stdout] [TIMING] sample_flip: 234607.269
+[PsychoPy:stdout] [TIMING] sample_flip: 234607.269
+[PsychoPy:stdout] [TIMING] sample_flip: 234607.269
+[PsychoPy:stdout] [TIMING] delay_flip: 234610.286
+[PsychoPy:stdout] [TIMING] delay_flip: 234610.286
+[PsychoPy:stdout] [TIMING] delay_flip: 234610.286
+[PsychoPy:stdout] [TIMING] choice_flip: 234612.328
+[PsychoPy:stdout] [TIMING] choice_flip: 234612.328
+[PsychoPy:stdout] [TIMING] choice_flip: 234612.328
+[PsychoPy:stdout] Incorrect. Touched square (yellow)
+[PsychoPy:stdout] Incorrect. Touched square (yellow)
+[PsychoPy:stdout] Incorrect. Touched square (yellow)
+[PsychoPy:stdout] [TIMING] touch_detected: 234614.107 (response_time=1.779s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234614.107 (response_time=1.779s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234614.107 (response_time=1.779s)
+[PsychoPy:stdout] [TIMING] feedback_flip: 234614.133
+[PsychoPy:stdout] [TIMING] feedback_flip: 234614.133
+[PsychoPy:stdout] [TIMING] feedback_flip: 234614.133
+[PsychoPy:stdout] TRIAL_RESULT:INCORRECT
+[PsychoPy:stdout] TRIAL_RESULT:INCORRECT
+[PsychoPy:stdout] TRIAL_RESULT:INCORRECT
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:INCORRECT at 35655ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:INCORRECT at 35655ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:INCORRECT at 35655ms
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234614.434
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234614.434
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234614.434
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234614.434
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234614.434
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234614.434
+[C#:TIMING] dequeued: TRIAL_RESULT:INCORRECT at 35663ms
+[C#:TIMING] dequeued: TRIAL_RESULT:INCORRECT at 35663ms
+[C#:TIMING] dequeued: TRIAL_RESULT:INCORRECT at 35663ms
+[PsychoPy] Trial 2: TRIAL_RESULT:INCORRECT
+[PsychoPy] Trial 2: TRIAL_RESULT:INCORRECT
+[PsychoPy] Trial 2: TRIAL_RESULT:INCORRECT
+[C#:TIMING] trial_incorrect_processing: 35708ms
+[C#:TIMING] trial_incorrect_processing: 35708ms
+[C#:TIMING] trial_incorrect_processing: 35708ms
+[C#:TIMING] sending_continue: 35728ms
+[C#:TIMING] sending_continue: 35728ms
+[C#:TIMING] sending_continue: 35728ms
+[C#:TIMING] continue_sent: 35735ms
+[C#:TIMING] continue_sent: 35735ms
+[C#:TIMING] continue_sent: 35735ms
+[PsychoPy:stdout] [TIMING] continue_received: 234614.519 (waited 0.085s)
+[PsychoPy:stdout] [TIMING] continue_received: 234614.519 (waited 0.085s)
+[PsychoPy:stdout] [TIMING] continue_received: 234614.519 (waited 0.085s)
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234614.519
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234614.519
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234614.519
+[PsychoPy:stdout] [TIMING] ready_flip: 234614.559 (draw+flip=0.040s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234614.559 (draw+flip=0.040s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234614.559 (draw+flip=0.040s)
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234615.777 (waited 1.258s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234615.777 (waited 1.258s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234615.777 (waited 1.258s)
+[PsychoPy:stdout] === Trial 3/5 ===
+[PsychoPy:stdout] === Trial 3/5 ===
+[PsychoPy:stdout] === Trial 3/5 ===
+[PsychoPy:stdout] Sample: circle (blue)
+[PsychoPy:stdout] Sample: circle (blue)
+[PsychoPy:stdout] Sample: circle (blue)
+[PsychoPy:stdout] [TIMING] sample_flip: 234615.808
+[PsychoPy:stdout] [TIMING] sample_flip: 234615.808
+[PsychoPy:stdout] [TIMING] sample_flip: 234615.808
+[PsychoPy:stdout] [TIMING] delay_flip: 234618.822
+[PsychoPy:stdout] [TIMING] delay_flip: 234618.822
+[PsychoPy:stdout] [TIMING] delay_flip: 234618.822
+[PsychoPy:stdout] [TIMING] choice_flip: 234620.867
+[PsychoPy:stdout] [TIMING] choice_flip: 234620.867
+[PsychoPy:stdout] [TIMING] choice_flip: 234620.867
+[PsychoPy:stdout] Incorrect. Touched triangle (blue)
+[PsychoPy:stdout] Incorrect. Touched triangle (blue)
+[PsychoPy:stdout] Incorrect. Touched triangle (blue)
+[PsychoPy:stdout] [TIMING] touch_detected: 234623.902 (response_time=3.035s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234623.902 (response_time=3.035s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234623.902 (response_time=3.035s)
+[PsychoPy:stdout] [TIMING] feedback_flip: 234623.905
+[PsychoPy:stdout] [TIMING] feedback_flip: 234623.905
+[PsychoPy:stdout] [TIMING] feedback_flip: 234623.905
+[PsychoPy:stdout] TRIAL_RESULT:INCORRECT
+[PsychoPy:stdout] TRIAL_RESULT:INCORRECT
+[PsychoPy:stdout] TRIAL_RESULT:INCORRECT
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:INCORRECT at 45428ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:INCORRECT at 45428ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:INCORRECT at 45428ms
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234624.206
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234624.206
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234624.206
+[C#:TIMING] dequeued: TRIAL_RESULT:INCORRECT at 45442ms
+[C#:TIMING] dequeued: TRIAL_RESULT:INCORRECT at 45442ms
+[C#:TIMING] dequeued: TRIAL_RESULT:INCORRECT at 45442ms
+[PsychoPy] Trial 3: TRIAL_RESULT:INCORRECT
+[PsychoPy] Trial 3: TRIAL_RESULT:INCORRECT
+[PsychoPy] Trial 3: TRIAL_RESULT:INCORRECT
+[C#:TIMING] trial_incorrect_processing: 45496ms
+[C#:TIMING] trial_incorrect_processing: 45496ms
+[C#:TIMING] trial_incorrect_processing: 45496ms
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234624.206
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234624.206
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234624.206
+[C#:TIMING] sending_continue: 45519ms
+[C#:TIMING] sending_continue: 45519ms
+[C#:TIMING] sending_continue: 45519ms
+[C#:TIMING] continue_sent: 45523ms
+[C#:TIMING] continue_sent: 45523ms
+[C#:TIMING] continue_sent: 45523ms
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy:stdout] [TIMING] continue_received: 234624.307 (waited 0.101s)
+[PsychoPy:stdout] [TIMING] continue_received: 234624.307 (waited 0.101s)
+[PsychoPy:stdout] [TIMING] continue_received: 234624.307 (waited 0.101s)
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234624.307
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234624.307
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234624.307
+[PsychoPy:stdout] [TIMING] ready_flip: 234624.342 (draw+flip=0.034s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234624.342 (draw+flip=0.034s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234624.342 (draw+flip=0.034s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234626.695 (waited 2.387s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234626.695 (waited 2.387s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234626.695 (waited 2.387s)
+[PsychoPy:stdout] === Trial 4/5 ===
+[PsychoPy:stdout] === Trial 4/5 ===
+[PsychoPy:stdout] === Trial 4/5 ===
+[PsychoPy:stdout] Sample: square (yellow)
+[PsychoPy:stdout] Sample: square (yellow)
+[PsychoPy:stdout] Sample: square (yellow)
+[PsychoPy:stdout] [TIMING] sample_flip: 234626.709
+[PsychoPy:stdout] [TIMING] sample_flip: 234626.709
+[PsychoPy:stdout] [TIMING] sample_flip: 234626.709
+[PsychoPy:stdout] [TIMING] delay_flip: 234629.722
+[PsychoPy:stdout] [TIMING] delay_flip: 234629.722
+[PsychoPy:stdout] [TIMING] delay_flip: 234629.722
+[PsychoPy:stdout] [TIMING] choice_flip: 234631.776
+[PsychoPy:stdout] [TIMING] choice_flip: 234631.776
+[PsychoPy:stdout] [TIMING] choice_flip: 234631.776
+[PsychoPy:stdout] Correct! Touched square (yellow)
+[PsychoPy:stdout] Correct! Touched square (yellow)
+[PsychoPy:stdout] Correct! Touched square (yellow)
+[PsychoPy:stdout] [TIMING] touch_detected: 234635.803 (response_time=4.028s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234635.803 (response_time=4.028s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234635.803 (response_time=4.028s)
+[PsychoPy:stdout] [TIMING] feedback_flip: 234635.817
+[PsychoPy:stdout] [TIMING] feedback_flip: 234635.817
+[PsychoPy:stdout] [TIMING] feedback_flip: 234635.817
+[PsychoPy:stdout] TRIAL_RESULT:CORRECT
+[PsychoPy:stdout] TRIAL_RESULT:CORRECT
+[PsychoPy:stdout] TRIAL_RESULT:CORRECT
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:CORRECT at 57339ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:CORRECT at 57339ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:CORRECT at 57339ms
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234636.118
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234636.118
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234636.118
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234636.118
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234636.118
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234636.118
+[C#:TIMING] dequeued: TRIAL_RESULT:CORRECT at 57346ms
+[C#:TIMING] dequeued: TRIAL_RESULT:CORRECT at 57346ms
+[C#:TIMING] dequeued: TRIAL_RESULT:CORRECT at 57346ms
+[PsychoPy] Trial 4: CORRECT → feeding
+[PsychoPy] Trial 4: CORRECT → feeding
+[PsychoPy] Trial 4: CORRECT → feeding
+[C#:TIMING] trial_correct_processing: 57383ms
+[C#:TIMING] trial_correct_processing: 57383ms
+[C#:TIMING] trial_correct_processing: 57383ms
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOn
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOn
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOn
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOn
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOn
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOn
+[PsychoPy] Trial feeding started: 2000ms
+[PsychoPy] Trial feeding started: 2000ms
+[PsychoPy] Trial feeding started: 2000ms
+[C#:TIMING] trial_feeding_start: 57466ms
+[C#:TIMING] trial_feeding_start: 57466ms
+[C#:TIMING] trial_feeding_start: 57466ms
+[PsychoPy] Trial feeding complete
+[PsychoPy] Trial feeding complete
+[PsychoPy] Trial feeding complete
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[C#:TIMING] trial_feeding_complete: 57791ms
+[C#:TIMING] trial_feeding_complete: 57791ms
+[C#:TIMING] trial_feeding_complete: 57791ms
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[C#:TIMING] sending_continue: 57859ms
+[C#:TIMING] sending_continue: 57859ms
+[C#:TIMING] sending_continue: 57859ms
+[C#:TIMING] continue_sent: 57863ms
+[C#:TIMING] continue_sent: 57863ms
+[C#:TIMING] continue_sent: 57863ms
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy:stdout] [TIMING] continue_received: 234636.647 (waited 0.529s)
+[PsychoPy:stdout] [TIMING] continue_received: 234636.647 (waited 0.529s)
+[PsychoPy:stdout] [TIMING] continue_received: 234636.647 (waited 0.529s)
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234636.647
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234636.647
+[PsychoPy:stdout] [TIMING] ready_draw_start: 234636.647
+[PsychoPy:stdout] [TIMING] ready_flip: 234636.694 (draw+flip=0.047s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234636.694 (draw+flip=0.047s)
+[PsychoPy:stdout] [TIMING] ready_flip: 234636.694 (draw+flip=0.047s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234640.832 (waited 4.185s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234640.832 (waited 4.185s)
+[PsychoPy:stdout] [TIMING] ready_touch_done: 234640.832 (waited 4.185s)
+[PsychoPy:stdout] === Trial 5/5 ===
+[PsychoPy:stdout] === Trial 5/5 ===
+[PsychoPy:stdout] === Trial 5/5 ===
+[PsychoPy:stdout] Sample: square (yellow)
+[PsychoPy:stdout] Sample: square (yellow)
+[PsychoPy:stdout] Sample: square (yellow)
+[PsychoPy:stdout] [TIMING] sample_flip: 234640.851
+[PsychoPy:stdout] [TIMING] sample_flip: 234640.851
+[PsychoPy:stdout] [TIMING] sample_flip: 234640.851
+[PsychoPy:stdout] [TIMING] delay_flip: 234643.868
+[PsychoPy:stdout] [TIMING] delay_flip: 234643.868
+[PsychoPy:stdout] [TIMING] delay_flip: 234643.868
+[PsychoPy:stdout] [TIMING] choice_flip: 234645.921
+[PsychoPy:stdout] [TIMING] choice_flip: 234645.921
+[PsychoPy:stdout] [TIMING] choice_flip: 234645.921
+[PsychoPy:stdout] Correct! Touched square (yellow)
+[PsychoPy:stdout] Correct! Touched square (yellow)
+[PsychoPy:stdout] Correct! Touched square (yellow)
+[PsychoPy:stdout] [TIMING] touch_detected: 234655.398 (response_time=9.477s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234655.398 (response_time=9.477s)
+[PsychoPy:stdout] [TIMING] touch_detected: 234655.398 (response_time=9.477s)
+[PsychoPy:stdout] [TIMING] feedback_flip: 234655.402
+[PsychoPy:stdout] [TIMING] feedback_flip: 234655.402
+[PsychoPy:stdout] [TIMING] feedback_flip: 234655.402
+[PsychoPy:stdout] TRIAL_RESULT:CORRECT
+[PsychoPy:stdout] TRIAL_RESULT:CORRECT
+[PsychoPy:stdout] TRIAL_RESULT:CORRECT
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:CORRECT at 76924ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:CORRECT at 76924ms
+[C#:TIMING] stdout_callback_received: TRIAL_RESULT:CORRECT at 76924ms
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234655.702
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234655.702
+[PsychoPy:stdout] [TIMING] trial_result_sent: 234655.702
+[C#:TIMING] dequeued: TRIAL_RESULT:CORRECT at 76933ms
+[C#:TIMING] dequeued: TRIAL_RESULT:CORRECT at 76933ms
+[C#:TIMING] dequeued: TRIAL_RESULT:CORRECT at 76933ms
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234655.702
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234655.702
+[PsychoPy:stdout] [TIMING] waiting_for_continue: 234655.702
+[PsychoPy] Trial 5: CORRECT → feeding
+[PsychoPy] Trial 5: CORRECT → feeding
+[PsychoPy] Trial 5: CORRECT → feeding
+[C#:TIMING] trial_correct_processing: 77015ms
+[C#:TIMING] trial_correct_processing: 77015ms
+[C#:TIMING] trial_correct_processing: 77015ms
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOn
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOn
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOn
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOn
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOn
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOn
+[PsychoPy] Trial feeding started: 2000ms
+[PsychoPy] Trial feeding started: 2000ms
+[PsychoPy] Trial feeding started: 2000ms
+[C#:TIMING] trial_feeding_start: 77111ms
+[C#:TIMING] trial_feeding_start: 77111ms
+[C#:TIMING] trial_feeding_start: 77111ms
+[PsychoPy] Trial feeding complete
+[PsychoPy] Trial feeding complete
+[PsychoPy] Trial feeding complete
+[C#:TIMING] trial_feeding_complete: 77437ms
+[C#:TIMING] trial_feeding_complete: 77437ms
+[C#:TIMING] trial_feeding_complete: 77437ms
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] 未処理のコマンド: FeedStop
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[C#:TIMING] sending_continue: 77476ms
+[C#:TIMING] sending_continue: 77476ms
+[C#:TIMING] sending_continue: 77476ms
+[C#:TIMING] continue_sent: 77480ms
+[C#:TIMING] continue_sent: 77480ms
+[C#:TIMING] continue_sent: 77480ms
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy] Sent CONTINUE to Python
+[PsychoPy:stdout] [TIMING] continue_received: 234656.265 (waited 0.562s)
+[PsychoPy:stdout] [TIMING] continue_received: 234656.265 (waited 0.562s)
+[PsychoPy:stdout] [TIMING] continue_received: 234656.265 (waited 0.562s)
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] Results: 3/5 correct (60.0%)
+[PsychoPy:stdout] Results: 3/5 correct (60.0%)
+[PsychoPy:stdout] Results: 3/5 correct (60.0%)
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] ==================================================
+[PsychoPy:stdout] SESSION_END
+[PsychoPy:stdout] SESSION_END
+[PsychoPy:stdout] SESSION_END
+[C#:TIMING] stdout_callback_received: SESSION_END at 78543ms
+[C#:TIMING] stdout_callback_received: SESSION_END at 78543ms
+[C#:TIMING] stdout_callback_received: SESSION_END at 78543ms
+[C#:TIMING] dequeued: SESSION_END at 78547ms
+[C#:TIMING] dequeued: SESSION_END at 78547ms
+[C#:TIMING] dequeued: SESSION_END at 78547ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78555ms
+[C#:TIMING] dequeued: SESSION_END at 78555ms
+[C#:TIMING] dequeued: SESSION_END at 78555ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78565ms
+[C#:TIMING] dequeued: SESSION_END at 78565ms
+[C#:TIMING] dequeued: SESSION_END at 78565ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78573ms
+[C#:TIMING] dequeued: SESSION_END at 78573ms
+[C#:TIMING] dequeued: SESSION_END at 78573ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy:stdout] 2.3015 	WARNING 	Monitor specification not found. Creating a temporary one...
+[PsychoPy:stdout] 2.3015 	WARNING 	Monitor specification not found. Creating a temporary one...
+[PsychoPy:stdout] 2.3015 	WARNING 	Monitor specification not found. Creating a temporary one...
+[C#:TIMING] dequeued: SESSION_END at 78608ms
+[C#:TIMING] dequeued: SESSION_END at 78608ms
+[C#:TIMING] dequeued: SESSION_END at 78608ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy:stdout] 2.3615 	WARNING 	User requested fullscreen with size [1920 1080], but screen is actually [1366, 768]. Using actual size
+[PsychoPy:stdout] 2.3615 	WARNING 	User requested fullscreen with size [1920 1080], but screen is actually [1366, 768]. Using actual size
+[PsychoPy:stdout] 2.3615 	WARNING 	User requested fullscreen with size [1920 1080], but screen is actually [1366, 768]. Using actual size
+[C#:TIMING] dequeued: SESSION_END at 78658ms
+[C#:TIMING] dequeued: SESSION_END at 78658ms
+[C#:TIMING] dequeued: SESSION_END at 78658ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78665ms
+[C#:TIMING] dequeued: SESSION_END at 78665ms
+[C#:TIMING] dequeued: SESSION_END at 78665ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78672ms
+[C#:TIMING] dequeued: SESSION_END at 78672ms
+[C#:TIMING] dequeued: SESSION_END at 78672ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78680ms
+[C#:TIMING] dequeued: SESSION_END at 78680ms
+[C#:TIMING] dequeued: SESSION_END at 78680ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78686ms
+[C#:TIMING] dequeued: SESSION_END at 78686ms
+[C#:TIMING] dequeued: SESSION_END at 78686ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78692ms
+[C#:TIMING] dequeued: SESSION_END at 78692ms
+[C#:TIMING] dequeued: SESSION_END at 78692ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78699ms
+[C#:TIMING] dequeued: SESSION_END at 78699ms
+[C#:TIMING] dequeued: SESSION_END at 78699ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78705ms
+[C#:TIMING] dequeued: SESSION_END at 78705ms
+[C#:TIMING] dequeued: SESSION_END at 78705ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78712ms
+[C#:TIMING] dequeued: SESSION_END at 78712ms
+[C#:TIMING] dequeued: SESSION_END at 78712ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78717ms
+[C#:TIMING] dequeued: SESSION_END at 78717ms
+[C#:TIMING] dequeued: SESSION_END at 78717ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78723ms
+[C#:TIMING] dequeued: SESSION_END at 78723ms
+[C#:TIMING] dequeued: SESSION_END at 78723ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78731ms
+[C#:TIMING] dequeued: SESSION_END at 78731ms
+[C#:TIMING] dequeued: SESSION_END at 78731ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78736ms
+[C#:TIMING] dequeued: SESSION_END at 78736ms
+[C#:TIMING] dequeued: SESSION_END at 78736ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78743ms
+[C#:TIMING] dequeued: SESSION_END at 78743ms
+[C#:TIMING] dequeued: SESSION_END at 78743ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78748ms
+[C#:TIMING] dequeued: SESSION_END at 78748ms
+[C#:TIMING] dequeued: SESSION_END at 78748ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78753ms
+[C#:TIMING] dequeued: SESSION_END at 78753ms
+[C#:TIMING] dequeued: SESSION_END at 78753ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78760ms
+[C#:TIMING] dequeued: SESSION_END at 78760ms
+[C#:TIMING] dequeued: SESSION_END at 78760ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78769ms
+[C#:TIMING] dequeued: SESSION_END at 78769ms
+[C#:TIMING] dequeued: SESSION_END at 78769ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78775ms
+[C#:TIMING] dequeued: SESSION_END at 78775ms
+[C#:TIMING] dequeued: SESSION_END at 78775ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78783ms
+[C#:TIMING] dequeued: SESSION_END at 78783ms
+[C#:TIMING] dequeued: SESSION_END at 78783ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78789ms
+[C#:TIMING] dequeued: SESSION_END at 78789ms
+[C#:TIMING] dequeued: SESSION_END at 78789ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78798ms
+[C#:TIMING] dequeued: SESSION_END at 78798ms
+[C#:TIMING] dequeued: SESSION_END at 78798ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78807ms
+[C#:TIMING] dequeued: SESSION_END at 78807ms
+[C#:TIMING] dequeued: SESSION_END at 78807ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78813ms
+[C#:TIMING] dequeued: SESSION_END at 78813ms
+[C#:TIMING] dequeued: SESSION_END at 78813ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78821ms
+[C#:TIMING] dequeued: SESSION_END at 78821ms
+[C#:TIMING] dequeued: SESSION_END at 78821ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78830ms
+[C#:TIMING] dequeued: SESSION_END at 78830ms
+[C#:TIMING] dequeued: SESSION_END at 78830ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78835ms
+[C#:TIMING] dequeued: SESSION_END at 78835ms
+[C#:TIMING] dequeued: SESSION_END at 78835ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78841ms
+[C#:TIMING] dequeued: SESSION_END at 78841ms
+[C#:TIMING] dequeued: SESSION_END at 78841ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78848ms
+[C#:TIMING] dequeued: SESSION_END at 78848ms
+[C#:TIMING] dequeued: SESSION_END at 78848ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78854ms
+[C#:TIMING] dequeued: SESSION_END at 78854ms
+[C#:TIMING] dequeued: SESSION_END at 78854ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78860ms
+[C#:TIMING] dequeued: SESSION_END at 78860ms
+[C#:TIMING] dequeued: SESSION_END at 78860ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78865ms
+[C#:TIMING] dequeued: SESSION_END at 78865ms
+[C#:TIMING] dequeued: SESSION_END at 78865ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78872ms
+[C#:TIMING] dequeued: SESSION_END at 78872ms
+[C#:TIMING] dequeued: SESSION_END at 78872ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78878ms
+[C#:TIMING] dequeued: SESSION_END at 78878ms
+[C#:TIMING] dequeued: SESSION_END at 78878ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78885ms
+[C#:TIMING] dequeued: SESSION_END at 78885ms
+[C#:TIMING] dequeued: SESSION_END at 78885ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78891ms
+[C#:TIMING] dequeued: SESSION_END at 78891ms
+[C#:TIMING] dequeued: SESSION_END at 78891ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78897ms
+[C#:TIMING] dequeued: SESSION_END at 78897ms
+[C#:TIMING] dequeued: SESSION_END at 78897ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78903ms
+[C#:TIMING] dequeued: SESSION_END at 78903ms
+[C#:TIMING] dequeued: SESSION_END at 78903ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78909ms
+[C#:TIMING] dequeued: SESSION_END at 78909ms
+[C#:TIMING] dequeued: SESSION_END at 78909ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78915ms
+[C#:TIMING] dequeued: SESSION_END at 78915ms
+[C#:TIMING] dequeued: SESSION_END at 78915ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78921ms
+[C#:TIMING] dequeued: SESSION_END at 78921ms
+[C#:TIMING] dequeued: SESSION_END at 78921ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78927ms
+[C#:TIMING] dequeued: SESSION_END at 78927ms
+[C#:TIMING] dequeued: SESSION_END at 78927ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78932ms
+[C#:TIMING] dequeued: SESSION_END at 78932ms
+[C#:TIMING] dequeued: SESSION_END at 78932ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78938ms
+[C#:TIMING] dequeued: SESSION_END at 78938ms
+[C#:TIMING] dequeued: SESSION_END at 78938ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78944ms
+[C#:TIMING] dequeued: SESSION_END at 78944ms
+[C#:TIMING] dequeued: SESSION_END at 78944ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78950ms
+[C#:TIMING] dequeued: SESSION_END at 78950ms
+[C#:TIMING] dequeued: SESSION_END at 78950ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78956ms
+[C#:TIMING] dequeued: SESSION_END at 78956ms
+[C#:TIMING] dequeued: SESSION_END at 78956ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78963ms
+[C#:TIMING] dequeued: SESSION_END at 78963ms
+[C#:TIMING] dequeued: SESSION_END at 78963ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78969ms
+[C#:TIMING] dequeued: SESSION_END at 78969ms
+[C#:TIMING] dequeued: SESSION_END at 78969ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78975ms
+[C#:TIMING] dequeued: SESSION_END at 78975ms
+[C#:TIMING] dequeued: SESSION_END at 78975ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78980ms
+[C#:TIMING] dequeued: SESSION_END at 78980ms
+[C#:TIMING] dequeued: SESSION_END at 78980ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78986ms
+[C#:TIMING] dequeued: SESSION_END at 78986ms
+[C#:TIMING] dequeued: SESSION_END at 78986ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78991ms
+[C#:TIMING] dequeued: SESSION_END at 78991ms
+[C#:TIMING] dequeued: SESSION_END at 78991ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 78997ms
+[C#:TIMING] dequeued: SESSION_END at 78997ms
+[C#:TIMING] dequeued: SESSION_END at 78997ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79002ms
+[C#:TIMING] dequeued: SESSION_END at 79002ms
+[C#:TIMING] dequeued: SESSION_END at 79002ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79008ms
+[C#:TIMING] dequeued: SESSION_END at 79008ms
+[C#:TIMING] dequeued: SESSION_END at 79008ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79014ms
+[C#:TIMING] dequeued: SESSION_END at 79014ms
+[C#:TIMING] dequeued: SESSION_END at 79014ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79019ms
+[C#:TIMING] dequeued: SESSION_END at 79019ms
+[C#:TIMING] dequeued: SESSION_END at 79019ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79025ms
+[C#:TIMING] dequeued: SESSION_END at 79025ms
+[C#:TIMING] dequeued: SESSION_END at 79025ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79031ms
+[C#:TIMING] dequeued: SESSION_END at 79031ms
+[C#:TIMING] dequeued: SESSION_END at 79031ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79036ms
+[C#:TIMING] dequeued: SESSION_END at 79036ms
+[C#:TIMING] dequeued: SESSION_END at 79036ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79044ms
+[C#:TIMING] dequeued: SESSION_END at 79044ms
+[C#:TIMING] dequeued: SESSION_END at 79044ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79049ms
+[C#:TIMING] dequeued: SESSION_END at 79049ms
+[C#:TIMING] dequeued: SESSION_END at 79049ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79059ms
+[C#:TIMING] dequeued: SESSION_END at 79059ms
+[C#:TIMING] dequeued: SESSION_END at 79059ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79065ms
+[C#:TIMING] dequeued: SESSION_END at 79065ms
+[C#:TIMING] dequeued: SESSION_END at 79065ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79073ms
+[C#:TIMING] dequeued: SESSION_END at 79073ms
+[C#:TIMING] dequeued: SESSION_END at 79073ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79079ms
+[C#:TIMING] dequeued: SESSION_END at 79079ms
+[C#:TIMING] dequeued: SESSION_END at 79079ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79087ms
+[C#:TIMING] dequeued: SESSION_END at 79087ms
+[C#:TIMING] dequeued: SESSION_END at 79087ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79093ms
+[C#:TIMING] dequeued: SESSION_END at 79093ms
+[C#:TIMING] dequeued: SESSION_END at 79093ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79098ms
+[C#:TIMING] dequeued: SESSION_END at 79098ms
+[C#:TIMING] dequeued: SESSION_END at 79098ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79104ms
+[C#:TIMING] dequeued: SESSION_END at 79104ms
+[C#:TIMING] dequeued: SESSION_END at 79104ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79110ms
+[C#:TIMING] dequeued: SESSION_END at 79110ms
+[C#:TIMING] dequeued: SESSION_END at 79110ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79116ms
+[C#:TIMING] dequeued: SESSION_END at 79116ms
+[C#:TIMING] dequeued: SESSION_END at 79116ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79122ms
+[C#:TIMING] dequeued: SESSION_END at 79122ms
+[C#:TIMING] dequeued: SESSION_END at 79122ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79128ms
+[C#:TIMING] dequeued: SESSION_END at 79128ms
+[C#:TIMING] dequeued: SESSION_END at 79128ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79134ms
+[C#:TIMING] dequeued: SESSION_END at 79134ms
+[C#:TIMING] dequeued: SESSION_END at 79134ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79139ms
+[C#:TIMING] dequeued: SESSION_END at 79139ms
+[C#:TIMING] dequeued: SESSION_END at 79139ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79145ms
+[C#:TIMING] dequeued: SESSION_END at 79145ms
+[C#:TIMING] dequeued: SESSION_END at 79145ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79151ms
+[C#:TIMING] dequeued: SESSION_END at 79151ms
+[C#:TIMING] dequeued: SESSION_END at 79151ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79156ms
+[C#:TIMING] dequeued: SESSION_END at 79156ms
+[C#:TIMING] dequeued: SESSION_END at 79156ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79163ms
+[C#:TIMING] dequeued: SESSION_END at 79163ms
+[C#:TIMING] dequeued: SESSION_END at 79163ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79169ms
+[C#:TIMING] dequeued: SESSION_END at 79169ms
+[C#:TIMING] dequeued: SESSION_END at 79169ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79177ms
+[C#:TIMING] dequeued: SESSION_END at 79177ms
+[C#:TIMING] dequeued: SESSION_END at 79177ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79184ms
+[C#:TIMING] dequeued: SESSION_END at 79184ms
+[C#:TIMING] dequeued: SESSION_END at 79184ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79190ms
+[C#:TIMING] dequeued: SESSION_END at 79190ms
+[C#:TIMING] dequeued: SESSION_END at 79190ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79197ms
+[C#:TIMING] dequeued: SESSION_END at 79197ms
+[C#:TIMING] dequeued: SESSION_END at 79197ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79203ms
+[C#:TIMING] dequeued: SESSION_END at 79203ms
+[C#:TIMING] dequeued: SESSION_END at 79203ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79210ms
+[C#:TIMING] dequeued: SESSION_END at 79210ms
+[C#:TIMING] dequeued: SESSION_END at 79210ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79216ms
+[C#:TIMING] dequeued: SESSION_END at 79216ms
+[C#:TIMING] dequeued: SESSION_END at 79216ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79223ms
+[C#:TIMING] dequeued: SESSION_END at 79223ms
+[C#:TIMING] dequeued: SESSION_END at 79223ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79230ms
+[C#:TIMING] dequeued: SESSION_END at 79230ms
+[C#:TIMING] dequeued: SESSION_END at 79230ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79236ms
+[C#:TIMING] dequeued: SESSION_END at 79236ms
+[C#:TIMING] dequeued: SESSION_END at 79236ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79241ms
+[C#:TIMING] dequeued: SESSION_END at 79241ms
+[C#:TIMING] dequeued: SESSION_END at 79241ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79247ms
+[C#:TIMING] dequeued: SESSION_END at 79247ms
+[C#:TIMING] dequeued: SESSION_END at 79247ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79253ms
+[C#:TIMING] dequeued: SESSION_END at 79253ms
+[C#:TIMING] dequeued: SESSION_END at 79253ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79259ms
+[C#:TIMING] dequeued: SESSION_END at 79259ms
+[C#:TIMING] dequeued: SESSION_END at 79259ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79265ms
+[C#:TIMING] dequeued: SESSION_END at 79265ms
+[C#:TIMING] dequeued: SESSION_END at 79265ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79274ms
+[C#:TIMING] dequeued: SESSION_END at 79274ms
+[C#:TIMING] dequeued: SESSION_END at 79274ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79282ms
+[C#:TIMING] dequeued: SESSION_END at 79282ms
+[C#:TIMING] dequeued: SESSION_END at 79282ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79289ms
+[C#:TIMING] dequeued: SESSION_END at 79289ms
+[C#:TIMING] dequeued: SESSION_END at 79289ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79295ms
+[C#:TIMING] dequeued: SESSION_END at 79295ms
+[C#:TIMING] dequeued: SESSION_END at 79295ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79301ms
+[C#:TIMING] dequeued: SESSION_END at 79301ms
+[C#:TIMING] dequeued: SESSION_END at 79301ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79307ms
+[C#:TIMING] dequeued: SESSION_END at 79307ms
+[C#:TIMING] dequeued: SESSION_END at 79307ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79313ms
+[C#:TIMING] dequeued: SESSION_END at 79313ms
+[C#:TIMING] dequeued: SESSION_END at 79313ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79318ms
+[C#:TIMING] dequeued: SESSION_END at 79318ms
+[C#:TIMING] dequeued: SESSION_END at 79318ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79324ms
+[C#:TIMING] dequeued: SESSION_END at 79324ms
+[C#:TIMING] dequeued: SESSION_END at 79324ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79330ms
+[C#:TIMING] dequeued: SESSION_END at 79330ms
+[C#:TIMING] dequeued: SESSION_END at 79330ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79335ms
+[C#:TIMING] dequeued: SESSION_END at 79335ms
+[C#:TIMING] dequeued: SESSION_END at 79335ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79341ms
+[C#:TIMING] dequeued: SESSION_END at 79341ms
+[C#:TIMING] dequeued: SESSION_END at 79341ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79347ms
+[C#:TIMING] dequeued: SESSION_END at 79347ms
+[C#:TIMING] dequeued: SESSION_END at 79347ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79353ms
+[C#:TIMING] dequeued: SESSION_END at 79353ms
+[C#:TIMING] dequeued: SESSION_END at 79353ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79360ms
+[C#:TIMING] dequeued: SESSION_END at 79360ms
+[C#:TIMING] dequeued: SESSION_END at 79360ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79366ms
+[C#:TIMING] dequeued: SESSION_END at 79366ms
+[C#:TIMING] dequeued: SESSION_END at 79366ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79372ms
+[C#:TIMING] dequeued: SESSION_END at 79372ms
+[C#:TIMING] dequeued: SESSION_END at 79372ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79378ms
+[C#:TIMING] dequeued: SESSION_END at 79378ms
+[C#:TIMING] dequeued: SESSION_END at 79378ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79384ms
+[C#:TIMING] dequeued: SESSION_END at 79384ms
+[C#:TIMING] dequeued: SESSION_END at 79384ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79390ms
+[C#:TIMING] dequeued: SESSION_END at 79390ms
+[C#:TIMING] dequeued: SESSION_END at 79390ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79395ms
+[C#:TIMING] dequeued: SESSION_END at 79395ms
+[C#:TIMING] dequeued: SESSION_END at 79395ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79401ms
+[C#:TIMING] dequeued: SESSION_END at 79401ms
+[C#:TIMING] dequeued: SESSION_END at 79401ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79406ms
+[C#:TIMING] dequeued: SESSION_END at 79406ms
+[C#:TIMING] dequeued: SESSION_END at 79406ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79413ms
+[C#:TIMING] dequeued: SESSION_END at 79413ms
+[C#:TIMING] dequeued: SESSION_END at 79413ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79419ms
+[C#:TIMING] dequeued: SESSION_END at 79419ms
+[C#:TIMING] dequeued: SESSION_END at 79419ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79425ms
+[C#:TIMING] dequeued: SESSION_END at 79425ms
+[C#:TIMING] dequeued: SESSION_END at 79425ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79430ms
+[C#:TIMING] dequeued: SESSION_END at 79430ms
+[C#:TIMING] dequeued: SESSION_END at 79430ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79435ms
+[C#:TIMING] dequeued: SESSION_END at 79435ms
+[C#:TIMING] dequeued: SESSION_END at 79435ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79441ms
+[C#:TIMING] dequeued: SESSION_END at 79441ms
+[C#:TIMING] dequeued: SESSION_END at 79441ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79447ms
+[C#:TIMING] dequeued: SESSION_END at 79447ms
+[C#:TIMING] dequeued: SESSION_END at 79447ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79453ms
+[C#:TIMING] dequeued: SESSION_END at 79453ms
+[C#:TIMING] dequeued: SESSION_END at 79453ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79459ms
+[C#:TIMING] dequeued: SESSION_END at 79459ms
+[C#:TIMING] dequeued: SESSION_END at 79459ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79465ms
+[C#:TIMING] dequeued: SESSION_END at 79465ms
+[C#:TIMING] dequeued: SESSION_END at 79465ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79470ms
+[C#:TIMING] dequeued: SESSION_END at 79470ms
+[C#:TIMING] dequeued: SESSION_END at 79470ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79476ms
+[C#:TIMING] dequeued: SESSION_END at 79476ms
+[C#:TIMING] dequeued: SESSION_END at 79476ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79482ms
+[C#:TIMING] dequeued: SESSION_END at 79482ms
+[C#:TIMING] dequeued: SESSION_END at 79482ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79488ms
+[C#:TIMING] dequeued: SESSION_END at 79488ms
+[C#:TIMING] dequeued: SESSION_END at 79488ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79495ms
+[C#:TIMING] dequeued: SESSION_END at 79495ms
+[C#:TIMING] dequeued: SESSION_END at 79495ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79501ms
+[C#:TIMING] dequeued: SESSION_END at 79501ms
+[C#:TIMING] dequeued: SESSION_END at 79501ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79508ms
+[C#:TIMING] dequeued: SESSION_END at 79508ms
+[C#:TIMING] dequeued: SESSION_END at 79508ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79514ms
+[C#:TIMING] dequeued: SESSION_END at 79514ms
+[C#:TIMING] dequeued: SESSION_END at 79514ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79520ms
+[C#:TIMING] dequeued: SESSION_END at 79520ms
+[C#:TIMING] dequeued: SESSION_END at 79520ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79526ms
+[C#:TIMING] dequeued: SESSION_END at 79526ms
+[C#:TIMING] dequeued: SESSION_END at 79526ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79533ms
+[C#:TIMING] dequeued: SESSION_END at 79533ms
+[C#:TIMING] dequeued: SESSION_END at 79533ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79539ms
+[C#:TIMING] dequeued: SESSION_END at 79539ms
+[C#:TIMING] dequeued: SESSION_END at 79539ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79548ms
+[C#:TIMING] dequeued: SESSION_END at 79548ms
+[C#:TIMING] dequeued: SESSION_END at 79548ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79554ms
+[C#:TIMING] dequeued: SESSION_END at 79554ms
+[C#:TIMING] dequeued: SESSION_END at 79554ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79560ms
+[C#:TIMING] dequeued: SESSION_END at 79560ms
+[C#:TIMING] dequeued: SESSION_END at 79560ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79566ms
+[C#:TIMING] dequeued: SESSION_END at 79566ms
+[C#:TIMING] dequeued: SESSION_END at 79566ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79572ms
+[C#:TIMING] dequeued: SESSION_END at 79572ms
+[C#:TIMING] dequeued: SESSION_END at 79572ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79578ms
+[C#:TIMING] dequeued: SESSION_END at 79578ms
+[C#:TIMING] dequeued: SESSION_END at 79578ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79584ms
+[C#:TIMING] dequeued: SESSION_END at 79584ms
+[C#:TIMING] dequeued: SESSION_END at 79584ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79590ms
+[C#:TIMING] dequeued: SESSION_END at 79590ms
+[C#:TIMING] dequeued: SESSION_END at 79590ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79595ms
+[C#:TIMING] dequeued: SESSION_END at 79595ms
+[C#:TIMING] dequeued: SESSION_END at 79595ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79601ms
+[C#:TIMING] dequeued: SESSION_END at 79601ms
+[C#:TIMING] dequeued: SESSION_END at 79601ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79607ms
+[C#:TIMING] dequeued: SESSION_END at 79607ms
+[C#:TIMING] dequeued: SESSION_END at 79607ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79613ms
+[C#:TIMING] dequeued: SESSION_END at 79613ms
+[C#:TIMING] dequeued: SESSION_END at 79613ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79618ms
+[C#:TIMING] dequeued: SESSION_END at 79618ms
+[C#:TIMING] dequeued: SESSION_END at 79618ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79624ms
+[C#:TIMING] dequeued: SESSION_END at 79624ms
+[C#:TIMING] dequeued: SESSION_END at 79624ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79630ms
+[C#:TIMING] dequeued: SESSION_END at 79630ms
+[C#:TIMING] dequeued: SESSION_END at 79630ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79635ms
+[C#:TIMING] dequeued: SESSION_END at 79635ms
+[C#:TIMING] dequeued: SESSION_END at 79635ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79641ms
+[C#:TIMING] dequeued: SESSION_END at 79641ms
+[C#:TIMING] dequeued: SESSION_END at 79641ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79647ms
+[C#:TIMING] dequeued: SESSION_END at 79647ms
+[C#:TIMING] dequeued: SESSION_END at 79647ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79656ms
+[C#:TIMING] dequeued: SESSION_END at 79656ms
+[C#:TIMING] dequeued: SESSION_END at 79656ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79662ms
+[C#:TIMING] dequeued: SESSION_END at 79662ms
+[C#:TIMING] dequeued: SESSION_END at 79662ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79668ms
+[C#:TIMING] dequeued: SESSION_END at 79668ms
+[C#:TIMING] dequeued: SESSION_END at 79668ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79674ms
+[C#:TIMING] dequeued: SESSION_END at 79674ms
+[C#:TIMING] dequeued: SESSION_END at 79674ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79681ms
+[C#:TIMING] dequeued: SESSION_END at 79681ms
+[C#:TIMING] dequeued: SESSION_END at 79681ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79688ms
+[C#:TIMING] dequeued: SESSION_END at 79688ms
+[C#:TIMING] dequeued: SESSION_END at 79688ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79694ms
+[C#:TIMING] dequeued: SESSION_END at 79694ms
+[C#:TIMING] dequeued: SESSION_END at 79694ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79700ms
+[C#:TIMING] dequeued: SESSION_END at 79700ms
+[C#:TIMING] dequeued: SESSION_END at 79700ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79706ms
+[C#:TIMING] dequeued: SESSION_END at 79706ms
+[C#:TIMING] dequeued: SESSION_END at 79706ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79712ms
+[C#:TIMING] dequeued: SESSION_END at 79712ms
+[C#:TIMING] dequeued: SESSION_END at 79712ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79718ms
+[C#:TIMING] dequeued: SESSION_END at 79718ms
+[C#:TIMING] dequeued: SESSION_END at 79718ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79724ms
+[C#:TIMING] dequeued: SESSION_END at 79724ms
+[C#:TIMING] dequeued: SESSION_END at 79724ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79731ms
+[C#:TIMING] dequeued: SESSION_END at 79731ms
+[C#:TIMING] dequeued: SESSION_END at 79731ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79736ms
+[C#:TIMING] dequeued: SESSION_END at 79736ms
+[C#:TIMING] dequeued: SESSION_END at 79736ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79742ms
+[C#:TIMING] dequeued: SESSION_END at 79742ms
+[C#:TIMING] dequeued: SESSION_END at 79742ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79748ms
+[C#:TIMING] dequeued: SESSION_END at 79748ms
+[C#:TIMING] dequeued: SESSION_END at 79748ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79753ms
+[C#:TIMING] dequeued: SESSION_END at 79753ms
+[C#:TIMING] dequeued: SESSION_END at 79753ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79760ms
+[C#:TIMING] dequeued: SESSION_END at 79760ms
+[C#:TIMING] dequeued: SESSION_END at 79760ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79769ms
+[C#:TIMING] dequeued: SESSION_END at 79769ms
+[C#:TIMING] dequeued: SESSION_END at 79769ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79780ms
+[C#:TIMING] dequeued: SESSION_END at 79780ms
+[C#:TIMING] dequeued: SESSION_END at 79780ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79786ms
+[C#:TIMING] dequeued: SESSION_END at 79786ms
+[C#:TIMING] dequeued: SESSION_END at 79786ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79797ms
+[C#:TIMING] dequeued: SESSION_END at 79797ms
+[C#:TIMING] dequeued: SESSION_END at 79797ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79805ms
+[C#:TIMING] dequeued: SESSION_END at 79805ms
+[C#:TIMING] dequeued: SESSION_END at 79805ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79816ms
+[C#:TIMING] dequeued: SESSION_END at 79816ms
+[C#:TIMING] dequeued: SESSION_END at 79816ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79825ms
+[C#:TIMING] dequeued: SESSION_END at 79825ms
+[C#:TIMING] dequeued: SESSION_END at 79825ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79831ms
+[C#:TIMING] dequeued: SESSION_END at 79831ms
+[C#:TIMING] dequeued: SESSION_END at 79831ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79838ms
+[C#:TIMING] dequeued: SESSION_END at 79838ms
+[C#:TIMING] dequeued: SESSION_END at 79838ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79846ms
+[C#:TIMING] dequeued: SESSION_END at 79846ms
+[C#:TIMING] dequeued: SESSION_END at 79846ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79852ms
+[C#:TIMING] dequeued: SESSION_END at 79852ms
+[C#:TIMING] dequeued: SESSION_END at 79852ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79857ms
+[C#:TIMING] dequeued: SESSION_END at 79857ms
+[C#:TIMING] dequeued: SESSION_END at 79857ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79864ms
+[C#:TIMING] dequeued: SESSION_END at 79864ms
+[C#:TIMING] dequeued: SESSION_END at 79864ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79871ms
+[C#:TIMING] dequeued: SESSION_END at 79871ms
+[C#:TIMING] dequeued: SESSION_END at 79871ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79877ms
+[C#:TIMING] dequeued: SESSION_END at 79877ms
+[C#:TIMING] dequeued: SESSION_END at 79877ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79883ms
+[C#:TIMING] dequeued: SESSION_END at 79883ms
+[C#:TIMING] dequeued: SESSION_END at 79883ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79890ms
+[C#:TIMING] dequeued: SESSION_END at 79890ms
+[C#:TIMING] dequeued: SESSION_END at 79890ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79896ms
+[C#:TIMING] dequeued: SESSION_END at 79896ms
+[C#:TIMING] dequeued: SESSION_END at 79896ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79902ms
+[C#:TIMING] dequeued: SESSION_END at 79902ms
+[C#:TIMING] dequeued: SESSION_END at 79902ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79908ms
+[C#:TIMING] dequeued: SESSION_END at 79908ms
+[C#:TIMING] dequeued: SESSION_END at 79908ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79914ms
+[C#:TIMING] dequeued: SESSION_END at 79914ms
+[C#:TIMING] dequeued: SESSION_END at 79914ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79920ms
+[C#:TIMING] dequeued: SESSION_END at 79920ms
+[C#:TIMING] dequeued: SESSION_END at 79920ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79928ms
+[C#:TIMING] dequeued: SESSION_END at 79928ms
+[C#:TIMING] dequeued: SESSION_END at 79928ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79934ms
+[C#:TIMING] dequeued: SESSION_END at 79934ms
+[C#:TIMING] dequeued: SESSION_END at 79934ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79939ms
+[C#:TIMING] dequeued: SESSION_END at 79939ms
+[C#:TIMING] dequeued: SESSION_END at 79939ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79946ms
+[C#:TIMING] dequeued: SESSION_END at 79946ms
+[C#:TIMING] dequeued: SESSION_END at 79946ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79953ms
+[C#:TIMING] dequeued: SESSION_END at 79953ms
+[C#:TIMING] dequeued: SESSION_END at 79953ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79958ms
+[C#:TIMING] dequeued: SESSION_END at 79958ms
+[C#:TIMING] dequeued: SESSION_END at 79958ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79965ms
+[C#:TIMING] dequeued: SESSION_END at 79965ms
+[C#:TIMING] dequeued: SESSION_END at 79965ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79970ms
+[C#:TIMING] dequeued: SESSION_END at 79970ms
+[C#:TIMING] dequeued: SESSION_END at 79970ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79976ms
+[C#:TIMING] dequeued: SESSION_END at 79976ms
+[C#:TIMING] dequeued: SESSION_END at 79976ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79983ms
+[C#:TIMING] dequeued: SESSION_END at 79983ms
+[C#:TIMING] dequeued: SESSION_END at 79983ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79988ms
+[C#:TIMING] dequeued: SESSION_END at 79988ms
+[C#:TIMING] dequeued: SESSION_END at 79988ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 79995ms
+[C#:TIMING] dequeued: SESSION_END at 79995ms
+[C#:TIMING] dequeued: SESSION_END at 79995ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80001ms
+[C#:TIMING] dequeued: SESSION_END at 80001ms
+[C#:TIMING] dequeued: SESSION_END at 80001ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80007ms
+[C#:TIMING] dequeued: SESSION_END at 80007ms
+[C#:TIMING] dequeued: SESSION_END at 80007ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80013ms
+[C#:TIMING] dequeued: SESSION_END at 80013ms
+[C#:TIMING] dequeued: SESSION_END at 80013ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80018ms
+[C#:TIMING] dequeued: SESSION_END at 80018ms
+[C#:TIMING] dequeued: SESSION_END at 80018ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80023ms
+[C#:TIMING] dequeued: SESSION_END at 80023ms
+[C#:TIMING] dequeued: SESSION_END at 80023ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80029ms
+[C#:TIMING] dequeued: SESSION_END at 80029ms
+[C#:TIMING] dequeued: SESSION_END at 80029ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80035ms
+[C#:TIMING] dequeued: SESSION_END at 80035ms
+[C#:TIMING] dequeued: SESSION_END at 80035ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80040ms
+[C#:TIMING] dequeued: SESSION_END at 80040ms
+[C#:TIMING] dequeued: SESSION_END at 80040ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80046ms
+[C#:TIMING] dequeued: SESSION_END at 80046ms
+[C#:TIMING] dequeued: SESSION_END at 80046ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80052ms
+[C#:TIMING] dequeued: SESSION_END at 80052ms
+[C#:TIMING] dequeued: SESSION_END at 80052ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80058ms
+[C#:TIMING] dequeued: SESSION_END at 80058ms
+[C#:TIMING] dequeued: SESSION_END at 80058ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80063ms
+[C#:TIMING] dequeued: SESSION_END at 80063ms
+[C#:TIMING] dequeued: SESSION_END at 80063ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80070ms
+[C#:TIMING] dequeued: SESSION_END at 80070ms
+[C#:TIMING] dequeued: SESSION_END at 80070ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80076ms
+[C#:TIMING] dequeued: SESSION_END at 80076ms
+[C#:TIMING] dequeued: SESSION_END at 80076ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80081ms
+[C#:TIMING] dequeued: SESSION_END at 80081ms
+[C#:TIMING] dequeued: SESSION_END at 80081ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80087ms
+[C#:TIMING] dequeued: SESSION_END at 80087ms
+[C#:TIMING] dequeued: SESSION_END at 80087ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80093ms
+[C#:TIMING] dequeued: SESSION_END at 80093ms
+[C#:TIMING] dequeued: SESSION_END at 80093ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80099ms
+[C#:TIMING] dequeued: SESSION_END at 80099ms
+[C#:TIMING] dequeued: SESSION_END at 80099ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80105ms
+[C#:TIMING] dequeued: SESSION_END at 80105ms
+[C#:TIMING] dequeued: SESSION_END at 80105ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80111ms
+[C#:TIMING] dequeued: SESSION_END at 80111ms
+[C#:TIMING] dequeued: SESSION_END at 80111ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80118ms
+[C#:TIMING] dequeued: SESSION_END at 80118ms
+[C#:TIMING] dequeued: SESSION_END at 80118ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80124ms
+[C#:TIMING] dequeued: SESSION_END at 80124ms
+[C#:TIMING] dequeued: SESSION_END at 80124ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80130ms
+[C#:TIMING] dequeued: SESSION_END at 80130ms
+[C#:TIMING] dequeued: SESSION_END at 80130ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80136ms
+[C#:TIMING] dequeued: SESSION_END at 80136ms
+[C#:TIMING] dequeued: SESSION_END at 80136ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80142ms
+[C#:TIMING] dequeued: SESSION_END at 80142ms
+[C#:TIMING] dequeued: SESSION_END at 80142ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80148ms
+[C#:TIMING] dequeued: SESSION_END at 80148ms
+[C#:TIMING] dequeued: SESSION_END at 80148ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80154ms
+[C#:TIMING] dequeued: SESSION_END at 80154ms
+[C#:TIMING] dequeued: SESSION_END at 80154ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80160ms
+[C#:TIMING] dequeued: SESSION_END at 80160ms
+[C#:TIMING] dequeued: SESSION_END at 80160ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80166ms
+[C#:TIMING] dequeued: SESSION_END at 80166ms
+[C#:TIMING] dequeued: SESSION_END at 80166ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80172ms
+[C#:TIMING] dequeued: SESSION_END at 80172ms
+[C#:TIMING] dequeued: SESSION_END at 80172ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80178ms
+[C#:TIMING] dequeued: SESSION_END at 80178ms
+[C#:TIMING] dequeued: SESSION_END at 80178ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80184ms
+[C#:TIMING] dequeued: SESSION_END at 80184ms
+[C#:TIMING] dequeued: SESSION_END at 80184ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80190ms
+[C#:TIMING] dequeued: SESSION_END at 80190ms
+[C#:TIMING] dequeued: SESSION_END at 80190ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80196ms
+[C#:TIMING] dequeued: SESSION_END at 80196ms
+[C#:TIMING] dequeued: SESSION_END at 80196ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80201ms
+[C#:TIMING] dequeued: SESSION_END at 80201ms
+[C#:TIMING] dequeued: SESSION_END at 80201ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80206ms
+[C#:TIMING] dequeued: SESSION_END at 80206ms
+[C#:TIMING] dequeued: SESSION_END at 80206ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80211ms
+[C#:TIMING] dequeued: SESSION_END at 80211ms
+[C#:TIMING] dequeued: SESSION_END at 80211ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80217ms
+[C#:TIMING] dequeued: SESSION_END at 80217ms
+[C#:TIMING] dequeued: SESSION_END at 80217ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80222ms
+[C#:TIMING] dequeued: SESSION_END at 80222ms
+[C#:TIMING] dequeued: SESSION_END at 80222ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80229ms
+[C#:TIMING] dequeued: SESSION_END at 80229ms
+[C#:TIMING] dequeued: SESSION_END at 80229ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80234ms
+[C#:TIMING] dequeued: SESSION_END at 80234ms
+[C#:TIMING] dequeued: SESSION_END at 80234ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80240ms
+[C#:TIMING] dequeued: SESSION_END at 80240ms
+[C#:TIMING] dequeued: SESSION_END at 80240ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80246ms
+[C#:TIMING] dequeued: SESSION_END at 80246ms
+[C#:TIMING] dequeued: SESSION_END at 80246ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80252ms
+[C#:TIMING] dequeued: SESSION_END at 80252ms
+[C#:TIMING] dequeued: SESSION_END at 80252ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80257ms
+[C#:TIMING] dequeued: SESSION_END at 80257ms
+[C#:TIMING] dequeued: SESSION_END at 80257ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80263ms
+[C#:TIMING] dequeued: SESSION_END at 80263ms
+[C#:TIMING] dequeued: SESSION_END at 80263ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80269ms
+[C#:TIMING] dequeued: SESSION_END at 80269ms
+[C#:TIMING] dequeued: SESSION_END at 80269ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80275ms
+[C#:TIMING] dequeued: SESSION_END at 80275ms
+[C#:TIMING] dequeued: SESSION_END at 80275ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80281ms
+[C#:TIMING] dequeued: SESSION_END at 80281ms
+[C#:TIMING] dequeued: SESSION_END at 80281ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80287ms
+[C#:TIMING] dequeued: SESSION_END at 80287ms
+[C#:TIMING] dequeued: SESSION_END at 80287ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80295ms
+[C#:TIMING] dequeued: SESSION_END at 80295ms
+[C#:TIMING] dequeued: SESSION_END at 80295ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80301ms
+[C#:TIMING] dequeued: SESSION_END at 80301ms
+[C#:TIMING] dequeued: SESSION_END at 80301ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80307ms
+[C#:TIMING] dequeued: SESSION_END at 80307ms
+[C#:TIMING] dequeued: SESSION_END at 80307ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80312ms
+[C#:TIMING] dequeued: SESSION_END at 80312ms
+[C#:TIMING] dequeued: SESSION_END at 80312ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80319ms
+[C#:TIMING] dequeued: SESSION_END at 80319ms
+[C#:TIMING] dequeued: SESSION_END at 80319ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80324ms
+[C#:TIMING] dequeued: SESSION_END at 80324ms
+[C#:TIMING] dequeued: SESSION_END at 80324ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80330ms
+[C#:TIMING] dequeued: SESSION_END at 80330ms
+[C#:TIMING] dequeued: SESSION_END at 80330ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80336ms
+[C#:TIMING] dequeued: SESSION_END at 80336ms
+[C#:TIMING] dequeued: SESSION_END at 80336ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80342ms
+[C#:TIMING] dequeued: SESSION_END at 80342ms
+[C#:TIMING] dequeued: SESSION_END at 80342ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80349ms
+[C#:TIMING] dequeued: SESSION_END at 80349ms
+[C#:TIMING] dequeued: SESSION_END at 80349ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80354ms
+[C#:TIMING] dequeued: SESSION_END at 80354ms
+[C#:TIMING] dequeued: SESSION_END at 80354ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80361ms
+[C#:TIMING] dequeued: SESSION_END at 80361ms
+[C#:TIMING] dequeued: SESSION_END at 80361ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80367ms
+[C#:TIMING] dequeued: SESSION_END at 80367ms
+[C#:TIMING] dequeued: SESSION_END at 80367ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80373ms
+[C#:TIMING] dequeued: SESSION_END at 80373ms
+[C#:TIMING] dequeued: SESSION_END at 80373ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80379ms
+[C#:TIMING] dequeued: SESSION_END at 80379ms
+[C#:TIMING] dequeued: SESSION_END at 80379ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80385ms
+[C#:TIMING] dequeued: SESSION_END at 80385ms
+[C#:TIMING] dequeued: SESSION_END at 80385ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80391ms
+[C#:TIMING] dequeued: SESSION_END at 80391ms
+[C#:TIMING] dequeued: SESSION_END at 80391ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80397ms
+[C#:TIMING] dequeued: SESSION_END at 80397ms
+[C#:TIMING] dequeued: SESSION_END at 80397ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80403ms
+[C#:TIMING] dequeued: SESSION_END at 80403ms
+[C#:TIMING] dequeued: SESSION_END at 80403ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80408ms
+[C#:TIMING] dequeued: SESSION_END at 80408ms
+[C#:TIMING] dequeued: SESSION_END at 80408ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80414ms
+[C#:TIMING] dequeued: SESSION_END at 80414ms
+[C#:TIMING] dequeued: SESSION_END at 80414ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80420ms
+[C#:TIMING] dequeued: SESSION_END at 80420ms
+[C#:TIMING] dequeued: SESSION_END at 80420ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80426ms
+[C#:TIMING] dequeued: SESSION_END at 80426ms
+[C#:TIMING] dequeued: SESSION_END at 80426ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80432ms
+[C#:TIMING] dequeued: SESSION_END at 80432ms
+[C#:TIMING] dequeued: SESSION_END at 80432ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80438ms
+[C#:TIMING] dequeued: SESSION_END at 80438ms
+[C#:TIMING] dequeued: SESSION_END at 80438ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80444ms
+[C#:TIMING] dequeued: SESSION_END at 80444ms
+[C#:TIMING] dequeued: SESSION_END at 80444ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80450ms
+[C#:TIMING] dequeued: SESSION_END at 80450ms
+[C#:TIMING] dequeued: SESSION_END at 80450ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80456ms
+[C#:TIMING] dequeued: SESSION_END at 80456ms
+[C#:TIMING] dequeued: SESSION_END at 80456ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80461ms
+[C#:TIMING] dequeued: SESSION_END at 80461ms
+[C#:TIMING] dequeued: SESSION_END at 80461ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80467ms
+[C#:TIMING] dequeued: SESSION_END at 80467ms
+[C#:TIMING] dequeued: SESSION_END at 80467ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80473ms
+[C#:TIMING] dequeued: SESSION_END at 80473ms
+[C#:TIMING] dequeued: SESSION_END at 80473ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80479ms
+[C#:TIMING] dequeued: SESSION_END at 80479ms
+[C#:TIMING] dequeued: SESSION_END at 80479ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80484ms
+[C#:TIMING] dequeued: SESSION_END at 80484ms
+[C#:TIMING] dequeued: SESSION_END at 80484ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80492ms
+[C#:TIMING] dequeued: SESSION_END at 80492ms
+[C#:TIMING] dequeued: SESSION_END at 80492ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80502ms
+[C#:TIMING] dequeued: SESSION_END at 80502ms
+[C#:TIMING] dequeued: SESSION_END at 80502ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80508ms
+[C#:TIMING] dequeued: SESSION_END at 80508ms
+[C#:TIMING] dequeued: SESSION_END at 80508ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80515ms
+[C#:TIMING] dequeued: SESSION_END at 80515ms
+[C#:TIMING] dequeued: SESSION_END at 80515ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80522ms
+[C#:TIMING] dequeued: SESSION_END at 80522ms
+[C#:TIMING] dequeued: SESSION_END at 80522ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80532ms
+[C#:TIMING] dequeued: SESSION_END at 80532ms
+[C#:TIMING] dequeued: SESSION_END at 80532ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80541ms
+[C#:TIMING] dequeued: SESSION_END at 80541ms
+[C#:TIMING] dequeued: SESSION_END at 80541ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80551ms
+[C#:TIMING] dequeued: SESSION_END at 80551ms
+[C#:TIMING] dequeued: SESSION_END at 80551ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80561ms
+[C#:TIMING] dequeued: SESSION_END at 80561ms
+[C#:TIMING] dequeued: SESSION_END at 80561ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80567ms
+[C#:TIMING] dequeued: SESSION_END at 80567ms
+[C#:TIMING] dequeued: SESSION_END at 80567ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[C#:TIMING] dequeued: SESSION_END at 80577ms
+[C#:TIMING] dequeued: SESSION_END at 80577ms
+[C#:TIMING] dequeued: SESSION_END at 80577ms
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] SESSION_END received, waiting for Python exit
+[PsychoPy] Python exited with code: 0
+[PsychoPy] Python exited with code: 0
+[PsychoPy] Python exited with code: 0
+[PsychoPy] Session complete, total trials: 5
+[PsychoPy] Session complete, total trials: 5
+[PsychoPy] Session complete, total trials: 5
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOn
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOn
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOn
+[IoMicrochipDummyEx] ランプ制御: RoomLampOn
+[IoMicrochipDummyEx] ランプ制御: RoomLampOn
+[IoMicrochipDummyEx] ランプ制御: RoomLampOn
+[PsychoPy] Door disabled, skipping open for exit
+[PsychoPy] Door disabled, skipping open for exit
+[PsychoPy] Door disabled, skipping open for exit
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.Core.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\netstandard\v4.0_2.0.0.0__cc7b13ffcd2ddd51\netstandard.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+'Compartment.exe' (CLR v4.0.30319: Compartment.exe): 'C:\Users\marmoset\Desktop\touch\touchpanel_PsychoPy\cs\Compartment\Compartment\bin\DebugDummyIo\NAudio.WinForms.dll' が読み込まれました。シンボルの読み込みをスキップしました。モジュールは最適化されていて、デバッグ オプションの [マイ コードのみ] 設定が有効になっています。
+[PsychoPy] Exit detected
+[PsychoPy] Exit detected
+[PsychoPy] Exit detected
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[PsychoPy] Door disabled, skipping open
+[PsychoPy] Door disabled, skipping open
+[PsychoPy] Door disabled, skipping open
+[EventLogger] Disabled
+[EventLogger] Disabled
+[EventLogger] Disabled
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] ランプ制御: RoomLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] SetUpperStateOfDOut: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[IoMicrochipDummyEx] 未処理のコマンド: FeedLampOff
+[API] Web API server stopped
+[API] Web API server stopped
+[API] Web API server stopped
+
+ seen 64, trained: 89600 K-images (1400 Kilo-batches_64) 
+プログラム '[19412] Compartment.exe' はコード 0 (0x0) で終了しました。
