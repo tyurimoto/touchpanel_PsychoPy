@@ -76,6 +76,7 @@ class DMTSTask:
 
         self.mouse = event.Mouse(win=self.win, visible=False)
         self.create_stimuli()
+        self._precreate_shapes()
 
     def create_stimuli(self):
         """固定の刺激オブジェクトを作成"""
@@ -98,6 +99,32 @@ class DMTSTask:
         self.delay_text = visual.TextStim(
             self.win, text='+', height=120,
             color='white', bold=True
+        )
+
+    def _precreate_shapes(self):
+        """全刺激オブジェクトを事前生成（trial間のラグを解消）"""
+        self._sample_shapes = {}
+        self._choice_shapes = {}
+        for stim_def in self.STIMULI:
+            key = (stim_def["shape"], stim_def["color"])
+            # サンプル用（1.2倍サイズ、中央固定）
+            self._sample_shapes[key] = self._make_shape(
+                stim_def, (0, 0), self.stimulus_size * 1.2
+            )
+            # 選択肢用（標準サイズ、posはtrial毎に変更）
+            self._choice_shapes[key] = self._make_shape(
+                stim_def, (0, 0), self.stimulus_size
+            )
+
+        # Ready画面用
+        self._ready_circle = visual.Circle(
+            self.win, radius=200,
+            fillColor='white', lineColor=None,
+            pos=(0, 0)
+        )
+        self._ready_text = visual.TextStim(
+            self.win, text='Touch to Start',
+            height=40, color='black', pos=(0, 0), bold=True
         )
 
     def _log_touch(self, phase, pos, result, detail=""):
@@ -212,18 +239,9 @@ class DMTSTask:
         t0 = time.perf_counter()
         print(f"[TIMING] ready_draw_start: {t0:.3f}", flush=True)
 
-        # Ready画面描画
-        ready_circle = visual.Circle(
-            self.win, radius=200,
-            fillColor='white', lineColor=None,
-            pos=(0, 0)
-        )
-        ready_text = visual.TextStim(
-            self.win, text='Touch to Start',
-            height=40, color='black', pos=(0, 0), bold=True
-        )
+        # Ready画面描画（事前生成オブジェクトを再利用）
         self._clear_markers()
-        self._set_scene(ready_circle, ready_text)
+        self._set_scene(self._ready_circle, self._ready_text)
         self._redraw_scene()
         t0f = time.perf_counter()
         print(f"[TIMING] ready_flip: {t0f:.3f} (draw+flip={t0f-t0:.3f}s)", flush=True)
@@ -278,7 +296,8 @@ class DMTSTask:
 
         # --- Phase 1: サンプル提示 ---
         self.info_text.text = f"Trial {self.trial_count}/{self.max_trials} - Sample"
-        sample_shape = self._make_shape(sample_def, (0, 0), self.stimulus_size * 1.2)
+        sample_key = (sample_def["shape"], sample_def["color"])
+        sample_shape = self._sample_shapes[sample_key]
 
         self._clear_markers()
         self._set_scene(sample_shape, self.info_text)
@@ -328,8 +347,10 @@ class DMTSTask:
 
         positions = self._get_choice_positions(len(choice_defs))
         choice_shapes = []
-        for i, (cdef, pos) in enumerate(zip(choice_defs, positions)):
-            shape = self._make_shape(cdef, pos)
+        for cdef, pos in zip(choice_defs, positions):
+            key = (cdef["shape"], cdef["color"])
+            shape = self._choice_shapes[key]
+            shape.pos = pos  # 位置だけ変更（オブジェクト再生成なし）
             choice_shapes.append(shape)
 
         # 選択肢を描画
