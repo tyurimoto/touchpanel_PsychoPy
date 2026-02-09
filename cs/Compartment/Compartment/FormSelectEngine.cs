@@ -10,7 +10,7 @@ namespace Compartment
     {
         public FormSelectEngine()
         {
-            string subVersion = "c";
+            string subVersion = "pythonプログラム実装中";
 
             InitializeComponent();
             radioButtonPsychoPy.Checked = true;  // デフォルトをPsychoPyに変更
@@ -21,7 +21,7 @@ namespace Compartment
             // 位置ラベル長に合わせて自動
             labelVersion.Location = new System.Drawing.Point(530 - labelVersion.Size.Width, labelVersion.Location.Y);
 
-            labelAssemblyVersion.Text = "V" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + subVersion;
+            labelAssemblyVersion.Text = "v3.0 " + subVersion;
 
         }
 
