@@ -17,6 +17,7 @@ from psychopy import visual, core, event
 import random
 import sys
 import math
+import time
 
 
 class DMTSTask:
@@ -43,7 +44,7 @@ class DMTSTask:
         self.debug_mode = debug_mode
 
         # 課題パラメータ
-        self.max_trials = 20
+        self.max_trials = 5
         self.sample_duration = 3.0       # サンプル提示時間（秒）
         self.delay_duration = 2.0        # 遅延時間（秒）
         self.choice_timeout = 10.0       # 選択タイムアウト（秒）
@@ -144,8 +145,55 @@ class DMTSTask:
         dy = pos[1] - target_pos[1]
         return (dx * dx + dy * dy) <= radius * radius
 
+    def _wait_for_ready_touch(self):
+        """Ready画面を表示し、タッチを待つ"""
+        t0 = time.perf_counter()
+        print(f"[TIMING] ready_touch_start: {t0:.3f}", flush=True)
+
+        # Ready画面描画
+        self.background.draw()
+        ready_circle = visual.Circle(
+            self.win, radius=200,
+            fillColor='white', lineColor=None,
+            pos=(0, 0)
+        )
+        ready_text = visual.TextStim(
+            self.win, text='Touch to Start',
+            height=40, color='black', pos=(0, 0), bold=True
+        )
+        ready_circle.draw()
+        ready_text.draw()
+        self.win.flip()
+
+        # マウス状態リセット（前のtrialの残りタッチを消去）
+        self.mouse.clickReset()
+        # 既にボタンが押されている場合はリリースを待つ
+        while self.mouse.getPressed()[0]:
+            core.wait(0.01)
+
+        # タッチ待ち（画面のどこでもOK）
+        while True:
+            if self.mouse.getPressed()[0]:
+                break
+            if event.getKeys(['escape']):
+                return False  # 中断
+            core.wait(0.01)
+
+        # タッチ後、リリースを待ってからtrial開始
+        while self.mouse.getPressed()[0]:
+            core.wait(0.01)
+
+        t1 = time.perf_counter()
+        print(f"[TIMING] ready_touch_done: {t1:.3f} (waited {t1-t0:.3f}s)", flush=True)
+
+        return True  # OK
+
     def run_trial(self):
         """1試行を実行"""
+        # Ready画面
+        if not self._wait_for_ready_touch():
+            return None  # ESC中断
+
         self.trial_count += 1
         print(f"\n=== Trial {self.trial_count}/{self.max_trials} ===")
 
@@ -158,6 +206,9 @@ class DMTSTask:
         print(f"Sample: {sample_def['shape']} ({sample_def['color']})")
 
         # --- Phase 1: サンプル提示 ---
+        t2 = time.perf_counter()
+        print(f"[TIMING] sample_show: {t2:.3f}", flush=True)
+
         self.info_text.text = f"Trial {self.trial_count}/{self.max_trials} - Sample"
         sample_shape = self._make_shape(sample_def, (0, 0), self.stimulus_size * 1.2)
 
@@ -199,6 +250,9 @@ class DMTSTask:
             choice_shapes.append(shape)
 
         # 選択肢を描画
+        t3 = time.perf_counter()
+        print(f"[TIMING] choice_show: {t3:.3f}", flush=True)
+
         self.info_text.text = f"Trial {self.trial_count}/{self.max_trials} - Choose"
         self.background.draw()
         for s in choice_shapes:
@@ -228,6 +282,8 @@ class DMTSTask:
                         break
 
                 if responded:
+                    t4 = time.perf_counter()
+                    print(f"[TIMING] touch_detected: {t4:.3f} (response_time={t4-t3:.3f}s)", flush=True)
                     break
 
                 # タッチしたがどの刺激にも当たらなかった場合はリリースを待つ
@@ -323,6 +379,9 @@ class DMTSTask:
 
 
 def main():
+    t_start = time.perf_counter()
+    print(f"[TIMING] python_start: {t_start:.3f}", flush=True)
+
     # RFID: C#エンジンから第1引数で渡される
     rfid = sys.argv[1] if len(sys.argv) >= 2 else "UNKNOWN"
 
@@ -338,6 +397,10 @@ def main():
         fullscreen=not windowed,
         screen=1 if not windowed else 0
     )
+
+    t_init = time.perf_counter()
+    print(f"[TIMING] init_complete: {t_init:.3f} (init_time={t_init-t_start:.3f}s)", flush=True)
+
     task.run()
 
 

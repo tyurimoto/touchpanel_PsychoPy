@@ -960,6 +960,14 @@ namespace Compartment
 
         #endregion
 
+        /// <summary>
+        /// 外部からのクリーンアップ（BackgroundWorkerループ終了時に呼ばれる）
+        /// </summary>
+        public void Cleanup()
+        {
+            KillPythonProcess();
+        }
+
         #region Pythonプロセス管理
 
         /// <summary>

@@ -765,6 +765,10 @@ namespace Compartment
 
                 recentIdHelper.SaveId(recentIdFileName);
             }
+
+            // eDoorの停止（BackgroundWorker停止後、他のDispose前に呼ぶ）
+            eDoor?.Dispose();
+
             ucOperationDataStore?.Dispose();
             camImage?.Dispose();
 
@@ -821,6 +825,7 @@ namespace Compartment
             System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Started!");
 
             Action M_OperationProc = () => { };
+            UcOperationPsychoPy ucOperationPsychoPy = null;
 
             switch (Program.SelectedEngine)
             {
@@ -831,7 +836,7 @@ namespace Compartment
                     break;
 
                 case EEngineType.PsychoPy:
-                    UcOperationPsychoPy ucOperationPsychoPy = new UcOperationPsychoPy(this);
+                    ucOperationPsychoPy = new UcOperationPsychoPy(this);
                     M_OperationProc = () => { ucOperationPsychoPy.OnOperationStateMachineProc(); };
                     System.Diagnostics.Debug.WriteLine("[backgroundWorker1_DoWork] Using PsychoPy engine");
                     break;
@@ -858,6 +863,11 @@ namespace Compartment
             {
                 opCollection.callbackMessageError(ex.Message);
                 //MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // PsychoPyエンジン: Pythonプロセスが残っている場合にKill
+                ucOperationPsychoPy?.Cleanup();
             }
 #endif
 
