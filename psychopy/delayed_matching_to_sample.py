@@ -57,6 +57,13 @@ class DMTSTask:
         self.trial_count = 0
         self.correct_count = 0
 
+        # タッチ状態追跡（press-down検知用）
+        self._was_pressed = False
+
+        # デバッグ用タッチマーカー
+        self._touch_markers = []
+        self._scene_drawables = []
+
         # PsychoPyウィンドウ
         self.win = visual.Window(
             size=[1920, 1080],
@@ -92,6 +99,61 @@ class DMTSTask:
             self.win, text='+', height=120,
             color='white', bold=True
         )
+
+    def _log_touch(self, phase, pos, result, detail=""):
+        """タッチイベントをログ出力"""
+        t = time.perf_counter()
+        detail_str = f" {detail}" if detail else ""
+        print(f"[TOUCH] trial={self.trial_count} phase={phase} t={t:.3f} pos=({pos[0]:.0f},{pos[1]:.0f}) result={result}{detail_str}", flush=True)
+
+    def _detect_new_press(self):
+        """新しいpress-down（押していない→押した遷移）を検出。
+        戻り値: (is_new_press, mouse_pos_or_None)
+        _was_pressedを内部で更新する。"""
+        pressed = self.mouse.getPressed()[0]
+        if pressed and not self._was_pressed:
+            self._was_pressed = True
+            return True, self.mouse.getPos()
+        if not pressed:
+            self._was_pressed = False
+        return False, None
+
+    def _dist(self, pos1, pos2):
+        """2点間距離"""
+        dx = pos1[0] - pos2[0]
+        dy = pos1[1] - pos2[1]
+        return math.sqrt(dx * dx + dy * dy)
+
+    def _clear_markers(self):
+        """タッチマーカーをクリア（画面遷移時に呼ぶ）"""
+        self._touch_markers = []
+
+    def _add_marker(self, pos, color):
+        """タッチ位置にマーカーを追加"""
+        self._touch_markers.append((pos, color))
+
+    def _draw_touch_markers(self):
+        """蓄積されたタッチマーカーをすべて描画"""
+        for pos, color in self._touch_markers:
+            # 丸マーカー
+            marker = visual.Circle(
+                self.win, radius=15,
+                fillColor=color, lineColor='white', lineWidth=2,
+                pos=pos, opacity=0.8
+            )
+            marker.draw()
+
+    def _set_scene(self, *drawables):
+        """現在のシーン描画物を設定"""
+        self._scene_drawables = list(drawables)
+
+    def _redraw_scene(self):
+        """現在のシーンをマーカー付きで再描画してflip"""
+        self.background.draw()
+        for d in self._scene_drawables:
+            d.draw()
+        self._draw_touch_markers()
+        self.win.flip()
 
     def _make_shape(self, stim_def, pos, size=None):
         """刺激定義から PsychoPy 視覚オブジェクトを生成"""
@@ -151,7 +213,6 @@ class DMTSTask:
         print(f"[TIMING] ready_draw_start: {t0:.3f}", flush=True)
 
         # Ready画面描画
-        self.background.draw()
         ready_circle = visual.Circle(
             self.win, radius=200,
             fillColor='white', lineColor=None,
@@ -161,21 +222,28 @@ class DMTSTask:
             self.win, text='Touch to Start',
             height=40, color='black', pos=(0, 0), bold=True
         )
-        ready_circle.draw()
-        ready_text.draw()
-        self.win.flip()
+        self._clear_markers()
+        self._set_scene(ready_circle, ready_text)
+        self._redraw_scene()
         t0f = time.perf_counter()
         print(f"[TIMING] ready_flip: {t0f:.3f} (draw+flip={t0f-t0:.3f}s)", flush=True)
 
         # マウス状態リセット（前のtrialの残りタッチを消去）
         self.mouse.clickReset()
+        self._was_pressed = self.mouse.getPressed()[0]
+
         # 既にボタンが押されている場合はリリースを待つ
         while self.mouse.getPressed()[0]:
             core.wait(0.01)
+        self._was_pressed = False
 
         # タッチ待ち（画面のどこでもOK）
         while True:
-            if self.mouse.getPressed()[0]:
+            new_press, pos = self._detect_new_press()
+            if new_press:
+                self._log_touch("ready", pos, "valid")
+                self._add_marker(pos, 'white')
+                self._redraw_scene()
                 break
             if event.getKeys(['escape']):
                 return False  # 中断
@@ -184,6 +252,7 @@ class DMTSTask:
         # タッチ後、リリースを待ってからtrial開始
         while self.mouse.getPressed()[0]:
             core.wait(0.01)
+        self._was_pressed = False
 
         t1 = time.perf_counter()
         print(f"[TIMING] ready_touch_done: {t1:.3f} (waited {t1-t0:.3f}s)", flush=True)
@@ -211,31 +280,42 @@ class DMTSTask:
         self.info_text.text = f"Trial {self.trial_count}/{self.max_trials} - Sample"
         sample_shape = self._make_shape(sample_def, (0, 0), self.stimulus_size * 1.2)
 
-        self.background.draw()
-        sample_shape.draw()
-        self.info_text.draw()
-        self.win.flip()
+        self._clear_markers()
+        self._set_scene(sample_shape, self.info_text)
+        self._redraw_scene()
         t2 = time.perf_counter()
         print(f"[TIMING] sample_flip: {t2:.3f}", flush=True)
 
-        # サンプル提示時間
+        # サンプル提示時間（タッチ監視あり）
+        self._was_pressed = self.mouse.getPressed()[0]
         start = core.getTime()
         while core.getTime() - start < self.sample_duration:
+            new_press, pos = self._detect_new_press()
+            if new_press:
+                self._log_touch("sample", pos, "ignored")
+                self._add_marker(pos, 'gray')
+                self._redraw_scene()
             if event.getKeys(['escape']):
                 return None  # 中断
             core.wait(0.01)
 
         # --- Phase 2: 遅延期間 ---
-        self.background.draw()
-        self.delay_text.draw()
         self.info_text.text = "..."
-        self.info_text.draw()
-        self.win.flip()
+        self._clear_markers()
+        self._set_scene(self.delay_text, self.info_text)
+        self._redraw_scene()
         t_delay = time.perf_counter()
         print(f"[TIMING] delay_flip: {t_delay:.3f}", flush=True)
 
+        # 遅延期間（タッチ監視あり）
+        self._was_pressed = self.mouse.getPressed()[0]
         start = core.getTime()
         while core.getTime() - start < self.delay_duration:
+            new_press, pos = self._detect_new_press()
+            if new_press:
+                self._log_touch("delay", pos, "ignored")
+                self._add_marker(pos, 'gray')
+                self._redraw_scene()
             if event.getKeys(['escape']):
                 return None
             core.wait(0.01)
@@ -254,43 +334,58 @@ class DMTSTask:
 
         # 選択肢を描画
         self.info_text.text = f"Trial {self.trial_count}/{self.max_trials} - Choose"
-        self.background.draw()
-        for s in choice_shapes:
-            s.draw()
-        self.info_text.draw()
-        self.win.flip()
+        self._clear_markers()
+        self._set_scene(*choice_shapes, self.info_text)
+        self._redraw_scene()
         t3 = time.perf_counter()
         print(f"[TIMING] choice_flip: {t3:.3f}", flush=True)
 
         # タッチ待ち
         self.mouse.clickReset()
+        self._was_pressed = False
         correct = False
         responded = False
+        hit_radius = self.stimulus_size / 2 + 80  # タッチ判定を広めに
         start = core.getTime()
 
         while core.getTime() - start < self.choice_timeout:
-            if self.mouse.getPressed()[0]:
-                mouse_pos = self.mouse.getPos()
-                hit_radius = self.stimulus_size / 2 + 80  # タッチ判定を広めに
+            new_press, mouse_pos = self._detect_new_press()
 
+            if new_press:
+                # タッチ発生 → どのターゲットにヒットしたか判定
+                hit_target = -1
                 for i, pos in enumerate(positions):
                     if self._check_touch(mouse_pos, pos, hit_radius):
-                        responded = True
-                        if i == correct_index:
-                            correct = True
-                            print(f"Correct! Touched {choice_defs[i]['shape']} ({choice_defs[i]['color']})")
-                        else:
-                            print(f"Incorrect. Touched {choice_defs[i]['shape']} ({choice_defs[i]['color']})")
+                        hit_target = i
                         break
 
-                if responded:
-                    t4 = time.perf_counter()
-                    print(f"[TIMING] touch_detected: {t4:.3f} (response_time={t4-t3:.3f}s)", flush=True)
+                if hit_target >= 0:
+                    # 有効タッチ: ターゲットにヒット
+                    responded = True
+                    if hit_target == correct_index:
+                        correct = True
+                        self._log_touch("choice", mouse_pos, "hit",
+                                        f"target={hit_target} correct dist={self._dist(mouse_pos, positions[hit_target]):.0f}")
+                        self._add_marker(mouse_pos, 'lime')
+                    else:
+                        self._log_touch("choice", mouse_pos, "hit",
+                                        f"target={hit_target} incorrect dist={self._dist(mouse_pos, positions[hit_target]):.0f}")
+                        self._add_marker(mouse_pos, 'red')
+                    self._redraw_scene()
                     break
+                else:
+                    # 無効タッチ: どのターゲットにも当たらなかった
+                    nearest_i = min(range(len(positions)), key=lambda i: self._dist(mouse_pos, positions[i]))
+                    nearest_dist = self._dist(mouse_pos, positions[nearest_i])
+                    self._log_touch("choice", mouse_pos, "miss",
+                                    f"nearest={nearest_i} dist={nearest_dist:.0f} hit_radius={hit_radius:.0f}")
+                    self._add_marker(mouse_pos, 'orange')
+                    self._redraw_scene()
 
-                # タッチしたがどの刺激にも当たらなかった場合はリリースを待つ
-                while self.mouse.getPressed()[0]:
-                    core.wait(0.01)
+                    # リリースを待つ
+                    while self.mouse.getPressed()[0]:
+                        core.wait(0.01)
+                    self._was_pressed = False
 
             if event.getKeys(['escape']):
                 return None
@@ -312,12 +407,22 @@ class DMTSTask:
             self.feedback_text.text = "Timeout"
             self.feedback_text.color = 'orange'
 
-        self.background.draw()
-        self.feedback_text.draw()
-        self.win.flip()
+        self._clear_markers()
+        self._set_scene(self.feedback_text)
+        self._redraw_scene()
         t_fb = time.perf_counter()
         print(f"[TIMING] feedback_flip: {t_fb:.3f}", flush=True)
-        core.wait(self.feedback_duration)
+
+        # フィードバック中もタッチ監視
+        self._was_pressed = self.mouse.getPressed()[0]
+        fb_start = core.getTime()
+        while core.getTime() - fb_start < self.feedback_duration:
+            new_press, pos = self._detect_new_press()
+            if new_press:
+                self._log_touch("feedback", pos, "ignored")
+                self._add_marker(pos, 'gray')
+                self._redraw_scene()
+            core.wait(0.01)
 
         # trial結果をC#に送信
         t_send = time.perf_counter()
