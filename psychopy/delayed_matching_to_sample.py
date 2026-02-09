@@ -148,7 +148,7 @@ class DMTSTask:
     def _wait_for_ready_touch(self):
         """Ready画面を表示し、タッチを待つ"""
         t0 = time.perf_counter()
-        print(f"[TIMING] ready_touch_start: {t0:.3f}", flush=True)
+        print(f"[TIMING] ready_draw_start: {t0:.3f}", flush=True)
 
         # Ready画面描画
         self.background.draw()
@@ -164,6 +164,8 @@ class DMTSTask:
         ready_circle.draw()
         ready_text.draw()
         self.win.flip()
+        t0f = time.perf_counter()
+        print(f"[TIMING] ready_flip: {t0f:.3f} (draw+flip={t0f-t0:.3f}s)", flush=True)
 
         # マウス状態リセット（前のtrialの残りタッチを消去）
         self.mouse.clickReset()
@@ -206,9 +208,6 @@ class DMTSTask:
         print(f"Sample: {sample_def['shape']} ({sample_def['color']})")
 
         # --- Phase 1: サンプル提示 ---
-        t2 = time.perf_counter()
-        print(f"[TIMING] sample_show: {t2:.3f}", flush=True)
-
         self.info_text.text = f"Trial {self.trial_count}/{self.max_trials} - Sample"
         sample_shape = self._make_shape(sample_def, (0, 0), self.stimulus_size * 1.2)
 
@@ -216,6 +215,8 @@ class DMTSTask:
         sample_shape.draw()
         self.info_text.draw()
         self.win.flip()
+        t2 = time.perf_counter()
+        print(f"[TIMING] sample_flip: {t2:.3f}", flush=True)
 
         # サンプル提示時間
         start = core.getTime()
@@ -230,6 +231,8 @@ class DMTSTask:
         self.info_text.text = "..."
         self.info_text.draw()
         self.win.flip()
+        t_delay = time.perf_counter()
+        print(f"[TIMING] delay_flip: {t_delay:.3f}", flush=True)
 
         start = core.getTime()
         while core.getTime() - start < self.delay_duration:
@@ -250,15 +253,14 @@ class DMTSTask:
             choice_shapes.append(shape)
 
         # 選択肢を描画
-        t3 = time.perf_counter()
-        print(f"[TIMING] choice_show: {t3:.3f}", flush=True)
-
         self.info_text.text = f"Trial {self.trial_count}/{self.max_trials} - Choose"
         self.background.draw()
         for s in choice_shapes:
             s.draw()
         self.info_text.draw()
         self.win.flip()
+        t3 = time.perf_counter()
+        print(f"[TIMING] choice_flip: {t3:.3f}", flush=True)
 
         # タッチ待ち
         self.mouse.clickReset()
@@ -313,18 +315,26 @@ class DMTSTask:
         self.background.draw()
         self.feedback_text.draw()
         self.win.flip()
+        t_fb = time.perf_counter()
+        print(f"[TIMING] feedback_flip: {t_fb:.3f}", flush=True)
         core.wait(self.feedback_duration)
 
         # trial結果をC#に送信
+        t_send = time.perf_counter()
         if correct:
             print("TRIAL_RESULT:CORRECT", flush=True)
         elif responded:
             print("TRIAL_RESULT:INCORRECT", flush=True)
         else:
             print("TRIAL_RESULT:TIMEOUT", flush=True)
+        print(f"[TIMING] trial_result_sent: {t_send:.3f}", flush=True)
 
         # C#の給餌完了シグナルを待つ（ITIの代わり）
+        t_wait = time.perf_counter()
+        print(f"[TIMING] waiting_for_continue: {t_wait:.3f}", flush=True)
         sys.stdin.readline()  # "CONTINUE\n" を受信するまでブロック
+        t_cont = time.perf_counter()
+        print(f"[TIMING] continue_received: {t_cont:.3f} (waited {t_cont-t_wait:.3f}s)", flush=True)
 
         return correct
 

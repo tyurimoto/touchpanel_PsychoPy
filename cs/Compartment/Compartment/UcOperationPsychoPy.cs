@@ -62,6 +62,7 @@ namespace Compartment
         private ConcurrentQueue<string> _trialResultQueue = new ConcurrentQueue<string>();
         private Stopwatch _phaseTimer = new Stopwatch();
         private Stopwatch _doorTimer = new Stopwatch();
+        private Stopwatch _timingWatch = new Stopwatch(); // タイミング計測用（Python起動時にリセット）
         private const int DOOR_TIMEOUT_MS = 30000; // ドア操作の安全タイムアウト（30秒）
         private DateTime _monitorStandbyTimer = DateTime.Now;
 
@@ -480,6 +481,7 @@ namespace Compartment
                         // per-trial結果またはセッション終了をキューに追加
                         if (e.Data.StartsWith("TRIAL_RESULT:") || e.Data == "SESSION_END")
                         {
+                            Debug.WriteLine("[C#:TIMING] stdout_callback_received: " + e.Data + " at " + _timingWatch.ElapsedMilliseconds + "ms");
                             _trialResultQueue.Enqueue(e.Data);
                         }
                     }
@@ -508,8 +510,10 @@ namespace Compartment
                 _pythonProcess.Start();
                 _pythonProcess.BeginOutputReadLine();
                 _pythonProcess.BeginErrorReadLine();
+                _timingWatch.Restart();
 
                 Debug.WriteLine("[PsychoPy] Python started: " + scriptPath + " " + _currentRfid);
+                Debug.WriteLine("[C#:TIMING] python_process_started: 0ms");
                 opCollection.callbackMessageNormal("Python課題実行中: " + Path.GetFileName(scriptPath));
                 mainForm.Parent.EpisodeMode.Value = true;
 
@@ -543,6 +547,8 @@ namespace Compartment
             // trial結果キューをチェック
             if (_trialResultQueue.TryDequeue(out string trialResult))
             {
+                Debug.WriteLine("[C#:TIMING] dequeued: " + trialResult + " at " + _timingWatch.ElapsedMilliseconds + "ms");
+
                 if (trialResult == "SESSION_END")
                 {
                     // 全trial完了 → Python終了を待ってからParseResultへ
@@ -569,6 +575,7 @@ namespace Compartment
                 if (trialResult == "TRIAL_RESULT:CORRECT")
                 {
                     Debug.WriteLine("[PsychoPy] Trial " + opCollection.trialCount + ": CORRECT → feeding");
+                    Debug.WriteLine("[C#:TIMING] trial_correct_processing: " + _timingWatch.ElapsedMilliseconds + "ms");
                     opCollection.callbackMessageNormal("Trial " + opCollection.trialCount + ": 正解 → 給餌");
                     opCollection.taskResultVal = OpCollection.ETaskResult.Ok;
                     opCollection.dateTimeCorrectTouch = DateTime.Now;
@@ -583,6 +590,7 @@ namespace Compartment
                 {
                     // INCORRECT or TIMEOUT
                     Debug.WriteLine("[PsychoPy] Trial " + opCollection.trialCount + ": " + trialResult);
+                    Debug.WriteLine("[C#:TIMING] trial_incorrect_processing: " + _timingWatch.ElapsedMilliseconds + "ms");
                     opCollection.callbackMessageNormal("Trial " + opCollection.trialCount + ": 不正解");
                     opCollection.taskResultVal = OpCollection.ETaskResult.Ng;
                     opCollection.dateTimeout = DateTime.Now;
@@ -698,6 +706,7 @@ namespace Compartment
             opCollection.flagFeed = true;
 
             Debug.WriteLine("[PsychoPy] Trial feeding started: " + feedTime + "ms");
+            Debug.WriteLine("[C#:TIMING] trial_feeding_start: " + _timingWatch.ElapsedMilliseconds + "ms");
             _phase = EPhase.WaitTrialFeedComplete;
         }
 
@@ -712,6 +721,7 @@ namespace Compartment
             if (mainForm.Parent.OpFlagFeedOn)
             {
                 Debug.WriteLine("[PsychoPy] Trial feeding complete");
+                Debug.WriteLine("[C#:TIMING] trial_feeding_complete: " + _timingWatch.ElapsedMilliseconds + "ms");
 
                 // FeedLamp OFF
                 if (PreferencesDatOriginal.EnableFeedLamp)
@@ -734,8 +744,10 @@ namespace Compartment
             {
                 if (_pythonProcess != null && !_pythonProcess.HasExited)
                 {
+                    Debug.WriteLine("[C#:TIMING] sending_continue: " + _timingWatch.ElapsedMilliseconds + "ms");
                     _pythonProcess.StandardInput.WriteLine("CONTINUE");
                     _pythonProcess.StandardInput.Flush();
+                    Debug.WriteLine("[C#:TIMING] continue_sent: " + _timingWatch.ElapsedMilliseconds + "ms");
                     Debug.WriteLine("[PsychoPy] Sent CONTINUE to Python");
                 }
             }
